@@ -1,8 +1,8 @@
 require 'sugar'
 
-module.exports = 
+module.exports =
   env: 'static'
-  
+
   templateData:
     site:
       title: 'Bytes'
