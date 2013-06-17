@@ -1,0 +1,118 @@
+.separator
+  content: "—";
+  padding: 0 .4em 0 .2em;
+  display: inline-block;
+
+article
+  padding-top: 1em;
+  a
+    @extend .force-wrap;
+  header
+    position: relative;
+    h1
+      margin: 0;
+      a
+        text-decoration: none;
+        &:hover
+          text-decoration: none;
+    p
+      font-size: .9em;
+      color: lighten($text-color-light, 10);
+      margin: 0;
+      &.meta
+        @extend .sans;
+    margin-bottom: 1em;
+
+    @media only screen and (min-width: 768px)
+      margin-bottom: 1.5em;
+  h2
+    padding-top: 0.8em;
+  .entry-content & h2:first-child, header + h2
+    padding-top: 0;
+  h2:first-child, header + h2
+    background: none;
+  .feature
+    padding-top: .5em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    background: $img-border bottom left repeat-x;
+    line-height: 1.3em;
+  img, video
+    @extend .flex-content;
+    @extend .basic-alignment;
+    padding: .25em;
+    background-color: #fff;
+  .no-border
+    border: none;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  video
+    margin: 0 auto 1.5em;
+    display: block; width: 100%;
+  > footer
+    margin-top: 2em;
+    p.meta
+      margin-bottom: .8em;
+      font-size: .85em;
+      clear: both;
+      overflow: hidden;
+    .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before
+      @extend .separator;
+
+  #flash
+    margin-bottom 1.5em
+  table.controls
+    margin 0.3in auto
+    caption
+      text-align center
+    th
+      text-align right
+    td
+      padding-left 6px
+  ul.footnotes
+    margin 1.2em
+
+#content .blog-index
+  article
+    padding-top: 3em;
+    padding-bottom: 1.5em;
+    border-top: 4px solid #E6E6E6;
+  article:first-child
+    padding-top: 1em;
+    border-top: none;
+  article header
+    background: none;
+  article h1
+    a
+      color: inherit;
+      &:hover
+        color: $link-color-hover;
+  a[rel=full-article]
+    display: inline-block;
+    margin-right: .5em;
+  footer
+    @extend .sans;
+    margin-top: 1em;
+
+#content div.pagination
+  pie-clearfix()
+  text-align: center
+  font-size: .95em
+  position: relative
+  padding-top: 1.5em
+  padding-bottom: 1.5em
+  border-top: 1px solid #fff
+  a
+    text-decoration: none
+    color: $text-color-light
+    &.prev
+      position: absolute
+      left: 0
+    &.next
+      position: absolute
+      right: 0
+    &:hover
+      color: $link-color-hover

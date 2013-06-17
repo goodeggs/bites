@@ -30,13 +30,15 @@ module.exports = (docpad) ->
             h1 '.entry-title', ->
               a {href: post.url}, post.title
             p '.meta', ->
+              text post.author
+              text ' on '
               date post
         content = post.contentRenderedWithoutLayouts
         div '.entry-content', ->
           raw excerpt content
         if hasExcerpt content
           footer ->
-            a rel: 'full-article', href: post.url, '▨ More'
+            a rel: 'full-article', href: post.url, 'Continue…'
 
     div '.pagination', ->
       if page.hasNextPage()

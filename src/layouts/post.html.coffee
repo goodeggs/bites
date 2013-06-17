@@ -29,6 +29,8 @@ module.exports = (docpad) ->
         header ->
           h1 '.entry-title', document.title
           p '.meta', ->
+            text document.author
+            text ' on '
             date document
           if document.canonical?
             p '.meta.canonical', ->
@@ -55,4 +57,4 @@ module.exports = (docpad) ->
         if document.disqus
           disqus
             shortname: document.disqus.shortname
-            url: document.canonical or document.url
+            url: document.disqus.url or document.canonical or document.url

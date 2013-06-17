@@ -2,17 +2,17 @@ $img-border = #666;
 
 // Main Link Colors
 $link-color ?= #007084
-$link-color-hover ?= desaturate(lighten($link-color, 30), 10)
-$link-color-visited ?= desaturate(lighten($link-color, 15), 60)
-$link-color-active ?= $link-color-visited
+$link-color-hover ?= $link-color
+$link-color-visited ?= $link-color
+$link-color-active ?= $link-color
 
 // Main Section Colors
 $header-bg ?= transparent
 $header-border ?= none
 $title-color ?= #333
 $subtitle-color ?= #333
-$header-color = #111;
-$header-link-color = lighten($link-color, 10);
+$header-color = #333
+$header-link-color = $header-color
 
 $text-color ?= #333
 $text-color-light ?= #888
@@ -39,14 +39,6 @@ a
   color: $link-color
   // transition(color .3s)
   text-decoration: none
-  &:visited
-    color: $link-color-visited
-  &:hover
-    color: $link-color-hover
-  &:focus
-    color: $link-color-hover
-  &:active
-    color: $link-color-active
   &:hover, &:active
     text-decoration: underline
 
