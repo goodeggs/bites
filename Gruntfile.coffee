@@ -36,6 +36,17 @@ module.exports = (grunt) ->
       preview:
         path: 'http://localhost:8000'
 
+    relativeRoot:
+      release:
+        options:
+          root: 'release'
+        files: [
+          expand: true
+          cwd: '<%= relativeRoot.release.options.root %>'
+          src: ['**/*.css', '**/*.html']
+          dest: 'release/'
+        ]
+
     rename:
       release:
         files:
@@ -73,7 +84,7 @@ module.exports = (grunt) ->
             done()
       captureCurrentRef:
         command: 'echo "$(git symbolic-ref --short HEAD):$(git log -1 --format=%h)"'
-        options: 
+        options:
           stdout: false
           callback: (err, stdout, stderr, done) ->
             if err ?= stderr
@@ -93,9 +104,10 @@ module.exports = (grunt) ->
           'generate'
           'copy:release'
           'rename:release'
+          'relativeRoot:release'
         ]
 
-  grunt.registerTask 'generate', 
+  grunt.registerTask 'generate',
     'Render docpad documents in ./out',
     [
       'clean:out'
@@ -111,13 +123,14 @@ module.exports = (grunt) ->
       'generate'
       'copy:release'
       'rename:release'
+      'relativeRoot:release'
       'connect:preview'
       'open:preview'
       'watch'
     ]
 
-  grunt.registerTask 'stage', 
-    'Stage a release build in ./release ready to be committed to the gh-pages branch', 
+  grunt.registerTask 'stage',
+    'Stage a release build in ./release ready to be committed to the gh-pages branch',
     [
       'clean'
       'shell:makeReleaseDir'
@@ -126,6 +139,7 @@ module.exports = (grunt) ->
       'generate'
       'copy:release'
       'rename:release'
+      'relativeRoot:release'
       'shell:stageReleaseDir'
     ]
 

@@ -23,6 +23,7 @@
     "grunt-contrib-watch": "~0.4.3",
     "grunt-docs": "~0.5.1",
     "grunt-open": "~0.2.0",
+    "grunt-relative-root": "~0.1.0",
     "grunt-shell": "~0.2.2",
     "matchdep": "~0.1.2"
   },
