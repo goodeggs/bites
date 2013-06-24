@@ -38,17 +38,12 @@ article
     background: $img-border bottom left repeat-x;
     line-height: 1.3em;
   img, video
-    @extend .flex-content;
-    @extend .basic-alignment;
-    padding: .25em;
-    background-color: #fff;
-  .no-border
-    border: none;
-    border-radius: 0;
-    -moz-border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-    padding: 0;
+    @extend .basic-alignment
+    padding .25em
+    background-color #fff
+    &.framed
+      padding 10px
+      border 1px solid #CCC
   video
     margin: 0 auto 1.5em;
     display: block; width: 100%;
