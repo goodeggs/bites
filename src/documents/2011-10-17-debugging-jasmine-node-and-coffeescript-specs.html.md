@@ -10,9 +10,9 @@ disqus:
 
 We’re writing our node apps in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a>, debugging with <a href="https://github.com/dannycoates/node-inspector">node-inspector</a> and testing with <a href="https://github.com/mhevery/jasmine-node">jasmine-node</a>.
 </p>
-<!-- more -->
+
 <p>
-jasmine-node does not provide a mechanism to pass command line options to node, so to run a spec with debugging enabled, you run jasmine-node with:
+jasmine-node does not provide a mechanism to pass command line options to node, so to run a spec with debugging enabled, you <!-- more -->run jasmine-node with:
 </p>
 
 ``` bash
