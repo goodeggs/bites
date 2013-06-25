@@ -74,5 +74,3 @@ asyncSpec = (specFunction, spec, timeout = 1000) ->
 
 <p>The use of <code>Function.length</code> to check how many arguments a function expects was a new and very handy trick that made this spec style possible. Much better!!</p>
 
-<p><i>Posted by Alon Salant</i></p>
-
