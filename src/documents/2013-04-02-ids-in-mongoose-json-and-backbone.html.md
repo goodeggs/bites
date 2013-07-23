@@ -5,6 +5,8 @@ layout: post
 post: true
 disqus:
   shortname: goodeggsbytes
+  url: "http://bytes.goodeggs.com/ids-in-mongoose-json-and-backbone/"
+
 style: |
   .ids {
     width: 100%;
