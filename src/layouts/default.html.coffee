@@ -25,7 +25,7 @@ module.exports = ({site, document, content}) ->
 
       link rel: 'icon', type: 'image/png', href: '/favicon.png'
       link rel: 'stylesheet', href: '/styles/main.css'
-      link rel: 'alternate', title: site.title, type: 'application/atom+xml', href: '/atom.xml'
+      link rel: 'alternate', title: 'RSS', type: 'application/rss+xml', href: '/rss.xml'
 
       if site.googleAnalytics?.id
         script """

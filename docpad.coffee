@@ -21,3 +21,5 @@ module.exports =
       removeDate: true
     cleanurls:
       trailingSlashes: true
+    rss:
+      collection: 'posts'
