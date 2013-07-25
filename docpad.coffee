@@ -19,6 +19,7 @@ module.exports =
   plugins:
     datefromfilename:
       removeDate: true
+      dateRegExp: /\b(\d{4})-(\d{2})-(\d{2})-/
     cleanurls:
       trailingSlashes: true
     rss:

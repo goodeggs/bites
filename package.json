@@ -5,8 +5,8 @@
   "dependencies": {
     "sugar": "~1.3.8",
     "docpad": "~6.32.0",
-    "docpad-plugin-cleanurls": "git://github.com/hurrymaplelad/docpad-plugin-cleanurls.git#trailing_slashes_built",
-    "docpad-plugin-datefromfilename": "~1.0.1",
+    "docpad-plugin-cleanurls": "~2.5.0",
+    "docpad-plugin-datefromfilename": "git://github.com/hurrymaplelad/docpad-plugin-datefromfilename.git#customize_regexp_built",
     "docpad-plugin-eco": "~2.0.2",
     "docpad-plugin-marked": "~2.1.1",
     "docpad-plugin-paged": "~2.1.4",
