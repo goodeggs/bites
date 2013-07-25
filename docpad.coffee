@@ -9,8 +9,8 @@ module.exports =
       author: 'Good Eggs'
       url: 'http://goodeggs.github.io/bytes'
 
-      # googleAnalytics:
-      #   id: '?'
+      googleAnalytics:
+        id: 'UA-26193287-5'
 
   collections:
     posts: (database) ->
