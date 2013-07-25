@@ -23,3 +23,4 @@ module.exports =
       trailingSlashes: true
     rss:
       collection: 'posts'
+      url: '/rss'
