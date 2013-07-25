@@ -4,7 +4,9 @@
   display: inline-block;
 
 article
-  padding-top: 1em;
+  padding-top 34px
+  background-color #FFF
+  box-shadow 0 0 20px -1px #d1d1d1
   a
     @extend .force-wrap;
   header
@@ -70,14 +72,18 @@ article
   ul.footnotes
     margin 1.2em
 
+  pre > code
+    background-color #F5F7F7
+    border-radius 4px
+    padding 7px 12px
+    overflow auto
+
 #content .blog-index
   article
-    padding-top: 3em;
-    padding-bottom: 1.5em;
-    border-top: 4px solid #E6E6E6;
+    padding-bottom 1.5em
+    margin-top 18px
   article:first-child
-    padding-top: 1em;
-    border-top: none;
+    margin-top 0
   article header
     background: none;
   article h1
@@ -99,7 +105,6 @@ article
   position: relative
   padding-top: 1.5em
   padding-bottom: 1.5em
-  border-top: 1px solid #fff
   a
     text-decoration: none
     color: $text-color-light
