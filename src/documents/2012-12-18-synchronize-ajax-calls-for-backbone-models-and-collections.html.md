@@ -10,10 +10,10 @@ disqus:
 ---
 
 <p><strong>Problem</strong>: Backbone calls save, fetch and destroy concurrently on model and collection instances but we need to control the order in which they are called.</p>
-<p><strong>Solution</strong>: Implement a custom sync method that chains AJAX calls using jQuery Deferred.</p>
-<!-- more -->
+<p><strong>Solution</strong>: Implement a custom sync method that chains AJAX calls using jQuery Deferred.<!-- more --></p>
 
-```js
+
+``` js
 withSerializedSync = function(cls) {
   var sync = cls.prototype.sync || Backbone.sync;
   cls.prototype.sync = function() {
