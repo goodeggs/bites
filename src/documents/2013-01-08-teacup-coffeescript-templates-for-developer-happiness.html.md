@@ -3,6 +3,7 @@ title: "Teacup: CoffeeScript Templates for Developer Happiness"
 author: Adam Hull
 layout: post
 post: true
+url: '/post/40042760798/teacup-coffeescript-templates-for-developer-happiness'
 disqus:
   shortname: goodeggsbytes
   url: "http://bytes.goodeggs.com/post/40042760798/teacup-coffeescript-templates-for-developer-happiness"

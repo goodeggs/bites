@@ -3,6 +3,7 @@ title: "Restructuring Assignment in CoffeeScript"
 author: Adam Hull
 layout: post
 post: true
+url: '/post/41935904836/restructuring-assignment-in-coffeescript'
 disqus:
   shortname: goodeggsbytes
   url: "http://bytes.goodeggs.com/post/41935904836/restructuring-assignment-in-coffeescript"

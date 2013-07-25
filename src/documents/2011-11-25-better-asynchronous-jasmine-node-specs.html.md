@@ -3,6 +3,7 @@ title: Better asynchronous jasmine-node specs
 author: Alon Salant
 layout: post
 post: true
+url: '/post/13332056735/better-asynchronous-jasmine-node-specs'
 disqus:
   shortname: goodeggsbytes
   url: "http://bytes.goodeggs.com/post/13332056735/better-asynchronous-jasmine-node-specs"
