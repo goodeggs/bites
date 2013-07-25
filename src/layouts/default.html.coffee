@@ -34,7 +34,7 @@ module.exports = ({site, document, content}) ->
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', '#{site.googleAnalytics.id}', 'github.com');
+          ga('create', '#{site.googleAnalytics.id}', 'github.io');
           ga('send', 'pageview');
         """
 
