@@ -1,5 +1,5 @@
 {
-  "name": "bytes",
+  "name": "bites",
   "version": "0.0.0",
   "description": "Technical morsels",
   "dependencies": {
@@ -30,12 +30,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/goodeggs/bytes.git"
+    "url": "git://github.com/goodeggs/bites.git"
   },
   "author": "eng@goodeggs.com",
   "license": "BSD",
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/goodeggs/bytes/issues"
+    "url": "https://github.com/goodeggs/bites/issues"
   }
 }
