@@ -5,9 +5,9 @@ module.exports =
 
   templateData:
     site:
-      title: 'Bytes'
+      title: 'Bites'
       author: 'Good Eggs'
-      url: 'http://goodeggs.github.io/bytes'
+      url: 'http://goodeggs.github.io/bites'
 
       googleAnalytics:
         id: 'UA-26193287-5'

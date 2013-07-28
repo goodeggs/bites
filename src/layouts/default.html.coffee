@@ -41,7 +41,7 @@ module.exports = ({site, document, content}) ->
     body ->
       header ->
         h1 ->
-          a href: '/', 'Bytes'
+          a href: '/', 'Bites'
 
       div '#main', ->
         div '#content', ->
