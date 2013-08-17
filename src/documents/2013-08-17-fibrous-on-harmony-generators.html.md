@@ -1,5 +1,5 @@
 ---
-title: "Fibrous on Harmony Generators"
+title: "Fibrous on Harmony Generators? Impossible"
 author: Adam Hull
 layout: post
 post: true
