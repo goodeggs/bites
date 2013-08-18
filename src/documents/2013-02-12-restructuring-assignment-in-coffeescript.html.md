@@ -1,5 +1,5 @@
 ---
-title: "Restructuring Assignment in CoffeeScript"
+title: "Structuring Expressions in CoffeeScript"
 author: Adam Hull
 layout: post
 post: true
@@ -10,6 +10,10 @@ disqus:
 ---
 
 CoffeeScript can save as many keystrokes putting objects together as it can taking them apart.
+
+<p class="update">
+  For a while I was calling this lexeme _restructuring assignment_ until some on Stack Overflow [pointed out that name was ridiculous](http://stackoverflow.com/a/14822198/407845).  Now I've taken to the name _structuring expressions_.
+</p>
 
 <!-- more -->
 
