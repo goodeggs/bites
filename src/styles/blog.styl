@@ -1,3 +1,9 @@
+.context-row
+  padding-top 1em
+  padding-bottom 1em
+  responsive-gutters()
+  full-bleed()
+
 .separator
   content: "—";
   padding: 0 .4em 0 .2em;
@@ -25,7 +31,7 @@ article
         @extend .sans;
     margin-bottom: 1em;
 
-    @media only screen and (min-width: 768px)
+    @media $query-screen-medium
       margin-bottom: 1.5em;
   h2
     padding-top: 0.8em;
@@ -73,10 +79,18 @@ article
     margin 1.2em
 
   pre > code
+    @extend .context-row
     background-color #F5F7F7
-    border-radius 4px
-    padding 7px 12px
     overflow auto
+
+  p.update
+    @extend .context-row
+    background-color #FFFFF5
+    &:before
+      content 'Update:'
+      font-family $heading-font-family
+      display block
+      margin-bottom 0.3em
 
 #content .blog-index
   article
