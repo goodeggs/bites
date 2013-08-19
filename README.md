@@ -14,7 +14,7 @@ Add a new post to [src/documents](https://github.com/goodeggs/bites/tree/master/
 
     > touch src/documents/YYYY-MM-DD-your-post-slug.html.md 
     
-Check it out at `http://localhost:3000/your-post-slug`.  It'll regenerate automatically when you change the source files.
+Check it out at `http://localhost:8000/your-post-slug` or just `grunt open:preview`.  It'll regenerate when you change the source files.
     
 When it looks about right
 
