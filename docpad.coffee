@@ -14,7 +14,11 @@ module.exports =
 
   collections:
     posts: (database) ->
-      database.findAllLive({post: true}, [date: -1])
+      database.findAllLive({relativeOutDirPath: 'posts'}, [date: -1])
+    openSource: (database) ->
+      database.findAllLive({relativeOutDirPath: 'open_source'}, [date: -1, title: 1])
+    news: (database) ->
+      database.findAllLive({relativeOutDirPath: 'posts', tags: {$has: 'news'}}, [date: -1])
 
   plugins:
     datefromfilename:

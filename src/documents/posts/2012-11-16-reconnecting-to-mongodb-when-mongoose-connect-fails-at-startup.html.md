@@ -2,7 +2,6 @@
 title: "Reconnecting to MongoDB when Mongoose connect fails at startup"
 author: Alon Salant
 layout: post
-post: true
 url: '/post/35878004826/reconnecting-to-mongodb-when-mongoose-connect-fails-at'
 disqus:
   shortname: goodeggsbytes

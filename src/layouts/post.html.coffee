@@ -9,16 +9,6 @@ disqus = require '../partials/disqus'
 module.exports = (docpad) ->
   {document, content} = docpad
 
-  # TODO: extract into plugin, assumes sorted newest first
-  posts = docpad.getCollection('posts')
-  index = posts.indexOf(docpad.getDocument())
-  previousDocument = null
-  nextDocument = null
-  if index < posts.length - 1
-    previousDocument = posts.at(index + 1).toJSON()
-  if index > 0
-    nextDocument = posts.at(index - 1).toJSON()
-
   div ->
     article '.hentry', role: 'article', ->
       if document.style
@@ -44,6 +34,16 @@ module.exports = (docpad) ->
 
       footer ->
         p '.meta', ->
+          # TODO: extract into plugin, assumes sorted newest first
+          posts = docpad.getCollection('posts')
+          index = posts.indexOf(docpad.getDocument())
+          return if index is -1 # Not a post, e.g. open source pages
+          previousDocument = null
+          nextDocument = null
+          if index < posts.length - 1
+            previousDocument = posts.at(index + 1).toJSON()
+          if index > 0
+            nextDocument = posts.at(index - 1).toJSON()
           if previousDocument
             a '.basic-alignment.left', href: previousDocument.url, ->
               raw '&laquo; '

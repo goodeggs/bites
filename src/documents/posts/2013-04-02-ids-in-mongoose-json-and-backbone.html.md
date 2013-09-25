@@ -2,10 +2,9 @@
 title: "Ids in Mongoose, JSON, and Backbone"
 author: Adam Hull
 layout: post
-post: true
 disqus:
   shortname: goodeggsbytes
-  url: "http://bytes.goodeggs.com/ids-in-mongoose-json-and-backbone/"
+  url: "http://bytes.goodeggs.com/posts/ids-in-mongoose-json-and-backbone/"
 
 style: |
   .ids {

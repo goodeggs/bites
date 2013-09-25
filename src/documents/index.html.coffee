@@ -4,8 +4,8 @@ isPaged: true
 pagedCollection: posts
 pageSize: 10
 ---
-{a, article, footer, div, h1, header, p, raw, text} = require 'teacup'
-{excerpt, hasExcerpt, date} = require '../partials/helpers'
+{raw, div, section, raw} = require 'teacup'
+{postsIndex, paginate} = require '../partials/helpers'
 
 module.exports = (docpad) ->
   # TODO: extract this
@@ -22,27 +22,12 @@ module.exports = (docpad) ->
   page.getNextPage = -> documentModel.getNextPage()
   page.getPrevPage = -> documentModel.getPrevPage()
 
-  div '.blog-index', ->
-    for post in page.docs
-      article ->
-        unless post.noHeader
-          header ->
-            h1 '.entry-title', ->
-              a {href: post.url}, post.title
-            p '.meta', ->
-              text post.author
-              text ' on '
-              date post
-        content = post.contentRenderedWithoutLayouts
-        div '.entry-content', ->
-          raw excerpt content
-        if hasExcerpt content
-          footer ->
-            a rel: 'full-article', href: post.url, 'Continue…'
+  div '.intro', -> raw """
+Bites is the developer site from the team building the platform for local food shopping and distribution at
+<a href="http://www.goodeggs.com">goodeggs.com</a>. Here we share our experiences building applications with
+full-stack JavaScript, our open source projects and insight into a developer's life at Good Eggs.
+"""
 
-    div '.pagination', ->
-      if page.hasNextPage()
-        a '.prev', href: page.getNextPage(), '← Older'
-      # a {href: '/archives/'}, 'Archives'
-      if page.hasPrevPage()
-        a '.next', href: page.getPrevPage(), '→ Newer'
+  div '.blog-index', ->
+    postsIndex(page.docs)
+    paginate(page)
