@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Bites]]></title>
+        <description><![CDATA[Bites]]></description>
+        <link>http://goodeggs.github.io/bites</link>
+        <generator>NodeJS RSS Module</generator>
+        <lastBuildDate>Tue, 01 Oct 2013 05:28:15 GMT</lastBuildDate>
+        <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[Good Eggs]]></author>
+        <pubDate>Tue, 01 Oct 2013 05:28:13 GMT</pubDate>
+        <item>
+            <title><![CDATA[In Season for Fall and Winter]]></title>
+            <description><![CDATA[<p>Last week <a href="http://blog.goodeggs.com/post/62349630794/were-thrilled-to-partner-with-sequoia-capital-to">we announced our Series A funding</a>
+led by Sequoia Capital. After a summer of hustling to grow sales and build tools to keep great local food flowing smoothly
+through our San Francisco foodhub we can now turn attention to building the systems we need to scale Good Eggs in
+Brooklyn, New Orleans, Los Angeles and beyond.</p>
+<p>Here&#39;s an overview of what we&#39;re working on and what&#39;s coming up for the software development team at Good Eggs.</p>
+<!-- more -->
+
+<p>We have three domains in which we are building applications:</p>
+<ul>
+<li>Local food shopping</li>
+<li>Producer business tools</li>
+<li>Just-in-time logistics</li>
+</ul>
+<p>We have a dedicated product team working on each of these domains. A product team consists of
+a product lead, four to six engineers and a designer. Engineers regularly rotate among teams so we get the great
+cross-pollination and learning that comes from collaborating with new people.</p>
+<h2>Local food shopping</h2>
+<p><a href="http://www.goodeggs.com">GoodEggs.com</a> is a great online food shopping experience that is more convenient than going to the grocery store while
+supporting a direct connection to the people producing your food. Today you can shop in any of four foodsheds
+(SF Bay, Brooklyn, New Orleans, Los Angeles) and buy food directly from hundreds of farmers or foodmakers for fulfillment
+by Good Eggs or directly by the producer. We&#39;ll send you pickup and delivery reminders by email and SMS and a
+regular weekly email that keeps you up to date with the new seasonal products regularly showing up in the market.</p>
+<p>Our challenge is to create an experience that helps busy people to easily get food they trust and love on their tables.
+Coming up for this team is creating a search experience to help you find exactly what you are looking for, richer
+stories and media about the many farmers and foodmakers that power Good Eggs, a mobile
+app so that you can buy those salad greens right when you think of it instead of adding to your grocery list, and features
+to help you discover more great food from your friends and family who are also eating well on Good Eggs.</p>
+<h2>Producer business tools</h2>
+<p>Our tools for farmers and foodmakers enable them to manage their products and inventory,
+create promotions and do their own customer service by issuing refunds and communicating directly with their customers.
+They receive email alerts when shoppers buy their products
+and daily emails that coordinate their production and delivery schedules with our receiving staff.</p>
+<p>Our challenge is to bring big business technology smarts to serve small and mid-size businesses. For businesses that
+largely run off paper and spreadsheets, we&#39;ve already made a world of difference. We&#39;re turning our attention now to
+improving the mobile experience since these people are more often on a phone than at a computer. We&#39;re looking at ways to
+use the data about what people are buying and when to help these businesses make better decisions about what to plant, raise
+and prepare in order to run more efficient and profitable businesses.</p>
+<h2>Just-in-time logistics</h2>
+<p>Our logistics systems power a new kind of food distribution characterized by just-in-time fulfillment through our
+physical food hubs in San Francisco, Brooklyn, New Orleans and Los Angeles. We receive food from producers in the morning,
+start packing orders at 11am and have the first vehicles going out by 1pm to delivery and pickup locations. All food that
+arrives in our foodhub has already been sold and is destined for a customer&#39;s plate.</p>
+<p>This system is actually a suite of applications that tie together receiving, packing, routing, driving and customer service
+to provide a seamless experience to our customers. It is the real engine behind Good Eggs.
+It must be fault-tolerant and handle smoothly the many small issues that arise when tracking real food as it moves through the day
+from producer to customer.</p>
+<p>We&#39;ve evolved this system rapidly with a combination of digital and paper tools. Each morning we print receiving, packing and route
+sheets that our Local Food Dispatcher teams use to assemble and deliver orders. Paper has been a fantastic medium for this
+experimentation as it is infinitely hackable. We can make notes, update information or create a stack of issues to be picked
+up and handled by someone else. It has enabled us to iterate extremely quickly and invent new practices as we go.</p>
+<p>We&#39;re now ready to codify much of these practices into the next version of our logistics software. Our receiving team
+is already using our new tablet-based receiving app, code-named Kale and built with AngularJS, to record all food entering the foodhub, track
+temperature/cold chain for chill and frozen items, and identify issues to be handled by customer service. On deck is an
+app for our drivers to easily follow their delivery routes, communicate with customers on the go and provide a more personalized
+experience when they arrive at their door.</p>
+<h2>The Future</h2>
+<p>We&#39;ve got our work cut out for us. As our teams grow in other foodsheds, one of the best ways we can serve them is
+to deliver great software that embodies the effective practices we have developed scaling up our San Francisco foodhub.
+These practices continue to evolve so we&#39;re building these systems to be as simple and malleable as possible. One thing
+that we can rely on for the future is that we will always be learning, changing and improving.</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/posts/fall_2013/</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/fall_2013/            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Mon, 30 Sep 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Fibrous on Harmony Generators? Impossible]]></title>
+            <description><![CDATA[<p>A good Friday afternoon chat about asynchronous programming models left me wondering if the fibrous API could be implemented on top of <a href="http://wiki.ecmascript.org/doku.php?id=harmony:generators">ES6 generators</a>. Generators are baked in to Node 0.11, Chrome 19, and Firefox.  A port would be a big boost to interoperability.  <a href="https://github.com/google/traceur-compiler">Traceur</a> can even transform generator based code into a <a href="http://traceur-compiler.googlecode.com/git/demo/repl.html#function*%20test%20()%20%7B%0A%20%20yield%201%3B%0A%20%20var%20a%20%3D%20yield%202%3B%0A%20%20try%20%7B%0A%20%20%20%20yield%20a%3B%0A%20%20%7D%20catch%20(e)%20%7B%0A%20%20%20%20yield%2099%3B%0A%20%20%7D%0A%20%20for(var%20i%20%3D0%3B%20i%20%3C%201%3B%20i%2B%2B)%20%7B%0A%20%20%20%20yield%20123%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20normal()%20%7B%0A%20%20var%20a%20%3D%20b%3B%0A%20%20return%20b%3B%0A%7D">giant state machine</a> that runs on all of today&#39;s environments.</p>
+<p>At first the port looked promising. Wikipedia claimed that general coroutines could be <a href="http://en.wikipedia.org/wiki/Coroutine#Comparison_with_generators">built on generators</a>, and many folks have <a href="http://taskjs.org/">done</a> <a href="https://gist.github.com/creationix/5762837">just</a> <a href="https://gist.github.com/Benvie/5667557">that</a>.  After a little noodling I&#39;m pretty sure it can&#39;t be done.  In a Harmony environment a function can only suspend execution at <code>yield</code> expressions and <code>yield</code> expressions can only appear in generator functions. A yield expression cannot be wrapped up behind a fibrous <code>sync</code> or <code>wait</code>.</p>
+<!-- more -->
+
+<p>Let&#39;s say we&#39;ve got a fibrous function <code>f</code> that synchronously calls asychronous function <code>g</code>:</p>
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> g = <span class="keyword">function</span>(callback) {
+  setTimeout(<span class="keyword">function</span>() {
+    console.log(<span class="string">'g done'</span>);
+    callback();
+  }, <span class="number">1000</span>);
+};
+
+<span class="keyword">var</span> f = fibrous(<span class="keyword">function</span>() {
+  g.sync();
+  console.log(<span class="string">'f done'</span>);
+};</code></pre>
+<p>When we call <code>f</code> we wait one second, log <code>&#39;g done&#39;</code>, then log <code>&#39;f done&#39;</code>.  We need to halt <code>f</code> before the <code>console.log</code>, but <code>f</code> has no yield expressions.  It cannot be halted with any combination of ES6 generators.  Tough break.</p>
+<hr>
+<h3>Related</h3>
+<ul>
+<li><a href="http://taskjs.org/">Task.js</a> seems like a great way to get fibrous-like behavior within the generator constraints.  Still waiting on <a href="https://github.com/mozilla/task.js/issues/28">ES6 syntax support</a> and a <a href="https://github.com/mozilla/task.js/issues/17">CommonJS module published to NPM</a>.</li>
+<li>Fellow coffee lovers, the proposed <a href="https://github.com/jashkenas/coffee-script/pull/3078">coffee script syntax for generators</a> is a &#39;lil fugly and worth checking out.</li>
+</ul>
+]]></description>
+            <link>http://goodeggs.github.io/bites/posts/fibrous-on-harmony-generators/</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/fibrous-on-harmony-generators/            </guid>
+            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
+            <pubDate>Sat, 17 Aug 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Ids in Mongoose, JSON, and Backbone]]></title>
+            <description><![CDATA[<p>Mongoose adds <a href="http://mongoosejs.com/docs/guide.html#id">id sugar</a> on top the default _id document attribute.  Backbone has <a href="http://backbonejs.org/#Model-idAttribute">similar sugar</a>, but the types don&#39;t line up.  Pushing bits between the two with a customary JSON document adds a third representation.</p>
+<p>If you find yourself typing <code>vegetable.id</code> when you really needed <code>new ObjectID(vegetable.toJSON()._id)</code> this fancy chart might help:
+<!-- more --></p>
+<table class="ids">
+  <tr><th>Mongoose</th><th>id</th><th>_id</th></tr>
+  <tr><td><a href="http://mongoosejs.com/docs/api.html#document_Document-id">document</a></td><td>String</td><td>ObjectID</td></tr>
+  <tr><td><a href="http://mongoosejs.com/docs/api.html#query_Query-lean">lean document</a></td><td>∅</td><td>ObjectID</td></tr>
+  <tr><td><a href="http://mongoosejs.com/docs/api.html#document_Document-toJSON">document.toJSON()</a></td><td>∅</td><td>ObjectID</td></tr>
+
+  <tr><th>JSON</th><th></th><th></th></tr>
+  <tr><td><a href="http://www.json.org/">object</a></td><td>∅</td><td>String</td></tr>
+
+  <tr><th>Backbone</th><th></th><th></th></tr>
+  <tr><td><a href="http://backbonejs.org/#Model-id">model</td><td>String</td><td>∅</td></tr>
+  <tr><td><a href="http://backbonejs.org/#Model-get">model.get()</td><td>∅</td><td>String</td></tr>
+</table>]]></description>
+            <link>http://goodeggs.github.io/bites/posts/ids-in-mongoose-json-and-backbone/</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/ids-in-mongoose-json-and-backbone/            </guid>
+            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
+            <pubDate>Tue, 02 Apr 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Structuring Expressions in CoffeeScript]]></title>
+            <description><![CDATA[<p>CoffeeScript can save as many keystrokes putting objects together as it can taking them apart.</p>
+<p class="update">
+  For a while I was calling this lexeme <em>restructuring assignment</em> until some on Stack Overflow <a href="http://stackoverflow.com/a/14822198/407845">pointed out that name was ridiculous</a>.  Now I&#39;ve taken to the name <em>structuring expressions</em>.
+</p>
+
+<!-- more -->
+
+<p>Sure <a href="http://blog.carbonfive.com/2011/09/28/destructuring-assignment-in-coffeescript/">C5 told you all about</a> CoffeeScript’s <a href="http://coffeescript.org/#destructuring">destructing assignment</a> syntax for objects…</p>
+<p>How it can reach deep into nested structures</p>
+<pre class="highlighted"><code class="coffeescript">coffee&gt; user = name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state:
+<span class="string">'AL'</span> }
+{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state: <span class="string">'AL'</span> } }
+
+coffee&gt; { address: { city, state } } = user
+{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state: <span class="string">'AL'</span> } }
+
+coffee&gt; city
+<span class="string">'Anytown'</span></code></pre>
+<p>Or pluck apart function arguments</p>
+<pre class="highlighted"><code class="coffeescript"><span class="function"><span class="title">displayName</span></span> = ({ name, age }) -&gt;
+  console.log <span class="string">"<span class="subst">#{name}</span>, <span class="subst">#{age}</span> year(s) old"</span>
+
+coffee&gt; displayName name: <span class="string">'Foo'</span>, age: <span class="number">42</span>
+Foo, <span class="number">42</span> year(s) old</code></pre>
+<p>Or even destructure directly to instance attributes</p>
+<pre class="highlighted"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+  constructor: ({ <span class="property">@name</span>, <span class="property">@age</span> }) -&gt;
+
+coffee&gt; <span class="keyword">new</span> User(name: <span class="string">'Foo'</span>, age: <span class="number">42</span>)
+{ name: <span class="string">'foo'</span>, age: <span class="number">42</span> }</code></pre>
+<p>But what does this do?</p>
+<pre class="highlighted"><code class="coffeescript">coffee&gt; age = <span class="number">42</span>
+<span class="number">42</span>
+
+coffee&gt; user = { <span class="string">'Foo'</span>, age }
+?</code></pre>
+<p>My fudge-fingers managed to mash that one unknowingly into my editor one day while attempting to rack up velocity points on the latest story. Instead of hemorrhaging the expected SyntaxError, it evaluated to this beautiful new object</p>
+<pre class="highlighted"><code class="coffeescript">{ Foo: <span class="string">'Foo'</span>, age: <span class="number">42</span> }</code></pre>
+<p>Now I’ve got a handy set syntax</p>
+<pre class="highlighted"><code class="coffeescript">coffee&gt; <span class="number">2</span> <span class="keyword">of</span> { <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span> }
+<span class="literal">true</span>
+
+coffee&gt; <span class="number">2</span> <span class="keyword">of</span> { <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span> }
+<span class="literal">false</span></code></pre>
+<p>And with consistent variable naming, breezy data marshaling between some framework actors</p>
+<pre class="highlighted"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+  constructor: ({ <span class="property">@name</span>, <span class="property">@age</span> }) -&gt;
+
+<span class="function"><span class="title">template</span></span> = ({ user, face }) -&gt;
+  <span class="string">"&lt;div&gt;<span class="subst">#{user.name}</span> <span class="subst">#{face}</span>&lt;/div&gt;"</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">UserView</span></span>
+  constructor: ({ <span class="property">@user</span> }) -&gt;
+
+  render: -&gt;
+    <span class="property">@html</span> = template {
+      <span class="property">@user</span>
+      face: <span class="string">':)'</span>
+    }
+
+coffee&gt; user = <span class="keyword">new</span> User(name: <span class="string">'Foo'</span>, age: <span class="number">42</span>)
+{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span> }
+
+coffee&gt; view = <span class="keyword">new</span> UserView {user}
+{ user: { name: <span class="string">'Foo'</span>, age: <span class="number">42</span> } }
+
+coffee&gt; view.render()
+<span class="string">'&lt;div&gt;Foo :)&lt;/div&gt;'</span></code></pre>
+]]></description>
+            <link>http://goodeggs.github.io/bites/post/41935904836/restructuring-assignment-in-coffeescript</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/post/41935904836/restructuring-assignment-in-coffeescript            </guid>
+            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
+            <pubDate>Tue, 12 Feb 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Teacup: CoffeeScript Templates for Developer Happiness]]></title>
+            <description><![CDATA[<p><a href="http://goodeggs.github.com/teacup/"><img src="https://raw.github.com/goodeggs/teacup/master/docs/teacup.jpg" alt="Teacup"></a></p>
+<p>We&#8217;ve released a <a href="http://goodeggs.github.com/teacup/">templating language</a> that feels just right for a team of full stack CoffeeScript developers optimizing for developer happiness.  Check out the <a href="http://goodeggs.github.com/teacup/#getting-started">example integrations</a> with Backbone, Express, and Rails, or try it neat in the browser.  Teacup builds on <a href="https://github.com/mark-hahn/drykup">a</a> <a href="https://github.com/markaby/markaby">rich</a> <a href="https://github.com/mauricemach/coffeekup">history</a> of templating in the language of your app to minimize context switching and toolchain duplication while trusting the developer to maintain separation between domain and templating tiers.  Here&#8217;s a quick sample:</p>
+<pre class="highlighted"><code class="coffeescript">{renderable, ul, li, input} = require <span class="string">'teacup'</span>
+
+template = renderable (teas)-&gt;
+  ul -&gt;
+    <span class="keyword">for</span> tea <span class="keyword">in</span> teas
+      li tea
+    input type: <span class="string">'button'</span>, value: <span class="string">'Steep'</span>
+
+console.log template([<span class="string">'Jasmine'</span>, <span class="string">'Darjeeling'</span>])</code></pre>
+<p>Outputs:</p>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Jasmine<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Darjeeling<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"Steep"</span>/&gt;</span></code></pre>
+<p>Try it out!</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/post/40042760798/teacup-coffeescript-templates-for-developer-happiness</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/post/40042760798/teacup-coffeescript-templates-for-developer-happiness            </guid>
+            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
+            <pubDate>Tue, 08 Jan 2013 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Synchronize AJAX calls for Backbone Models and Collections]]></title>
+            <description><![CDATA[<p><strong>Problem</strong>: Backbone calls save, fetch and destroy concurrently on model and collection instances but we need to control the order in which they are called.</p>
+<p><strong>Solution</strong>: Implement a custom sync method that chains AJAX calls using jQuery Deferred.<!-- more --></p>
+
+
+<pre class="highlighted"><code class="javascript">withSerializedSync = <span class="keyword">function</span>(cls) {
+  <span class="keyword">var</span> sync = cls.prototype.sync || Backbone.sync;
+  cls.prototype.sync = <span class="keyword">function</span>() {
+    <span class="keyword">var</span> args = arguments.length ? Array.prototype.slice.call(arguments,<span class="number">0</span>) : [];
+    <span class="keyword">if</span> (!<span class="keyword">this</span>._lastSync) {
+      <span class="keyword">this</span>._lastSync = sync.apply(<span class="keyword">this</span>, args);
+    } <span class="keyword">else</span> {
+      <span class="keyword">var</span> _<span class="keyword">this</span> = <span class="keyword">this</span>;
+      <span class="keyword">this</span>._lastSync = <span class="keyword">this</span>._lastSync.then(<span class="keyword">function</span>() {
+        <span class="keyword">return</span> sync.apply(_<span class="keyword">this</span>, args);
+      });
+    }
+    <span class="keyword">return</span> <span class="keyword">this</span>._lastSync;
+  };
+}</code></pre>
+<p><strong>The Back Story</strong></p>
+<p>We recently ran into a scenario where we have a Backbone model, Basket, that may be modified on the server whenever it is saved. The modifications are things like removing items that are no longer for sale or updating pricing for items currently in the basket.</p>
+<p>We save the basket regularly but only need to show it&#8217;s entire contents when the user views their basket or starts to check out. In these scenarios we re-fetch the basket to be sure that we have the most accurate and up to date information to show.</p>
+<p>We uncovered a bug with this strategy in our integration tests. It&#8217;s possible to save the basket and then immediately re-fetch it&#8217;s content before the save is complete. In this case, you&#8217;ll actually get the old basket state from the fetch. This is extremely rare when a user is interacting with the site because people don&#8217;t usually click that fast, but our <a href="http://phantomjs.org/">PhantomJS</a> integration tests do - so we were seeing intermittent test failures due to unexpected basket contents coming back from the fetch.</p>
+<p>We really want the fetch to wait until the save is complete - for AJAX calls from the basket to be synchronous, not the asynchronous default.</p>
+<p>You can tell jQuery to make all of it&#8217;s ajax calls synchronously with <code><a href="http://api.jquery.com/jQuery.ajax/">{async: false}</a></code> but not Backbone on a per-model basis.</p>
+<p>All Backbone ajax calls (create, save, fetch, remove) use the sync method under to hood. You can <a href="http://backbonejs.org/#Model-sync">implement your own sync method</a> to customize how those calls are made.</p>
+<p><strong>Solution Details</strong></p>
+<p>To accomplish to synchronize our ajax calls, we wrote a mixin (the gist above) for any Backbone model or collection that will run all ajax calls on a model instance serially instead of concurrently.</p>
+<p>This mixin demonstrates a pattern we use commonly at Good Eggs. The mixin is a function that takes a reference to a class. It can define new prototype methods, monkey patch existing methods, define new object properties and add methods to the class.</p>
+<p>In this case, our mixin defines a new sync method on the prototype or monkey patches it if it already exists. It uses the jQuery Deferred object returned by all ajax calls to chain calls to sync with <code>then</code>.</p>
+<p>You can use this mixin to add this synchronous behavior to any Backbone model or collection.</p>
+
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> MyModel = Backbone.Model.extend({});
+withSerializedSync(MyModel);</code></pre>
+]]></description>
+            <link>http://goodeggs.github.io/bites/post/38240004568/synchronize-ajax-calls-for-backbone-models-and</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/post/38240004568/synchronize-ajax-calls-for-backbone-models-and            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Tue, 18 Dec 2012 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Synchronous node console with fibrous]]></title>
+            <description><![CDATA[<p>Node’s interactive console, or <a href="http://nodejs.org/api/repl.html">REPL</a> (Read-Eval-Print-Loop), is handy for debugging and interacting directly with our applications. The one bummer is that it’s awkward to make asynchronous calls in the console especially when they need to be nested and writing them requires multiple lines for any hope of readability.</p>
+<p><a href="https://github.com/goodeggs/fibrous">fibrous</a> simplifies async coding with Node and can help us out with the REPL too.
+<!-- more --></p>
+<pre class="highlighted"><code class="javascript"><span class="comment">// fibrous_repl.js</span>
+<span class="keyword">var</span> vm = require(<span class="string">'vm'</span>);
+<span class="keyword">var</span> repl = require(<span class="string">'repl'</span>);
+<span class="keyword">var</span> fibrous = require(<span class="string">'fibrous'</span>);
+
+console.log(<span class="string">"Starting fibrous REPL..."</span>);
+repl.start({
+  eval: fibrous(<span class="keyword">function</span>(code, context, file) {
+    <span class="keyword">return</span> vm.runInContext(code, context, file);
+  })
+});</code></pre>
+<p>Running this file with <code>node fibrous_repl.js</code> starts an interactive console with every command running in a fiber so that we can use <code>sync</code> and <code>wait</code> as we please.</p>
+<pre class="highlighted"><code class="r">$ node fibrous_repl.js
+Starting fibrous REPL...
+&gt; var fs = <span class="keyword">require</span>(<span class="string">'fs'</span>);
+undefined
+&gt; data = fs.sync.readFile(<span class="string">'/etc/passwd'</span>, <span class="string">'utf-8'</span>);
+<span class="keyword">...</span>
+&gt; console.log(data);
+<span class="comment">##</span>
+<span class="comment"># User Database</span>
+<span class="comment">#</span>
+<span class="keyword">...</span></code></pre>
+<p>We use the console a lot to poke at our apps, inspect live state and change data on the fly. Using fibrous as shown above makes it super easy.</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/post/36053394113/synchronous-node-console-with-fibrous</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/post/36053394113/synchronous-node-console-with-fibrous            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Sun, 18 Nov 2012 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Reconnecting to MongoDB when Mongoose connect fails at startup]]></title>
+            <description><![CDATA[<p>We recently experienced a short outage when a deploy to Heroku came up during a brief period when network connectivity to <a href="https://www.mongohq.com">MongoHQ</a> was down.</p>
+<p>Our app came up but failed to connect to mongo. To our surprise, it did not attempt to reconnect, so even though MongoHQ came back quickly, our app continued to report errors<!-- more --> due to no mongo connection.</p>
+<p>This was especially surprising since we use <a href="http://mongoosejs.com/">mongoose.js</a> to map to mongo, and mongoose passes the <em>auto_reconnect=true</em> flag to <a href="https://github.com/mongodb/node-mongodb-native">node-mongodb-native</a>. It turns out auto_reconnect (aka autoReconnect in some contexts) only comes in to play if the driver has already successfully established a connection to mongo.</p>
+<p><a href="https://github.com/mongodb/node-mongodb-native/issues/655">According to the driver maintainers</a>, this is by design.</p>
+<blockquote>
+<p><span>by design, autoReconnect is after a successful connection. If you need to handle the case where your app is started before the server I recommend using setTimeout and doing your own connection logic for the db.open function.</span></p>
+</blockquote>
+<p><span>Seems like a bit of a cop out to me. You&#8217;ll try to reconnect on an interval if you loose the connection but not if you can&#8217;t connect initially? Doesn&#8217;t everyone need this functionality?</span></p>
+<p>Well, we clearly do so we implemented it and are sharing it here for you.</p>
+
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> mongoose = require(<span class="string">'mongoose'</span>)
+<span class="keyword">var</span> mongoUrl = <span class="string">"mongodb://localhost:27017/test"</span>
+
+<span class="keyword">var</span> connectWithRetry = <span class="keyword">function</span>() {
+  <span class="keyword">return</span> mongoose.connect(mongoUrl, <span class="keyword">function</span>(err) {
+    <span class="keyword">if</span> (err) {
+      console.error(<span class="string">'Failed to connect to mongo on startup - retrying in 5 sec'</span>, err);
+      setTimeout(connectWithRetry, <span class="number">5000</span>);
+    }
+  });
+};
+connectWithRetry();</code></pre>
+<p class="gist"><a href="http://gist.github.com/4092454">View gist on GitHub</a></p>]]></description>
+            <link>http://goodeggs.github.io/bites/post/35878004826/reconnecting-to-mongodb-when-mongoose-connect-fails-at</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/post/35878004826/reconnecting-to-mongodb-when-mongoose-connect-fails-at            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Fri, 16 Nov 2012 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How to Remove a Property from a Mongoose.js Schema]]></title>
+            <description><![CDATA[<p>This should be simple, but Mongoose really clings to data in existing documents.  I&#39;ll walk through all the ways I wanted it to work that failed.  We&#39;ll remove an <code>organic</code> flag from a toy <code>Food</code> model so we can replace it with <a href="http://www.nytimes.com/2012/10/14/opinion/sunday/bittman-my-dream-food-label.html">Bittman&#39;s dream label</a>.  If you just came for the answer, I arrived at:</p>
+<pre class="highlighted"><code class="javascript">Food.collection.update({},
+  {$unset: {organic: <span class="literal">true</span>}},
+  {multi: <span class="literal">true</span>, safe: <span class="literal">true</span>}
+);</code></pre>
+<p><!-- more -->Our well-loved <code>Food</code> schema might look something like:</p>
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> Food = db.model(<span class="string">'Food'</span>, <span class="keyword">new</span> mongoose.Schema({
+  name: {type: String, required: <span class="literal">true</span>},
+  organic: Boolean
+}, {
+  strict: <span class="literal">true</span>
+}));</code></pre>
+<p>and it might be populated with documents like organic frozen broccoli:</p>
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> broccoli = <span class="keyword">new</span> Food({
+  name: <span class="string">'frozen broccoli'</span>,
+  organic: <span class="literal">true</span>
+});</code></pre>
+<p>Alright, time to get rid of that <code>organic</code> property.  Adding a property with Mongoose is as easy as declaring it in the schema.  Could removing be just as easy?</p>
+<pre class="highlighted"><code class="diff">  var Food = db.model('Food', new mongoose.Schema({
+    name: {type: String, required: true},
+<span class="deletion">-   organic: Boolean</span>
+  }, {
+    strict: true
+  }));</code></pre>
+<p>If we reload our broccoli doc, will mongoose strip out the undeclared properties?  We did tell Mongoose to be <code>strict</code> with our <code>Food</code>…</p>
+<pre class="highlighted"><code class="javascript">Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
+  console.log(broccoli.get(<span class="string">'organic'</span>));
+});
+
+&gt; <span class="literal">true</span></code></pre>
+<p>No.  Too slick.  I suppose it&#39;s comforting that mongoose isn&#39;t silently manipulating our docs.  Maybe we just need to re-save <code>broccoli</code>.  Surely mongoose will be <code>strict</code> now…</p>
+<pre class="highlighted"><code class="javascript">broccoli.save(<span class="keyword">function</span>() {
+  Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
+    console.log(broccoli.get(<span class="string">'organic'</span>))
+  })
+});
+
+&gt; <span class="literal">true</span></code></pre>
+<p>Nope.  <a href="http://grokbase.com/t/gg/mongoose-orm/123ya4qp0a/mongoose-removing-an-existing-field-from-a-collection#20120330swrofqtizat6i3kalhvfrusz5a">Mr. Heckmann rationalizes this behavior</a> as</p>
+<blockquote>
+<p>Mongoose &quot;plays nice&quot; with existing data in the db, not deleting it unless you tell it to.</p>
+</blockquote>
+<p>I&#39;ll have to be more explicit with this broccoli, more meticulous with my cleanup.  I&#39;ll unset <code>organic</code> directly.</p>
+<pre class="highlighted"><code class="javascript">broccoli.set(<span class="string">'organic'</span>, <span class="literal">undefined</span>);
+broccoli.save(<span class="keyword">function</span>() {
+  Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
+    console.log(broccoli.get(<span class="string">'organic'</span>));
+  });
+});
+
+&gt; <span class="literal">true</span></code></pre>
+<p>Wow.  Fine.  Now <code>strict</code> decides to help out.</p>
+<p>Mongoose isn&#39;t cooperating.  Time to talk directly to Mongo.  Maybe Mongoose can at least offer me some <a href="http://mongoosejs.com/docs/api.html#model_Model-update">update sugar</a>:</p>
+<pre class="highlighted"><code class="javascript">Food.update({},
+  {$unset: {organic: <span class="literal">true</span>}},
+  {multi: <span class="literal">true</span>, safe: <span class="literal">true</span>},
+  <span class="keyword">function</span>(err) {
+    Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
+      console.log(broccoli.get(<span class="string">'organic'</span>));
+    });
+  }
+);
+
+&gt; <span class="literal">true</span></code></pre>
+<p><img src="/images/yuno-mongoose.jpg" alt="Y U NO UNSET!?"></p>
+<p>This must be <code>strict</code> still <a href="https://groups.google.com/d/topic/mongoose-orm/ypvL3Fximjc/discussion">keeping us safe</a>.</p>
+<p>Okay.  Last chance Mongoose.  Just give me the collection.</p>
+<pre class="highlighted"><code class="javascript">Food.collection.update({},
+  {$unset: {organic: <span class="literal">true</span>}},
+  {multi: <span class="literal">true</span>, safe: <span class="literal">true</span>},
+  <span class="keyword">function</span>(err) {
+    Food.findById(broccoli, <span class="keyword">function</span>(err, brocolli) {
+      console.log(broccoli.get(<span class="string">'organic'</span>));
+  }
+);
+
+&gt; <span class="literal">undefined</span></code></pre>
+<p>Phew.</p>
+<p>Here&#39;s a <a href="https://gist.github.com/4008255">Mocha spec</a> reproducing this frustrating sequence.  How should we make it be better?</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/post/36553128854/how-to-remove-a-property-from-a-mongoosejs-schema</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/post/36553128854/how-to-remove-a-property-from-a-mongoosejs-schema            </guid>
+            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
+            <pubDate>Sat, 03 Nov 2012 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Escape from the Pyramid of Doom at SF JS]]></title>
+            <description><![CDATA[<p><center><a href="http://www.imdb.com/media/rm473086720/tt0087469"><img class="framed" width="400px" src="/images/mola-ram.jpg"></a></center></p>
+<p><p>
+Here are a couple notes for our talk at the <a href="http://www.meetup.com/jsmeetup/events/60203352/">San Francisco JavaScript Meetup May 24, 2012</a>. Thanks to Carbon Five for putting it together!
+</p><p>
+<b>Source</b>
+</p><p>
+Code examples are at <a href="https://github.com/goodeggs/pyramid_talk"><a href="https://github.com/goodeggs/pyramid_talk">https://github.com/goodeggs/pyramid_talk</a></a>
+</p><p>
+<b>Discussion</b>
+</p><p>
+Our thinking and practices have been informed by a number of sources which are listed here. Some of these describe differing points of view or alternative approaches. Be sure to read the comments ;-)
+</p><ul><li><a href="http://stella.laurenzo.org/2011/03/bulletproof-node-js-coding/"><a href="http://stella.laurenzo.org/2011/03/bulletproof-node-js-coding/">http://stella.laurenzo.org/2011/03/bulletproof-node-js-coding/</a></a><br>
+bulletproof node.js coding, by Stella Lorenzo - excellent article!
+</li><li><a href="http://bjouhier.wordpress.com/2012/03/11/fibers-and-threads-in-node-js-what-for/"><a href="http://bjouhier.wordpress.com/2012/03/11/fibers-and-threads-in-node-js-what-for/">http://bjouhier.wordpress.com/2012/03/11/fibers-and-threads-in-node-js-what-for/</a></a><br>
+Fibers v threads v … in node.js, by the author of streamline.js
+</li><li><a href="http://www.mikealrogers.com/posts/a-vocal-minority.html"><a href="http://www.mikealrogers.com/posts/a-vocal-minority.html">http://www.mikealrogers.com/posts/a-vocal-minority.html</a></a><br>
+A window into some of the angst in the node community around these topics
+</li><li><a href="http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/"><a href="http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/">http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/</a></a><br>
+Fibers, coroutines, generators,…
+</li></ul><p>
+<b>Reference</b>
+</p><p>
+Here are a few of the libraries mentioned.
+</p><ul><li><a href="https://github.com/caolan/async"><a href="https://github.com/caolan/async">https://github.com/caolan/async</a></a>
+</li><li><a href="https://github.com/kriskowal/q"><a href="https://github.com/kriskowal/q">https://github.com/kriskowal/q</a></a>
+</li><li><a href="https://github.com/goodeggs/fibrous"><a href="https://github.com/goodeggs/fibrous">https://github.com/goodeggs/fibrous</a></a>
+</li></ul><p>
+The organic strawberries were from <a href="http://cuesa.org/farm/yerena-farms">Yerena Farms</a> in Watsonville!
+</p><p>
+<a href="http://www.flickr.com/photos/missionmercado/5075663423/"><img class="framed" width="400px" src="/images/yerena.jpg"></a>
+</p><p></p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/post/21726893435/escape-from-the-pyramid-of-doom-at-sf-js</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/post/21726893435/escape-from-the-pyramid-of-doom-at-sf-js            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Tue, 24 Apr 2012 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
