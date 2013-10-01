@@ -4,7 +4,7 @@ isPaged: true
 pagedCollection: posts
 pageSize: 10
 ---
-{raw, div, section, raw} = require 'teacup'
+{raw, div, section} = require 'teacup'
 {postsIndex, paginate} = require '../partials/helpers'
 
 module.exports = (docpad) ->
@@ -22,7 +22,7 @@ module.exports = (docpad) ->
   page.getNextPage = -> documentModel.getNextPage()
   page.getPrevPage = -> documentModel.getPrevPage()
 
-  div '.intro', -> raw """
+  div -> section -> raw """
 Bites is the developer site from the team building the platform for local food shopping and distribution at
 <a href="http://www.goodeggs.com">goodeggs.com</a>. Here we share our experiences building applications with
 full-stack JavaScript, our open source projects and insight into a developer's life at Good Eggs.
