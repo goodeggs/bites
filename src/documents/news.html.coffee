@@ -3,7 +3,7 @@ title: News
 layout: default
 collection: news
 ---
-{a, article, footer, div, h1, header, p, raw, text} = require 'teacup'
+{raw, div, section} = require 'teacup'
 {postsIndex} = require '../partials/helpers'
 
 module.exports = (docpad) ->
@@ -13,7 +13,7 @@ module.exports = (docpad) ->
   page.docs = docpad.getCollection(document.collection)
     .map((doc) -> doc.toJSON())
 
-  div '.intro', -> raw """
+  div -> section -> raw """
 Selected posts that provide a window into what's going on behind the scenes at Good Eggs.
 """
 
