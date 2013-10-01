@@ -2,10 +2,9 @@
 title: "Fibrous on Harmony Generators? Impossible"
 author: Adam Hull
 layout: post
-post: true
 disqus:
   shortname: goodeggsbytes
-  url: "http://bites.goodeggs.com/fibrous-on-harmony-generators/"
+  url: "http://bites.goodeggs.com/posts/fibrous-on-harmony-generators/"
 ---
 
 A good Friday afternoon chat about asynchronous programming models left me wondering if the fibrous API could be implemented on top of [ES6 generators][generators]. Generators are baked in to Node 0.11, Chrome 19, and Firefox.  A port would be a big boost to interoperability.  [Traceur][traceur] can even transform generator based code into a [giant state machine][state-machine] that runs on all of today's environments.

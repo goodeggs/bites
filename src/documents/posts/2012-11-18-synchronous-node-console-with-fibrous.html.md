@@ -2,7 +2,6 @@
 title: "Synchronous node console with fibrous"
 author: Alon Salant
 layout: post
-post: true
 url: '/post/36053394113/synchronous-node-console-with-fibrous'
 disqus:
   shortname: goodeggsbytes

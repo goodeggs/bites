@@ -2,7 +2,6 @@
 title: Tea for Three at Good Eggs HQ
 author: Alon Salant
 layout: post
-post: true
 noHeader: true
 url: '/post/13815988680/tea-for-three-gets-a-taste-of-fine-espresso-at'
 ---

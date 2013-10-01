@@ -1,6 +1,6 @@
 {
   doctype, html, head, title, meta, link,
-  body, header, footer, h1, br, div, p, a, raw,
+  body, header, footer, h1, br, div, p, a, raw, ul, li
   script, text
 } = require 'teacup'
 
@@ -10,7 +10,7 @@ module.exports = ({site, document, content}) ->
   html '.no-js', lang: 'en', ->
     head ->
       meta charset: 'utf-8'
-      title document.title or site.title
+      title document.title and "#{document.title} | #{site.title}" or site.title
 
       if document.author
         meta name: 'author', content: document.author
@@ -42,10 +42,15 @@ module.exports = ({site, document, content}) ->
       header ->
         h1 ->
           a href: '/', 'Bites'
+        ul '.unstyled.nav', ->
+          for section, url of {'Blog': '/', 'Open Source': '/open_source', 'News': '/news'}
+            li ->
+              a href: url, section
 
       div '#main', ->
         div '#content', ->
           raw content
 
       footer ->
+        div '.mission', 'Our mission is to grow and sustain local food systems worldwide.'
         p '©2013 Good Eggs, Inc'
