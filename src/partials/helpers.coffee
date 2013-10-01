@@ -29,7 +29,7 @@ module.exports = helpers =
             h1 '.entry-title', ->
               a {href: doc.url}, doc.title
             p '.meta', ->
-              text doc.author
+              a href: "/authors/#{doc.author.underscore()}/", doc.author
               text ' on '
               helpers.date doc
         content = doc.contentRenderedWithoutLayouts

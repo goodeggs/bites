@@ -19,7 +19,7 @@ module.exports = (docpad) ->
         header ->
           h1 '.entry-title', document.title
           p '.meta', ->
-            text document.author
+            a href: "/authors/#{document.author.underscore()}/", document.author
             text ' on '
             date document
           if document.canonical?
