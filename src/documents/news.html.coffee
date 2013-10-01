@@ -14,7 +14,7 @@ module.exports = (docpad) ->
     .map((doc) -> doc.toJSON())
 
   div -> section -> raw """
-Selected posts that provide a window into what's going on behind the scenes at Good Eggs.
+A window into what's going on behind the scenes at Good Eggs.
 """
 
   div '.blog-index', ->

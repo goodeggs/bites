@@ -70,7 +70,10 @@ body
     margin-bottom: .8em
 
 #content
-	border-right none
+  border-right none
+  > div, > article
+    padding-top ($gutter-min/2)
+    padding-bottom ($gutter-min/2)
 
 @media only screen and (min-width: 550px)
   body > header
@@ -114,7 +117,7 @@ dt, dd, li
   padding-bottom .25em
 @media only screen and (min-width: 550px)
 	dt 
-    float none
+      float none
 @media only screen and (min-width: 750px)
 	dt
 		clear left
