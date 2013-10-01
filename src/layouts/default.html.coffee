@@ -10,7 +10,7 @@ module.exports = ({site, document, content}) ->
   html '.no-js', lang: 'en', ->
     head ->
       meta charset: 'utf-8'
-      title document.title or site.title
+      title document.title and "#{document.title} | #{site.title}" or site.title
 
       if document.author
         meta name: 'author', content: document.author

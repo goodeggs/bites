@@ -1,4 +1,5 @@
 ---
+title: News
 layout: default
 collection: news
 ---

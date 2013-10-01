@@ -1,4 +1,5 @@
 ---
+title: Open Source
 layout: default
 collection: openSource
 ---
