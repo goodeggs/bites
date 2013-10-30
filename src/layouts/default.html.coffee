@@ -54,15 +54,3 @@ module.exports = ({site, document, content}) ->
       footer ->
         div '.mission', 'Our mission is to grow and sustain local food systems worldwide.'
         p '©2013 Good Eggs, Inc'
-
-      raw '''
-      <!--[if !(lte IE 8)]><!-->
-      <script>
-        (function(){
-          var e = document.createElement('script'); e.type='text/javascript'; e.async = true;
-          e.src = document.location.protocol + '//d1ux67szpr7bp0.cloudfront.net/project-megaphone/widget.min.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s);
-        })();
-      </script>
-      <!--<![endif]-->
-      '''
