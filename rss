@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 30 Oct 2013 00:11:12 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 18 Nov 2013 19:08:26 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Wed, 30 Oct 2013 00:11:10 GMT</pubDate>
+        <pubDate>Mon, 18 Nov 2013 19:08:23 GMT</pubDate>
         <item>
             <title><![CDATA[In Season for Fall and Winter]]></title>
             <description><![CDATA[<p>Last week <a href="http://blog.goodeggs.com/post/62349630794/were-thrilled-to-partner-with-sequoia-capital-to">we announced our Series A funding</a>
@@ -27,7 +27,7 @@ Brooklyn, New Orleans, Los Angeles and beyond.</p>
 <p>We have a dedicated product team working on each of these domains. A product team consists of
 a product lead, four to six engineers and a designer. Engineers regularly rotate among teams so we get the great
 cross-pollination and learning that comes from collaborating with new people.</p>
-<h2>Local food shopping</h2>
+<h2 id="local-food-shopping">Local food shopping</h2>
 <p><a href="http://www.goodeggs.com">GoodEggs.com</a> is a great online food shopping experience that is more convenient than going to the grocery store while
 supporting a direct connection to the people producing your food. Today you can shop in any of four foodsheds
 (SF Bay, Brooklyn, New Orleans, Los Angeles) and buy food directly from hundreds of farmers or foodmakers for fulfillment
@@ -38,7 +38,7 @@ Coming up for this team is creating a search experience to help you find exactly
 stories and media about the many farmers and foodmakers that power Good Eggs, a mobile
 app so that you can buy those salad greens right when you think of it instead of adding to your grocery list, and features
 to help you discover more great food from your friends and family who are also eating well on Good Eggs.</p>
-<h2>Producer business tools</h2>
+<h2 id="producer-business-tools">Producer business tools</h2>
 <p>Our tools for farmers and foodmakers enable them to manage their products and inventory,
 create promotions and do their own customer service by issuing refunds and communicating directly with their customers.
 They receive email alerts when shoppers buy their products
@@ -48,7 +48,7 @@ largely run off paper and spreadsheets, we&#39;ve already made a world of differ
 improving the mobile experience since these people are more often on a phone than at a computer. We&#39;re looking at ways to
 use the data about what people are buying and when to help these businesses make better decisions about what to plant, raise
 and prepare in order to run more efficient and profitable businesses.</p>
-<h2>Just-in-time logistics</h2>
+<h2 id="just-in-time-logistics">Just-in-time logistics</h2>
 <p>Our logistics systems power a new kind of food distribution characterized by just-in-time fulfillment through our
 physical food hubs in San Francisco, Brooklyn, New Orleans and Los Angeles. We receive food from producers in the morning,
 start packing orders at 11am and have the first vehicles going out by 1pm to delivery and pickup locations. All food that
@@ -66,7 +66,7 @@ is already using our new tablet-based receiving app, code-named Kale and built w
 temperature/cold chain for chill and frozen items, and identify issues to be handled by customer service. On deck is an
 app for our drivers to easily follow their delivery routes, communicate with customers on the go and provide a more personalized
 experience when they arrive at their door.</p>
-<h2>The Future</h2>
+<h2 id="the-future">The Future</h2>
 <p>We&#39;ve got our work cut out for us. As our teams grow in other foodsheds, one of the best ways we can serve them is
 to deliver great software that embodies the effective practices we have developed scaling up our San Francisco foodhub.
 These practices continue to evolve so we&#39;re building these systems to be as simple and malleable as possible. One thing
@@ -98,7 +98,7 @@ that we can rely on for the future is that we will always be learning, changing 
 };</code></pre>
 <p>When we call <code>f</code> we wait one second, log <code>&#39;g done&#39;</code>, then log <code>&#39;f done&#39;</code>.  We need to halt <code>f</code> before the <code>console.log</code>, but <code>f</code> has no yield expressions.  It cannot be halted with any combination of ES6 generators.  Tough break.</p>
 <hr>
-<h3>Related</h3>
+<h3 id="related">Related</h3>
 <ul>
 <li><a href="http://taskjs.org/">Task.js</a> seems like a great way to get fibrous-like behavior within the generator constraints.  Still waiting on <a href="https://github.com/mozilla/task.js/issues/28">ES6 syntax support</a> and a <a href="https://github.com/mozilla/task.js/issues/17">CommonJS module published to NPM</a>.</li>
 <li>Fellow coffee lovers, the proposed <a href="https://github.com/jashkenas/coffee-script/pull/3078">coffee script syntax for generators</a> is a &#39;lil fugly and worth checking out.</li>
