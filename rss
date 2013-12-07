@@ -4,11 +4,68 @@
         <title><![CDATA[Bites from Good Eggs]]></title>
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
-        <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 18 Nov 2013 19:08:26 GMT</lastBuildDate>
+        <generator>NodeJS RSS Module</generator>
+        <lastBuildDate>Sat, 07 Dec 2013 05:03:37 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Mon, 18 Nov 2013 19:08:23 GMT</pubDate>
+        <pubDate>Sat, 07 Dec 2013 05:03:34 GMT</pubDate>
+        <item>
+            <title><![CDATA[Cultivate Inaugural Meetup]]></title>
+            <description><![CDATA[<p>The first <a href="http://www.meetup.com/cultivate">Cultivate meetup</a> was a huge success.</p>
+<blockquote>
+&quot;great first event for a meetup with a compelling mix of javascript code and social impact&quot;
+</blockquote>
+
+<blockquote>
+&quot;Great meetup! Lots of interesting people and talks. Looking forward to future ones.&quot;
+</blockquote>
+
+<blockquote>
+&quot;This was a great way to kickoff the Cultivate meetups; I left informed, enthused, (oh yeah, and nourished) and committed to return.&quot;
+</blockquote>
+
+<p>Over 80 members of the developer community came together on a chilly San Francisco night, under a common purpose: to use technology for the betterment of humanity and the planet.</p>
+<p>As Good Eggs CTO Alon Salant said in an opening statement, &quot;We are building tools that affect real people in the real world. It&#39;s about affecting real change in someone&#39;s work to enhance their life.&quot;</p>
+<p>The event kicked off with with a delicious bang: <a href="http://www.goodeggs.com/loveandhummus">Love &amp; Hummus</a> delivered an exceptional dining experience. Hearty falafel wraps, homemade tahini sauce, spicy hummus, sultry baklava, and mint-garnish lemonade.</p>
+<p>If your mouth isn&#39;t watering yet, wait till you sink your teeth into the presentations..</p>
+<!-- more -->
+
+<h2>Hanging up on Callbacks - [More than] Flow Control w/ECMAScript 6 Generators</h2>
+<p><a href="http://www.carbonfive.com/employee/erin-swenson-healey">Erin Swanson-Healey</a> from Carbon Five gave a thorough walk-through into dealing with asynchronous callbacks in Javascript. With charisma and charm he  stated that we have new ways to deal with &quot;callback hell&quot;.</p>
+<p>New Solution: <a href="http://www.2ality.com/2013/06/iterators-generators.html">ECMAScript 6</a> provides generators, which alleviates some of challenges that are associated with asynchronous callbacks.</p>
+<p>Read Erin&#39;s <a href="http://blog.carbonfive.com/2013/12/01/hanging-up-on-callbacks-generators-in-ecmascript-6/">detailed blog post</a> on the topic, and check out his <a href="https://docs.google.com/a/goodeggs.com/presentation/d/1c23KjxQIoKKjho2wnjRXdJhmWd6X3g10B5ggC1DUE0M/edit#slide=id.p">slides</a> from the presentation here.</p>
+<h2>Whats new in Node v0.12.</h2>
+<p>Next up was <a href="https://github.com/piscisaureus">Bert Belder</a> from StrongLoop. Bert is one of the principal authors of <a href="http://nikhilm.github.io/uvbook/introduction.html">libuv</a>, which is the library on which Node.js is built. Needless to say, we were stoked to see him present at the first Cultivate meetup!</p>
+<p>Bert provided insight into:</p>
+<ul>
+<li>Round-robin clustering</li>
+<li>Profiling</li>
+<li>ExecSync</li>
+<li>Multi-context</li>
+</ul>
+<p>Read more about <a href="http://strongloop.com/strongblog/whats-new-in-node-js-v0-12-cluster-round-robin-load-balancing/">cluster round-robin load balancing</a> from StrongLoop. For kicks, here is <a href="http://www.youtube.com/watch?v=QnO6Uut4Ao8">a video of Bert at LXJS 2013</a> - being a boss!</p>
+<h2>MongoDB Performance Fundamentals for Web Apps</h2>
+<p><a href="http://www.goodeggs.com/about/team/sfbay/522103184f08c30300000028">Adam Hull</a> from Good Eggs was our final presenter, and he finished strong! We were lucky to have insights from Adam into performance, speed, and use of Mongo. The presentation ended with a pretty long Q&amp;A session that surfaced  answers to some questions that the collective developer community seemed to have been yearning to ask. Many of the remarks were confirmed with a head-nod from two developers from MongoLab in the audience. Head nods and &quot;ah ha&#39;s&quot; all around!</p>
+<h2>Lightning Talks</h2>
+<p>Flashing through in 5-minute intervals, our speedy speakers were able to capture the audience with cool projects and insights, including:</p>
+<ul>
+<li>Jessica Lam - <a href="http://www.sgrbx.io/#/play/sHMVrO1jg8">real-time collaboration with sugarbox.io</a></li>
+<li>Max Edmands - <a href="http://danieltao.com/lazy.js/">lazy.js</a> + <a href="https://github.com/demands/lazy-presentation">slides</a></li>
+<li>Stewart Noyce - <a href="http://www.trunort.com/docs/Cultivate-Dec2013.pdf">lessons learned</a></li>
+<li>Shubhra Kar - <a href="http://strongloop.com/strongloop-suite/strongops/">StrongOps Node performance monitoring dashboard</a></li>
+<li>Alon Salant, - <a href="https://github.com/goodeggs/fibrous">fibrous library</a></li>
+</ul>
+<p>Overall, from our speakers there is one common thread: writing great apps with JavaScript is hard work. But with new tools, techniques and frameworks emerging, we can &quot;cultivate&quot; the developer community into a unified force, working together to blend technology and awareness to benefit humankind, the planet, and our future.</p>
+<p>Join us for our next event, happening in early 2014!</p>
+<p>Check back regularly <a href="http://www.meetup.com/cultivate"><a href="http://www.meetup.com/cultivate">http://www.meetup.com/cultivate</a></a> or email <a href="mailto:kevin@goodeggs.com">kevin@goodeggs.com</a> for suggestions or details.</p>
+<p>Cheers!</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/posts/first-cultivate-meetup/</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/first-cultivate-meetup/            </guid>
+            <dc:creator><![CDATA[Kevin Uland]]></dc:creator>
+            <pubDate>Fri, 06 Dec 2013 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[In Season for Fall and Winter]]></title>
             <description><![CDATA[<p>Last week <a href="http://blog.goodeggs.com/post/62349630794/were-thrilled-to-partner-with-sequoia-capital-to">we announced our Series A funding</a>
@@ -27,7 +84,7 @@ Brooklyn, New Orleans, Los Angeles and beyond.</p>
 <p>We have a dedicated product team working on each of these domains. A product team consists of
 a product lead, four to six engineers and a designer. Engineers regularly rotate among teams so we get the great
 cross-pollination and learning that comes from collaborating with new people.</p>
-<h2 id="local-food-shopping">Local food shopping</h2>
+<h2>Local food shopping</h2>
 <p><a href="http://www.goodeggs.com">GoodEggs.com</a> is a great online food shopping experience that is more convenient than going to the grocery store while
 supporting a direct connection to the people producing your food. Today you can shop in any of four foodsheds
 (SF Bay, Brooklyn, New Orleans, Los Angeles) and buy food directly from hundreds of farmers or foodmakers for fulfillment
@@ -38,7 +95,7 @@ Coming up for this team is creating a search experience to help you find exactly
 stories and media about the many farmers and foodmakers that power Good Eggs, a mobile
 app so that you can buy those salad greens right when you think of it instead of adding to your grocery list, and features
 to help you discover more great food from your friends and family who are also eating well on Good Eggs.</p>
-<h2 id="producer-business-tools">Producer business tools</h2>
+<h2>Producer business tools</h2>
 <p>Our tools for farmers and foodmakers enable them to manage their products and inventory,
 create promotions and do their own customer service by issuing refunds and communicating directly with their customers.
 They receive email alerts when shoppers buy their products
@@ -48,7 +105,7 @@ largely run off paper and spreadsheets, we&#39;ve already made a world of differ
 improving the mobile experience since these people are more often on a phone than at a computer. We&#39;re looking at ways to
 use the data about what people are buying and when to help these businesses make better decisions about what to plant, raise
 and prepare in order to run more efficient and profitable businesses.</p>
-<h2 id="just-in-time-logistics">Just-in-time logistics</h2>
+<h2>Just-in-time logistics</h2>
 <p>Our logistics systems power a new kind of food distribution characterized by just-in-time fulfillment through our
 physical food hubs in San Francisco, Brooklyn, New Orleans and Los Angeles. We receive food from producers in the morning,
 start packing orders at 11am and have the first vehicles going out by 1pm to delivery and pickup locations. All food that
@@ -66,7 +123,7 @@ is already using our new tablet-based receiving app, code-named Kale and built w
 temperature/cold chain for chill and frozen items, and identify issues to be handled by customer service. On deck is an
 app for our drivers to easily follow their delivery routes, communicate with customers on the go and provide a more personalized
 experience when they arrive at their door.</p>
-<h2 id="the-future">The Future</h2>
+<h2>The Future</h2>
 <p>We&#39;ve got our work cut out for us. As our teams grow in other foodsheds, one of the best ways we can serve them is
 to deliver great software that embodies the effective practices we have developed scaling up our San Francisco foodhub.
 These practices continue to evolve so we&#39;re building these systems to be as simple and malleable as possible. One thing
@@ -98,7 +155,7 @@ that we can rely on for the future is that we will always be learning, changing 
 };</code></pre>
 <p>When we call <code>f</code> we wait one second, log <code>&#39;g done&#39;</code>, then log <code>&#39;f done&#39;</code>.  We need to halt <code>f</code> before the <code>console.log</code>, but <code>f</code> has no yield expressions.  It cannot be halted with any combination of ES6 generators.  Tough break.</p>
 <hr>
-<h3 id="related">Related</h3>
+<h3>Related</h3>
 <ul>
 <li><a href="http://taskjs.org/">Task.js</a> seems like a great way to get fibrous-like behavior within the generator constraints.  Still waiting on <a href="https://github.com/mozilla/task.js/issues/28">ES6 syntax support</a> and a <a href="https://github.com/mozilla/task.js/issues/17">CommonJS module published to NPM</a>.</li>
 <li>Fellow coffee lovers, the proposed <a href="https://github.com/jashkenas/coffee-script/pull/3078">coffee script syntax for generators</a> is a &#39;lil fugly and worth checking out.</li>
@@ -435,46 +492,6 @@ broccoli.save(<span class="keyword">function</span>() {
                 http://goodeggs.github.io/bites/post/36553128854/how-to-remove-a-property-from-a-mongoosejs-schema            </guid>
             <dc:creator><![CDATA[Adam Hull]]></dc:creator>
             <pubDate>Sat, 03 Nov 2012 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Escape from the Pyramid of Doom at SF JS]]></title>
-            <description><![CDATA[<p><center><a href="http://www.imdb.com/media/rm473086720/tt0087469"><img class="framed" width="400px" src="/images/mola-ram.jpg"></a></center></p>
-<p><p>
-Here are a couple notes for our talk at the <a href="http://www.meetup.com/jsmeetup/events/60203352/">San Francisco JavaScript Meetup May 24, 2012</a>. Thanks to Carbon Five for putting it together!
-</p><p>
-<b>Source</b>
-</p><p>
-Code examples are at <a href="https://github.com/goodeggs/pyramid_talk"><a href="https://github.com/goodeggs/pyramid_talk">https://github.com/goodeggs/pyramid_talk</a></a>
-</p><p>
-<b>Discussion</b>
-</p><p>
-Our thinking and practices have been informed by a number of sources which are listed here. Some of these describe differing points of view or alternative approaches. Be sure to read the comments ;-)
-</p><ul><li><a href="http://stella.laurenzo.org/2011/03/bulletproof-node-js-coding/"><a href="http://stella.laurenzo.org/2011/03/bulletproof-node-js-coding/">http://stella.laurenzo.org/2011/03/bulletproof-node-js-coding/</a></a><br>
-bulletproof node.js coding, by Stella Lorenzo - excellent article!
-</li><li><a href="http://bjouhier.wordpress.com/2012/03/11/fibers-and-threads-in-node-js-what-for/"><a href="http://bjouhier.wordpress.com/2012/03/11/fibers-and-threads-in-node-js-what-for/">http://bjouhier.wordpress.com/2012/03/11/fibers-and-threads-in-node-js-what-for/</a></a><br>
-Fibers v threads v … in node.js, by the author of streamline.js
-</li><li><a href="http://www.mikealrogers.com/posts/a-vocal-minority.html"><a href="http://www.mikealrogers.com/posts/a-vocal-minority.html">http://www.mikealrogers.com/posts/a-vocal-minority.html</a></a><br>
-A window into some of the angst in the node community around these topics
-</li><li><a href="http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/"><a href="http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/">http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/</a></a><br>
-Fibers, coroutines, generators,…
-</li></ul><p>
-<b>Reference</b>
-</p><p>
-Here are a few of the libraries mentioned.
-</p><ul><li><a href="https://github.com/caolan/async"><a href="https://github.com/caolan/async">https://github.com/caolan/async</a></a>
-</li><li><a href="https://github.com/kriskowal/q"><a href="https://github.com/kriskowal/q">https://github.com/kriskowal/q</a></a>
-</li><li><a href="https://github.com/goodeggs/fibrous"><a href="https://github.com/goodeggs/fibrous">https://github.com/goodeggs/fibrous</a></a>
-</li></ul><p>
-The organic strawberries were from <a href="http://cuesa.org/farm/yerena-farms">Yerena Farms</a> in Watsonville!
-</p><p>
-<a href="http://www.flickr.com/photos/missionmercado/5075663423/"><img class="framed" width="400px" src="/images/yerena.jpg"></a>
-</p><p></p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/post/21726893435/escape-from-the-pyramid-of-doom-at-sf-js</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/post/21726893435/escape-from-the-pyramid-of-doom-at-sf-js            </guid>
-            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
-            <pubDate>Tue, 24 Apr 2012 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

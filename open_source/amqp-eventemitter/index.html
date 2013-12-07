@@ -9,7 +9,7 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p>Works really well with <a href="http://www.rabbitmq.com/">RabbitMQ</a> or any other AMQP.</p>
 <!-- more -->
 
-<h2 id="usage">Usage</h2>
+<h2>Usage</h2>
 <pre class="highlighted"><code class="coffeescript">{AmqpEventEmitter} = require <span class="string">'amqp-eventemitter'</span>
 
 pub = <span class="keyword">new</span> AmqpEventEmitter url: <span class="string">'amqp://guest:guest@localhost:5672'</span>
@@ -19,8 +19,8 @@ sub.<span class="literal">on</span> <span class="string">'message'</span>, (arg1
 pub.emit <span class="string">'message'</span>, <span class="string">'hello'</span>, <span class="string">'world'</span>
 
 <span class="comment">#=&gt; hello world</span></code></pre>
-<h2 id="api">API</h2>
-<h3 id="new-amqpeventemitter-options-">new AmqpEventEmitter(options)</h3>
+<h2>API</h2>
+<h3>new AmqpEventEmitter(options)</h3>
 <p>Options are passed to respective functions in <a href="https://github.com/postwait/node-amqp"><code>node-amqp</code></a>, eg. <code>options.exchange</code> is passed to <code>connection.createExchange</code> and so on. Here are the default values:</p>
 <pre class="highlighted"><code class="smalltalk">options =
   <span class="method">connection:</span>
@@ -33,7 +33,7 @@ pub.emit <span class="string">'message'</span>, <span class="string">'hello'</sp
       <span class="method">name:</span> exchange.name + <span class="string">'.'</span> + uuid</code></pre>
 <p>or you can take a shortcut and just pass AMQP connection string.</p>
 <pre class="highlighted"><code class="brainfuck"><span class="comment">options</span> <span class="comment">=</span> <span class="comment">url:</span> <span class="comment">'amqp://</span>.<span class="string">.</span><span class="string">.</span><span class="comment">'</code></pre>
-<h2 id="notes">Notes</h2>
+<h2>Notes</h2>
 <ul>
 <li><strong>Each instance of <code>AmqpEventEmitter</code> receives each emitted event.</strong></li>
 <li>You can immediately emit events without waiting for AMQP connection.</li>
