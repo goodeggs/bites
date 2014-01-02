@@ -7,9 +7,9 @@ disqus:
   url: "http://bites.goodeggs.com/posts/export-this/"
 ---
 
-When you require a module in Node.js, what are you getting back? When you write a module, what options do you have for designing its interface.
+When you require a module in Node, what are you getting back? When you write a module, what options do you have for designing its interface?
 
-In this post, I describe your options for module interface design based on examples you can find in the wild. My goal is to help you understand the design decisions the authors made so you can apply them when writing modules for your own use or to share with the world.
+In this post, my goal is to identify and illustrate good practices for module interface design based on examples found in the wild. I'll help you understand the design decisions the authors made so you can apply them when writing modules for your own use or to share with the world.
 
 <!-- more -->
 
@@ -269,7 +269,7 @@ module.exports = Person;
 
 ## Exports a Singleton Instance
 
-Mongoose is an object-document mapping library used to create rich domain models persisted in MongoDB.
+[Mongoose](http://mongoosejs.com) is an object-document mapping library used to create rich domain models persisted in MongoDB.
 
 ```
 var mongoose = require('mongoose');
