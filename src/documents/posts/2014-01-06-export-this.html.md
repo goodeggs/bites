@@ -17,9 +17,9 @@ First some fundamentals.
 
 ## require, exports and module.exports
 
-Files and modules are 1-to-1 in Node. Requiring a file is requiring the module it defines. All modules have available a reference to an implicit `module` object whose property `module.exports` is what is returned when you call `require`. A reference to `module.exports` is also available as `exports`. So anything you assign to `exports` is available at the root of the object returned to `require`.
+Files and modules are 1-to-1 in Node. Requiring a file is requiring the module it defines. All modules have a reference to an implicit `module` object whose property `module.exports` is what is returned when you call `require`. A reference to `module.exports` is also available as `exports`. So anything you assign to `exports` is available at the root of the object returned to `require`.
 
-If you want to export a function, you have to assign it to `module.exports`. Assigning a function to `exports` would just reassign that variable's reference but `module.exports` would still point at the original object that `exports` referenced.
+If you want to export a function, you have to assign it to `module.exports`. Assigning a function to `exports` would just reassign the `exports` reference but `module.exports` would still point at the original object that `exports` referenced.
 
 So we can define a module `function.js` that exports a function:
 
@@ -117,11 +117,19 @@ module.exports = {
 }
 ```
 
+A common use of exporting a namespace is to export the root of another module so that one require statement gives the caller access to a number of other modules.
+
+The `fs` example above could have implemented the `ReadStream` class in a `read_stream.js` file and exported the `ReadStream` constructor using this strategy as
+
+```
+fs.ReadStream = require('./read_stream');
+```
+
 ## Exports a Function
 
 With JavaScript fundamentally a functional language building exporting a function as the main interface to your module is very natural and we see it everywhere.
 
-For example, when using [Express.js]():
+For example, when using [Express.js](http://expressjs.com):
 
 ```
 var express = require('express');
