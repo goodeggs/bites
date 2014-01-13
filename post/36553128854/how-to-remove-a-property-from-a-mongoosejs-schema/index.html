@@ -5,82 +5,82 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../../">Blog</a></li><li><a href="../../../open_source">Open Source</a></li><li><a href="../../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><header><h1 class="entry-title">How to Remove a Property from a Mongoose.js Schema</h1><p class="meta"><a href="../../../authors/adam_hull/">Adam Hull</a> on <time datetime="2012-11-03T00:00:00.000Z">November 3rd, 2012</time></p></header><div class="entry-content"><p>This should be simple, but Mongoose really clings to data in existing documents.  I&#39;ll walk through all the ways I wanted it to work that failed.  We&#39;ll remove an <code>organic</code> flag from a toy <code>Food</code> model so we can replace it with <a href="http://www.nytimes.com/2012/10/14/opinion/sunday/bittman-my-dream-food-label.html">Bittman&#39;s dream label</a>.  If you just came for the answer, I arrived at:</p>
-<pre class="highlighted"><code class="javascript">Food.collection.update({},
-  {$unset: {organic: <span class="literal">true</span>}},
-  {multi: <span class="literal">true</span>, safe: <span class="literal">true</span>}
+<pre><code class="lang-js">Food.collection.update({},
+  {$unset: {organic: true}},
+  {multi: true, safe: true}
 );</code></pre>
 <p><!-- more -->Our well-loved <code>Food</code> schema might look something like:</p>
-<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> Food = db.model(<span class="string">'Food'</span>, <span class="keyword">new</span> mongoose.Schema({
-  name: {type: String, required: <span class="literal">true</span>},
+<pre><code class="lang-js">var Food = db.model(&#39;Food&#39;, new mongoose.Schema({
+  name: {type: String, required: true},
   organic: Boolean
 }, {
-  strict: <span class="literal">true</span>
+  strict: true
 }));</code></pre>
 <p>and it might be populated with documents like organic frozen broccoli:</p>
-<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> broccoli = <span class="keyword">new</span> Food({
-  name: <span class="string">'frozen broccoli'</span>,
-  organic: <span class="literal">true</span>
+<pre><code class="lang-js">var broccoli = new Food({
+  name: &#39;frozen broccoli&#39;,
+  organic: true
 });</code></pre>
 <p>Alright, time to get rid of that <code>organic</code> property.  Adding a property with Mongoose is as easy as declaring it in the schema.  Could removing be just as easy?</p>
-<pre class="highlighted"><code class="diff">  var Food = db.model('Food', new mongoose.Schema({
+<pre><code class="lang-diff">  var Food = db.model(&#39;Food&#39;, new mongoose.Schema({
     name: {type: String, required: true},
-<span class="deletion">-   organic: Boolean</span>
+-   organic: Boolean
   }, {
     strict: true
   }));</code></pre>
 <p>If we reload our broccoli doc, will mongoose strip out the undeclared properties?  We did tell Mongoose to be <code>strict</code> with our <code>Food</code>…</p>
-<pre class="highlighted"><code class="javascript">Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
-  console.log(broccoli.get(<span class="string">'organic'</span>));
+<pre><code class="lang-js">Food.findById(broccoli, function(err, broccoli) {
+  console.log(broccoli.get(&#39;organic&#39;));
 });
 
-&gt; <span class="literal">true</span></code></pre>
+&gt; true</code></pre>
 <p>No.  Too slick.  I suppose it&#39;s comforting that mongoose isn&#39;t silently manipulating our docs.  Maybe we just need to re-save <code>broccoli</code>.  Surely mongoose will be <code>strict</code> now…</p>
-<pre class="highlighted"><code class="javascript">broccoli.save(<span class="keyword">function</span>() {
-  Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
-    console.log(broccoli.get(<span class="string">'organic'</span>))
+<pre><code class="lang-js">broccoli.save(function() {
+  Food.findById(broccoli, function(err, broccoli) {
+    console.log(broccoli.get(&#39;organic&#39;))
   })
 });
 
-&gt; <span class="literal">true</span></code></pre>
+&gt; true</code></pre>
 <p>Nope.  <a href="http://grokbase.com/t/gg/mongoose-orm/123ya4qp0a/mongoose-removing-an-existing-field-from-a-collection#20120330swrofqtizat6i3kalhvfrusz5a">Mr. Heckmann rationalizes this behavior</a> as</p>
 <blockquote>
 <p>Mongoose &quot;plays nice&quot; with existing data in the db, not deleting it unless you tell it to.</p>
 </blockquote>
 <p>I&#39;ll have to be more explicit with this broccoli, more meticulous with my cleanup.  I&#39;ll unset <code>organic</code> directly.</p>
-<pre class="highlighted"><code class="javascript">broccoli.set(<span class="string">'organic'</span>, <span class="literal">undefined</span>);
-broccoli.save(<span class="keyword">function</span>() {
-  Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
-    console.log(broccoli.get(<span class="string">'organic'</span>));
+<pre><code class="lang-js">broccoli.set(&#39;organic&#39;, undefined);
+broccoli.save(function() {
+  Food.findById(broccoli, function(err, broccoli) {
+    console.log(broccoli.get(&#39;organic&#39;));
   });
 });
 
-&gt; <span class="literal">true</span></code></pre>
+&gt; true</code></pre>
 <p>Wow.  Fine.  Now <code>strict</code> decides to help out.</p>
 <p>Mongoose isn&#39;t cooperating.  Time to talk directly to Mongo.  Maybe Mongoose can at least offer me some <a href="http://mongoosejs.com/docs/api.html#model_Model-update">update sugar</a>:</p>
-<pre class="highlighted"><code class="javascript">Food.update({},
-  {$unset: {organic: <span class="literal">true</span>}},
-  {multi: <span class="literal">true</span>, safe: <span class="literal">true</span>},
-  <span class="keyword">function</span>(err) {
-    Food.findById(broccoli, <span class="keyword">function</span>(err, broccoli) {
-      console.log(broccoli.get(<span class="string">'organic'</span>));
+<pre><code class="lang-js">Food.update({},
+  {$unset: {organic: true}},
+  {multi: true, safe: true},
+  function(err) {
+    Food.findById(broccoli, function(err, broccoli) {
+      console.log(broccoli.get(&#39;organic&#39;));
     });
   }
 );
 
-&gt; <span class="literal">true</span></code></pre>
+&gt; true</code></pre>
 <p><img src="../../../images/yuno-mongoose.jpg" alt="Y U NO UNSET!?"></p>
 <p>This must be <code>strict</code> still <a href="https://groups.google.com/d/topic/mongoose-orm/ypvL3Fximjc/discussion">keeping us safe</a>.</p>
 <p>Okay.  Last chance Mongoose.  Just give me the collection.</p>
-<pre class="highlighted"><code class="javascript">Food.collection.update({},
-  {$unset: {organic: <span class="literal">true</span>}},
-  {multi: <span class="literal">true</span>, safe: <span class="literal">true</span>},
-  <span class="keyword">function</span>(err) {
-    Food.findById(broccoli, <span class="keyword">function</span>(err, brocolli) {
-      console.log(broccoli.get(<span class="string">'organic'</span>));
+<pre><code class="lang-js">Food.collection.update({},
+  {$unset: {organic: true}},
+  {multi: true, safe: true},
+  function(err) {
+    Food.findById(broccoli, function(err, brocolli) {
+      console.log(broccoli.get(&#39;organic&#39;));
   }
 );
 
-&gt; <span class="literal">undefined</span></code></pre>
+&gt; undefined</code></pre>
 <p>Phew.</p>
 <p>Here&#39;s a <a href="https://gist.github.com/4008255">Mocha spec</a> reproducing this frustrating sequence.  How should we make it be better?</p>
 </div><footer><p class="meta"><a class="basic-alignment left" href="../../../post/21726893435/escape-from-the-pyramid-of-doom-at-sf-js">&laquo; Escape from the Pyramid of Doom at SF JS</a><a class="basic-alignment right" href="../../../post/35878004826/reconnecting-to-mongodb-when-mongoose-connect-fails-at">Reconnecting to MongoDB when Mongoose connect fails at startup &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bytes.goodeggs.com/post/36553128854/how-to-remove-a-property-from-a-mongoosejs-schema'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>

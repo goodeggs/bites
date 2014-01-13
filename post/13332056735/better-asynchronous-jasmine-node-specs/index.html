@@ -12,51 +12,51 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bit
 
 <p>Inspired by the BDD style supported by <a href="http://visionmedia.github.com/mocha">Mocha</a>, I <!-- more -->decided that our jasmine specs should support asynchronous specs in the same style where <code>it</code>, <code>beforeEach</code> and <code>afterEach</code> wait until the spec is finished if passed a function that expects a <code>done</code> callback.</p>
 
-<pre class="highlighted"><code class="coffeescript">describe <span class="string">'User'</span>, -&gt;
-  describe <span class="string">'#save()'</span>, -&gt;
-    it <span class="string">'should save without error'</span>, (done) -&gt;
-      user = <span class="keyword">new</span> User(<span class="string">'Luna'</span>)
+<pre><code class="lang-coffee">describe &#39;User&#39;, -&gt;
+  describe &#39;#save()&#39;, -&gt;
+    it &#39;should save without error&#39;, (done) -&gt;
+      user = new User(&#39;Luna&#39;)
       user.save (error) -&gt;
         expect(error).toBeNull()
         done();</code></pre>
 <p>The <code>done</code> callback will fail the spec if passed an error, so even more succinctly:</p>
 
-<pre class="highlighted"><code class="coffeescript">describe <span class="string">'User'</span>, -&gt;
-  describe <span class="string">'#save()'</span>, -&gt;
-    it <span class="string">'should save without error'</span>, (done) -&gt;
-      user = <span class="keyword">new</span> User(<span class="string">'Luna'</span>)
+<pre><code class="lang-coffee">describe &#39;User&#39;, -&gt;
+  describe &#39;#save()&#39;, -&gt;
+    it &#39;should save without error&#39;, (done) -&gt;
+      user = new User(&#39;Luna&#39;)
       user.save(done)</code></pre>
 <p>In order to modify the behavior of the jasmine spec methods, I wrote a spec helper that monkey patches <code>it</code>, <code>beforeEach</code> and <code>afterEach</code> to run with asynchronous support if the spec is written to expect a <code>done</code> handler. <a href="http://gist.github.com/1394976">Here&#8217;s a Gist</a> of my file <code>async_helper.coffee</code> that I have in my <code>spec/support</code> folder.</p>
 
-<pre class="highlighted"><code class="coffeescript"><span class="comment"># Monkey patch jasmine.Env to wrap spec ('it', 'beforeEach', 'afterEach')</span>
-<span class="comment"># in async handler if it expects a done callback</span>
+<pre><code class="lang-coffee"># Monkey patch jasmine.Env to wrap spec (&#39;it&#39;, &#39;beforeEach&#39;, &#39;afterEach&#39;)
+# in async handler if it expects a done callback
 withoutAsync = {}
-<span class="keyword">for</span> jasmineFunction <span class="keyword">in</span> [ <span class="string">"it"</span>, <span class="string">"beforeEach"</span>, <span class="string">"afterEach"</span>]
-  <span class="keyword">do</span> (jasmineFunction) -&gt;
+for jasmineFunction in [ &quot;it&quot;, &quot;beforeEach&quot;, &quot;afterEach&quot;]
+  do (jasmineFunction) -&gt;
     withoutAsync[jasmineFunction] = jasmine.Env.prototype[jasmineFunction]
     jasmine.Env.prototype[jasmineFunction] = (args...) -&gt;
       specFunction = args.pop()
-      <span class="comment"># No async callback expected, so not async</span>
-      <span class="keyword">if</span> specFunction.length == <span class="number">0</span>
+      # No async callback expected, so not async
+      if specFunction.length == 0
         args.push specFunction
-      <span class="keyword">else</span>
+      else
         args.push -&gt; asyncSpec(specFunction, @)
 
       withoutAsync[jasmineFunction].apply @, args
 
-<span class="comment"># Run any function, failing the current spec if there is an error or it times out</span>
-<span class="function"><span class="title">asyncSpec</span></span> = (specFunction, spec, timeout = <span class="number">1000</span>) -&gt;
-  done = <span class="literal">false</span>
+# Run any function, failing the current spec if there is an error or it times out
+asyncSpec = (specFunction, spec, timeout = 1000) -&gt;
+  done = false
   spec.runs -&gt;
-    <span class="keyword">try</span>
+    try
       specFunction (error) -&gt;
-        done = <span class="literal">true</span>
-        spec.fail(error) <span class="keyword">if</span> error?
-    <span class="keyword">catch</span> e
-      <span class="comment"># if we hit an exception before any async code, mark the spec done</span>
-      done = <span class="literal">true</span>
-      <span class="keyword">throw</span> e
+        done = true
+        spec.fail(error) if error?
+    catch e
+      # if we hit an exception before any async code, mark the spec done
+      done = true
+      throw e
   spec.waitsFor -&gt;
-    done == <span class="literal">true</span>
-  , <span class="string">"spec to complete"</span>, timeout</code></pre>
+    done == true
+  , &quot;spec to complete&quot;, timeout</code></pre>
 <p>The use of <code>Function.length</code> to check how many arguments a function expects was a new and very handy trick that made this spec style possible. Much better!!</p></div><footer><p class="meta"><a class="basic-alignment left" href="../../../post/11587373922/debugging-jasmine-node-and-coffeescript-specs">&laquo; Debugging jasmine-node and CoffeeScript specs</a><a class="basic-alignment right" href="../../../post/13815988680/tea-for-three-gets-a-taste-of-fine-espresso-at">Tea for Three at Good Eggs HQ &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bytes.goodeggs.com/post/13332056735/better-asynchronous-jasmine-node-specs'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
