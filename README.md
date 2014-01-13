@@ -12,7 +12,7 @@ Install and fire up the development server
     
 Add a new post to [src/documents/posts](https://github.com/goodeggs/bites/tree/master/src/documents/posts)
 
-    > touch src/documents/post/YYYY-MM-DD-your-post-slug.html.md
+    > touch src/documents/posts/YYYY-MM-DD-your-post-slug.html.md
 
 If it's your first post, create your author page in [src/documents/authors](https://github.com/goodeggs/bites/tree/master/src/documents/authors)
     
