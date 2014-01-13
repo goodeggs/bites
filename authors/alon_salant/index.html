@@ -5,7 +5,21 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><section class="profile"><div class="meta"><img src="http://fpio.goodeggs.com/api/file/dr8oggORaYMYXX016dAQ/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" /></div><div class="content"><p>Food for me is about connection - connection to friends and family through meals prepared and eaten at home, connection to the earth through growing vegetables in my garden, connection to the changing seasons through the diversity of products available throughout the year, and connection to my community by being a patron of the amazing growers and producers in the Bay Area. These connections are a source of great pleasure and meaning in my life and are what I hope to share with the world through Good Eggs.</p>
-<div class="author">- Alon</div></div></section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="../../posts/fall-2013/">In Season for Fall and Winter</a></h1><p class="meta"><a href="../../authors/alon_salant/">Alon Salant</a> on <time datetime="2013-09-30T00:00:00.000Z">September 30th, 2013</time></p></header><div class="entry-content"><p>Last week <a href="http://blog.goodeggs.com/post/62349630794/were-thrilled-to-partner-with-sequoia-capital-to">we announced our Series A funding</a>
+<div class="author">- Alon</div></div></section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="../../posts/export-this/">Export This: Interface Design Patterns for Node.js Modules</a></h1><p class="meta"><a href="../../authors/alon_salant/">Alon Salant</a> on <time datetime="2014-01-12T00:00:00.000Z">January 12th, 2014</time></p></header><div class="entry-content"><p>When you require a module in Node, what are you getting back? When you write a module, what options do you have for designing its interface?</p>
+<p>When I was first learning to work in Node I found the sheer number of ways to do things to be a bit overwhelming. JavaScript is extremely flexible and the community of developers contributing to open source seem to have different styles for implementing the same thing.</p>
+<p>On my journey with Node I&#39;ve been keeping an eye out the Good Way to do things and adopting them for use in my own work and in our work at Good Eggs.</p>
+<p>In this post I&#39;ll share my observations of the Node module system and the ways in which you can use it to encapsulate and share code. My goal is to identify and illustrate useful patterns for module interface design and to help you understand when and how to use them in your own work.</p>
+<p>I discuss seven patterns below, many of which can be used in combination. They are:</p>
+<ul>
+<li><a href="../../posts/export-this#namespace">Exports a Namespace</a></li>
+<li><a href="../../posts/export-this#function">Exports a Function</a></li>
+<li><a href="../../posts/export-this#higher_order_function">Exports a Higher Order Function</a></li>
+<li><a href="../../posts/export-this#constructor">Exports a Constructor</a></li>
+<li><a href="../../posts/export-this#singleton">Exports a Singleton</a></li>
+<li><a href="../../posts/export-this#global_object">Extends a Global Object</a></li>
+<li><a href="../../posts/export-this#monkey_patch">Applies a Monkey Patch</a></li>
+</ul>
+</div><footer><a rel="full-article" href="../../posts/export-this/">Continue…</a></footer></article><article><header><h1 class="entry-title"><a href="../../posts/fall-2013/">In Season for Fall and Winter</a></h1><p class="meta"><a href="../../authors/alon_salant/">Alon Salant</a> on <time datetime="2013-09-30T00:00:00.000Z">September 30th, 2013</time></p></header><div class="entry-content"><p>Last week <a href="http://blog.goodeggs.com/post/62349630794/were-thrilled-to-partner-with-sequoia-capital-to">we announced our Series A funding</a>
 led by Sequoia Capital. After a summer of hustling to grow sales and build tools to keep great local food flowing smoothly
 through our San Francisco foodhub we can now turn attention to building the systems we need to scale Good Eggs in
 Brooklyn, New Orleans, Los Angeles and beyond.</p>
