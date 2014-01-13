@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Mon, 13 Jan 2014 01:06:45 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Jan 2014 01:07:10 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Mon, 13 Jan 2014 01:06:42 GMT</pubDate>
+        <pubDate>Mon, 13 Jan 2014 01:07:08 GMT</pubDate>
         <item>
             <title><![CDATA[Export This: Interface Design Patterns for Node.js Modules]]></title>
             <description><![CDATA[<p>When you require a module in Node, what are you getting back? When you write a module, what options do you have for designing its interface?</p>
