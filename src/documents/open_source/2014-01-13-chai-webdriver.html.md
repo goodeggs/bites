@@ -17,7 +17,7 @@ expect('.toggle-pane').dom.to.not.be.visible()
 
 [Check it out on GitHub](https://github.com/goodeggs/chai-webdriver) or:
 
-```shell
+```bash
 npm install chai-webdriver
 ```
 
