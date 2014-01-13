@@ -6,20 +6,20 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../../">Blog</a></li><li><a href="../../../open_source">Open Source</a></li><li><a href="../../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><header><h1 class="entry-title">Teacup: CoffeeScript Templates for Developer Happiness</h1><p class="meta"><a href="../../../authors/adam_hull/">Adam Hull</a> on <time datetime="2013-01-08T00:00:00.000Z">January 8th, 2013</time></p></header><div class="entry-content"><p><a href="http://goodeggs.github.com/teacup/"><img src="https://raw.github.com/goodeggs/teacup/master/docs/teacup.jpg" alt="Teacup"></a></p>
 <p>We&#8217;ve released a <a href="http://goodeggs.github.com/teacup/">templating language</a> that feels just right for a team of full stack CoffeeScript developers optimizing for developer happiness.  Check out the <a href="http://goodeggs.github.com/teacup/#getting-started">example integrations</a> with Backbone, Express, and Rails, or try it neat in the browser.  Teacup builds on <a href="https://github.com/mark-hahn/drykup">a</a> <a href="https://github.com/markaby/markaby">rich</a> <a href="https://github.com/mauricemach/coffeekup">history</a> of templating in the language of your app to minimize context switching and toolchain duplication while trusting the developer to maintain separation between domain and templating tiers.  Here&#8217;s a quick sample:</p>
-<pre><code class="lang-coffee">{renderable, ul, li, input} = require &#39;teacup&#39;
+<pre class="highlighted"><code class="coffeescript">{renderable, ul, li, input} = require <span class="string">'teacup'</span>
 
 template = renderable (teas)-&gt;
   ul -&gt;
-    for tea in teas
+    <span class="keyword">for</span> tea <span class="keyword">in</span> teas
       li tea
-    input type: &#39;button&#39;, value: &#39;Steep&#39;
+    input type: <span class="string">'button'</span>, value: <span class="string">'Steep'</span>
 
-console.log template([&#39;Jasmine&#39;, &#39;Darjeeling&#39;])</code></pre>
+console.log template([<span class="string">'Jasmine'</span>, <span class="string">'Darjeeling'</span>])</code></pre>
 <p>Outputs:</p>
-<pre><code class="lang-html">&lt;ul&gt;
-  &lt;li&gt;Jasmine&lt;/li&gt;
-  &lt;li&gt;Darjeeling&lt;/li&gt;
-&lt;/ul&gt;
-&lt;input type=&quot;button&quot; value=&quot;Steep&quot;/&gt;</code></pre>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">ul</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Jasmine<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Darjeeling<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"Steep"</span>/&gt;</span></code></pre>
 <p>Try it out!</p>
 </div><footer><p class="meta"><a class="basic-alignment left" href="../../../post/38240004568/synchronize-ajax-calls-for-backbone-models-and">&laquo; Synchronize AJAX calls for Backbone Models and Collections</a><a class="basic-alignment right" href="../../../post/41935904836/restructuring-assignment-in-coffeescript">Structuring Expressions in CoffeeScript &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bytes.goodeggs.com/post/40042760798/teacup-coffeescript-templates-for-developer-happiness'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>

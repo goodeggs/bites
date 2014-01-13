@@ -13,63 +13,63 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bit
 
 <p>Sure <a href="http://blog.carbonfive.com/2011/09/28/destructuring-assignment-in-coffeescript/">C5 told you all about</a> CoffeeScript’s <a href="http://coffeescript.org/#destructuring">destructing assignment</a> syntax for objects…</p>
 <p>How it can reach deep into nested structures</p>
-<pre><code class="lang-coffeescript">coffee&gt; user = name: &#39;Foo&#39;, age: 42, address: { city: &#39;Anytown&#39;, state:
-&#39;AL&#39; }
-{ name: &#39;Foo&#39;, age: 42, address: { city: &#39;Anytown&#39;, state: &#39;AL&#39; } }
+<pre class="highlighted"><code class="coffeescript">coffee&gt; user = name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state:
+<span class="string">'AL'</span> }
+{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state: <span class="string">'AL'</span> } }
 
 coffee&gt; { address: { city, state } } = user
-{ name: &#39;Foo&#39;, age: 42, address: { city: &#39;Anytown&#39;, state: &#39;AL&#39; } }
+{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state: <span class="string">'AL'</span> } }
 
 coffee&gt; city
-&#39;Anytown&#39;</code></pre>
+<span class="string">'Anytown'</span></code></pre>
 <p>Or pluck apart function arguments</p>
-<pre><code class="lang-coffeescript">displayName = ({ name, age }) -&gt;
-  console.log &quot;#{name}, #{age} year(s) old&quot;
+<pre class="highlighted"><code class="coffeescript"><span class="function"><span class="title">displayName</span></span> = ({ name, age }) -&gt;
+  console.log <span class="string">"<span class="subst">#{name}</span>, <span class="subst">#{age}</span> year(s) old"</span>
 
-coffee&gt; displayName name: &#39;Foo&#39;, age: 42
-Foo, 42 year(s) old</code></pre>
+coffee&gt; displayName name: <span class="string">'Foo'</span>, age: <span class="number">42</span>
+Foo, <span class="number">42</span> year(s) old</code></pre>
 <p>Or even destructure directly to instance attributes</p>
-<pre><code class="lang-coffeescript">class User
-  constructor: ({ @name, @age }) -&gt;
+<pre class="highlighted"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+  constructor: ({ <span class="property">@name</span>, <span class="property">@age</span> }) -&gt;
 
-coffee&gt; new User(name: &#39;Foo&#39;, age: 42)
-{ name: &#39;foo&#39;, age: 42 }</code></pre>
+coffee&gt; <span class="keyword">new</span> User(name: <span class="string">'Foo'</span>, age: <span class="number">42</span>)
+{ name: <span class="string">'foo'</span>, age: <span class="number">42</span> }</code></pre>
 <p>But what does this do?</p>
-<pre><code class="lang-coffeescript">coffee&gt; age = 42
-42
+<pre class="highlighted"><code class="coffeescript">coffee&gt; age = <span class="number">42</span>
+<span class="number">42</span>
 
-coffee&gt; user = { &#39;Foo&#39;, age }
+coffee&gt; user = { <span class="string">'Foo'</span>, age }
 ?</code></pre>
 <p>My fudge-fingers managed to mash that one unknowingly into my editor one day while attempting to rack up velocity points on the latest story. Instead of hemorrhaging the expected SyntaxError, it evaluated to this beautiful new object</p>
-<pre><code class="lang-coffeescript">{ Foo: &#39;Foo&#39;, age: 42 }</code></pre>
+<pre class="highlighted"><code class="coffeescript">{ Foo: <span class="string">'Foo'</span>, age: <span class="number">42</span> }</code></pre>
 <p>Now I’ve got a handy set syntax</p>
-<pre><code class="lang-coffeescript">coffee&gt; 2 of { 1, 2, 5 }
-true
+<pre class="highlighted"><code class="coffeescript">coffee&gt; <span class="number">2</span> <span class="keyword">of</span> { <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span> }
+<span class="literal">true</span>
 
-coffee&gt; 2 of { 1, 3, 5 }
-false</code></pre>
+coffee&gt; <span class="number">2</span> <span class="keyword">of</span> { <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span> }
+<span class="literal">false</span></code></pre>
 <p>And with consistent variable naming, breezy data marshaling between some framework actors</p>
-<pre><code class="lang-coffeescript">class User
-  constructor: ({ @name, @age }) -&gt;
+<pre class="highlighted"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+  constructor: ({ <span class="property">@name</span>, <span class="property">@age</span> }) -&gt;
 
-template = ({ user, face }) -&gt;
-  &quot;&lt;div&gt;#{user.name} #{face}&lt;/div&gt;&quot;
+<span class="function"><span class="title">template</span></span> = ({ user, face }) -&gt;
+  <span class="string">"&lt;div&gt;<span class="subst">#{user.name}</span> <span class="subst">#{face}</span>&lt;/div&gt;"</span>
 
-class UserView
-  constructor: ({ @user }) -&gt;
+<span class="class"><span class="keyword">class</span> <span class="title">UserView</span></span>
+  constructor: ({ <span class="property">@user</span> }) -&gt;
 
   render: -&gt;
-    @html = template {
-      @user
-      face: &#39;:)&#39;
+    <span class="property">@html</span> = template {
+      <span class="property">@user</span>
+      face: <span class="string">':)'</span>
     }
 
-coffee&gt; user = new User(name: &#39;Foo&#39;, age: 42)
-{ name: &#39;Foo&#39;, age: 42 }
+coffee&gt; user = <span class="keyword">new</span> User(name: <span class="string">'Foo'</span>, age: <span class="number">42</span>)
+{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span> }
 
-coffee&gt; view = new UserView {user}
-{ user: { name: &#39;Foo&#39;, age: 42 } }
+coffee&gt; view = <span class="keyword">new</span> UserView {user}
+{ user: { name: <span class="string">'Foo'</span>, age: <span class="number">42</span> } }
 
 coffee&gt; view.render()
-&#39;&lt;div&gt;Foo :)&lt;/div&gt;&#39;</code></pre>
+<span class="string">'&lt;div&gt;Foo :)&lt;/div&gt;'</span></code></pre>
 </div><footer><p class="meta"><a class="basic-alignment left" href="../../../post/40042760798/teacup-coffeescript-templates-for-developer-happiness">&laquo; Teacup: CoffeeScript Templates for Developer Happiness</a><a class="basic-alignment right" href="../../../posts/ids-in-mongoose-json-and-backbone/">Ids in Mongoose, JSON, and Backbone &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bytes.goodeggs.com/post/41935904836/restructuring-assignment-in-coffeescript'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>

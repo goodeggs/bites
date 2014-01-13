@@ -9,20 +9,20 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <!-- more -->
 
 <p>Let&#39;s say we&#39;ve got a fibrous function <code>f</code> that synchronously calls asychronous function <code>g</code>:</p>
-<pre><code class="lang-js">var g = function(callback) {
-  setTimeout(function() {
-    console.log(&#39;g done&#39;);
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> g = <span class="keyword">function</span>(callback) {
+  setTimeout(<span class="keyword">function</span>() {
+    console.log(<span class="string">'g done'</span>);
     callback();
-  }, 1000);
+  }, <span class="number">1000</span>);
 };
 
-var f = fibrous(function() {
+<span class="keyword">var</span> f = fibrous(<span class="keyword">function</span>() {
   g.sync();
-  console.log(&#39;f done&#39;);
+  console.log(<span class="string">'f done'</span>);
 };</code></pre>
 <p>When we call <code>f</code> we wait one second, log <code>&#39;g done&#39;</code>, then log <code>&#39;f done&#39;</code>.  We need to halt <code>f</code> before the <code>console.log</code>, but <code>f</code> has no yield expressions.  It cannot be halted with any combination of ES6 generators.  Tough break.</p>
 <hr>
-<h3 id="related">Related</h3>
+<h3>Related</h3>
 <ul>
 <li><a href="http://taskjs.org/">Task.js</a> seems like a great way to get fibrous-like behavior within the generator constraints.  Still waiting on <a href="https://github.com/mozilla/task.js/issues/28">ES6 syntax support</a> and a <a href="https://github.com/mozilla/task.js/issues/17">CommonJS module published to NPM</a>.</li>
 <li>Fellow coffee lovers, the proposed <a href="https://github.com/jashkenas/coffee-script/pull/3078">coffee script syntax for generators</a> is a &#39;lil fugly and worth checking out.</li>
