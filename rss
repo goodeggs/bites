@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Mon, 13 Jan 2014 18:37:50 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 16 Jan 2014 21:58:38 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Mon, 13 Jan 2014 18:37:47 GMT</pubDate>
+        <pubDate>Thu, 16 Jan 2014 21:58:36 GMT</pubDate>
         <item>
             <title><![CDATA[Export This: Interface Design Patterns for Node.js Modules]]></title>
             <description><![CDATA[<p>When you require a module in Node, what are you getting back? When you write a module, what options do you have for designing its interface?</p>
@@ -277,9 +277,9 @@ Object.defineProperty(Object.prototype, <span class="string">'should'</span>, {
 <span class="keyword">var</span> model = Mongoose.prototype.model;
 <span class="keyword">var</span> modelWithUnderScoreCollectionName = function(name, schema, collection, skipInit) {
   collection = collection || _(name).chain().underscore().pluralize().value();
-  model.call(<span class="keyword">this</span>, name, schema, collection, skipInit)
+  model.call(<span class="keyword">this</span>, name, schema, collection, skipInit);
 };
-Mongoose.prototype.model = modelWithUnderScoreCollectionName</code></pre>
+Mongoose.prototype.model = modelWithUnderScoreCollectionName;</code></pre>
 <p>When this module is required for the first time, it requires <code>mongoose</code>, redefines <code>Mongoose.prototype.model</code> and delegates back to the original implementation of <code>model</code>. Now all instances of <code>Mongoose</code> will have this new behavior. Note that it does not modify <code>exports</code> so the value returned to <code>require</code> will be the default empty <code>exports</code> object.</p>
 <p>As a side note, if you do choose to monkey patch existing code, use a chaining technique similar to my example above. Add your behavior then delegate back to the original implementation. While not foolproof, it is the safest way to patch third party code allowing you to take advantage of future updates to the library and minimizing conflict with other patches that may be applied.</p>
 <h2>Export Away!</h2>

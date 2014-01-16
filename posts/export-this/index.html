@@ -270,9 +270,9 @@ Object.defineProperty(Object.prototype, <span class="string">'should'</span>, {
 <span class="keyword">var</span> model = Mongoose.prototype.model;
 <span class="keyword">var</span> modelWithUnderScoreCollectionName = function(name, schema, collection, skipInit) {
   collection = collection || _(name).chain().underscore().pluralize().value();
-  model.call(<span class="keyword">this</span>, name, schema, collection, skipInit)
+  model.call(<span class="keyword">this</span>, name, schema, collection, skipInit);
 };
-Mongoose.prototype.model = modelWithUnderScoreCollectionName</code></pre>
+Mongoose.prototype.model = modelWithUnderScoreCollectionName;</code></pre>
 <p>When this module is required for the first time, it requires <code>mongoose</code>, redefines <code>Mongoose.prototype.model</code> and delegates back to the original implementation of <code>model</code>. Now all instances of <code>Mongoose</code> will have this new behavior. Note that it does not modify <code>exports</code> so the value returned to <code>require</code> will be the default empty <code>exports</code> object.</p>
 <p>As a side note, if you do choose to monkey patch existing code, use a chaining technique similar to my example above. Add your behavior then delegate back to the original implementation. While not foolproof, it is the safest way to patch third party code allowing you to take advantage of future updates to the library and minimizing conflict with other patches that may be applied.</p>
 <h2>Export Away!</h2>
