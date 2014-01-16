@@ -432,9 +432,9 @@ var _ = require('underscore');
 var model = Mongoose.prototype.model;
 var modelWithUnderScoreCollectionName = function(name, schema, collection, skipInit) {
   collection = collection || _(name).chain().underscore().pluralize().value();
-  model.call(this, name, schema, collection, skipInit)
+  model.call(this, name, schema, collection, skipInit);
 };
-Mongoose.prototype.model = modelWithUnderScoreCollectionName
+Mongoose.prototype.model = modelWithUnderScoreCollectionName;
 ```
 
 When this module is required for the first time, it requires `mongoose`, redefines `Mongoose.prototype.model` and delegates back to the original implementation of `model`. Now all instances of `Mongoose` will have this new behavior. Note that it does not modify `exports` so the value returned to `require` will be the default empty `exports` object.
