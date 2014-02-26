@@ -2,7 +2,6 @@
 title: Cultivate Inaugural Meetup
 author: Kevin Uland
 layout: post
-tags: [news]
 disqus:
   shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/posts/first-cultivate-meetup/"
@@ -21,15 +20,16 @@ The first [Cultivate meetup](http://www.meetup.com/cultivate) was a huge success
 "This was a great way to kickoff the Cultivate meetups; I left informed, enthused, (oh yeah, and nourished) and committed to return."
 </blockquote>
 
+
+<!-- more -->
+
 Over 80 members of the developer community came together on a chilly San Francisco night, under a common purpose: to use technology for the betterment of humanity and the planet.
 
 As Good Eggs CTO Alon Salant said in an opening statement, "We are building tools that affect real people in the real world. It's about affecting real change in someone's work to enhance their life."
 
 The event kicked off with with a delicious bang: [Love & Hummus](http://www.goodeggs.com/loveandhummus) delivered an exceptional dining experience. Hearty falafel wraps, homemade tahini sauce, spicy hummus, sultry baklava, and mint-garnish lemonade.
 
-If your mouth isn't watering yet, wait till you sink your teeth into the presentations..
-
-<!-- more -->
+If your mouth isn't watering yet, wait till you sink your teeth into the presentations.
 
 Hanging up on Callbacks - [More than] Flow Control w/ECMAScript 6 Generators
 ---
