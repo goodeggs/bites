@@ -5,10 +5,44 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Thu, 16 Jan 2014 21:58:38 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 26 Feb 2014 00:47:35 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Thu, 16 Jan 2014 21:58:36 GMT</pubDate>
+        <pubDate>Wed, 26 Feb 2014 00:47:31 GMT</pubDate>
+        <item>
+            <title><![CDATA[The Good Eggs Software Development Manifesto]]></title>
+            <description><![CDATA[<p>At Good Eggs we are on a mission <em>to grow and sustain local food systems worldwide</em>. Everyone in the company is here because they believe in this mission and our vision for a better future.</p>
+<p>So how does this apply to our work as an engineering team and what other core values keep us aligned, excited and productive? We took some time to articulate our values as a team which I am presenting here as a first draft of our Software Development Manifesto.</p>
+<!-- more -->
+
+<h2>We believe</h2>
+<p><em>We believe</em> that technology can be used to make the world a better place.</p>
+<p><em>We believe</em> in building beautiful things that improve people’s lives.</p>
+<p><em>We believe</em> that when given an opportunity to create positive change, you act on it.</p>
+<p><em>We believe</em> in the value of exploration and innovation.</p>
+<p><em>We believe</em> that reshaping our food system is a direct way to care for people and our planet.</p>
+<h2>What we do</h2>
+<p><strong>We create change</strong><br/>
+We’re building software to power a new, alternative food system: One that supports high-integrity farmers and foodmakers and enables them to compete with the industrial food complex. A system that helps all families eat well and enables them to support the future they want to see. A system where the folks doing things right are the ones who succeed.</p>
+<p><strong>We make real things with real impact</strong><br/>
+Yesterday we were writing the code for a new application now being tested by local farmers. Tomorrow we’ll be collecting feedback and improving on it. We’re constantly delivering new experiences and tools into the hands of our customers and producers, all of which are designed to make their lives easier.</p>
+<p><strong>We’re tackling hard problems</strong><br/>
+Working with food is complex with lots of variables to solve for, from weather patterns to traffic patterns. We’re innovating across the worlds of online retail, inventory management and delivery logistics to name a few, and are constantly working to make our systems and processes work even better.</p>
+<h2>How we do it</h2>
+<p><strong>We use radical tools for radical change</strong><br/>
+We&#39;re members of and contributors to an open source community that is defining new ways to build applications with Node.js and full stack JavaScript. We&#39;re adventurous and use technologies that inspire us to innovate and solve problems in new ways.</p>
+<p><strong>We stay nimble</strong><br/>
+We work quickly because the faster we can get a solution in someone’s hands, the faster we can learn how to make it better. We test and automate with rigor so that mundane tasks don&#39;t slow us down.</p>
+<p><strong>We continuously improve</strong><br/>
+There is no best way, only better and better ways. We&#39;re building systems that handle complexity in the real world by creating visibility at every stage of the process. We’re empowering the people involved to solve problems when and where they happen.</p>
+<p>It’s the technology at the heart of Good Eggs that will enable us to scale and make real change. We’re using technology to think big in service of the small. We’re building the systems that help local farmers sell enough to actually make a living. We’re creating efficient logistics that mean parents can trade a trip to the grocery store for time to read the kids another bedtime story. We’re fueling a food system that will feed everyone well, and we’re psyched to be doing it. Because the better we work, the better the world we all live in.</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/posts/manifesto/</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/manifesto/            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Tue, 25 Feb 2014 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Export This: Interface Design Patterns for Node.js Modules]]></title>
             <description><![CDATA[<p>When you require a module in Node, what are you getting back? When you write a module, what options do you have for designing its interface?</p>
@@ -308,12 +342,13 @@ Mongoose.prototype.model = modelWithUnderScoreCollectionName;</code></pre>
 &quot;This was a great way to kickoff the Cultivate meetups; I left informed, enthused, (oh yeah, and nourished) and committed to return.&quot;
 </blockquote>
 
+
+<!-- more -->
+
 <p>Over 80 members of the developer community came together on a chilly San Francisco night, under a common purpose: to use technology for the betterment of humanity and the planet.</p>
 <p>As Good Eggs CTO Alon Salant said in an opening statement, &quot;We are building tools that affect real people in the real world. It&#39;s about affecting real change in someone&#39;s work to enhance their life.&quot;</p>
 <p>The event kicked off with with a delicious bang: <a href="http://www.goodeggs.com/loveandhummus">Love &amp; Hummus</a> delivered an exceptional dining experience. Hearty falafel wraps, homemade tahini sauce, spicy hummus, sultry baklava, and mint-garnish lemonade.</p>
-<p>If your mouth isn&#39;t watering yet, wait till you sink your teeth into the presentations..</p>
-<!-- more -->
-
+<p>If your mouth isn&#39;t watering yet, wait till you sink your teeth into the presentations.</p>
 <h2>Hanging up on Callbacks - [More than] Flow Control w/ECMAScript 6 Generators</h2>
 <p><a href="http://www.carbonfive.com/employee/erin-swenson-healey">Erin Swanson-Healey</a> from Carbon Five gave a thorough walk-through into dealing with asynchronous callbacks in Javascript. With charisma and charm he  stated that we have new ways to deal with &quot;callback hell&quot;.</p>
 <p>New Solution: <a href="http://www.2ality.com/2013/06/iterators-generators.html">ECMAScript 6</a> provides generators, which alleviates some of challenges that are associated with asynchronous callbacks.</p>
@@ -657,37 +692,6 @@ undefined
                 http://goodeggs.github.io/bites/post/36053394113/synchronous-node-console-with-fibrous            </guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Sun, 18 Nov 2012 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Reconnecting to MongoDB when Mongoose connect fails at startup]]></title>
-            <description><![CDATA[<p>We recently experienced a short outage when a deploy to Heroku came up during a brief period when network connectivity to <a href="https://www.mongohq.com">MongoHQ</a> was down.</p>
-<p>Our app came up but failed to connect to mongo. To our surprise, it did not attempt to reconnect, so even though MongoHQ came back quickly, our app continued to report errors<!-- more --> due to no mongo connection.</p>
-<p>This was especially surprising since we use <a href="http://mongoosejs.com/">mongoose.js</a> to map to mongo, and mongoose passes the <em>auto_reconnect=true</em> flag to <a href="https://github.com/mongodb/node-mongodb-native">node-mongodb-native</a>. It turns out auto_reconnect (aka autoReconnect in some contexts) only comes in to play if the driver has already successfully established a connection to mongo.</p>
-<p><a href="https://github.com/mongodb/node-mongodb-native/issues/655">According to the driver maintainers</a>, this is by design.</p>
-<blockquote>
-<p><span>by design, autoReconnect is after a successful connection. If you need to handle the case where your app is started before the server I recommend using setTimeout and doing your own connection logic for the db.open function.</span></p>
-</blockquote>
-<p><span>Seems like a bit of a cop out to me. You&#8217;ll try to reconnect on an interval if you loose the connection but not if you can&#8217;t connect initially? Doesn&#8217;t everyone need this functionality?</span></p>
-<p>Well, we clearly do so we implemented it and are sharing it here for you.</p>
-
-<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> mongoose = require(<span class="string">'mongoose'</span>)
-<span class="keyword">var</span> mongoUrl = <span class="string">"mongodb://localhost:27017/test"</span>
-
-<span class="keyword">var</span> connectWithRetry = <span class="keyword">function</span>() {
-  <span class="keyword">return</span> mongoose.connect(mongoUrl, <span class="keyword">function</span>(err) {
-    <span class="keyword">if</span> (err) {
-      console.error(<span class="string">'Failed to connect to mongo on startup - retrying in 5 sec'</span>, err);
-      setTimeout(connectWithRetry, <span class="number">5000</span>);
-    }
-  });
-};
-connectWithRetry();</code></pre>
-<p class="gist"><a href="http://gist.github.com/4092454">View gist on GitHub</a></p>]]></description>
-            <link>http://goodeggs.github.io/bites/post/35878004826/reconnecting-to-mongodb-when-mongoose-connect-fails-at</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/post/35878004826/reconnecting-to-mongodb-when-mongoose-connect-fails-at            </guid>
-            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
-            <pubDate>Fri, 16 Nov 2012 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
