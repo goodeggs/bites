@@ -5,10 +5,26 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Wed, 26 Feb 2014 00:47:35 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 04 Mar 2014 23:28:14 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Wed, 26 Feb 2014 00:47:31 GMT</pubDate>
+        <pubDate>Tue, 04 Mar 2014 23:28:11 GMT</pubDate>
+        <item>
+            <title><![CDATA[JS Hack for Good with JSFest]]></title>
+            <description><![CDATA[<p>We&#39;re partnering with <a href="http://jsfest.com">JSFest</a> to host a JavaScript hack night for social good on Sunday evening March 9. JSFest runs March 6-12 in San Francisco.</p>
+<p>Let&#39;s spend a few hours hacking together to make the world a better place. Bring your project or your desire to help others with theirs. Open source and socially-minded projects are all welcome. If you want to give a short presentation or run a mini workshop we have the facilities and welcome your initiative.</p>
+<p>We&#39;ll kick off with project intros and requests for help to connect hackers with the projects they are interested in.</p>
+<p>Start at 6pm with some great local food and drink to help us all connect, kick off at 6:30pm and doors close at 10:00pm.
+A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB and more will be around to help and with some projects of their own.</p>
+<p><a href="http://www.meetup.com/cultivate/events/167399892/">Reserve your spot</a> and we&#39;ll see you Sunday!</p>
+<p><a href="http://www.meetup.com/cultivate/events/167399892/" data-event="167399892" class="mu-rsvp-btn">RSVP</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://secure.meetup.com/script/217965377037627760507776/api/mu.btns.js?id=79aeiktbm5kpas6441vh2ji1fm";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");</script>]]></description>
+            <link>http://goodeggs.github.io/bites/posts/js-hack-for-good/</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/js-hack-for-good/            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Tue, 04 Mar 2014 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[The Good Eggs Software Development Manifesto]]></title>
             <description><![CDATA[<p>At Good Eggs we are on a mission <em>to grow and sustain local food systems worldwide</em>. Everyone in the company is here because they believe in this mission and our vision for a better future.</p>
@@ -656,42 +672,6 @@ withSerializedSync(MyModel);</code></pre>
                 http://goodeggs.github.io/bites/post/38240004568/synchronize-ajax-calls-for-backbone-models-and            </guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Tue, 18 Dec 2012 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Synchronous node console with fibrous]]></title>
-            <description><![CDATA[<p>Node’s interactive console, or <a href="http://nodejs.org/api/repl.html">REPL</a> (Read-Eval-Print-Loop), is handy for debugging and interacting directly with our applications. The one bummer is that it’s awkward to make asynchronous calls in the console especially when they need to be nested and writing them requires multiple lines for any hope of readability.</p>
-<p><a href="https://github.com/goodeggs/fibrous">fibrous</a> simplifies async coding with Node and can help us out with the REPL too.
-<!-- more --></p>
-<pre class="highlighted"><code class="javascript"><span class="comment">// fibrous_repl.js</span>
-<span class="keyword">var</span> vm = require(<span class="string">'vm'</span>);
-<span class="keyword">var</span> repl = require(<span class="string">'repl'</span>);
-<span class="keyword">var</span> fibrous = require(<span class="string">'fibrous'</span>);
-
-console.log(<span class="string">"Starting fibrous REPL..."</span>);
-repl.start({
-  eval: fibrous(<span class="keyword">function</span>(code, context, file) {
-    <span class="keyword">return</span> vm.runInContext(code, context, file);
-  })
-});</code></pre>
-<p>Running this file with <code>node fibrous_repl.js</code> starts an interactive console with every command running in a fiber so that we can use <code>sync</code> and <code>wait</code> as we please.</p>
-<pre class="highlighted"><code class="r">$ node fibrous_repl.js
-Starting fibrous REPL...
-&gt; var fs = <span class="keyword">require</span>(<span class="string">'fs'</span>);
-undefined
-&gt; data = fs.sync.readFile(<span class="string">'/etc/passwd'</span>, <span class="string">'utf-8'</span>);
-<span class="keyword">...</span>
-&gt; console.log(data);
-<span class="comment">##</span>
-<span class="comment"># User Database</span>
-<span class="comment">#</span>
-<span class="keyword">...</span></code></pre>
-<p>We use the console a lot to poke at our apps, inspect live state and change data on the fly. Using fibrous as shown above makes it super easy.</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/post/36053394113/synchronous-node-console-with-fibrous</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/post/36053394113/synchronous-node-console-with-fibrous            </guid>
-            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
-            <pubDate>Sun, 18 Nov 2012 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
