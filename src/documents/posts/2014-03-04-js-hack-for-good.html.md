@@ -18,7 +18,3 @@ Start at 6pm with some great local food and drink to help us all connect, kick o
 A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB and more will be around to help and with some projects of their own.
 
 [Reserve your spot](http://www.meetup.com/cultivate/events/167399892/) and we'll see you Sunday!
-
-<a href="http://www.meetup.com/cultivate/events/167399892/" data-event="167399892" class="mu-rsvp-btn">RSVP</a>
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://secure.meetup.com/script/217965377037627760507776/api/mu.btns.js?id=79aeiktbm5kpas6441vh2ji1fm";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");</script>
