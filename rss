@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Tue, 04 Mar 2014 23:28:14 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 04 Mar 2014 23:30:52 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Tue, 04 Mar 2014 23:28:11 GMT</pubDate>
+        <pubDate>Tue, 04 Mar 2014 23:30:49 GMT</pubDate>
         <item>
             <title><![CDATA[JS Hack for Good with JSFest]]></title>
             <description><![CDATA[<p>We&#39;re partnering with <a href="http://jsfest.com">JSFest</a> to host a JavaScript hack night for social good on Sunday evening March 9. JSFest runs March 6-12 in San Francisco.</p>
@@ -17,8 +17,7 @@
 <p>Start at 6pm with some great local food and drink to help us all connect, kick off at 6:30pm and doors close at 10:00pm.
 A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB and more will be around to help and with some projects of their own.</p>
 <p><a href="http://www.meetup.com/cultivate/events/167399892/">Reserve your spot</a> and we&#39;ll see you Sunday!</p>
-<p><a href="http://www.meetup.com/cultivate/events/167399892/" data-event="167399892" class="mu-rsvp-btn">RSVP</a></p>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://secure.meetup.com/script/217965377037627760507776/api/mu.btns.js?id=79aeiktbm5kpas6441vh2ji1fm";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");</script>]]></description>
+]]></description>
             <link>http://goodeggs.github.io/bites/posts/js-hack-for-good/</link>
             <guid isPermaLink="true">
                 http://goodeggs.github.io/bites/posts/js-hack-for-good/            </guid>
