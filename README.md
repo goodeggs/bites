@@ -25,10 +25,10 @@ What to blog about?
 * processes (daily standups, retrospectives, etc)
 * cool tech you saw/heard/tried/read about/etc.
 
-### Got an Idea?
+** Got an Idea? **  
 [Open an issue](https://github.com/goodeggs/bites/issues/new) with the label `blog post idea` and summarize some of the keypoints that will make the post interesting. You or someone else on the team can write it later.
 
-### Need an Idea?
+** Need an Idea? **  
 Check the [open blog post ideas](https://github.com/goodeggs/bites/issues?labels=blog+post+idea&state=open) that haven't been written yet!
 
 How to write a post?
