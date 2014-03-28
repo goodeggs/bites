@@ -10,11 +10,13 @@ Our blog, open source software, and developer events are all opportunities for u
 to establish Good Eggs as a _tech company_ in addition to a revolutionary local food company.
 
 **Reinforce the [Manifesto](https://github.com/goodeggs/bites/blob/master/src/documents/posts/2014-02-25-manifesto.html.md#we-believe)**  
-_We believe_ in the value of exploration and innovation, and the blog is a platform to share what we learn and create. 
+_We believe_ in the value of exploration and innovation, and the blog is a platform to share what we learn and create.
 
 **Develop Tech Talks for Conferences**  
 Consolidating ideas into a blog post is most of the legwork for creating a compelling talk for conferences and other events!
 
+**Share information with our team**  
+As our engineering team keeps getting bigger, it's hard to keep track of all of the cool things we're doing. Do you know about the cool ways the new Driver app is using offline storage? Me neither!
 
 What to blog about?
 -------------------
