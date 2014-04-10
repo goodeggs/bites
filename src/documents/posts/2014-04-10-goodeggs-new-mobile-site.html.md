@@ -47,7 +47,7 @@ architectural decisions we made. Check back to learn about:
 We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
 
 * __Planning page load sequence for perceived performance__
-(brief summary goes here)
+To get food on the screen quickly, we considered each step of the page load cycle: the first packet through user-specific javascript execution.
 
 * __HTTP Caching with [Fastly](https://www.fastly.com/)__
 (brief summary goes here)
