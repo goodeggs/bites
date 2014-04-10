@@ -39,22 +39,31 @@ architectural decisions we made. Check back to learn about:
 * __Our stack: express, rivets, mongo, mocha/chai/sinon and selenium__
 (brief summary goes here)
 
-* __Rivets instead of Backbone/Angular/etc.__  
-Before coding a phone-shaped farmer's market, the GoodEggs team built production 
-sites using tools at both extremes of the javascript application ecosystem. We 
-built the desktop experience on the minimal [Backbone](http://backbonejs.org/).
-Backbone's extensive use of `get()` and `set()` always bothered us a little. It made
-sharing code between the browser and node.js server harder. At the other extreme,
-[Angular](http://angularjs.org/)'s declarative data binding let us crank out internal
-tools with lots of moving pieces. Unfortunately, the _rest_ of Angular, another 100k of
-strong opinions, was too much for the zippy mobile site we envisioned. The brilliant
-Dr. Zoller pointed the team at [Rivets](http://www.rivetsjs.com/), which turned out to
-be just the right size. Its simple hooks for server-side pre-rendering, Angular inspired
-declarative binding, and small pageweight helped us get commits in fast and deliver tiny
-snacks to pocket-sized screens at speeds approaching our sub-second dreams.
+* __Rivets instead of Backbone/Angular/etc.__
+    * __Short version__:
+      [Rivets](http://www.rivetsjs.com/), turned out to be just the right size for this project.  Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.
+
+    * __Long version__:
+      Before coding a phone-shaped farmer's market, the GoodEggs team built production
+      sites using tools at both extremes of the javascript application ecosystem. We
+      built the desktop experience on the minimal [Backbone](http://backbonejs.org/).
+      Backbone's extensive use of `get()` and `set()` always bothered us a little. It made
+      sharing code between the browser and node.js server harder. At the other extreme,
+      [Angular](http://angularjs.org/)'s declarative data binding let us crank out internal
+      tools with lots of moving pieces. Unfortunately, the _rest_ of Angular, another 100k of
+      strong opinions, was too much for the zippy mobile site we envisioned. The brilliant
+      Dr. Zoller pointed the team at [Rivets](http://www.rivetsjs.com/), which turned out to
+      be just the right size. Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.
 
 * __Integration testing over unit testing__
-(brief summary goes here)
+    * TODO: GIF screencast of running chromedriver
+    * __Short version__:
+      We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
+
+    * __Long version__:
+      Engineering of the new site, like all Good Eggs code, depended on automated tests.  They told us when a new page was finished, and when committed code was safe to deploy.  We most like tests when they run quickly and reliably. Tests that automate browsers are notorious for doing neither. Luckily, the tools have gotten much better recently. So much better that we added nearly exclusively WebDriver based tests while building our mobile site. We tested the journeys shoppers would experience on their phones: the buttons they should tap, the numbers that must match to build trust, the pictures and stories of a better food system. We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
+
+
 
 * __Planning page load sequence for perceived performance__
 (brief summary goes here)
