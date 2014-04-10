@@ -72,4 +72,4 @@ architectural decisions we made. Check back to learn about:
 (brief summary goes here)
 
 * __Appropriate image sizes with [imgix](http://www.imgix.com/)__
-(brief summary goes here)
+  Folks really seem to _get_ GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We've found a balance.
