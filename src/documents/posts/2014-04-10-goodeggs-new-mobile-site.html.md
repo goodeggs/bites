@@ -44,14 +44,7 @@ architectural decisions we made. Check back to learn about:
 
 
 * __Integration testing over unit testing__
-    * TODO: GIF screencast of running chromedriver
-    * __Short version__:
-      We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
-
-    * __Long version__:
-      Engineering of the new site, like all Good Eggs code, depended on automated tests.  They told us when a new page was finished, and when committed code was safe to deploy.  We most like tests when they run quickly and reliably. Tests that automate browsers are notorious for doing neither. Luckily, the tools have gotten much better recently. So much better that we added nearly exclusively WebDriver based tests while building our mobile site. We tested the journeys shoppers would experience on their phones: the buttons they should tap, the numbers that must match to build trust, the pictures and stories of a better food system. We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
-
-
+We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
 
 * __Planning page load sequence for perceived performance__
 (brief summary goes here)
@@ -60,4 +53,4 @@ architectural decisions we made. Check back to learn about:
 (brief summary goes here)
 
 * __Appropriate image sizes with [imgix](http://www.imgix.com/)__
-  Folks really seem to _get_ GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We've found a balance.
+Folks really seem to _get_ GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We've found a balance.
