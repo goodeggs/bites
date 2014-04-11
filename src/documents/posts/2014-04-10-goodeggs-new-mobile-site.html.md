@@ -36,21 +36,17 @@ to begin rendering as soon as it starts receiving data from the original request
 In the coming weeks, we'll be taking a deeper dive on some of the other major
 architectural decisions we made. Check back to learn about:
 
-* __Our stack: express, rivets, mongo, mocha/chai/sinon and selenium__
-(brief summary goes here)
-
-* __Rivets instead of Backbone/Angular/etc.__
+* __Rivets instead of Backbone/Angular/etc.__  
 [Rivets](http://www.rivetsjs.com/), turned out to be just the right size for this project.  Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.
 
-
-* __Integration testing over unit testing__
+* __Integration testing over unit testing__  
 We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
 
-* __Planning page load sequence for perceived performance__
+* __Planning page load sequence for perceived performance__  
 To get food on the screen quickly, we considered each step of the page load cycle: the first packet through user-specific javascript execution.
 
-* __HTTP Caching with [Fastly](https://www.fastly.com/)__
-(brief summary goes here)
+* __HTTP Caching with [Fastly](https://www.fastly.com/)__  
+Especially with server-side generated HTML, we knew HTTP caching would be our best bet for fast page loads. By normalizing our request headers, separating session information into separate AJAX calls, and setting appropriate cache headers, we achieved significant performance gains.
 
-* __Appropriate image sizes with [imgix](http://www.imgix.com/)__
+* __Appropriate image sizes with [imgix](http://www.imgix.com/)__  
 Folks really seem to _get_ GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We've found a balance.
