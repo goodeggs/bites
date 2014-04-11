@@ -1,7 +1,7 @@
 ---
 title: Alon Salant
 author: Alon Salant
-photoUrl: http://fpio.goodeggs.com/api/file/dr8oggORaYMYXX016dAQ
+photoUrl: http://fpio.goodeggs.com/api/file/dr8oggORaYMYXX016dAQ/convert?w=150&h=150&fit=crop&align=faces&cache=true
 layout: author
 ---
 

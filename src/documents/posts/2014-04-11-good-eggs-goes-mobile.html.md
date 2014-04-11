@@ -1,6 +1,6 @@
 ---
 title: Good Eggs Goes Mobile
-author: Michael Kebbekus
+author: Michael Kebbekus and Adam Hull
 layout: post
 disqus:
   shortname: goodeggsbytes

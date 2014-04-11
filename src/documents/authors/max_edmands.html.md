@@ -1,7 +1,7 @@
 ---
 title: Max Edmands
 author: Max Edmands
-photoUrl: http://fpio.goodeggs.com/api/file/4HBn1HQRvqTW9BdESZVX
+photoUrl: http://fpio.goodeggs.com/api/file/4HBn1HQRvqTW9BdESZVX/convert?w=150&h=150&fit=crop&align=faces&cache=true
 layout: author
 ---
 

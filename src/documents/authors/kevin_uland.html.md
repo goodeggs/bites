@@ -1,7 +1,7 @@
 ---
 title: Kevin Uland
 author: Kevin Uland
-photoUrl: http://fpio.goodeggs.com/api/file/dLbwqeNUTyGACLEihFbW
+photoUrl: http://fpio.goodeggs.com/api/file/dLbwqeNUTyGACLEihFbW/convert?w=150&h=150&fit=crop&align=faces&cache=true
 layout: author
 ---
 

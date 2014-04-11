@@ -1,7 +1,7 @@
 ---
 title: Alex Gorbatchev
 author: Alex Gorbatchev
-photoUrl: http://fpio.goodeggs.com/api/file/DkcUdnQSE63IauiZq4CW
+photoUrl: http://fpio.goodeggs.com/api/file/DkcUdnQSE63IauiZq4CW/convert?w=150&h=150&fit=crop&align=faces&cache=true
 layout: author
 ---
 
