@@ -1,3 +1,12 @@
+---
+title: Good Eggs Goes Mobile
+author: Michael Kebbekus
+layout: post
+disqus:
+  shortname: goodeggsbytes
+  url: "http://bites.goodeggs.com/posts/good-eggs-goes-mobile/"
+---
+
 In the past 6 months, 25% of our traffic came from mobile devices, and those users faced a
 daunting, near impossible shopping experience. In response, we launched a new
 mobile version of [goodeggs.com](http://goodeggs.com) two weeks ago with an
