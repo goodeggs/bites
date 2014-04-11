@@ -1,0 +1,54 @@
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Good Eggs Goes Mobile | Bites from Good Eggs</title><meta name="author" content="Michael Kebbekus and Adam Hull" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/png" href="../../favicon.png" /><link rel="stylesheet" href="../../styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="../../rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26193287-5', 'github.io');
+ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><header><h1 class="entry-title">Good Eggs Goes Mobile</h1><p class="meta"><a href="../../authors/michael_kebbekus_and_adam_hull/">Michael Kebbekus and Adam Hull</a> on <time datetime="2014-04-11T00:00:00.000Z">April 11th, 2014</time></p></header><div class="entry-content"><p>In the past 6 months, 25% of our traffic came from mobile devices, and those users faced a
+daunting, near impossible shopping experience. In response, we launched a new
+mobile version of <a href="http://goodeggs.com">goodeggs.com</a> two weeks ago with an
+eye to simplify our major use case of filling your basket with products and
+checking out. To create the mobile experience we considered three options:</p>
+<ol>
+<li>native mobile apps for iOS and Android</li>
+<li>a responsive re-design of our existing website</li>
+<li>building a mobile website from scratch</li>
+</ol>
+<h3 id="native-someday">Native Someday</h3>
+<p>While native mobile apps offer the potential for a superior user experience, our
+first priority was handling the 25% of traffic already coming to our website.
+Even with a nagging banner to download a native app, we&#39;d still have users
+visiting our site on mobile devices. Additionally, we wanted to be able to
+iterate quickly on the mobile platform and not be at the whim of the App Store&#39;s
+approval process nor users&#39; responsibilities to install updates.</p>
+<h3 id="not-responsive-enough">Not Responsive Enough</h3>
+<p>We also ruled out a responsive design pretty quickly. Our requirements for the
+mobile application were to deliver a fast and simple experience. With such small
+screen real estate on the phone, we knew we wanted to completely rethink the
+layouts and content of our pages; a little too complex for fluid grids, and
+media queries.</p>
+<h3 id="fresh-start">Fresh Start</h3>
+<p>Instead of continuing with our &quot;desktop&quot; stack built on
+<a href="http://backbonejs.org/">Backbone</a>, we decided to take the opportunity for a fresh start. 
+With <a href="http://backbonejs.org/">Backbone</a>,
+<a href="http://angularjs.org/">Angular</a>, <a href="http://emberjs.com/">Ember</a>, and other client
+side frameworks, the user has to wait for the JavaScript to be loaded before any
+client side rendering can begin, and we really wanted to prioritize initial page load. 
+We decided for our use cases, we could deliver a better experience by generating HTML on the server side so the phone
+can begin rendering as soon as it starts receiving data from the initial request.</p>
+<p>In the coming weeks, we&#39;ll be taking a deeper dive on some of the major
+architectural decisions we made. Check back to learn about:</p>
+<ul>
+<li><p><strong>Rivets instead of Backbone/Angular/etc.</strong><br><a href="http://www.rivetsjs.com/">Rivets</a>, turned out to be just the right size for this project.  Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.</p>
+</li>
+<li><p><strong>Planning page load sequence for faster initial page load</strong><br>To get food on the screen quickly, we considered each step of the page load cycle: the first packet through user-specific javascript execution.</p>
+</li>
+<li><p><strong>HTTP Caching with <a href="https://www.fastly.com/">Fastly</a></strong><br>Especially with server-side generated HTML, we knew HTTP caching would be our best bet for fast page loads. By normalizing our request headers, separating session information into separate AJAX calls, and setting appropriate cache headers, we achieved significant performance gains.</p>
+</li>
+<li><p><strong>Appropriate image sizes with <a href="http://www.imgix.com/">imgix</a></strong><br>Folks really seem to <em>get</em> GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We&#39;ve found a balance.</p>
+</li>
+<li><p><strong>Integration testing over unit testing</strong><br>We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.</p>
+</li>
+</ul>
+<p>And in the meanwhile, go take a look at <a href="http://goodeggs.com">goodeggs.com</a> in a mobile device and let us know what you think!</p>
+</div><footer><p class="meta"><a class="basic-alignment left" href="../../posts/js-hack-for-good/">&laquo; JS Hack for Good with JSFest</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bites.goodeggs.com/posts/good-eggs-goes-mobile/'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>

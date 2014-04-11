@@ -152,10 +152,11 @@ article p.update:before{content:'Update:';font-family:MuseoSansRounded,'Helvetic
 #content div.pagination a.next{position:absolute;right:0}
 #content div.pagination a:hover{color:#007084}
 #content section.profile .meta{float:left;}
-#content section.profile .meta img{margin-right:20px;-webkit-box-shadow:0 0 10px -1px #333;box-shadow:0 0 10px -1px #333}
+#content section.profile .meta img{margin-right:20px;-webkit-box-shadow:0 0 10px -1px #333;box-shadow:0 0 10px -1px #333;width:150px}
 #content section.profile .content{display:table;}
 #content section.profile .content p{margin-bottom:.5em}
 #content section.profile .content .author{font-style:italic}
+#content section.profile .coauthor{margin-bottom:30px}
 pre code{display:block;color:#000;background:#fff}
 pre .comment,pre .template_comment,pre .javadoc,pre .comment *{color:#006a00}
 pre .keyword,pre .literal,pre .nginx .title{color:#aa0d91}

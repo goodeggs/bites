@@ -5,24 +5,24 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><header><h1 class="entry-title">AMQP EventEmitter</h1><p class="meta"><a href="../../authors/alex_gorbatchev/">Alex Gorbatchev</a> on <time datetime="2013-11-18T00:00:00.000Z">November 18th, 2013</time></p></header><div class="entry-content"><p>EventEmitter over AMQP! Nothing more, nothing less! Check it out on <a href="https://github.com/goodeggs/amqp-eventemitter">GitHub</a> or:</p>
-<pre class="highlighted"><code class="nginx"><span class="title">npm</span> install amqp-eventemitter</code></pre>
+<pre class="highlight"><code class="brainfuck"><span class="comment">npm</span> <span class="comment">install</span> <span class="comment">amqp</span><span class="literal">-</span><span class="comment">eventemitter</span></code></pre>
 <p>Works really well with <a href="http://www.rabbitmq.com/">RabbitMQ</a> or any other AMQP.</p>
 <!-- more -->
 
-<h2>Usage</h2>
-<pre class="highlighted"><code class="coffeescript">{AmqpEventEmitter} = require <span class="string">'amqp-eventemitter'</span>
+<h2 id="usage">Usage</h2>
+<pre class="highlight"><code class="coffeescript">{AmqpEventEmitter} = <span class="built_in">require</span> <span class="string">'amqp-eventemitter'</span>
 
-pub = <span class="keyword">new</span> AmqpEventEmitter url: <span class="string">'amqp://guest:guest@localhost:5672'</span>
-sub = <span class="keyword">new</span> AmqpEventEmitter url: <span class="string">'amqp://guest:guest@localhost:5672'</span>
+pub = <span class="keyword">new</span> AmqpEventEmitter <span class="attribute">url</span>: <span class="string">'amqp://guest:guest@localhost:5672'</span>
+sub = <span class="keyword">new</span> AmqpEventEmitter <span class="attribute">url</span>: <span class="string">'amqp://guest:guest@localhost:5672'</span>
 
-sub.<span class="literal">on</span> <span class="string">'message'</span>, (arg1, arg2) -&gt; console.log arg1, arg2
+sub.<span class="literal">on</span> <span class="string">'message'</span>, <span class="function"><span class="params">(arg1, arg2)</span> -&gt;</span> console.log arg1, arg2
 pub.emit <span class="string">'message'</span>, <span class="string">'hello'</span>, <span class="string">'world'</span>
 
 <span class="comment">#=&gt; hello world</span></code></pre>
-<h2>API</h2>
-<h3>new AmqpEventEmitter(options)</h3>
+<h2 id="api">API</h2>
+<h3 id="new-amqpeventemitter-options-">new AmqpEventEmitter(options)</h3>
 <p>Options are passed to respective functions in <a href="https://github.com/postwait/node-amqp"><code>node-amqp</code></a>, eg. <code>options.exchange</code> is passed to <code>connection.createExchange</code> and so on. Here are the default values:</p>
-<pre class="highlighted"><code class="smalltalk">options =
+<pre class="highlight"><code class="smalltalk">options =
   <span class="method">connection:</span>
       <span class="method">url:</span> <span class="string">'amqp://...'</span>
   <span class="method">exchange:</span>
@@ -32,8 +32,8 @@ pub.emit <span class="string">'message'</span>, <span class="string">'hello'</sp
   <span class="method">queue:</span>
       <span class="method">name:</span> exchange.name + <span class="string">'.'</span> + uuid</code></pre>
 <p>or you can take a shortcut and just pass AMQP connection string.</p>
-<pre class="highlighted"><code class="brainfuck"><span class="comment">options</span> <span class="comment">=</span> <span class="comment">url:</span> <span class="comment">'amqp://</span>.<span class="string">.</span><span class="string">.</span><span class="comment">'</code></pre>
-<h2>Notes</h2>
+<pre class="highlight"><code class="glsl">options = url: 'amqp:<span class="comment">//...'</span></code></pre>
+<h2 id="notes">Notes</h2>
 <ul>
 <li><strong>Each instance of <code>AmqpEventEmitter</code> receives each emitted event.</strong></li>
 <li>You can immediately emit events without waiting for AMQP connection.</li>
