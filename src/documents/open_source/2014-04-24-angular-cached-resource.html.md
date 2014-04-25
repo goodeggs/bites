@@ -147,9 +147,9 @@ $cachedResource.clearAll(); // remove everything from cache
 $cachedResource.clearAll({exceptFor: ['vegetables']}); // remove all the resources that don't have the 'vegetable' key from the cache
 $cachedResource.clearUndefined(); // remove all the cachedResource entries that haven't been defined since the page was loaded
 
-Entry.clearAll(); // remove all 'entries' resources from the cache
-Entry.clearAll({exceptFor: {tag: 'angular-cached-resource'}); // remove all 'entries' from the cache, except for ones that were returned by the provided query
-Entry.clearAll({exceptFor: [{slug: 'announcing-angular-cached-resource'}]); // remove all 'entries' from the cache, except for the one with the provided slug
+Entry.$clearAll(); // remove all 'entries' resources from the cache
+Entry.$clearAll({exceptFor: {tag: 'angular-cached-resource'}); // remove all 'entries' from the cache, except for ones that were returned by the provided query
+Entry.$clearAll({exceptFor: [{slug: 'announcing-angular-cached-resource'}]); // remove all 'entries' from the cache, except for the one with the provided slug
 ```
 
 I hope you find the module useful. What other tools do you find helpful for building offline web applications?
