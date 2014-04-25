@@ -7,6 +7,19 @@ disqus:
   url: "http://bites.goodeggs.com/posts/good-eggs-goes-mobile/"
 ---
 
+<div class="series">
+    <blockquote>This is the first article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li>[Good Eggs Goes Mobile](/posts/good-eggs-goes-mobile)</li>
+        <li>[Rivets for Mobile Web](/posts/rivets-for-mobile)</li>
+        <li>Planning Page Load Sequence</li>
+        <li>HTTP Caching with Fastly</li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
+
+
 In the past 6 months, 25% of our traffic came from mobile devices, and those users faced a
 daunting, near impossible shopping experience. In response, we launched a new
 mobile version of [goodeggs.com](http://goodeggs.com) two weeks ago with an
@@ -16,6 +29,8 @@ checking out. To create the mobile experience we considered three options:
 1. native mobile apps for iOS and Android
 2. a responsive re-design of our existing website
 3. building a mobile website from scratch
+
+<!-- more -->
 
 ### Native Someday
 While native mobile apps offer the potential for a superior user experience, our
