@@ -1,5 +1,5 @@
 ---
-title: ngCachedResource
+title: Angular Cached Resource
 author: Max Edmands
 layout: post
 tags: [npm, opensource, angular, resource, offline]
