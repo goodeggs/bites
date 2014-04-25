@@ -67,13 +67,15 @@ If it's your first post, create your author page in [src/documents/authors](http
 
 Check it out at `http://localhost:8000/your-post-slug` or just `grunt open:preview`.  It'll regenerate when you change the source files.
 
-When it looks about right
+When it looks right commit and push your post:
+
+    > git add .
+    > git ci -m "Yay. I wrote a post."
+    > git push
+
+And then stage and release:
 
     > grunt stage
-    > cd release && git diff
-
-If that checks out
-
     > grunt release
 
 
