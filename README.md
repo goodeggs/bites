@@ -78,6 +78,22 @@ And then stage and release:
     > grunt stage
     > grunt release
 
+How to promote a post?
+----------------------
+
+For all posts we should:
+
+[ ] Tweet about the post from your personal account (optional)
+[ ] Re-tweet from @GoodEggsBites/@GoodEggsBytes
+[ ] Post to Breaddit: http://goodeggs.meteor.com/submit
+[ ] Email the team?
+
+For posts that feel more substantial:
+
+[ ] Submit to JavaScript Weekly and/or Node Weekly: Email peter@cooperpress.com
+[ ] Submit to Hacker News: https://news.ycombinator.com/submit
+[ ] Let Cathy <cathy@goodeggs.com> know the post exists so it can be included in relevant marketing emails (e.g. how the mobile site was made)
+
 
 Want feedback before you post?
 -----------------------
