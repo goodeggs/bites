@@ -78,10 +78,15 @@ article
   ul.footnotes
     margin 1.2em
 
+  code
+    background #F5F7F7
+    padding 2px
+
   pre > code
     @extend .context-row
     background-color #F5F7F7
     overflow auto
+    border none
 
   p.update
     @extend .context-row
@@ -91,6 +96,25 @@ article
       font-family $heading-font-family
       display block
       margin-bottom 0.3em
+    
+  div.series
+    border 1px solid #333
+    padding 25px
+    margin-bottom 25px
+  
+    blockquote
+      display table-cell
+      margin 0
+      padding 0
+      width 50%
+      vertical-align middle
+
+    ol
+      display table-cell
+      margin-bottom 0
+      font-size 14px
+      line-height 18px
+      padding-left 50px
 
 #content .blog-index
   article
@@ -100,6 +124,10 @@ article
     margin-top 0
   article header
     background: none;
+    
+  article div.series
+    display none
+    
   article h1
     a
       color: inherit;
