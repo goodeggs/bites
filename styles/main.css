@@ -136,12 +136,17 @@ article table.controls caption{text-align:center}
 article table.controls th{text-align:right}
 article table.controls td{padding-left:6px}
 article ul.footnotes{margin:1.2em}
-article pre > code{background-color:#f5f7f7;overflow:auto}
+article code{background:#f5f7f7;padding:2px}
+article pre > code{background-color:#f5f7f7;overflow:auto;border:none}
 article p.update{background-color:#fffff5;}
 article p.update:before{content:'Update:';font-family:MuseoSansRounded,'Helvetica Neue',Helvetica,Arial,sans-serif;display:block;margin-bottom:.3em}
+article div.series{border:1px solid #333;padding:25px;margin-bottom:25px;}
+article div.series blockquote{display:table-cell;margin:0;padding:0;width:50%;vertical-align:middle}
+article div.series ol{display:table-cell;margin-bottom:0;font-size:14px;line-height:18px;padding-left:50px}
 #content .blog-index article{padding-bottom:1.5em;margin-top:18px}
 #content .blog-index article:first-child{margin-top:0}
 #content .blog-index article header{background:none}
+#content .blog-index article div.series{display:none}
 #content .blog-index article h1 a{color:inherit;}
 #content .blog-index article h1 a:hover{color:#007084}
 #content .blog-index a[rel=full-article]{display:inline-block;margin-right:.5em}

@@ -6,7 +6,36 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="./">Bites</a></h1><ul class="unstyled nav"><li><a href="./">Blog</a></li><li><a href="./open_source">Open Source</a></li><li><a href="./news">News</a></li></ul></header><div id="main"><div id="content"><div><section>Bites is the developer site from the team building the platform for local food shopping and distribution at
 <a href="http://www.goodeggs.com">goodeggs.com</a>. Here we share our experiences building applications with
-full-stack JavaScript, our open source projects and insight into a developer's life at Good Eggs.</section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="./posts/good-eggs-goes-mobile/">Good Eggs Goes Mobile</a></h1><p class="meta"><a href="./authors/michael_kebbekus_and_adam_hull/">Michael Kebbekus and Adam Hull</a> on <time datetime="2014-04-11T00:00:00.000Z">April 11th, 2014</time></p></header><div class="entry-content"><p>In the past 6 months, 25% of our traffic came from mobile devices, and those users faced a
+full-stack JavaScript, our open source projects and insight into a developer's life at Good Eggs.</section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="./posts/rivets-for-mobile/">Rivets for Mobile Web</a></h1><p class="meta"><a href="./authors/adam_hull/">Adam Hull</a> on <time datetime="2014-04-20T00:00:00.000Z">April 20th, 2014</time></p></header><div class="entry-content"><div class="series">
+    <blockquote>This is the second article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li><a href="./posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
+        <li><a href="./posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
+        <li>Planning Page Load Sequence</li>
+        <li>HTTP Caching with Fastly</li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
+
+<p>Before coding a phone-sized farmer&#39;s market, the Good Eggs team built
+production sites using tools at both extremes of the javascript application
+ecosystem:  Backbone for our desktop experience and Angular for our internal tools.
+But neither felt quite right for our mobile site.</p>
+<p>We had two priorities for our mobile toolchain: </div><footer><a rel="full-article" href="./posts/rivets-for-mobile/">Continue…</a></footer></article><article><header><h1 class="entry-title"><a href="./posts/good-eggs-goes-mobile/">Good Eggs Goes Mobile</a></h1><p class="meta"><a href="./authors/michael_kebbekus_and_adam_hull/">Michael Kebbekus and Adam Hull</a> on <time datetime="2014-04-11T00:00:00.000Z">April 11th, 2014</time></p></header><div class="entry-content"><div class="series">
+    <blockquote>This is the first article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li><a href="./posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
+        <li><a href="./posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
+        <li>Planning Page Load Sequence</li>
+        <li>HTTP Caching with Fastly</li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
+
+
+<p>In the past 6 months, 25% of our traffic came from mobile devices, and those users faced a
 daunting, near impossible shopping experience. In response, we launched a new
 mobile version of <a href="http://goodeggs.com">goodeggs.com</a> two weeks ago with an
 eye to simplify our major use case of filling your basket with products and
@@ -16,44 +45,7 @@ checking out. To create the mobile experience we considered three options:</p>
 <li>a responsive re-design of our existing website</li>
 <li>building a mobile website from scratch</li>
 </ol>
-<h3 id="native-someday">Native Someday</h3>
-<p>While native mobile apps offer the potential for a superior user experience, our
-first priority was handling the 25% of traffic already coming to our website.
-Even with a nagging banner to download a native app, we&#39;d still have users
-visiting our site on mobile devices. Additionally, we wanted to be able to
-iterate quickly on the mobile platform and not be at the whim of the App Store&#39;s
-approval process nor users&#39; responsibilities to install updates.</p>
-<h3 id="not-responsive-enough">Not Responsive Enough</h3>
-<p>We also ruled out a responsive design pretty quickly. Our requirements for the
-mobile application were to deliver a fast and simple experience. With such small
-screen real estate on the phone, we knew we wanted to completely rethink the
-layouts and content of our pages; a little too complex for fluid grids, and
-media queries.</p>
-<h3 id="fresh-start">Fresh Start</h3>
-<p>Instead of continuing with our &quot;desktop&quot; stack built on
-<a href="http://backbonejs.org/">Backbone</a>, we decided to take the opportunity for a fresh start. 
-With <a href="http://backbonejs.org/">Backbone</a>,
-<a href="http://angularjs.org/">Angular</a>, <a href="http://emberjs.com/">Ember</a>, and other client
-side frameworks, the user has to wait for the JavaScript to be loaded before any
-client side rendering can begin, and we really wanted to prioritize initial page load. 
-We decided for our use cases, we could deliver a better experience by generating HTML on the server side so the phone
-can begin rendering as soon as it starts receiving data from the initial request.</p>
-<p>In the coming weeks, we&#39;ll be taking a deeper dive on some of the major
-architectural decisions we made. Check back to learn about:</p>
-<ul>
-<li><p><strong>Rivets instead of Backbone/Angular/etc.</strong><br><a href="http://www.rivetsjs.com/">Rivets</a>, turned out to be just the right size for this project.  Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.</p>
-</li>
-<li><p><strong>Planning page load sequence for faster initial page load</strong><br>To get food on the screen quickly, we considered each step of the page load cycle: the first packet through user-specific javascript execution.</p>
-</li>
-<li><p><strong>HTTP Caching with <a href="https://www.fastly.com/">Fastly</a></strong><br>Especially with server-side generated HTML, we knew HTTP caching would be our best bet for fast page loads. By normalizing our request headers, separating session information into separate AJAX calls, and setting appropriate cache headers, we achieved significant performance gains.</p>
-</li>
-<li><p><strong>Appropriate image sizes with <a href="http://www.imgix.com/">imgix</a></strong><br>Folks really seem to <em>get</em> GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We&#39;ve found a balance.</p>
-</li>
-<li><p><strong>Integration testing over unit testing</strong><br>We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.</p>
-</li>
-</ul>
-<p>And in the meanwhile, go take a look at <a href="http://goodeggs.com">goodeggs.com</a> in a mobile device and let us know what you think!</p>
-</div></article><article><header><h1 class="entry-title"><a href="./posts/js-hack-for-good/">JS Hack for Good with JSFest</a></h1><p class="meta"><a href="./authors/alon_salant/">Alon Salant</a> on <time datetime="2014-03-04T00:00:00.000Z">March 4th, 2014</time></p></header><div class="entry-content"><p>We&#39;re partnering with <a href="http://jsfest.com">JSFest</a> to host a JavaScript hack night for social good on Sunday evening March 9. JSFest runs March 6-12 in San Francisco.</p>
+</div><footer><a rel="full-article" href="./posts/good-eggs-goes-mobile/">Continue…</a></footer></article><article><header><h1 class="entry-title"><a href="./posts/js-hack-for-good/">JS Hack for Good with JSFest</a></h1><p class="meta"><a href="./authors/alon_salant/">Alon Salant</a> on <time datetime="2014-03-04T00:00:00.000Z">March 4th, 2014</time></p></header><div class="entry-content"><p>We&#39;re partnering with <a href="http://jsfest.com">JSFest</a> to host a JavaScript hack night for social good on Sunday evening March 9. JSFest runs March 6-12 in San Francisco.</p>
 <p>Let&#39;s spend a few hours hacking together to make the world a better place. Bring your project or your desire to help others with theirs. Open source and socially-minded projects are all welcome. If you want to give a short presentation or run a mini workshop we have the facilities and welcome your initiative.</p>
 <p>We&#39;ll kick off with project intros and requests for help to connect hackers with the projects they are interested in.</p>
 <p>Start at 6pm with some great local food and drink to help us all connect, kick off at 6:30pm and doors close at 10:00pm.
@@ -103,22 +95,4 @@ Brooklyn, New Orleans, Los Angeles and beyond.</p>
   For a while I was calling this lexeme <em>restructuring assignment</em> until some on Stack Overflow <a href="http://stackoverflow.com/a/14822198/407845">pointed out that name was ridiculous</a>.  Now I&#39;ve taken to the name <em>structuring expressions</em>.
 </p>
 
-</div><footer><a rel="full-article" href="./post/41935904836/restructuring-assignment-in-coffeescript">Continue…</a></footer></article><article><header><h1 class="entry-title"><a href="./post/40042760798/teacup-coffeescript-templates-for-developer-happiness">Teacup: CoffeeScript Templates for Developer Happiness</a></h1><p class="meta"><a href="./authors/adam_hull/">Adam Hull</a> on <time datetime="2013-01-08T00:00:00.000Z">January 8th, 2013</time></p></header><div class="entry-content"><p><a href="http://goodeggs.github.com/teacup/"><img src="https://raw.github.com/goodeggs/teacup/master/docs/teacup.jpg" alt="Teacup"></a></p>
-<p>We&#8217;ve released a <a href="http://goodeggs.github.com/teacup/">templating language</a> that feels just right for a team of full stack CoffeeScript developers optimizing for developer happiness.  Check out the <a href="http://goodeggs.github.com/teacup/#getting-started">example integrations</a> with Backbone, Express, and Rails, or try it neat in the browser.  Teacup builds on <a href="https://github.com/mark-hahn/drykup">a</a> <a href="https://github.com/markaby/markaby">rich</a> <a href="https://github.com/mauricemach/coffeekup">history</a> of templating in the language of your app to minimize context switching and toolchain duplication while trusting the developer to maintain separation between domain and templating tiers.  Here&#8217;s a quick sample:</p>
-<pre class="highlight"><code class="coffeescript">{renderable, ul, li, input} = <span class="built_in">require</span> <span class="string">'teacup'</span>
-
-template = renderable <span class="function"><span class="params">(teas)</span>-&gt;</span>
-  ul<span class="function"> -&gt;</span>
-    <span class="keyword">for</span> tea <span class="keyword">in</span> teas
-      li tea
-    input <span class="attribute">type</span>: <span class="string">'button'</span>, <span class="attribute">value</span>: <span class="string">'Steep'</span>
-
-console.log template([<span class="string">'Jasmine'</span>, <span class="string">'Darjeeling'</span>])</code></pre>
-<p>Outputs:</p>
-<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">ul</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Jasmine<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">li</span>&gt;</span>Darjeeling<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
-<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">value</span>=<span class="value">"Steep"</span>/&gt;</span></code></pre>
-<p>Try it out!</p>
-</div></article><div class="pagination"><a class="prev" href="./index.1">← Older</a></div></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
+</div><footer><a rel="full-article" href="./post/41935904836/restructuring-assignment-in-coffeescript">Continue…</a></footer></article><div class="pagination"><a class="prev" href="./index.1">← Older</a></div></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
