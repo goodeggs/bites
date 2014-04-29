@@ -81,7 +81,7 @@ And then stage and release:
 How to promote a post?
 ----------------------
 
-For all posts we should:
+#### For all posts we should:
 
 * [ ] Optionally tweet about the post from your personal account
 * [ ] Re/tweet from @GoodEggsEng
@@ -102,7 +102,7 @@ Thanks,
 Michael
 ```
 
-For posts that feel more substantial:
+#### For posts that feel more substantial:
 
 * [ ] Let the relevant project know about it (e.g. a post about Rivets)
  - post to google group
