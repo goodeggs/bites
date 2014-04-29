@@ -71,7 +71,7 @@ Our requirement that candidates are aligned with our mission to grow and sustain
 
 We used to require that team members demonstrate passion for fixing food in this country and a personal commitment to our mission. We've been able to grow an amazing team with that focus but we strive to be more inclusive as we continue to grow. We've realized that what really matters is that members of our team want their work to be toward making positive change in the world and see aligning themselves with Good Eggs as a way to meet that need. It's a subtle change but opens the door to many more amazing people who want to help us achieve our mission.
 
-## How to apply this to your own team
+## How To Apply This To Your Own Team
 
 It's pretty easy to put these suggestions into practice.
 
