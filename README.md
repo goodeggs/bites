@@ -84,9 +84,23 @@ How to promote a post?
 For all posts we should:
 
 * [ ] Optionally tweet about the post from your personal account
-* [ ] (Re-)tweet from @GoodEggsEng
+* [ ] Re/tweet from @GoodEggsEng
 * [ ] Post to Breaddit: http://goodeggs.meteor.com/submit
 * [ ] Email <eng@goodeggs.com> a link to the blog, breaddit, and the tweet.
+```
+To: Engineering
+Subject: [blog post] Good Eggs Goes Mobile
+
+A series of posts about how the Good Eggs mobile site was built written by Adam and me.
+
+Help sprad the word!
+Post - http://bites.goodeggs.com/posts/good-eggs-goes-mobile/
+Breaddit - http://goodeggs.meteor.com/posts/KsJtJMNBY5QT6jiv2
+Twitter - https://twitter.com/GoodEggsEng/status/461273753620455424
+
+Thanks,
+Michael
+```
 
 For posts that feel more substantial:
 
