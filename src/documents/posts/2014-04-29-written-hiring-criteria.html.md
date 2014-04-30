@@ -51,7 +51,7 @@ The goal of your interview process should be to determine how well a candidate m
 
 Before a candidate interviews with our team at Good Eggs, the people who are going to participate in the interview have a short meeting to review our criteria, identify those criteria for which we already have insight and those for which we specifically want to get more. Our existing insights may come from work history, phone conversations, Github...
 
-We've designed our different interview sessions to give us coverage across all of our criteria. Different interviewers are responsible for getting insight into different criteria. When we pass the candidate from one interview to the next, we tell the next interviewer(s) if we have outstanding questions that we would like them to try to answer.
+We've designed our interview sessions to give us coverage across all of our criteria. Different interviewers are responsible for getting insight into different criteria. When we pass the candidate from one interview to the next, we tell the next interviewer(s) if we have outstanding questions that we would like them to try to answer.
 
 When we gather to make a decision on how to move forward we use our criteria to have a focused conversation about the strengths and weaknesses of the candidate. Do they meet the criteria for which we require a "yes" and for the others how well did they perform? If we find that we disagree on our evaluation or have failed to gain insight into one or more of our criteria then we may design next steps to get more insight into those specifics.
 
@@ -67,7 +67,7 @@ Ben Horowitz is a supporter and board member of Code 2040. When asked for his th
 
 A much better approach is to change your criteria so as to be more inclusive without lowering your high standards.
 
-Our requirement that candidates are aligned with our mission to grow and sustain local food systems is interesting to evaluate in this light. In many communities in this country access to basic groceries is hard enough, let alone the amazing local and organic produce we enjoy in California. Some immigrants come from communities that have existing strong food cultures so have less experience with the ills of industrial food in this country.
+Our requirement that candidates are aligned with our mission to grow and sustain local food systems is interesting to evaluate in this light. In many communities in this country basic groceries are hard enough to find, let alone the amazing local and organic produce we enjoy in California. Some immigrants come from communities that have existing strong food cultures so have less experience with the ills of industrial food in this country.
 
 We used to require that team members demonstrate passion for fixing food in this country and a personal commitment to our mission. We've been able to grow an amazing team with that focus but we strive to be more inclusive as we continue to grow. We've realized that what really matters is that members of our team want their work to be toward making positive change in the world and see aligning themselves with Good Eggs as a way to meet that need. It's a subtle change but opens the door to many more amazing people who want to help us achieve our mission.
 
