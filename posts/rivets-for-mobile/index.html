@@ -28,44 +28,44 @@ But neither felt quite right for our mobile site.</p>
 <p>We had two priorities for our mobile toolchain: <!-- more -->the page had to load
 fast, and we had to code ... efficiently. <a href="http://www.rivetsjs.com/">Rivets</a> with its
 declarative data-binding and simple hooks for server-side pre-rendering fit the task well.</p>
-<h2 id="backbone-no">Backbone, No</h2>
+<h2>Backbone, No</h2>
 <p>Backbone had few constraints.  You could imagine a fast page load sequence using it.  For us, it really lost points for developer friendliness.  A seemingly small but pervasive example: <code>Model.get()</code>.  It interrupts my javascript flow.  Do I need <code>.get</code> or just <code>.</code> to traverse this object graph?  Combining <code>get</code> with nested models and objects is especially convoluted.  My mind frequnetly cycled though the permutations: <code>model.get(&#39;address.zip&#39;)</code>, <code>model.get(&#39;address&#39;).get(&#39;zip&#39;)</code>, or <code>model.get(&#39;address&#39;).zip</code> ?  Luckily, recent Android and iOS devices already totalled 85% of our mobile traffic, so we were comfortable relying on ES5&#39;s <code>Object.defineProperty</code> to unlock Rivets native change detection syntax.</p>
-<h2 id="angular-not-yet">Angular, Not Yet</h2>
+<h2>Angular, Not Yet</h2>
 <p>Angular suffered on page load performance.  Following library conventions, we&#39;d have to wait for 100+k of javascript to load, parse, and execute before we could show much of value to our visitor.  Inspired by Bryan McQuade&#39;s <a href="http://calendar.perfplanet.com/2012/make-your-mobile-pages-render-in-under-one-second/">perscription for a fast mobile page</a>, we decided this was unacceptable.  Angular&#39;s declarative binding did speed up code slinging and generate good vibes on projects that used it, so we were glad to discover Rivets&#39;  similar bindings with fewer strong opinions and a much lighter pageweight.</p>
-<h2 id="rivets-use-it-now">Rivets, Use it Now</h2>
+<h2>Rivets, Use it Now</h2>
 <p><a href="http://www.rivetsjs.com/">Rivets</a> is very limited in scope.  With it, you get binding and a little bit of formatting.  That&#39;s it.  We had to decide many more architectural conventions like when to bind and what to bind to (stay tuned for a forthcoming post detailing the page load sequence we settled on).  Two Rivets details emerged worth sharing: binding and nesting contexts.</p>
 <p><img src="../../images/mobile-screenshot.jpg" alt="Mobile screenshot"></p>
 <p>In browsers supporting <code>Object.defineProperty</code>, Rivets will bind to any object.  Rivets docs refer to this object as the context.  We bound simple views directly to domain models.  For more complex views, we wrapped up interaction logic in objects reminiscent of Angular scopes.  These objects exposed methods to be called from bindings or tests.  Consider your shopping basket.  We sum the number of treats you&#39;re getting into a total displayed in the top right corner.  This count is maintained by a binding directly to a basket model.  When you click a plus button, a rivets binding invokes a method on the bound basket model. The same model bound to the view.  These two conventions let us wire up simple bindings with minimal boilerplate (no deciding when to render and re-render) and gave us an expected place to add and test more complex wiring.</p>
 <p>The behavior of the top 50 or so pixels of the mobile site, call it the top bar, changes a lot.  That&#39;s valuable space on a small screen.  We broke the behaviors into several contexts to prevent the complexity from exploding our brains.  Binding multiple contexts to the same DOM tree with Rivets isn&#39;t totally straightforward, but it&#39;s very doable.  Out of the box, when you bind a context to an element, all children elements are bound to the same context. For us, this meant that the basket bindings got the top nav context instead of the basket model. Boom.  Broken.  Luckily Rivets lets you declare custom prefixes for your bindings.  We adopted a convention of prefixing each binding with the name of the context.  This let us bind <code>rv-top-nav-*</code> as soon as the page loaded, and bind <code>rv-basket-*</code> on nested elements later.</p>
-<pre class="highlight"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>,<span class="function"> -&gt;</span>
-  a <span class="string">'.logo'</span>, <span class="attribute">href</span>: <span class="string">"/"</span>,<span class="function"> -&gt;</span>
-      i <span class="string">'.icon.icon-logo'</span>, <span class="attribute">alt</span>: <span class="string">'good eggs'</span>
+<pre class="highlighted"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>, -&gt;
+  a <span class="string">'.logo'</span>, href: <span class="string">"/"</span>, -&gt;
+      i <span class="string">'.icon.icon-logo'</span>, alt: <span class="string">'good eggs'</span>
 
   <span class="comment"># other top nav code ...</span>
 
-  a <span class="string">'#basket.icon'</span>, <span class="attribute">href</span>: <span class="string">"/basket"</span>,<span class="function"> -&gt;</span>
+  a <span class="string">'#basket.icon'</span>, href: <span class="string">"/basket"</span>, -&gt;
     i <span class="string">'.icon.icon-basket'</span>
     div <span class="string">'.items-count'</span>, <span class="string">'rv-basket-text'</span>: <span class="string">'itemsCount'</span>, <span class="string">'0'</span></code></pre>
 <p>And then binding to our objects:</p>
-<pre class="highlight"><code class="coffeescript">module.<span class="function"><span class="title">exports</span> = -&gt;</span>
-  <span class="attribute">state</span>: <span class="string">'full'</span>
+<pre class="highlighted"><code class="coffeescript">module.<span class="function"><span class="title">exports</span></span> = -&gt;
+  state: <span class="string">'full'</span>
 
-  <span class="attribute">bind</span>:<span class="function"> -&gt;</span>
+  bind: -&gt;
     <span class="property">@el</span> = $(<span class="string">'.top-nav'</span>)
 
     rivets.bind <span class="property">@el</span>.toArray(), @,
-      <span class="attribute">config</span>:
-        <span class="attribute">prefix</span>: <span class="string">'rv-top-nav'</span>
+      config:
+        prefix: <span class="string">'rv-top-nav'</span>
 
     @
 
-  <span class="attribute">bindToSession</span>: <span class="function"><span class="params">(session)</span> -&gt;</span>
+  bindToSession: (session) -&gt;
     <span class="property">@user</span> = session.user
 
     rivets.bind $(<span class="string">'#basket'</span>).toArray(), session.basket
-      <span class="attribute">config</span>:
-        <span class="attribute">prefix</span>: <span class="string">'rv-basket'</span>
+      config:
+        prefix: <span class="string">'rv-basket'</span>
 
     @</code></pre>
 <p>Rivets declarative binding rocks for mobile web.  Try it out!</p>
-</div><footer><p class="meta"><a class="basic-alignment left" href="../../posts/good-eggs-goes-mobile/">&laquo; Good Eggs Goes Mobile</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bites.goodeggs.com/posts/rivets-for-mobile/'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
+</div><footer><p class="meta"><a class="basic-alignment left" href="../../posts/good-eggs-goes-mobile/">&laquo; Good Eggs Goes Mobile</a><a class="basic-alignment right" href="../../posts/written-hiring-criteria/">What Are Your Hiring Criteria? &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bites.goodeggs.com/posts/rivets-for-mobile/'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
