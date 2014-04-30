@@ -84,3 +84,4 @@ It's pretty easy to put these suggestions into practice.
 
 If you have additional suggestions on how to create and use effective hiring criteria I'd love to hear from you in the comments.
 
+> This post also appeared on [Sequoia Grove](http://www.sequoiacap.com/grove/posts/eaqj/what-are-your-hiring-criteria) April 30, 2014.
