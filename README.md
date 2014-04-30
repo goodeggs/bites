@@ -109,7 +109,7 @@ Michael
  - email the owner
  - stack overflow search
 * [ ] Submit to Hacker News: https://news.ycombinator.com/submit
-* [ ] Let Cathy <cathy@goodeggs.com> know the post exists so it can be included in relevant marketing emails (e.g. how the mobile site was made)
+* [ ] Let Cathy and the marketing team <social@goodeggs.com> know the post exists so it can be included in relevant marketing emails (e.g. how the mobile site was made)
 * [ ] Submit to JavaScript Weekly and/or Node Weekly: Email <peter@cooperpress.com>
 ![JavaScript Weekly Email Example](https://raw.githubusercontent.com/goodeggs/bites/master/src/files/images/javascript-weekly-example.png)
 
