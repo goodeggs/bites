@@ -1,6 +1,7 @@
 ---
 author: Michael Kebbekus and Adam Hull
 title: Michael Kebbekus and Adam Hull
+photoUrl: https://s3.amazonaws.com/bytes.goodeggs.com/placekitten.jpeg
 
 author1: Michael Kebbekus
 photoUrl1: http://goodeggs.imgix.net/user_profile_photo/CwrDsMCVQ12swxNIqPwY_Michael%20Team%20Photo.jpg?w=150&h=150&fit=crop&crop=faces
