@@ -12,6 +12,12 @@ module.exports =
       googleAnalytics:
         id: 'UA-26193287-5'
 
+    getAuthor: ->
+      @getCollection('authors')
+        .findAllLive(author: @document.author)
+        .first().toJSON()
+
+
   collections:
     posts: (database) ->
       database.findAllLive({relativeOutDirPath: 'posts'}, [date: -1])
@@ -19,6 +25,8 @@ module.exports =
       database.findAllLive({relativeOutDirPath: 'open_source'}, [date: -1, title: 1])
     news: (database) ->
       database.findAllLive({relativeOutDirPath: 'posts', tags: {$has: 'news'}}, [date: -1])
+    authors: (database) ->
+      database.findAllLive({relativeOutDirPath: 'authors'})
 
   plugins:
     datefromfilename:
