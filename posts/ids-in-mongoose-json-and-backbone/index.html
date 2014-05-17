@@ -4,7 +4,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-26193287-5', 'github.io');
-ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><style scoped="scoped">.ids {
+ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><style scoped="scoped">.ids {
   width: 100%;
   margin-bottom: 30px;
   table-layout: fixed;
@@ -22,7 +22,7 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
   font-weight: bold;
   width: 30%;
 }
-</style><header><h1 class="entry-title">Ids in Mongoose, JSON, and Backbone</h1><p class="meta"><a href="../../authors/adam_hull/">Adam Hull</a> on <time datetime="2013-04-02T00:00:00.000Z">April 2nd, 2013</time></p></header><div class="entry-content"><p>Mongoose adds <a href="http://mongoosejs.com/docs/guide.html#id">id sugar</a> on top the default _id document attribute.  Backbone has <a href="http://backbonejs.org/#Model-idAttribute">similar sugar</a>, but the types don&#39;t line up.  Pushing bits between the two with a customary JSON document adds a third representation.</p>
+</style><header><img class="author" src="http://fpio.goodeggs.com/api/file/ziGF1yRt2PAZq3BpMQAA/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Adam Hull" /><h1 class="entry-title">Ids in Mongoose, JSON, and Backbone</h1><p class="meta"><a href="../../authors/adam_hull/">Adam Hull</a> on <time datetime="2013-04-02T00:00:00.000Z">April 2nd, 2013</time></p></header><div class="entry-content"><p>Mongoose adds <a href="http://mongoosejs.com/docs/guide.html#id">id sugar</a> on top the default _id document attribute.  Backbone has <a href="http://backbonejs.org/#Model-idAttribute">similar sugar</a>, but the types don&#39;t line up.  Pushing bits between the two with a customary JSON document adds a third representation.</p>
 <p>If you find yourself typing <code>vegetable.id</code> when you really needed <code>new ObjectID(vegetable.toJSON()._id)</code> this fancy chart might help:
 <!-- more --></p>
 <table class="ids">

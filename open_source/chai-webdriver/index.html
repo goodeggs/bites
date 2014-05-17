@@ -4,14 +4,14 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-26193287-5', 'github.io');
-ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><header><h1 class="entry-title">Chai Webdriver</h1><p class="meta"><a href="../../authors/max_edmands/">Max Edmands</a> on <time datetime="2014-01-13T00:00:00.000Z">January 13th, 2014</time></p></header><div class="entry-content"><p>Provides <a href="https://npmjs.org/package/selenium-webdriver">selenium-webdriver</a> sugar for the <a href="http://chaijs.com/">Chai</a> assertion library. Allows you to create expressive integration tests:</p>
-<pre class="highlighted"><code class="javascript">expect(<span class="string">'.frequency-field'</span>).dom.to.contain.text(<span class="string">'One time'</span>)
+ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="http://fpio.goodeggs.com/api/file/4HBn1HQRvqTW9BdESZVX/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Max Edmands" /><h1 class="entry-title">Chai Webdriver</h1><p class="meta"><a href="../../authors/max_edmands/">Max Edmands</a> on <time datetime="2014-01-13T00:00:00.000Z">January 13th, 2014</time></p></header><div class="entry-content"><p>Provides <a href="https://npmjs.org/package/selenium-webdriver">selenium-webdriver</a> sugar for the <a href="http://chaijs.com/">Chai</a> assertion library. Allows you to create expressive integration tests:</p>
+<pre class="highlight"><code class="javascript">expect(<span class="string">'.frequency-field'</span>).dom.to.contain.text(<span class="string">'One time'</span>)
 expect(<span class="string">'.toggle-pane'</span>).dom.to.not.be.visible()</code></pre>
 <p><a href="https://github.com/goodeggs/chai-webdriver">Check it out on GitHub</a> or:</p>
-<pre class="highlighted"><code class="bash">npm install chai-webdriver</code></pre>
+<pre class="highlight"><code class="bash">npm install chai-webdriver</code></pre>
 <!-- more -->
 
-<h2>What sorts of assertions can we make?</h2>
+<h2 id="what-sorts-of-assertions-can-we-make-">What sorts of assertions can we make?</h2>
 <p>All assertions start with a css selector, for example:</p>
 <ul>
 <li><code>expect(&#39;.list&#39;)</code></li>
@@ -36,11 +36,11 @@ expect(<span class="string">'.toggle-pane'</span>).dom.to.not.be.visible()</code
 <ul>
 <li><code>expect(selector).dom.not.to.have.style(&#39;property&#39;, &#39;value&#39;)</code></li>
 </ul>
-<h2>Caveats</h2>
+<h2 id="caveats">Caveats</h2>
 <p>Right now, we inject an instance of <a href="http://sizzlejs.com/">Sizzle.js</a> onto the page to ease selection. This is not ideal because it might clobber stuff, but it&#39;s a start. And odds are it won&#39;t change anything for you.</p>
-<h2>Setup</h2>
+<h2 id="setup">Setup</h2>
 <p>Setup is pretty easy. Just:</p>
-<pre class="highlighted"><code class="javascript">
+<pre class="highlight"><code class="javascript">
 <span class="comment">// Start with a webdriver instance:</span>
 <span class="keyword">var</span> sw = require(<span class="string">'selenium-webdriver'</span>);
 <span class="keyword">var</span> driver = <span class="keyword">new</span> sw.Builder()
@@ -55,11 +55,11 @@ chai.use chaiWebdriver(driver);
 <span class="comment">// And you're good to go!</span>
 driver.get(<span class="string">'http://github.com'</span>);
 chai.expect(<span class="string">'#site-container h1.heading'</span>).dom.to.not.contain.text(<span class="string">"I'm a kitty!"</span>);</code></pre>
-<h2>Contributing</h2>
+<h2 id="contributing">Contributing</h2>
 <p>so easy.</p>
-<pre class="highlighted"><code class="bash">npm install           <span class="comment"># download the neccesary development dependencies</span>
+<pre class="highlight"><code class="bash">npm install           <span class="comment"># download the neccesary development dependencies</span>
 npm run-script build  <span class="comment"># compile coffee-script into javascript</span>
 npm test              <span class="comment"># build and run the specs</span></code></pre>
-<h2>License</h2>
+<h2 id="license">License</h2>
 <p>MIT.</p>
 </div><footer><p class="meta"></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bites.goodeggs.com/open_source/chai-webdriver/'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>

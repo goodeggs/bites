@@ -4,16 +4,16 @@
         <title><![CDATA[Bites from Good Eggs]]></title>
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
-        <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Wed, 30 Apr 2014 17:06:58 GMT</lastBuildDate>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Sat, 17 May 2014 01:28:18 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Wed, 30 Apr 2014 17:06:53 GMT</pubDate>
+        <pubDate>Sat, 17 May 2014 01:28:14 GMT</pubDate>
         <item>
             <title><![CDATA[What Are Your Hiring Criteria?]]></title>
             <description><![CDATA[<p>What are the criteria you use when hiring for your team? Have you written them down?</p>
 <p>Lots of people think they have clear criteria for hiring but have never taken the time to write them down. Written criteria are an important component of an effective hiring process. In this post I&#39;ll share some guidance on establishing clear criteria, how to use them to design an efficient interview process, and the role they play in developing diversity on your team.</p>
-<h2>Defining Your Hiring Criteria</h2>
+<h2 id="defining-your-hiring-criteria">Defining Your Hiring Criteria</h2>
 <p>There are a number strategies you can use to get to your criteria. If you haven&#39;t already you could probably just write them down right now and have something to work with. That&#39;s a fine start. Sharing them with your team for review and revision is likely to make them even better.</p>
 <p>Another approach is to actively engage your team in developing your criteria. You can get pretty far with this short exercise.</p>
 <ul>
@@ -35,23 +35,23 @@
 </ul>
 <p>Even with this short list of criteria you&#39;ll notice that there are differences. The first two can be more easily answered with yes/no while the third really needs to be evaluated on a scale. For us, the first two are also must-haves, while the third is desired but not required.</p>
 <p>This is fine. Just be clear on which criteria are must-haves versus which ones you have as criteria because insight into how well a candidate meets that criteria will be important in your hiring decision.</p>
-<h2>Disqualifying Criteria</h2>
+<h2 id="disqualifying-criteria">Disqualifying Criteria</h2>
 <p>If a candidate meets any of your disqualifying criteria it means that you will definitely not hire them. Many of your must-have criteria can simply be inverted to create a disqualifier. The useful disqualifiers are the ones that can be easily evaluated and therefore used early in your process. Be sure to call them out in your written criteria and use them in the initial screening of candidates.</p>
 <p>At Good Eggs, we consider it a disqualifier if a candidate does not value our mission to grow and sustain local food systems. So we are sure to get an understanding of a candidate&#39;s relation to food and their desire to work on a social cause. If you&#39;re solely interested in Good Eggs because you&#39;re stoked to work with Node.js, it&#39;s not going to work out.</p>
-<h2>Hiring Criteria and Your Interview Process</h2>
+<h2 id="hiring-criteria-and-your-interview-process">Hiring Criteria and Your Interview Process</h2>
 <p>The goal of your interview process should be to determine how well a candidate meets your criteria and therefore if you want to invite them to join your team. By the time your interviews are done you should be able to discuss the candidate in relation to each of the criteria.</p>
 <p>Before a candidate interviews with our team at Good Eggs, the people who are going to participate in the interview have a short meeting to review our criteria, identify those criteria for which we already have insight and those for which we specifically want to get more. Our existing insights may come from work history, phone conversations, Github...</p>
 <p>We&#39;ve designed our interview sessions to give us coverage across all of our criteria. Different interviewers are responsible for getting insight into different criteria. When we pass the candidate from one interview to the next, we tell the next interviewer(s) if we have outstanding questions that we would like them to try to answer.</p>
 <p>When we gather to make a decision on how to move forward we use our criteria to have a focused conversation about the strengths and weaknesses of the candidate. Do they meet the criteria for which we require a &quot;yes&quot; and for the others how well did they perform? If we find that we disagree on our evaluation or have failed to gain insight into one or more of our criteria then we may design next steps to get more insight into those specifics.</p>
 <p>Occasionally the situation comes up when a candidate appears to meet our criteria yet we are not inclined to make a decision to hire. This is a clear indication that we are using implicit criteria in addition to our explicit written criteria. If you find yourself in this situation, take the time to articulate the reason why you do not want to hire and modify your criteria to include it.</p>
-<h2>Hiring Criteria and Diversity</h2>
+<h2 id="hiring-criteria-and-diversity">Hiring Criteria and Diversity</h2>
 <p>The first important step in supporting diversity in hiring is to be sure that you are using explicit rather than implicit criteria. Implicit criteria are too easily subject to personal biases and inconsistent application across candidates. Explicit written criteria can be used consistently for all candidates and are easier to evaluate and revise for inclusiveness.</p>
 <p>In February I attended an orientation for <a href="http://code2040.org/">Code 2040</a> hosted at the offices of Andreesen Horowitz. Code 2040 is an organization that creates internship opportunities in Silicon Valley for black and latino engineering students from across the country. We are thrilled to have a Code 2040 alum, Estefanía Ortiz, joining us an intern for summer 2014.</p>
 <p>Ben Horowitz is a supporter and board member of Code 2040. When asked for his thoughts on general strategies for improving diversity on teams he talked about hiring criteria in a way that helped to expand my thinking and appreciate the value of the criteria we already had in place. He said that a common approach to increasing diversity on a team is to effectively lower the standards for hiring. Hiring managers think that in order to make positions available to more people they need to lower their bar. This approach is a poor one because neither a new hire nor the existing team is happy knowing that the bar has been lowered.</p>
 <p>A much better approach is to change your criteria so as to be more inclusive without lowering your high standards.</p>
 <p>Our requirement that candidates are aligned with our mission to grow and sustain local food systems is interesting to evaluate in this light. In many communities in this country basic groceries are hard enough to find, let alone the amazing local and organic produce we enjoy in California. Some immigrants come from communities that have existing strong food cultures so have less experience with the ills of industrial food in this country.</p>
 <p>We used to require that team members demonstrate passion for fixing food in this country and a personal commitment to our mission. We&#39;ve been able to grow an amazing team with that focus but we strive to be more inclusive as we continue to grow. We&#39;ve realized that what really matters is that members of our team want their work to be toward making positive change in the world and see aligning themselves with Good Eggs as a way to meet that need. It&#39;s a subtle change but opens the door to many more amazing people who want to help us achieve our mission.</p>
-<h2>How To Apply This To Your Own Team</h2>
+<h2 id="how-to-apply-this-to-your-own-team">How To Apply This To Your Own Team</h2>
 <p>It&#39;s pretty easy to put these suggestions into practice.</p>
 <ol>
 <li>Write down your criteria</li>
@@ -67,8 +67,7 @@
 </blockquote>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/written-hiring-criteria/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/written-hiring-criteria/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/written-hiring-criteria/</guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Tue, 29 Apr 2014 00:00:00 GMT</pubDate>
         </item>
@@ -93,50 +92,49 @@ But neither felt quite right for our mobile site.</p>
 <p>We had two priorities for our mobile toolchain: <!-- more -->the page had to load
 fast, and we had to code ... efficiently. <a href="http://www.rivetsjs.com/">Rivets</a> with its
 declarative data-binding and simple hooks for server-side pre-rendering fit the task well.</p>
-<h2>Backbone, No</h2>
+<h2 id="backbone-no">Backbone, No</h2>
 <p>Backbone had few constraints.  You could imagine a fast page load sequence using it.  For us, it really lost points for developer friendliness.  A seemingly small but pervasive example: <code>Model.get()</code>.  It interrupts my javascript flow.  Do I need <code>.get</code> or just <code>.</code> to traverse this object graph?  Combining <code>get</code> with nested models and objects is especially convoluted.  My mind frequnetly cycled though the permutations: <code>model.get(&#39;address.zip&#39;)</code>, <code>model.get(&#39;address&#39;).get(&#39;zip&#39;)</code>, or <code>model.get(&#39;address&#39;).zip</code> ?  Luckily, recent Android and iOS devices already totalled 85% of our mobile traffic, so we were comfortable relying on ES5&#39;s <code>Object.defineProperty</code> to unlock Rivets native change detection syntax.</p>
-<h2>Angular, Not Yet</h2>
+<h2 id="angular-not-yet">Angular, Not Yet</h2>
 <p>Angular suffered on page load performance.  Following library conventions, we&#39;d have to wait for 100+k of javascript to load, parse, and execute before we could show much of value to our visitor.  Inspired by Bryan McQuade&#39;s <a href="http://calendar.perfplanet.com/2012/make-your-mobile-pages-render-in-under-one-second/">perscription for a fast mobile page</a>, we decided this was unacceptable.  Angular&#39;s declarative binding did speed up code slinging and generate good vibes on projects that used it, so we were glad to discover Rivets&#39;  similar bindings with fewer strong opinions and a much lighter pageweight.</p>
-<h2>Rivets, Use it Now</h2>
+<h2 id="rivets-use-it-now">Rivets, Use it Now</h2>
 <p><a href="http://www.rivetsjs.com/">Rivets</a> is very limited in scope.  With it, you get binding and a little bit of formatting.  That&#39;s it.  We had to decide many more architectural conventions like when to bind and what to bind to (stay tuned for a forthcoming post detailing the page load sequence we settled on).  Two Rivets details emerged worth sharing: binding and nesting contexts.</p>
 <p><img src="/images/mobile-screenshot.jpg" alt="Mobile screenshot"></p>
 <p>In browsers supporting <code>Object.defineProperty</code>, Rivets will bind to any object.  Rivets docs refer to this object as the context.  We bound simple views directly to domain models.  For more complex views, we wrapped up interaction logic in objects reminiscent of Angular scopes.  These objects exposed methods to be called from bindings or tests.  Consider your shopping basket.  We sum the number of treats you&#39;re getting into a total displayed in the top right corner.  This count is maintained by a binding directly to a basket model.  When you click a plus button, a rivets binding invokes a method on the bound basket model. The same model bound to the view.  These two conventions let us wire up simple bindings with minimal boilerplate (no deciding when to render and re-render) and gave us an expected place to add and test more complex wiring.</p>
 <p>The behavior of the top 50 or so pixels of the mobile site, call it the top bar, changes a lot.  That&#39;s valuable space on a small screen.  We broke the behaviors into several contexts to prevent the complexity from exploding our brains.  Binding multiple contexts to the same DOM tree with Rivets isn&#39;t totally straightforward, but it&#39;s very doable.  Out of the box, when you bind a context to an element, all children elements are bound to the same context. For us, this meant that the basket bindings got the top nav context instead of the basket model. Boom.  Broken.  Luckily Rivets lets you declare custom prefixes for your bindings.  We adopted a convention of prefixing each binding with the name of the context.  This let us bind <code>rv-top-nav-*</code> as soon as the page loaded, and bind <code>rv-basket-*</code> on nested elements later.</p>
-<pre class="highlighted"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>, -&gt;
-  a <span class="string">'.logo'</span>, href: <span class="string">"/"</span>, -&gt;
-      i <span class="string">'.icon.icon-logo'</span>, alt: <span class="string">'good eggs'</span>
+<pre class="highlight"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>,<span class="function"> -&gt;</span>
+  a <span class="string">'.logo'</span>, <span class="attribute">href</span>: <span class="string">"/"</span>,<span class="function"> -&gt;</span>
+      i <span class="string">'.icon.icon-logo'</span>, <span class="attribute">alt</span>: <span class="string">'good eggs'</span>
 
   <span class="comment"># other top nav code ...</span>
 
-  a <span class="string">'#basket.icon'</span>, href: <span class="string">"/basket"</span>, -&gt;
+  a <span class="string">'#basket.icon'</span>, <span class="attribute">href</span>: <span class="string">"/basket"</span>,<span class="function"> -&gt;</span>
     i <span class="string">'.icon.icon-basket'</span>
     div <span class="string">'.items-count'</span>, <span class="string">'rv-basket-text'</span>: <span class="string">'itemsCount'</span>, <span class="string">'0'</span></code></pre>
 <p>And then binding to our objects:</p>
-<pre class="highlighted"><code class="coffeescript">module.<span class="function"><span class="title">exports</span></span> = -&gt;
-  state: <span class="string">'full'</span>
+<pre class="highlight"><code class="coffeescript">module.<span class="function"><span class="title">exports</span> = -&gt;</span>
+  <span class="attribute">state</span>: <span class="string">'full'</span>
 
-  bind: -&gt;
+  <span class="attribute">bind</span>:<span class="function"> -&gt;</span>
     <span class="property">@el</span> = $(<span class="string">'.top-nav'</span>)
 
     rivets.bind <span class="property">@el</span>.toArray(), @,
-      config:
-        prefix: <span class="string">'rv-top-nav'</span>
+      <span class="attribute">config</span>:
+        <span class="attribute">prefix</span>: <span class="string">'rv-top-nav'</span>
 
     @
 
-  bindToSession: (session) -&gt;
+  <span class="attribute">bindToSession</span>: <span class="function"><span class="params">(session)</span> -&gt;</span>
     <span class="property">@user</span> = session.user
 
     rivets.bind $(<span class="string">'#basket'</span>).toArray(), session.basket
-      config:
-        prefix: <span class="string">'rv-basket'</span>
+      <span class="attribute">config</span>:
+        <span class="attribute">prefix</span>: <span class="string">'rv-basket'</span>
 
     @</code></pre>
 <p>Rivets declarative binding rocks for mobile web.  Try it out!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/rivets-for-mobile/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/rivets-for-mobile/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/rivets-for-mobile/</guid>
             <dc:creator><![CDATA[Adam Hull]]></dc:creator>
             <pubDate>Fri, 25 Apr 2014 00:00:00 GMT</pubDate>
         </item>
@@ -167,20 +165,20 @@ checking out. To create the mobile experience we considered three options:</p>
 </ol>
 <!-- more -->
 
-<h3>Native Someday</h3>
+<h3 id="native-someday">Native Someday</h3>
 <p>While native mobile apps offer the potential for a superior user experience, our
 first priority was handling the 25% of traffic already coming to our website.
 Even with a nagging banner to download a native app, we&#39;d still have users
 visiting our site on mobile devices. Additionally, we wanted to be able to
 iterate quickly on the mobile platform and not be at the whim of the App Store&#39;s
 approval process nor users&#39; responsibilities to install updates.</p>
-<h3>Not Responsive Enough</h3>
+<h3 id="not-responsive-enough">Not Responsive Enough</h3>
 <p>We also ruled out a responsive design pretty quickly. Our requirements for the
 mobile application were to deliver a fast and simple experience. With such small
 screen real estate on the phone, we knew we wanted to completely rethink the
 layouts and content of our pages; a little too complex for fluid grids, and
 media queries.</p>
-<h3>Fresh Start</h3>
+<h3 id="fresh-start">Fresh Start</h3>
 <p>Instead of continuing with our &quot;desktop&quot; stack built on
 <a href="http://backbonejs.org/">Backbone</a>, we decided to take the opportunity for a fresh start. 
 With <a href="http://backbonejs.org/">Backbone</a>,
@@ -206,8 +204,7 @@ architectural decisions we made. Check back to learn about:</p>
 <p>And in the meanwhile, go take a look at <a href="http://goodeggs.com">goodeggs.com</a> in a mobile device and let us know what you think!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/good-eggs-goes-mobile/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/good-eggs-goes-mobile/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/good-eggs-goes-mobile/</guid>
             <dc:creator><![CDATA[Michael Kebbekus and Adam Hull]]></dc:creator>
             <pubDate>Fri, 11 Apr 2014 00:00:00 GMT</pubDate>
         </item>
@@ -221,8 +218,7 @@ A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB an
 <p><a href="http://www.meetup.com/cultivate/events/167399892/">Reserve your spot</a> and we&#39;ll see you Sunday!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/js-hack-for-good/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/js-hack-for-good/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/js-hack-for-good/</guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Tue, 04 Mar 2014 00:00:00 GMT</pubDate>
         </item>
@@ -232,20 +228,20 @@ A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB an
 <p>So how does this apply to our work as an engineering team and what other core values keep us aligned, excited and productive? We took some time to articulate our values as a team which I am presenting here as a first draft of our Software Development Manifesto.</p>
 <!-- more -->
 
-<h2>We believe</h2>
+<h2 id="we-believe">We believe</h2>
 <p><em>We believe</em> that technology can be used to make the world a better place.</p>
 <p><em>We believe</em> in building beautiful things that improve people’s lives.</p>
 <p><em>We believe</em> that when given an opportunity to create positive change, you act on it.</p>
 <p><em>We believe</em> in the value of exploration and innovation.</p>
 <p><em>We believe</em> that reshaping our food system is a direct way to care for people and our planet.</p>
-<h2>What we do</h2>
+<h2 id="what-we-do">What we do</h2>
 <p><strong>We create change</strong><br/>
 We’re building software to power a new, alternative food system: One that supports high-integrity farmers and foodmakers and enables them to compete with the industrial food complex. A system that helps all families eat well and enables them to support the future they want to see. A system where the folks doing things right are the ones who succeed.</p>
 <p><strong>We make real things with real impact</strong><br/>
 Yesterday we were writing the code for a new application now being tested by local farmers. Tomorrow we’ll be collecting feedback and improving on it. We’re constantly delivering new experiences and tools into the hands of our customers and producers, all of which are designed to make their lives easier.</p>
 <p><strong>We’re tackling hard problems</strong><br/>
 Working with food is complex with lots of variables to solve for, from weather patterns to traffic patterns. We’re innovating across the worlds of online retail, inventory management and delivery logistics to name a few, and are constantly working to make our systems and processes work even better.</p>
-<h2>How we do it</h2>
+<h2 id="how-we-do-it">How we do it</h2>
 <p><strong>We use radical tools for radical change</strong><br/>
 We&#39;re members of and contributors to an open source community that is defining new ways to build applications with Node.js and full stack JavaScript. We&#39;re adventurous and use technologies that inspire us to innovate and solve problems in new ways.</p>
 <p><strong>We stay nimble</strong><br/>
@@ -255,8 +251,7 @@ There is no best way, only better and better ways. We&#39;re building systems th
 <p>It’s the technology at the heart of Good Eggs that will enable us to scale and make real change. We’re using technology to think big in service of the small. We’re building the systems that help local farmers sell enough to actually make a living. We’re creating efficient logistics that mean parents can trade a trip to the grocery store for time to read the kids another bedtime story. We’re fueling a food system that will feed everyone well, and we’re psyched to be doing it. Because the better we work, the better the world we all live in.</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/manifesto/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/manifesto/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/manifesto/</guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Tue, 25 Feb 2014 00:00:00 GMT</pubDate>
         </item>
@@ -278,55 +273,55 @@ There is no best way, only better and better ways. We&#39;re building systems th
 </ul>
 <!-- more -->
 
-<h2>require, exports and module.exports</h2>
+<h2 id="require-exports-and-module-exports">require, exports and module.exports</h2>
 <p>First some fundamentals.</p>
 <p>In Node requiring a file is requiring the module it defines. All modules have a reference to an implicit <code>module</code> object whose property <code>module.exports</code> is what is returned when you call <code>require</code>. A reference to <code>module.exports</code> is also available as <code>exports</code>.</p>
 <p>It&#39;s as if there were an implicit line at the beginning of each module that reads:</p>
-<pre class="highlighted"><code class="delphi"><span class="keyword">var</span> <span class="keyword">exports</span> = module.<span class="keyword">exports</span> = <span class="comment">{}</span>;</code></pre>
+<pre class="highlight"><code class="coffeescript"><span class="reserved">var</span> <span class="built_in">exports</span> = module.<span class="built_in">exports</span> = {};</code></pre>
 <p>If you want to export a function, you have to assign it to <code>module.exports</code>. Assigning a function to <code>exports</code> would just reassign the <code>exports</code> reference but <code>module.exports</code> would still point at the original empty object.</p>
 <p>So we can define a module <code>function.js</code> that exports a function:</p>
-<pre class="highlighted"><code class="matlab"><span class="transposed_variable">module.</span>exports = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+<pre class="highlight"><code class="matlab"><span class="transposed_variable">module.</span>exports = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
   <span class="keyword">return</span> <span class="cell">{name: <span class="string">'Jane'</span>}</span>;
 };</code></pre>
 <p>and require it with:</p>
-<pre class="highlighted"><code class="php"><span class="keyword">var</span> func = <span class="keyword">require</span>(<span class="string">'./function'</span>);</code></pre>
+<pre class="highlight"><code class="php"><span class="keyword">var</span> func = <span class="keyword">require</span>(<span class="string">'./function'</span>);</code></pre>
 <p>An important behavior of <code>require</code> is that it caches the value of <code>module.exports</code> and returns that same value for all future calls to <code>require</code>. It caches based on the absolute file path of the required file. So if you want your module to be able to return different values, you should have it export a function that can then be invoked to return a new value.</p>
 <p>To demonstrate with the Node REPL:</p>
-<pre class="highlighted"><code class="ruby"><span class="variable">$ </span>node
-&gt; f1 = <span class="keyword">require</span>(<span class="string">'/Users/alon/Projects/export_this/function'</span>);
-[<span class="constant">Function</span>]
-&gt; f2 = <span class="keyword">require</span>(<span class="string">'./function'</span>); <span class="regexp">//</span> <span class="constant">Same</span> location
-[<span class="constant">Function</span>]
-&gt; f1 === f2
-<span class="keyword">true</span>
-&gt; f1() === f2()
-<span class="keyword">false</span></code></pre>
+<pre class="highlight"><code class="delphi">$ node
+&gt; f1 = require(<span class="string">'/Users/alon/Projects/export_this/function'</span>);
+[<span class="function"><span class="keyword">Function</span>]
+&gt; <span class="title">f2</span> = <span class="title">require</span><span class="params">(<span class="string">'./function'</span>)</span>;</span> <span class="comment">// Same location</span>
+[<span class="function"><span class="keyword">Function</span>]
+&gt; <span class="title">f1</span> === <span class="title">f2</span>
+<span class="title">true</span>
+&gt; <span class="title">f1</span><span class="params">()</span> === <span class="title">f2</span><span class="params">()</span>
+<span class="title">false</span></span></code></pre>
 <p>You can see that <code>require</code> is returning the same function instance but that the objects returned by that function are different instances for each call.</p>
 <p>For more detail on Node&#39;s module system <a href="http://nodejs.org/api/modules.html">the core docs</a> provide good detail and are worth a read.</p>
 <p>And now on to the interface patterns.</p>
 <p><a name='namespace'></a></p>
-<h2>Exports a Namespace</h2>
+<h2 id="exports-a-namespace">Exports a Namespace</h2>
 <p>A simple and common pattern is to export an object with a number of properties, primarily but not limited to functions. This allows the code requiring the module to pull in a collection of related functionality under a single namespace.</p>
 <p>When you require a module that exports a namespace, you&#39;ll usually either assign the entire namespace to a variable and use its members through that reference, or assign members directly to local variables:</p>
-<pre class="highlighted"><code class="haskell"><span class="title">var</span> fs = require('fs'),
-    readFile = fs.readFile,
-    <span class="type">ReadStream</span> = fs.<span class="type">ReadStream</span>;
+<pre class="highlight"><code class="scilab">var fs = require(<span class="string">'fs'</span>),
+    readFile = <span class="transposed_variable">fs.</span>readFile,
+    ReadStream = <span class="transposed_variable">fs.</span>ReadStream;
 
-<span class="title">readFile</span>('./file.txt', function(err, <span class="typedef"><span class="keyword">data</span>) <span class="container">{
-  <span class="title">console</span>.<span class="title">log</span>("<span class="title">readFile</span> <span class="title">contents</span>: '%<span class="title">s'</span>", <span class="title">data</span>);
-}</span>);</span>
+readFile(<span class="string">'./file.txt'</span>, <span class="function"><span class="keyword">function</span><span class="params">(err, data)</span> {</span>
+  <span class="transposed_variable">console.</span>log(<span class="string">"readFile contents: '</span>%<span class="transposed_variable">s'</span><span class="string">", data);
+});
 
-<span class="title">new</span> <span class="type">ReadStream</span>('./file.txt').on('<span class="typedef"><span class="keyword">data</span>', function<span class="container">(<span class="title">data</span>)</span> <span class="container">{
-  <span class="title">console</span>.<span class="title">log</span>("<span class="type">ReadStream</span> <span class="title">contents</span>: '%<span class="title">s'</span>", <span class="title">data</span>);
-}</span>);</span></code></pre>
+new ReadStream('</span>./<span class="transposed_variable">file.</span><span class="transposed_variable">txt'</span>).on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
+  <span class="transposed_variable">console.</span>log(<span class="string">"ReadStream contents: '</span>%<span class="transposed_variable">s'</span><span class="string">", data);
+});</span></code></pre>
 <p>Here&#39;s what the <a href="https://github.com/joyent/node/blob/e5346932bcbc523489c9418b82fde31cb666ee99/lib/fs.js#L33"><code>fs</code> core module</a> is doing:</p>
-<pre class="highlighted"><code class="nginx"><span class="title">var</span> fs = exports;</code></pre>
+<pre class="highlight"><code class="coffeescript"><span class="reserved">var</span> fs = <span class="built_in">exports</span>;</code></pre>
 <p>It first assigns the local variable <code>fs</code> to the implicit exports object and then assigns function references to properties of <code>fs</code>. Because <code>fs</code> references <code>exports</code> and exports is the object you get when you call <code>require(&#39;fs&#39;)</code> anything assigned to <code>fs</code> will be available on the object you get from <code>require</code>.</p>
-<pre class="highlighted"><code class="r">fs.readFile = <span class="keyword">function</span>(path, options, callback_) {
+<pre class="highlight"><code class="r">fs.readFile = <span class="keyword">function</span>(path, options, callback_) {
   // <span class="keyword">...</span>
 };</code></pre>
 <p>Anything is fair game. It then exports a constructor:</p>
-<pre class="highlighted"><code class="r">fs.ReadStream = ReadStream;
+<pre class="highlight"><code class="r">fs.ReadStream = ReadStream;
 
 <span class="keyword">function</span> ReadStream(path, options) {
   // <span class="keyword">...</span>
@@ -335,7 +330,7 @@ ReadStream.prototype.open = <span class="keyword">function</span>() {
   // <span class="keyword">...</span>
 }</code></pre>
 <p>When exporting a namespace, you can assign properties to <code>exports</code> as the <code>fs</code> module does above, or assign a new object to <code>module.exports</code>.</p>
-<pre class="highlighted"><code class="r">module.exports = {
+<pre class="highlight"><code class="r">module.exports = {
   version: <span class="string">'1.0'</span>,
 
   doSomething: <span class="keyword">function</span>() {
@@ -343,20 +338,20 @@ ReadStream.prototype.open = <span class="keyword">function</span>() {
   }
 }</code></pre>
 <p>A common use of exporting a namespace is to export the root of another module so that one require statement gives the caller access to a number of other modules. At Good Eggs, we implement each of our domain models in a separate module that exports the model constructor (see <a href="#constructor">Exports a Constructor</a> below) and then have an index file in the directory where the models live that exports all of the models. This allows us to pull in our models under a <code>models</code> namespace.</p>
-<pre class="highlighted"><code class="apache">var models = <span class="keyword">require</span>('./models'),
-    <span class="keyword">User</span> = models.<span class="keyword">User</span>,
+<pre class="highlight"><code class="php"><span class="keyword">var</span> models = <span class="keyword">require</span>(<span class="string">'./models'</span>),
+    User = models.User,
     Product = models.Product;</code></pre>
 <p>For CoffeeScript users, <a href="http://coffeescript.org/#destructuring">destructuring assignment</a> make this even cleaner.</p>
-<pre class="highlighted"><code class="apache">{<span class="keyword">User</span>, Product} = <span class="keyword">require</span> './models'</code></pre>
+<pre class="highlight"><code class="ruby">{<span class="constant">User</span>, <span class="constant">Product</span>} = <span class="keyword">require</span> <span class="string">'./models'</span></code></pre>
 <p><code>index.js</code> might look like:</p>
-<pre class="highlighted"><code class="apache">exports.<span class="keyword">User</span> = <span class="keyword">require</span>('./<span class="keyword">user</span>');
-exports.Person = <span class="keyword">require</span>('./person');</code></pre>
+<pre class="highlight"><code class="ruby">exports.<span class="constant">User</span> = <span class="keyword">require</span>(<span class="string">'./user'</span>);
+exports.<span class="constant">Person</span> = <span class="keyword">require</span>(<span class="string">'./person'</span>);</code></pre>
 <p>In reality, we use a small library that requires all sibling files and exports their modules with CamelCase names so the <code>index.js</code> file in our models directory actually reads:</p>
-<pre class="highlighted"><code class="ruby"><span class="keyword">module</span>.exports = <span class="keyword">require</span>(<span class="string">'../lib/require_siblings'</span>)(__filename);</code></pre>
+<pre class="highlight"><code class="ruby"><span class="keyword">module</span>.exports = <span class="keyword">require</span>(<span class="string">'../lib/require_siblings'</span>)(__filename);</code></pre>
 <p><a name='function'></a></p>
-<h2>Exports a Function</h2>
+<h2 id="exports-a-function">Exports a Function</h2>
 <p>Another pattern is to export a function as the interface to a module. A common use of this pattern is to export a factory function that returns an object when invoked. We see this when using <a href="http://expressjs.com">Express.js</a>:</p>
-<pre class="highlighted"><code class="php"><span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>);
+<pre class="highlight"><code class="php"><span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>);
 <span class="keyword">var</span> app = express();
 
 app.get(<span class="string">'/hello'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
@@ -364,7 +359,7 @@ app.get(<span class="string">'/hello'</span>, <span class="function"><span class
 });</code></pre>
 <p>The function exported by Express is used to create a new Express application. In your own use of this pattern, your factory function may take arguments used to configure or initialize the object returned.</p>
 <p>To export a function, you must assign your function to module.exports. <a href="https://github.com/visionmedia/express/blob/2e68ddbae9cec2d0b22f48f35ef4da964f51949e/lib/express.js#L18">Express does</a>:</p>
-<pre class="highlighted"><code class="r">exports = module.exports = createApplication;
+<pre class="highlight"><code class="r">exports = module.exports = createApplication;
 
 <span class="keyword">...</span>
 
@@ -373,18 +368,18 @@ app.get(<span class="string">'/hello'</span>, <span class="function"><span class
 }</code></pre>
 <p>It&#39;s assigning the <code>createApplication</code> function to <code>module.exports</code> and then to the implicit <code>exports</code> variable. Now <code>exports</code> is the function that the module exports.</p>
 <p>Express also uses this exported function as a namespace:</p>
-<pre class="highlighted"><code class="profile"><span class="filename">exports.version = '3.1.1';</code></pre>
+<pre class="highlight"><code class="haskell"><span class="title">exports</span>.version = '<span class="number">3.1</span><span class="number">.1</span>';</code></pre>
 <p>Note that there&#39;s nothing to stop us from using the exported function as a namespace that can expose references to other functions, constructors or objects serving as namespaces themselves.</p>
 <p>When exporting a function, it is good practice to name the function so that it will show up in stack traces. Note the stack trace differences in these two examples:</p>
-<pre class="highlighted"><code class="javascript"><span class="comment">// bomb1.js</span>
+<pre class="highlight"><code class="javascript"><span class="comment">// bomb1.js</span>
 module.exports = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
   <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'boom'</span>);
 };</code></pre>
-<pre class="highlighted"><code class="javascript"><span class="comment">// bomb2.js</span>
+<pre class="highlight"><code class="javascript"><span class="comment">// bomb2.js</span>
 module.exports = <span class="function"><span class="keyword">function</span> <span class="title">bomb</span><span class="params">()</span> {</span>
   <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'boom'</span>);
 };</code></pre>
-<pre class="highlighted"><code class="r">$ node
+<pre class="highlight"><code class="r">$ node
 &gt; bomb = <span class="keyword">require</span>(<span class="string">'./bomb1'</span>);
 [Function]
 &gt; bomb()
@@ -401,65 +396,65 @@ Error: boom
     <span class="keyword">...</span></code></pre>
 <p>There are a couple specific cases of exporting a function that are worth calling out as distinct patterns.</p>
 <p><a name='higher_order_function'></a></p>
-<h2>Exports a Higher Order Function</h2>
+<h2 id="exports-a-higher-order-function">Exports a Higher Order Function</h2>
 <p>A higher-order function, or functor, is a function that  takes one or more functions as an input and/or outputs a function. We&#39;re talking about the latter case - a function that returns a function.</p>
 <p>Exporting a higher order function is a useful pattern when you want to return a function from your module but need to take input that controls the behavior of that function.</p>
 <p><a href="http://www.senchalabs.org/connect/">Connect middleware</a> provide a lot of pluggable functionality for Express and other web frameworks. A middleware is a function that takes three arguments - <code>(req, res, next)</code>. The convention in connect middleware is to export a function that when called returns the middleware function. This allows the exported function to take arguments that can be used to configure the middleware and are available through closure scope to the middleware when it is handling a request.</p>
 <p>For example, here&#39;s the connect <a href="http://www.senchalabs.org/connect/query.html"><code>query</code> middleware</a> used internally by Express to parse query string parameters into a an object available as <code>req.query</code>.</p>
-<pre class="highlighted"><code class="php"><span class="keyword">var</span> connect = <span class="keyword">require</span>(<span class="string">'connect'</span>),
+<pre class="highlight"><code class="php"><span class="keyword">var</span> connect = <span class="keyword">require</span>(<span class="string">'connect'</span>),
     query = <span class="keyword">require</span>(<span class="string">'connect/lib/middleware/query'</span>);
 
 <span class="keyword">var</span> app = connect();
 app.<span class="keyword">use</span>(query({maxKeys: <span class="number">100</span>}));</code></pre>
 <p>The <code>query</code> source looks like:</p>
-<pre class="highlighted"><code class="lua">var qs = <span class="built_in">require</span>(<span class="string">'qs'</span>)
-  , parse = <span class="built_in">require</span>(<span class="string">'../utils'</span>).parseUrl;
+<pre class="highlight"><code class="scilab">var qs = require(<span class="string">'qs'</span>)
+  , parse = require(<span class="string">'../utils'</span>).parseUrl;
 
-<span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(options)</span></span>{
-  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(req, res, next)</span></span>{
-    <span class="keyword">if</span> (!req.query) {
-      req.query = ~req.url.indexOf(<span class="string">'?'</span>)
-        ? qs.parse(parse(req).query, options)
+<span class="transposed_variable">module.</span>exports = <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(options)</span>{</span>
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(req, res, next)</span>{</span>
+    <span class="keyword">if</span> (!<span class="transposed_variable">req.</span>query) {
+      <span class="transposed_variable">req.</span>query = ~<span class="transposed_variable">req.</span><span class="transposed_variable">url.</span>indexOf(<span class="string">'?'</span>)
+        ? <span class="transposed_variable">qs.</span>parse(parse(req).query, options)
         : {};
     }
 
-    <span class="built_in">next</span>();
+    next();
   };
 };</code></pre>
 <p>For every request handled by the <code>query</code> middleware, the <code>options</code> argument available through closure scope is passed along to Node&#39;s core <code>qs</code> (query string) module.</p>
 <p>This is a common and very flexible pattern for module design and one you are likely to find very useful in your own work.</p>
 <p><a name='constructor'></a></p>
-<h2>Exports a Constructor</h2>
+<h2 id="exports-a-constructor">Exports a Constructor</h2>
 <p>We define classes in JavaScript with constructor functions and create instances of classes with the <code>new</code> keyword.</p>
-<pre class="highlighted"><code class="delphi"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> <span class="comment">{
-  this.name = name;
-}</span>
+<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> {</span>
+  <span class="transposed_variable">this.</span>name = name;
+}
 
-<span class="title">Person</span>.<span class="title">prototype</span>.<span class="title">greet</span> = <span class="title">function</span><span class="params">()</span> <span class="comment">{
-  return "Hi, I'm Jane.";
-}</span>;</span>
+<span class="transposed_variable">Person.</span><span class="transposed_variable">prototype.</span>greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">return</span> <span class="string">"Hi, I'</span>m <span class="transposed_variable">Jane.</span><span class="string">";
+};
 
-<span class="keyword">var</span> person = new Person(<span class="string">'Jane'</span>);
-console.log(person.greet()); <span class="comment">// prints: Hi, I'm Jane</span></code></pre>
+var person = new Person('</span><span class="transposed_variable">Jane'</span>);
+<span class="transposed_variable">console.</span>log(<span class="transposed_variable">person.</span>greet()); <span class="comment">// prints: Hi, I'm Jane</span></code></pre>
 <p>For this pattern implement a class-per-file and export the constructor to make your project organization clear and to make it easy for other developers to find the implementation of a class. At Good Eggs, we implement classes in files with underscore_names and assign them to CamelCase names.</p>
-<pre class="highlighted"><code class="php"><span class="keyword">var</span> Person = <span class="keyword">require</span>(<span class="string">'./person'</span>);
+<pre class="highlight"><code class="php"><span class="keyword">var</span> Person = <span class="keyword">require</span>(<span class="string">'./person'</span>);
 
 <span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>);</code></pre>
 <p>The implementation might look like:</p>
-<pre class="highlighted"><code class="delphi"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> <span class="comment">{
-  this.name = name;
-}</span>
+<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> {</span>
+  <span class="transposed_variable">this.</span>name = name;
+}
 
-<span class="title">Person</span>.<span class="title">prototype</span>.<span class="title">greet</span> = <span class="title">function</span><span class="params">()</span> <span class="comment">{
-  return "Hi, I'm " + this.name;
-}</span>;</span>
+<span class="transposed_variable">Person.</span><span class="transposed_variable">prototype.</span>greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">return</span> <span class="string">"Hi, I'</span>m <span class="string">" + this.name;
+};
 
-module.<span class="keyword">exports</span> = Person;</code></pre>
+module.exports = Person;</span></code></pre>
 <p><a name='singleton'></a></p>
-<h2>Exports a Singleton</h2>
+<h2 id="exports-a-singleton">Exports a Singleton</h2>
 <p>Export a <a href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton</a> when you want all users of your module to share the state and behavior of a single class instance.</p>
 <p><a href="http://mongoosejs.com">Mongoose</a> is an object-document mapping library used to create rich domain models persisted in MongoDB.</p>
-<pre class="highlighted"><code class="r">var mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>);
+<pre class="highlight"><code class="r">var mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>);
 mongoose.connect(<span class="string">'mongodb://localhost/test'</span>);
 
 var Cat = mongoose.model(<span class="string">'Cat'</span>, { name: String });
@@ -470,7 +465,7 @@ kitty.save(<span class="keyword">function</span> (err) {
   console.log(<span class="string">'meow'</span>);
 });</code></pre>
 <p>What is that <code>mongoose</code> object we get back when we require Mongoose? Internally, the <code>mongoose</code> module is doing:</p>
-<pre class="highlighted"><code class="r"><span class="keyword">function</span> Mongoose() {
+<pre class="highlight"><code class="r"><span class="keyword">function</span> Mongoose() {
   //<span class="keyword">...</span>
 }
 
@@ -478,19 +473,19 @@ module.exports = exports = new Mongoose();</code></pre>
 <p>Because <code>require</code> caches the value assigned to <code>module.exports</code>, all calls to <code>require(&#39;mongoose&#39;)</code> will return this same instance ensuring that it is a singleton in our application. Mongoose uses an object-oriented design to encapsulate and decouple functionality, maintain state and support readability and comprehension, but creates a simple interface to users by creating and exporting an instance of the Mongoose class.</p>
 <p>It also uses this singleton instance as a namespace to make other constructors available if needed by the user, including the Mongoose constructor itself. You might use the <code>Mongoose</code> constructor to create additional instances of mongoose connecting to additional MongoDB databases.</p>
 <p>Internally, Mongoose does:</p>
-<pre class="highlighted"><code class="avrasm">Mongoose<span class="preprocessor">.prototype</span><span class="preprocessor">.Mongoose</span> = Mongoose<span class="comment">;</span></code></pre>
+<pre class="highlight"><code class="avrasm">Mongoose<span class="preprocessor">.prototype</span><span class="preprocessor">.Mongoose</span> = Mongoose<span class="comment">;</span></code></pre>
 <p>So that you can do:</p>
-<pre class="highlighted"><code class="php"><span class="keyword">var</span> mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>),
+<pre class="highlight"><code class="php"><span class="keyword">var</span> mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>),
     Mongoose = mongoose.Mongoose;
 
 <span class="keyword">var</span> myMongoose = <span class="keyword">new</span> Mongoose();
 myMongoose.connect(<span class="string">'mongodb://localhost/test'</span>);</code></pre>
 <p><a name='global_object'></a></p>
-<h2>Extends a Global Object</h2>
+<h2 id="extends-a-global-object">Extends a Global Object</h2>
 <p>A required module can do more than just export a value. It can also modify global objects or objects returned when requiring other modules. It can define new global objects. It can just do this or do this in addition to exporting something useful.</p>
 <p>Use this pattern when you need to extend or alter the behavior of global objects to provide the behavior delivered by your module. While certainly controversial and to be used judiciously (especially in open source work), this pattern can also be indispensable.</p>
 <p><a href="https://github.com/visionmedia/should.js">Should.js</a> is an assertion library designed to be used in unit testing:</p>
-<pre class="highlighted"><code class="matlab">require(<span class="string">'should'</span>);
+<pre class="highlight"><code class="matlab">require(<span class="string">'should'</span>);
 
 var user = <span class="cell">{
     name: <span class="string">'Jane'</span>
@@ -498,7 +493,7 @@ var user = <span class="cell">{
 
 <span class="transposed_variable">user.</span><span class="transposed_variable">name.</span><span class="transposed_variable">should.</span>equal(<span class="string">'Jane'</span>);</code></pre>
 <p>Should.js <a href="https://github.com/visionmedia/should.js/blob/68000f47d01408cacb80441a1d9bf10ba423e54c/lib/should.js#L107-L113">extends Object with a non-enumerable property <code>should</code></a> to provide a clean syntax for writing unit test asserts. Internally, <code>should.js</code> does:</p>
-<pre class="highlighted"><code class="r">var should = <span class="keyword">function</span>(obj) {
+<pre class="highlight"><code class="r">var should = <span class="keyword">function</span>(obj) {
   <span class="keyword">return</span> new Assertion(util.isWrapperType(obj) ? obj.valueOf(): obj);
 };
 
@@ -517,30 +512,29 @@ Object.defineProperty(Object.prototype, <span class="string">'should'</span>, {
 });</code></pre>
 <p>Note that while Should.js exports the <code>should</code> function its primary use is through the <code>should</code> function it has added to <code>Object</code>.</p>
 <p><a name='monkey_patch'></a></p>
-<h2>Applies a Monkey Patch</h2>
+<h2 id="applies-a-monkey-patch">Applies a Monkey Patch</h2>
 <p>By <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey patch</a> I&#39;m referring to &quot;the dynamic modifications of a class or module at runtime, motivated by the intent to patch existing third-party code as a workaround to a bug or feature which does not act as desired.&quot;</p>
 <p>Implement a module to patch an existing module when it doesn&#39;t provide an interface to customizing its behavior in the way you need. This pattern is a variant of the previous. Instead of modifying a global object, we are relying on the caching behavior of Node&#39;s module system to patch the same instance of a module that other code gets when it requires that module.</p>
 <p>By default Mongoose names MongoDB collections by lowercasing and pluralizing the model name. For a model named <code>CreditCardAccountEntry</code> we&#39;d end up with a collection named <code>creditcardaccountentries</code>. I prefer <code>credit_card_account_entries</code> and I want this behavior universally.</p>
 <p>Here&#39;s the source for a module that patches <code>mongoose.model</code> when the module is required:</p>
-<pre class="highlighted"><code class="php"><span class="keyword">var</span> Mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>).Mongoose;
+<pre class="highlight"><code class="php"><span class="keyword">var</span> Mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>).Mongoose;
 <span class="keyword">var</span> _ = <span class="keyword">require</span>(<span class="string">'underscore'</span>);
 
 <span class="keyword">var</span> model = Mongoose.prototype.model;
-<span class="keyword">var</span> modelWithUnderScoreCollectionName = function(name, schema, collection, skipInit) {
+<span class="keyword">var</span> modelWithUnderScoreCollectionName = <span class="function"><span class="keyword">function</span><span class="params">(name, schema, collection, skipInit)</span> {</span>
   collection = collection || _(name).chain().underscore().pluralize().value();
   model.call(<span class="keyword">this</span>, name, schema, collection, skipInit);
 };
 Mongoose.prototype.model = modelWithUnderScoreCollectionName;</code></pre>
 <p>When this module is required for the first time, it requires <code>mongoose</code>, redefines <code>Mongoose.prototype.model</code> and delegates back to the original implementation of <code>model</code>. Now all instances of <code>Mongoose</code> will have this new behavior. Note that it does not modify <code>exports</code> so the value returned to <code>require</code> will be the default empty <code>exports</code> object.</p>
 <p>As a side note, if you do choose to monkey patch existing code, use a chaining technique similar to my example above. Add your behavior then delegate back to the original implementation. While not foolproof, it is the safest way to patch third party code allowing you to take advantage of future updates to the library and minimizing conflict with other patches that may be applied.</p>
-<h2>Export Away!</h2>
+<h2 id="export-away-">Export Away!</h2>
 <p>The Node module system provides a simple mechanism for encapsulating functionality and creating clear interfaces to your code. I hope the seven patterns here are a useful breakdown of different strategies available to you.</p>
 <p>I haven&#39;t been exhaustive and there are certainly other options available but I have attempted to describe the most common and useful. Have I missed anything that should be included here?</p>
 <p><em>Thanks to the incredibly prolific Node developer community for all the open source work from which I have done most of my learning. I encourage you to read the code of the libraries you are using and to find the great developers out there with clear, consistent and readable styles that can inspire your own. Special shout out to <a href="https://github.com/visionmedia">TJ Holowaychuk</a> whose work on Express.js, Connect and Should.js are referenced above.</em></p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/export-this/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/export-this/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/export-this/</guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Sun, 12 Jan 2014 00:00:00 GMT</pubDate>
         </item>
@@ -566,11 +560,11 @@ Mongoose.prototype.model = modelWithUnderScoreCollectionName;</code></pre>
 <p>As Good Eggs CTO Alon Salant said in an opening statement, &quot;We are building tools that affect real people in the real world. It&#39;s about affecting real change in someone&#39;s work to enhance their life.&quot;</p>
 <p>The event kicked off with with a delicious bang: <a href="http://www.goodeggs.com/loveandhummus">Love &amp; Hummus</a> delivered an exceptional dining experience. Hearty falafel wraps, homemade tahini sauce, spicy hummus, sultry baklava, and mint-garnish lemonade.</p>
 <p>If your mouth isn&#39;t watering yet, wait till you sink your teeth into the presentations.</p>
-<h2>Hanging up on Callbacks - [More than] Flow Control w/ECMAScript 6 Generators</h2>
+<h2 id="hanging-up-on-callbacks-more-than-flow-control-w-ecmascript-6-generators">Hanging up on Callbacks - [More than] Flow Control w/ECMAScript 6 Generators</h2>
 <p><a href="http://www.carbonfive.com/employee/erin-swenson-healey">Erin Swanson-Healey</a> from Carbon Five gave a thorough walk-through into dealing with asynchronous callbacks in Javascript. With charisma and charm he  stated that we have new ways to deal with &quot;callback hell&quot;.</p>
 <p>New Solution: <a href="http://www.2ality.com/2013/06/iterators-generators.html">ECMAScript 6</a> provides generators, which alleviates some of challenges that are associated with asynchronous callbacks.</p>
 <p>Read Erin&#39;s <a href="http://blog.carbonfive.com/2013/12/01/hanging-up-on-callbacks-generators-in-ecmascript-6/">detailed blog post</a> on the topic, and check out his <a href="https://docs.google.com/a/goodeggs.com/presentation/d/1c23KjxQIoKKjho2wnjRXdJhmWd6X3g10B5ggC1DUE0M/edit#slide=id.p">slides</a> from the presentation here.</p>
-<h2>Whats new in Node v0.12.</h2>
+<h2 id="whats-new-in-node-v0-12-">Whats new in Node v0.12.</h2>
 <p>Next up was <a href="https://github.com/piscisaureus">Bert Belder</a> from StrongLoop. Bert is one of the principal authors of <a href="http://nikhilm.github.io/uvbook/introduction.html">libuv</a>, which is the library on which Node.js is built. Needless to say, we were stoked to see him present at the first Cultivate meetup!</p>
 <p>Bert provided insight into:</p>
 <ul>
@@ -580,9 +574,9 @@ Mongoose.prototype.model = modelWithUnderScoreCollectionName;</code></pre>
 <li>Multi-context</li>
 </ul>
 <p>Read more about <a href="http://strongloop.com/strongblog/whats-new-in-node-js-v0-12-cluster-round-robin-load-balancing/">cluster round-robin load balancing</a> from StrongLoop. For kicks, here is <a href="http://www.youtube.com/watch?v=QnO6Uut4Ao8">a video of Bert at LXJS 2013</a> - being a boss!</p>
-<h2>MongoDB Performance Fundamentals for Web Apps</h2>
+<h2 id="mongodb-performance-fundamentals-for-web-apps">MongoDB Performance Fundamentals for Web Apps</h2>
 <p><a href="http://www.goodeggs.com/about/team/sfbay/522103184f08c30300000028">Adam Hull</a> from Good Eggs was our final presenter, and he finished strong! We were lucky to have insights from Adam into performance, speed, and use of Mongo. The presentation ended with a pretty long Q&amp;A session that surfaced  answers to some questions that the collective developer community seemed to have been yearning to ask. Many of the remarks were confirmed with a head-nod from two developers from MongoLab in the audience. Head nods and &quot;ah ha&#39;s&quot; all around!</p>
-<h2>Lightning Talks</h2>
+<h2 id="lightning-talks">Lightning Talks</h2>
 <p>Flashing through in 5-minute intervals, our speedy speakers were able to capture the audience with cool projects and insights, including:</p>
 <ul>
 <li>Jessica Lam - <a href="http://www.sgrbx.io/#/play/sHMVrO1jg8">real-time collaboration with sugarbox.io</a></li>
@@ -597,8 +591,7 @@ Mongoose.prototype.model = modelWithUnderScoreCollectionName;</code></pre>
 <p>Cheers!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/first-cultivate-meetup/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/first-cultivate-meetup/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/first-cultivate-meetup/</guid>
             <dc:creator><![CDATA[Kevin Uland]]></dc:creator>
             <pubDate>Fri, 06 Dec 2013 00:00:00 GMT</pubDate>
         </item>
@@ -620,7 +613,7 @@ Brooklyn, New Orleans, Los Angeles and beyond.</p>
 <p>We have a dedicated product team working on each of these domains. A product team consists of
 a product lead, four to six engineers and a designer. Engineers regularly rotate among teams so we get the great
 cross-pollination and learning that comes from collaborating with new people.</p>
-<h2>Local food shopping</h2>
+<h2 id="local-food-shopping">Local food shopping</h2>
 <p><a href="http://www.goodeggs.com">GoodEggs.com</a> is a great online food shopping experience that is more convenient than going to the grocery store while
 supporting a direct connection to the people producing your food. Today you can shop in any of four foodsheds
 (SF Bay, Brooklyn, New Orleans, Los Angeles) and buy food directly from hundreds of farmers or foodmakers for fulfillment
@@ -631,7 +624,7 @@ Coming up for this team is creating a search experience to help you find exactly
 stories and media about the many farmers and foodmakers that power Good Eggs, a mobile
 app so that you can buy those salad greens right when you think of it instead of adding to your grocery list, and features
 to help you discover more great food from your friends and family who are also eating well on Good Eggs.</p>
-<h2>Producer business tools</h2>
+<h2 id="producer-business-tools">Producer business tools</h2>
 <p>Our tools for farmers and foodmakers enable them to manage their products and inventory,
 create promotions and do their own customer service by issuing refunds and communicating directly with their customers.
 They receive email alerts when shoppers buy their products
@@ -641,7 +634,7 @@ largely run off paper and spreadsheets, we&#39;ve already made a world of differ
 improving the mobile experience since these people are more often on a phone than at a computer. We&#39;re looking at ways to
 use the data about what people are buying and when to help these businesses make better decisions about what to plant, raise
 and prepare in order to run more efficient and profitable businesses.</p>
-<h2>Just-in-time logistics</h2>
+<h2 id="just-in-time-logistics">Just-in-time logistics</h2>
 <p>Our logistics systems power a new kind of food distribution characterized by just-in-time fulfillment through our
 physical food hubs in San Francisco, Brooklyn, New Orleans and Los Angeles. We receive food from producers in the morning,
 start packing orders at 11am and have the first vehicles going out by 1pm to delivery and pickup locations. All food that
@@ -659,15 +652,14 @@ is already using our new tablet-based receiving app, code-named Kale and built w
 temperature/cold chain for chill and frozen items, and identify issues to be handled by customer service. On deck is an
 app for our drivers to easily follow their delivery routes, communicate with customers on the go and provide a more personalized
 experience when they arrive at their door.</p>
-<h2>The Future</h2>
+<h2 id="the-future">The Future</h2>
 <p>We&#39;ve got our work cut out for us. As our teams grow in other foodsheds, one of the best ways we can serve them is
 to deliver great software that embodies the effective practices we have developed scaling up our San Francisco foodhub.
 These practices continue to evolve so we&#39;re building these systems to be as simple and malleable as possible. One thing
 that we can rely on for the future is that we will always be learning, changing and improving.</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/fall-2013/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/fall-2013/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/fall-2013/</guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Mon, 30 Sep 2013 00:00:00 GMT</pubDate>
         </item>
@@ -678,28 +670,27 @@ that we can rely on for the future is that we will always be learning, changing 
 <!-- more -->
 
 <p>Let&#39;s say we&#39;ve got a fibrous function <code>f</code> that synchronously calls asychronous function <code>g</code>:</p>
-<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> g = <span class="keyword">function</span>(callback) {
-  setTimeout(<span class="keyword">function</span>() {
+<pre class="highlight"><code class="javascript"><span class="keyword">var</span> g = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
+  setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
     console.log(<span class="string">'g done'</span>);
     callback();
   }, <span class="number">1000</span>);
 };
 
-<span class="keyword">var</span> f = fibrous(<span class="keyword">function</span>() {
+<span class="keyword">var</span> f = fibrous(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
   g.sync();
   console.log(<span class="string">'f done'</span>);
 };</code></pre>
 <p>When we call <code>f</code> we wait one second, log <code>&#39;g done&#39;</code>, then log <code>&#39;f done&#39;</code>.  We need to halt <code>f</code> before the <code>console.log</code>, but <code>f</code> has no yield expressions.  It cannot be halted with any combination of ES6 generators.  Tough break.</p>
 <hr>
-<h3>Related</h3>
+<h3 id="related">Related</h3>
 <ul>
 <li><a href="http://taskjs.org/">Task.js</a> seems like a great way to get fibrous-like behavior within the generator constraints.  Still waiting on <a href="https://github.com/mozilla/task.js/issues/28">ES6 syntax support</a> and a <a href="https://github.com/mozilla/task.js/issues/17">CommonJS module published to NPM</a>.</li>
 <li>Fellow coffee lovers, the proposed <a href="https://github.com/jashkenas/coffee-script/pull/3078">coffee script syntax for generators</a> is a &#39;lil fugly and worth checking out.</li>
 </ul>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/fibrous-on-harmony-generators/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/fibrous-on-harmony-generators/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/fibrous-on-harmony-generators/</guid>
             <dc:creator><![CDATA[Adam Hull]]></dc:creator>
             <pubDate>Sat, 17 Aug 2013 00:00:00 GMT</pubDate>
         </item>
@@ -722,8 +713,7 @@ that we can rely on for the future is that we will always be learning, changing 
   <tr><td><a href="http://backbonejs.org/#Model-get">model.get()</td><td>∅</td><td>String</td></tr>
 </table>]]></description>
             <link>http://goodeggs.github.io/bites/posts/ids-in-mongoose-json-and-backbone/</link>
-            <guid isPermaLink="true">
-                http://goodeggs.github.io/bites/posts/ids-in-mongoose-json-and-backbone/            </guid>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/ids-in-mongoose-json-and-backbone/</guid>
             <dc:creator><![CDATA[Adam Hull]]></dc:creator>
             <pubDate>Tue, 02 Apr 2013 00:00:00 GMT</pubDate>
         </item>

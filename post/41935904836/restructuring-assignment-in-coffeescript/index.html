@@ -4,7 +4,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-26193287-5', 'github.io');
-ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../../">Blog</a></li><li><a href="../../../open_source">Open Source</a></li><li><a href="../../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><header><h1 class="entry-title">Structuring Expressions in CoffeeScript</h1><p class="meta"><a href="../../../authors/adam_hull/">Adam Hull</a> on <time datetime="2013-02-12T00:00:00.000Z">February 12th, 2013</time></p></header><div class="entry-content"><p>CoffeeScript can save as many keystrokes putting objects together as it can taking them apart.</p>
+ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../../">Blog</a></li><li><a href="../../../open_source">Open Source</a></li><li><a href="../../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="http://fpio.goodeggs.com/api/file/ziGF1yRt2PAZq3BpMQAA/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Adam Hull" /><h1 class="entry-title">Structuring Expressions in CoffeeScript</h1><p class="meta"><a href="../../../authors/adam_hull/">Adam Hull</a> on <time datetime="2013-02-12T00:00:00.000Z">February 12th, 2013</time></p></header><div class="entry-content"><p>CoffeeScript can save as many keystrokes putting objects together as it can taking them apart.</p>
 <p class="update">
   For a while I was calling this lexeme <em>restructuring assignment</em> until some on Stack Overflow <a href="http://stackoverflow.com/a/14822198/407845">pointed out that name was ridiculous</a>.  Now I&#39;ve taken to the name <em>structuring expressions</em>.
 </p>
@@ -13,62 +13,62 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bit
 
 <p>Sure <a href="http://blog.carbonfive.com/2011/09/28/destructuring-assignment-in-coffeescript/">C5 told you all about</a> CoffeeScript’s <a href="http://coffeescript.org/#destructuring">destructing assignment</a> syntax for objects…</p>
 <p>How it can reach deep into nested structures</p>
-<pre class="highlighted"><code class="coffeescript">coffee&gt; user = name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state:
+<pre class="highlight"><code class="coffeescript">coffee&gt; user = <span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span>, <span class="attribute">address</span>: { <span class="attribute">city</span>: <span class="string">'Anytown'</span>, <span class="attribute">state</span>:
 <span class="string">'AL'</span> }
-{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state: <span class="string">'AL'</span> } }
+{ <span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span>, <span class="attribute">address</span>: { <span class="attribute">city</span>: <span class="string">'Anytown'</span>, <span class="attribute">state</span>: <span class="string">'AL'</span> } }
 
-coffee&gt; { address: { city, state } } = user
-{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span>, address: { city: <span class="string">'Anytown'</span>, state: <span class="string">'AL'</span> } }
+coffee&gt; { <span class="attribute">address</span>: { city, state } } = user
+{ <span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span>, <span class="attribute">address</span>: { <span class="attribute">city</span>: <span class="string">'Anytown'</span>, <span class="attribute">state</span>: <span class="string">'AL'</span> } }
 
 coffee&gt; city
 <span class="string">'Anytown'</span></code></pre>
 <p>Or pluck apart function arguments</p>
-<pre class="highlighted"><code class="coffeescript"><span class="function"><span class="title">displayName</span></span> = ({ name, age }) -&gt;
+<pre class="highlight"><code class="coffeescript"><span class="function"><span class="title">displayName</span> = <span class="params">({ name, age })</span> -&gt;</span>
   console.log <span class="string">"<span class="subst">#{name}</span>, <span class="subst">#{age}</span> year(s) old"</span>
 
-coffee&gt; displayName name: <span class="string">'Foo'</span>, age: <span class="number">42</span>
+coffee&gt; displayName <span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span>
 Foo, <span class="number">42</span> year(s) old</code></pre>
 <p>Or even destructure directly to instance attributes</p>
-<pre class="highlighted"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
-  constructor: ({ <span class="property">@name</span>, <span class="property">@age</span> }) -&gt;
+<pre class="highlight"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+  <span class="attribute">constructor</span>: <span class="function"><span class="params">({ <span class="property">@name</span>, <span class="property">@age</span> })</span> -&gt;</span>
 
-coffee&gt; <span class="keyword">new</span> User(name: <span class="string">'Foo'</span>, age: <span class="number">42</span>)
-{ name: <span class="string">'foo'</span>, age: <span class="number">42</span> }</code></pre>
+coffee&gt; <span class="keyword">new</span> User(<span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span>)
+{ <span class="attribute">name</span>: <span class="string">'foo'</span>, <span class="attribute">age</span>: <span class="number">42</span> }</code></pre>
 <p>But what does this do?</p>
-<pre class="highlighted"><code class="coffeescript">coffee&gt; age = <span class="number">42</span>
+<pre class="highlight"><code class="coffeescript">coffee&gt; age = <span class="number">42</span>
 <span class="number">42</span>
 
 coffee&gt; user = { <span class="string">'Foo'</span>, age }
 ?</code></pre>
 <p>My fudge-fingers managed to mash that one unknowingly into my editor one day while attempting to rack up velocity points on the latest story. Instead of hemorrhaging the expected SyntaxError, it evaluated to this beautiful new object</p>
-<pre class="highlighted"><code class="coffeescript">{ Foo: <span class="string">'Foo'</span>, age: <span class="number">42</span> }</code></pre>
+<pre class="highlight"><code class="coffeescript">{ <span class="attribute">Foo</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span> }</code></pre>
 <p>Now I’ve got a handy set syntax</p>
-<pre class="highlighted"><code class="coffeescript">coffee&gt; <span class="number">2</span> <span class="keyword">of</span> { <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span> }
+<pre class="highlight"><code class="coffeescript">coffee&gt; <span class="number">2</span> <span class="keyword">of</span> { <span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span> }
 <span class="literal">true</span>
 
 coffee&gt; <span class="number">2</span> <span class="keyword">of</span> { <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span> }
 <span class="literal">false</span></code></pre>
 <p>And with consistent variable naming, breezy data marshaling between some framework actors</p>
-<pre class="highlighted"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
-  constructor: ({ <span class="property">@name</span>, <span class="property">@age</span> }) -&gt;
+<pre class="highlight"><code class="coffeescript"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>
+  <span class="attribute">constructor</span>: <span class="function"><span class="params">({ <span class="property">@name</span>, <span class="property">@age</span> })</span> -&gt;</span>
 
-<span class="function"><span class="title">template</span></span> = ({ user, face }) -&gt;
+<span class="function"><span class="title">template</span> = <span class="params">({ user, face })</span> -&gt;</span>
   <span class="string">"&lt;div&gt;<span class="subst">#{user.name}</span> <span class="subst">#{face}</span>&lt;/div&gt;"</span>
 
 <span class="class"><span class="keyword">class</span> <span class="title">UserView</span></span>
-  constructor: ({ <span class="property">@user</span> }) -&gt;
+  <span class="attribute">constructor</span>: <span class="function"><span class="params">({ <span class="property">@user</span> })</span> -&gt;</span>
 
-  render: -&gt;
+  <span class="attribute">render</span>:<span class="function"> -&gt;</span>
     <span class="property">@html</span> = template {
       <span class="property">@user</span>
-      face: <span class="string">':)'</span>
+      <span class="attribute">face</span>: <span class="string">':)'</span>
     }
 
-coffee&gt; user = <span class="keyword">new</span> User(name: <span class="string">'Foo'</span>, age: <span class="number">42</span>)
-{ name: <span class="string">'Foo'</span>, age: <span class="number">42</span> }
+coffee&gt; user = <span class="keyword">new</span> User(<span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span>)
+{ <span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span> }
 
 coffee&gt; view = <span class="keyword">new</span> UserView {user}
-{ user: { name: <span class="string">'Foo'</span>, age: <span class="number">42</span> } }
+{ <span class="attribute">user</span>: { <span class="attribute">name</span>: <span class="string">'Foo'</span>, <span class="attribute">age</span>: <span class="number">42</span> } }
 
 coffee&gt; view.render()
 <span class="string">'&lt;div&gt;Foo :)&lt;/div&gt;'</span></code></pre>

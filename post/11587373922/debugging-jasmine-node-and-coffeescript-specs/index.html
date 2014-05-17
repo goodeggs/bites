@@ -4,13 +4,13 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-26193287-5', 'github.io');
-ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../../">Blog</a></li><li><a href="../../../open_source">Open Source</a></li><li><a href="../../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="hentry" role="article"><header><h1 class="entry-title">Debugging jasmine-node and CoffeeScript specs</h1><p class="meta"><a href="../../../authors/alon_salant/">Alon Salant</a> on <time datetime="2011-10-17T00:00:00.000Z">October 17th, 2011</time></p></header><div class="entry-content"><p>We’re writing our node apps in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a>, debugging with <a href="https://github.com/dannycoates/node-inspector">node-inspector</a> and testing with <a href="https://github.com/mhevery/jasmine-node">jasmine-node</a>.
+ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../../">Blog</a></li><li><a href="../../../open_source">Open Source</a></li><li><a href="../../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="http://fpio.goodeggs.com/api/file/dr8oggORaYMYXX016dAQ/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Alon Salant" /><h1 class="entry-title">Debugging jasmine-node and CoffeeScript specs</h1><p class="meta"><a href="../../../authors/alon_salant/">Alon Salant</a> on <time datetime="2011-10-17T00:00:00.000Z">October 17th, 2011</time></p></header><div class="entry-content"><p>We’re writing our node apps in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a>, debugging with <a href="https://github.com/dannycoates/node-inspector">node-inspector</a> and testing with <a href="https://github.com/mhevery/jasmine-node">jasmine-node</a>.
 </p></p>
 <p>
 jasmine-node does not provide a mechanism to pass command line options to node, so to run a spec with debugging enabled, you <!-- more -->run jasmine-node with:
 </p>
 
-<pre class="highlighted"><code class="bash">node --debug-brk node_modules/jasmine-node/lib/jasmine-node/cli.js \
+<pre class="highlight"><code class="bash">node --debug-brk node_modules/jasmine-node/lib/jasmine-node/cli.js \
   specs/app.spec.js</code></pre>
 <p>
 This will stop the debugger on the first line of cli.js. Open node-inspector in your browser per it’s instructions and you’ll see the debugger stopped there. Put a ‘debugger;’ line at the spot in your code where you want to stop and debug, continue execution and you’ll be at the ‘debugger;’ line. Good to go.
@@ -19,7 +19,7 @@ This will stop the debugger on the first line of cli.js. Open node-inspector in 
 To do the same thing for a spec written in CoffeeScript, you would run jasmine-node with:
 </p>
 
-<pre class="highlighted"><code class="bash">node --debug-brk node_modules/jasmine-node/lib/jasmine-node/cli.js \
+<pre class="highlight"><code class="bash">node --debug-brk node_modules/jasmine-node/lib/jasmine-node/cli.js \
   --coffee specs/app.spec.coffee</code></pre>
 <p>
 We aren’t entirely happy with jasmine-node. For example it automatically requires all spec helpers and copies their exported methods and objects to GLOBAL. It’s support for asynchronous specs is fairly primitive.
@@ -28,39 +28,39 @@ We aren’t entirely happy with jasmine-node. For example it automatically requi
 We took a quick stab at writing a new runner for jasmine that would run our coffee node specs. The following uses only the TerminalReporter that comes with the jasmine-node npm module and the version of Jasmine that it bundles:
 </p>
 
-<pre class="highlighted"><code class="coffeescript">process.env.NODE_ENV = <span class="string">'test'</span> <span class="keyword">unless</span> process.env.NODE_ENV?
+<pre class="highlight"><code class="coffeescript">process.env.NODE_ENV = <span class="string">'test'</span> <span class="keyword">unless</span> process.env.NODE_ENV?
 
-sys = require <span class="string">"sys"</span>
-_ = require <span class="string">"underscore"</span>
+sys = <span class="built_in">require</span> <span class="string">"sys"</span>
+_ = <span class="built_in">require</span> <span class="string">"underscore"</span>
 
 dir = <span class="string">"jasmine-node/lib/jasmine-node/"</span>
 filename =  <span class="string">"jasmine-2.0.0.rc1"</span>
 
 <span class="comment"># Copy 'it', 'describe',... to global</span>
-<span class="keyword">for</span> key, value <span class="keyword">of</span> require(<span class="string">"<span class="subst">#{dir}</span><span class="subst">#{filename}</span>"</span>)
-  global[key] = value
+<span class="keyword">for</span> key, value <span class="keyword">of</span> <span class="built_in">require</span>(<span class="string">"<span class="subst">#{dir}</span><span class="subst">#{filename}</span>"</span>)
+  <span class="built_in">global</span>[key] = value
 
 <span class="comment"># Use jasmine-node's TerminalReporter for console output</span>
-TerminalReporter = require(<span class="string">"<span class="subst">#{dir}</span>reporter"</span>).TerminalReporter
+TerminalReporter = <span class="built_in">require</span>(<span class="string">"<span class="subst">#{dir}</span>reporter"</span>).TerminalReporter
 jasmine.getEnv().addReporter(<span class="keyword">new</span> TerminalReporter(
-  print: sys.print
-  color: <span class="literal">true</span>
-  stackFilter: (text) -&gt;
-    _(text.split <span class="regexp">/\n/</span>).filter((line) -&gt; line.indexOf(<span class="string">"<span class="subst">#{dir}</span><span class="subst">#{filename}</span>"</span>) == -<span class="number">1</span>).join(<span class="string">'\n'</span>)
+  <span class="attribute">print</span>: sys.<span class="built_in">print</span>
+  <span class="attribute">color</span>: <span class="literal">true</span>
+  <span class="attribute">stackFilter</span>: <span class="function"><span class="params">(text)</span> -&gt;</span>
+    _<span class="function"><span class="params">(text.split <span class="regexp">/\n/</span>)</span>.<span class="title">filter</span><span class="params">((line) -&gt; line.indexOf(<span class="string">"<span class="subst">#{dir}</span><span class="subst">#{filename}</span>"</span>) == -<span class="number">1</span>)</span>.<span class="title">join</span><span class="params">(<span class="string">'\n'</span>)</span>
 ))
 
-process.nextTick -&gt;
+<span class="title">process</span>.<span class="title">nextTick</span> -&gt;</span>
   jasmine.getEnv().execute()</code></pre>
 <p>
 To use this runner, we require it in our spec_helper.coffee file and require spec_helper.coffee at the top of each of our specs. With this setup, running a spec is as simple as:
 </p>
 
-<pre class="highlighted"><code class="bash">coffee spec/app.spec.coffee</code></pre>
+<pre class="highlight"><code class="bash">coffee spec/app.spec.coffee</code></pre>
 <p>
 And debugging is as simple as:
 </p>
 
-<pre class="highlighted"><code class="bash">coffee --nodejs --debug-brk spec/app.spec.coffee</code></pre>
+<pre class="highlight"><code class="bash">coffee --nodejs --debug-brk spec/app.spec.coffee</code></pre>
 <p>
 Sweet.
 </p>
@@ -68,9 +68,9 @@ Sweet.
 I like running my specs this way but like jasmine-node for running a whole suite of tests locally and in continuous integration. To have both working together, we only include this runner in our spec_helper.coffee if jasmine has not already been loaded by jasmine-node:
 </p>
 
-<pre class="highlighted"><code class="coffeescript">process.env.NODE_ENV = <span class="string">'test'</span> <span class="keyword">unless</span> process.env.NODE_ENV?
+<pre class="highlight"><code class="coffeescript">process.env.NODE_ENV = <span class="string">'test'</span> <span class="keyword">unless</span> process.env.NODE_ENV?
 
-require <span class="string">'./jasmine_runner'</span> <span class="keyword">unless</span> jasmine?
+<span class="built_in">require</span> <span class="string">'./jasmine_runner'</span> <span class="keyword">unless</span> jasmine?
 
 <span class="comment">#...</span></code></pre>
 <p>
