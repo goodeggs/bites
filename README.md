@@ -20,12 +20,18 @@ As our engineering team keeps getting bigger, it's hard to keep track of all of 
 
 What to blog about?
 -------------------
-* open source software we authored
-* tools, services, and libraries we're using
+Posts can range from in-depth technical articles to brief posts relating a personal experience about software. Our goal is to share what we're doing here in Good Eggs in all aspects of Engineering. They can be short, long, or anywhere in between. Here are a few ideas:
+
 * design patters and techniques we're using
+* tools, services, and libraries we're using
+* open source software we authored
+
+* process (daily standups, retrospectives, etc)
+* relate a personal experience (fixing a bug that helped a customer, implementing a feature that saved ops time, etc.) 
+
 * a developer event we held
-* processes (daily standups, retrospectives, etc)
 * cool tech you saw/heard/tried/read about/etc.
+
 
 **Got an Idea?**
 [Open an issue](https://github.com/goodeggs/bites/issues/new) with the label `blog post idea` and summarize some of the keypoints that will make the post interesting. You or someone else on the team can write it later.
