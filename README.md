@@ -25,10 +25,8 @@ Posts can range from in-depth technical articles to brief posts relating a perso
 * design patters and techniques we're using
 * tools, services, and libraries we're using
 * open source software we authored
-
 * process (daily standups, retrospectives, etc)
-* relate a personal experience (fixing a bug that helped a customer, implementing a feature that saved ops time, etc.) 
-
+* relate a personal experience (fixing a bug that helped a customer, implementing a feature that saved ops time, etc.)
 * a developer event we held
 * cool tech you saw/heard/tried/read about/etc.
 
