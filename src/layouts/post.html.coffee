@@ -6,9 +6,10 @@ url = require 'url'
 {date} = require '../partials/helpers'
 disqus = require '../partials/disqus'
 
-module.exports = ({document, content}) ->
+module.exports = (templateData) ->
+  {document, content} = templateData
 
-  author = @getAuthor()
+  author = templateData.getAuthor()
 
   div =>
     article '.post', role: 'article', =>
@@ -37,8 +38,8 @@ module.exports = ({document, content}) ->
       footer =>
         p '.meta', =>
           # TODO: extract into plugin, assumes sorted newest first
-          posts = @getCollection('posts')
-          index = posts.indexOf(@getDocument())
+          posts = templateData.getCollection('posts')
+          index = posts.indexOf(templateData.getDocument())
           return if index is -1 # Not a post, e.g. open source pages
           previousDocument = null
           nextDocument = null
