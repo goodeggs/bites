@@ -21,7 +21,7 @@ bfcache, eh?
 
 ![bfcache?](/images/cosby-huh.gif)
 
-That led us to try something along the lines of this:
+It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:
 
 ``` coffee
     window.onpageshow, (event) =>
