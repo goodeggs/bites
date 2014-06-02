@@ -21,6 +21,11 @@ bfcache, eh?
 
 ![bfcache?](/images/cosby-huh.gif)
 
+From the Stack Overflow answer:
+> "[bfcache] is supposed to save complete state of page when user navigates away.
+> When user navigates back with back button page can be loaded from cache very quickly.
+> This is different from normal cache which only caches HTML code."
+
 It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:
 
 ``` coffee
