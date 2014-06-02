@@ -5,10 +5,44 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 17 May 2014 01:36:33 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Jun 2014 18:34:22 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Sat, 17 May 2014 01:36:29 GMT</pubDate>
+        <pubDate>Mon, 02 Jun 2014 18:34:18 GMT</pubDate>
+        <item>
+            <title><![CDATA[You Forgot About bfcache!]]></title>
+            <description><![CDATA[<style>.entry-content img { display: block; margin: 0 auto }</style>
+
+<p>So there we were, putting the polishing touches on our mobile app.  There were a few big bugs that we wanted to clean up before we launched.  One seemed a bit edge-case-y, but still not good: when iPhone users clicked on products and then subsequently clicked back to the product listings, they saw our animated spinner stuck like this:</p>
+<p><img src="/images/spin-spin.gif" alt="Waiting for user to reload"></p>
+<!-- more -->
+
+<p>It seemed straightforward enough, but it required some researching until we ran across this <a href="https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked">stack overflow post</a>.</p>
+<p>bfcache, eh?</p>
+<p><img src="/images/cosby-huh.gif" alt="bfcache?"></p>
+<p>It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:</p>
+<pre class="highlight"><code class="coffeescript">    window.onpageshow, <span class="function"><span class="params">(event)</span> =&gt;</span>
+      <span class="keyword">if</span> event.persisted
+        overlay.hide() <span class="comment"># Hide the spinner overlay</span></code></pre>
+<p>Seemed like it should work, but it didn&#39;t!  After a lot more research and even more a lot more trial-and-error, we noticed we had multiple window.onpageshow assignments.  jQuery to the rescue (yet again)!</p>
+<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
+      <span class="keyword">if</span> event.persisted
+        overlay.hide()</code></pre>
+<p>With our fix in place we were ready to head home and have a beer, right?  Nope!  What if we needed to sneak past bfcache again?  Well how about we move the code to our main Page class and define an overwritable function called onBrowserBack?</p>
+<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
+      <span class="keyword">if</span> event.persisted
+        overlay.hide()
+        <span class="property">@onBrowserBack</span>?()</code></pre>
+<p><img src="/images/BOOM.gif" alt="BOOM!"></p>
+<p>This turned out to be really useful because the counter of items added to the basket in our navigation menu wasn&#39;t updating either.  We just threw a bit of code into the onBrowserBack function for our product listing page which made a request to get new session data and we&#39;d fixed two bugs with one event.</p>
+<p>If you&#39;ve read this far and you&#39;re interested in more on the ins-and-outs of how browsers deal with caching history you&#39;ll probably find <a href="http://madhatted.com/2013/6/16/you-do-not-understand-browser-history">You do not understand browser history</a> interesting and useful!</p>
+<p><img src="/images/programming.gif" alt="Programming!"></p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/posts/you-forgot-about-bfcache/</link>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/you-forgot-about-bfcache/</guid>
+            <dc:creator><![CDATA[Brian Underwood]]></dc:creator>
+            <pubDate>Wed, 28 May 2014 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[What Are Your Hiring Criteria?]]></title>
             <description><![CDATA[<p>What are the criteria you use when hiring for your team? Have you written them down?</p>
@@ -693,29 +727,6 @@ that we can rely on for the future is that we will always be learning, changing 
             <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/fibrous-on-harmony-generators/</guid>
             <dc:creator><![CDATA[Adam Hull]]></dc:creator>
             <pubDate>Sat, 17 Aug 2013 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Ids in Mongoose, JSON, and Backbone]]></title>
-            <description><![CDATA[<p>Mongoose adds <a href="http://mongoosejs.com/docs/guide.html#id">id sugar</a> on top the default _id document attribute.  Backbone has <a href="http://backbonejs.org/#Model-idAttribute">similar sugar</a>, but the types don&#39;t line up.  Pushing bits between the two with a customary JSON document adds a third representation.</p>
-<p>If you find yourself typing <code>vegetable.id</code> when you really needed <code>new ObjectID(vegetable.toJSON()._id)</code> this fancy chart might help:
-<!-- more --></p>
-<table class="ids">
-  <tr><th>Mongoose</th><th>id</th><th>_id</th></tr>
-  <tr><td><a href="http://mongoosejs.com/docs/api.html#document_Document-id">document</a></td><td>String</td><td>ObjectID</td></tr>
-  <tr><td><a href="http://mongoosejs.com/docs/api.html#query_Query-lean">lean document</a></td><td>∅</td><td>ObjectID</td></tr>
-  <tr><td><a href="http://mongoosejs.com/docs/api.html#document_Document-toJSON">document.toJSON()</a></td><td>∅</td><td>ObjectID</td></tr>
-
-  <tr><th>JSON</th><th></th><th></th></tr>
-  <tr><td><a href="http://www.json.org/">object</a></td><td>∅</td><td>String</td></tr>
-
-  <tr><th>Backbone</th><th></th><th></th></tr>
-  <tr><td><a href="http://backbonejs.org/#Model-id">model</td><td>String</td><td>∅</td></tr>
-  <tr><td><a href="http://backbonejs.org/#Model-get">model.get()</td><td>∅</td><td>String</td></tr>
-</table>]]></description>
-            <link>http://goodeggs.github.io/bites/posts/ids-in-mongoose-json-and-backbone/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/ids-in-mongoose-json-and-backbone/</guid>
-            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
-            <pubDate>Tue, 02 Apr 2013 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
