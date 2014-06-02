@@ -55,13 +55,16 @@ Talking about a library, tool, an event you went to, someone else's blog, etc? T
 **Summary**
 Sum it up. Take a stance. Give an opinion.
 
-
 How to post a post?
 -------------------
 Install and fire up the development server
 
     > npm install
     > grunt dev
+
+Start a new branch
+
+    > git co -b <post-slug>
 
 Add a new post to [src/documents/posts](https://github.com/goodeggs/bites/tree/master/src/documents/posts)
 
@@ -76,6 +79,8 @@ When it looks right commit and push your post:
     > git add .
     > git ci -m "Yay. I wrote a post."
     > git push
+
+When you're ready to share, make a pull request and send an E-Mail to [mailto:eng@goodeggs.com](eng@goodeggs.com) and ask for feedback.
 
 And then stage and release:
 
