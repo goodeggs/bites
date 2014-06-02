@@ -13,6 +13,12 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p>It seemed straightforward enough, but it required some researching until we ran across this <a href="https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked">stack overflow post</a>.</p>
 <p>bfcache, eh?</p>
 <p><img src="../../images/cosby-huh.gif" alt="bfcache?"></p>
+<p>From the Stack Overflow answer:</p>
+<blockquote>
+<p>&quot;[bfcache] is supposed to save complete state of page when user navigates away.
+When user navigates back with back button page can be loaded from cache very quickly.
+This is different from normal cache which only caches HTML code.&quot;</p>
+</blockquote>
 <p>It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:</p>
 <pre class="highlight"><code class="coffeescript">    window.onpageshow, <span class="function"><span class="params">(event)</span> =&gt;</span>
       <span class="keyword">if</span> event.persisted

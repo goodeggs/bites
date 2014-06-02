@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 02 Jun 2014 18:34:22 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 02 Jun 2014 23:38:05 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Mon, 02 Jun 2014 18:34:18 GMT</pubDate>
+        <pubDate>Mon, 02 Jun 2014 23:38:00 GMT</pubDate>
         <item>
             <title><![CDATA[You Forgot About bfcache!]]></title>
             <description><![CDATA[<style>.entry-content img { display: block; margin: 0 auto }</style>
@@ -20,6 +20,12 @@
 <p>It seemed straightforward enough, but it required some researching until we ran across this <a href="https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked">stack overflow post</a>.</p>
 <p>bfcache, eh?</p>
 <p><img src="/images/cosby-huh.gif" alt="bfcache?"></p>
+<p>From the Stack Overflow answer:</p>
+<blockquote>
+<p>&quot;[bfcache] is supposed to save complete state of page when user navigates away.
+When user navigates back with back button page can be loaded from cache very quickly.
+This is different from normal cache which only caches HTML code.&quot;</p>
+</blockquote>
 <p>It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:</p>
 <pre class="highlight"><code class="coffeescript">    window.onpageshow, <span class="function"><span class="params">(event)</span> =&gt;</span>
       <span class="keyword">if</span> event.persisted
