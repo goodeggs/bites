@@ -64,7 +64,7 @@ Install and fire up the development server
 
 Start a new branch
 
-git co -b <post-slug>
+    > git co -b <post-slug>
 
 Add a new post to [src/documents/posts](https://github.com/goodeggs/bites/tree/master/src/documents/posts)
 
