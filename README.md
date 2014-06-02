@@ -80,7 +80,6 @@ When it looks right commit and push your post:
     > git ci -m "Yay. I wrote a post."
     > git push
 
-Review
 When you're ready to share, make a pull request and send an E-Mail to [mailto:eng@goodeggs.com](eng@goodeggs.com) and ask for feedback.
 
 And then stage and release:
