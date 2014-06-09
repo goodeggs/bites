@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 09 Jun 2014 18:08:23 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 09 Jun 2014 18:13:42 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Mon, 09 Jun 2014 18:08:17 GMT</pubDate>
+        <pubDate>Mon, 09 Jun 2014 18:13:38 GMT</pubDate>
         <item>
             <title><![CDATA[Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone]]></title>
             <description><![CDATA[<blockquote>
