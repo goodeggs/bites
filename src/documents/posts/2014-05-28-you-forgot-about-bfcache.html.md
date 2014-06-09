@@ -58,6 +58,3 @@ With our fix in place we were ready to head home and have a beer, right?  Nope! 
 This turned out to be really useful because the counter of items added to the basket in our navigation menu wasn't updating either.  We just threw a bit of code into the onBrowserBack function for our product listing page which made a request to get new session data and we'd fixed two bugs with one event.
 
 If you've read this far and you're interested in more on the ins-and-outs of how browsers deal with caching history you'll probably find [You do not understand browser history](http://madhatted.com/2013/6/16/you-do-not-understand-browser-history) interesting and useful!
-
-
-![Programming!](/images/programming.gif)
