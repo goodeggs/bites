@@ -115,7 +115,7 @@ body > footer .mission{font-style:italic;font-size:1.2em}
 }@media only screen and (min-width: 768px){.context-row,article pre > code,article p.update{margin-left:-34px;margin-right:-34px}
 }.separator,article > footer .byline + time:before,article > footer time +time:before,article > footer .comments:before,article > footer .byline ~ .categories:before{content:"—";padding:0 .4em 0 .2em;display:inline-block}
 article{padding-top:34px;background-color:#fff;-webkit-box-shadow:0 0 20px -1px #d1d1d1;box-shadow:0 0 20px -1px #d1d1d1;}
-article img.author{float:right;padding:0 0 25px 25px}
+article img.author{float:right;padding:0 0 25px 25px;height:150px;width:150px}
 article header{position:relative;margin-bottom:1em;}
 article header h1{margin:0;}
 article header h1 a{text-decoration:none;}
