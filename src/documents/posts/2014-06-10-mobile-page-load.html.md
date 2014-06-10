@@ -125,7 +125,7 @@ At this point, we've got user-specific data like the contents of their basket.  
 
 Why is this a big enough win to merit one of three lifecycle events? Caching.
 
-Fastly can deliver our js bundle cached from its CDN in less time than it takes our server to send a little user-specific session information.  The screenshot above shows the case with the largest gap, where cachable scripts are already cached on the phone (note the 304 response) and only the session requires a network request.  This is the load sequence we expect for visitors browsing around the site, looking at all the wild vegetables availing only in the spring.
+Fastly can deliver our js bundle cached from its CDN in less time than it takes our server to send a little user-specific session information.  The screenshot below shows the case with the largest gap, where cachable scripts are already cached on the phone (note the 304 response) and only the session requires a network request.  This is the load sequence we expect for visitors browsing around the site, looking at all the wild vegetables availing only in the spring.
 
 <div class="clear"></div>
 
