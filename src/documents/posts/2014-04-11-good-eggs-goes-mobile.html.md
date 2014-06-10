@@ -12,7 +12,7 @@ disqus:
     <ol>
         <li>[Good Eggs Goes Mobile](/posts/good-eggs-goes-mobile)</li>
         <li>[Rivets for Mobile Web](/posts/rivets-for-mobile)</li>
-        <li>Planning Page Load Sequence</li>
+        <li>[Planning Page Load Sequence](/posts/mobile-page-load)</li>
         <li>HTTP Caching with Fastly</li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
@@ -49,30 +49,30 @@ media queries.
 
 ### Fresh Start
 Instead of continuing with our "desktop" stack built on
-[Backbone](http://backbonejs.org/), we decided to take the opportunity for a fresh start. 
+[Backbone](http://backbonejs.org/), we decided to take the opportunity for a fresh start.
 With [Backbone](http://backbonejs.org/),
 [Angular](http://angularjs.org/), [Ember](http://emberjs.com/), and other client
 side frameworks, the user has to wait for the JavaScript to be loaded before any
-client side rendering can begin, and we really wanted to prioritize initial page load. 
+client side rendering can begin, and we really wanted to prioritize initial page load.
 We decided for our use cases, we could deliver a better experience by generating HTML on the server side so the phone
 can begin rendering as soon as it starts receiving data from the initial request.
 
 In the coming weeks, we'll be taking a deeper dive on some of the major
 architectural decisions we made. Check back to learn about:
 
-* __Rivets instead of Backbone/Angular/etc.__  
+* __Rivets instead of Backbone/Angular/etc.__
 [Rivets](http://www.rivetsjs.com/), turned out to be just the right size for this project.  Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.
 
-* __Planning page load sequence for faster initial page load__  
+* __Planning page load sequence for faster initial page load__
 To get food on the screen quickly, we considered each step of the page load cycle: the first packet through user-specific javascript execution.
 
-* __HTTP Caching with [Fastly](https://www.fastly.com/)__  
+* __HTTP Caching with [Fastly](https://www.fastly.com/)__
 Especially with server-side generated HTML, we knew HTTP caching would be our best bet for fast page loads. By normalizing our request headers, separating session information into separate AJAX calls, and setting appropriate cache headers, we achieved significant performance gains.
 
-* __Appropriate image sizes with [imgix](http://www.imgix.com/)__  
+* __Appropriate image sizes with [imgix](http://www.imgix.com/)__
 Folks really seem to _get_ GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We've found a balance.
 
-* __Integration testing over unit testing__  
+* __Integration testing over unit testing__
 We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
 
 And in the meanwhile, go take a look at [goodeggs.com](http://goodeggs.com) in a mobile device and let us know what you think!

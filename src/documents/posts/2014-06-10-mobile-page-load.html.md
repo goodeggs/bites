@@ -1,5 +1,5 @@
 ---
-title: Loading Scripts in the Mobile Web Critical Rendering Path: A Commerce Case Study
+title: Loading Scripts in the Critical Path: A Commerce Case Study
 author: Adam Hull
 layout: post
 disqus:
@@ -21,6 +21,18 @@ style: |
     clear: both;
   }
 ---
+
+<div class="series">
+    <blockquote>This is the third article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li>[Good Eggs Goes Mobile](/posts/good-eggs-goes-mobile)</li>
+        <li>[Rivets for Mobile Web](/posts/rivets-for-mobile)</li>
+        <li>[Planning Page Load Sequence](/posts/mobile-page-load)</li>
+        <li>HTTP Caching with Fastly</li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
 
 Starting javascript on DOMContentLoaded, a pattern [baked into](https://docs.angularjs.org/guide/bootstrap) or [recommended by](http://backbonejs.org/docs/todos.html#section-2) many frameworks, defers some work that could be done earlier.  There aren't many examples of what can be done early, or how to wire it up.  Here's how we did it on the Good Eggs mobile site.
 <!-- more -->
