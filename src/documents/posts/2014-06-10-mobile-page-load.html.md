@@ -125,13 +125,13 @@ At this point, we've got user-specific data like the contents of their basket.  
 
 Why is this a big enough win to merit one of three lifecycle events? Caching.
 
-Fastly can delivery our js bundle cached from its CDN in less time than it takes our server to send a little user-specific session information.  The screenshot above shows the case with the largest gap, where cachable scripts are already cached on the phone (note the 304 response) and only the session requires a network request.  This is the load sequence we expect for visitors browsing around the site, looking at all the wild vegetables availing only in the spring.
+Fastly can deliver our js bundle cached from its CDN in less time than it takes our server to send a little user-specific session information.  The screenshot above shows the case with the largest gap, where cachable scripts are already cached on the phone (note the 304 response) and only the session requires a network request.  This is the load sequence we expect for visitors browsing around the site, looking at all the wild vegetables availing only in the spring.
 
 <div class="clear"></div>
 
 ![network](/images/mobile-page-load/network.jpg)
 
-For visitors who came to shop (rather than oogle), the "Add to Basket" button is in the critical path. They can't leave this page with the blueberries they came for until they click that button. We wait for session information to load before showing the button so shoppers can see how many, if any, blueberries they're already getting.
+For visitors who came to shop (rather than ogle), the "Add to Basket" button is in the critical path. They can't leave this page with the blueberries they came for until they click that button. We wait for session information to load before showing the button so shoppers can see how many, if any, blueberries they're already getting.
 
 The session request is often the slowest for this user flow. We want to start it as early as possible, so we load it with a script tag. Firing off an XmlHttpRequest from the page js would be more convenient for developers (we'd get a sucess callback to wire into), but doing so would delay starting the session request until after the page script had loaded and executed, potentially several hundred millis.  Instead we place a script tag just below the page js script tag in the body:
 
