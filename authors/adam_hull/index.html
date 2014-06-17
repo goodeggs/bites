@@ -5,12 +5,25 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><section class="profile"><div class="meta"><img src="http://fpio.goodeggs.com/api/file/ziGF1yRt2PAZq3BpMQAA/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" /></div><div class="content"><p>People working with food because they want to are unusually nice. I like spending time with them. So I make software for Good Eggs. Some day I&#39;ll step away from the screen long enough to build a mixed residential &amp; commercial multi-tenant owner-occupied urban building. The ground floor will have a café with pastries and coffee sourced from Good Eggs. The veggies will come from a combo treehouse / farm / summer home not too many miles away. Until then, I&#39;ll climb rocks.</p>
-<div class="author">- Adam</div></div></section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="../../posts/rivets-for-mobile/">Rivets for Mobile Web</a></h1><p class="meta"><a href="../../authors/adam_hull/">Adam Hull</a> on <time datetime="2014-04-25T00:00:00.000Z">April 25th, 2014</time></p></header><div class="entry-content"><div class="series">
+<div class="author">- Adam</div></div></section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="../../posts/mobile-page-load/">Loading Scripts in the Critical Path: A Commerce Case Study</a></h1><p class="meta"><a href="../../authors/adam_hull/">Adam Hull</a> on <time datetime="2014-06-16T00:00:00.000Z">June 16th, 2014</time></p></header><div class="entry-content"><div class="series">
+    <blockquote>This is the third article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li><a href="../../posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
+        <li><a href="../../posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
+        <li><a href="../../posts/mobile-page-load">Planning Page Load Sequence</a></li>
+        <li>HTTP Caching with Fastly</li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
+
+<p>Starting javascript on DOMContentLoaded, a pattern <a href="https://docs.angularjs.org/guide/bootstrap">baked into</a> or <a href="http://backbonejs.org/docs/todos.html#section-2">recommended by</a> many frameworks, defers some work that could be done earlier.  There aren&#39;t many examples of what can be done early, or how to wire it up.  Here&#39;s how we did it on the Good Eggs mobile site.
+</div><footer><a rel="full-article" href="../../posts/mobile-page-load/">Continue…</a></footer></article><article><header><h1 class="entry-title"><a href="../../posts/rivets-for-mobile/">Rivets for Mobile Web</a></h1><p class="meta"><a href="../../authors/adam_hull/">Adam Hull</a> on <time datetime="2014-04-25T00:00:00.000Z">April 25th, 2014</time></p></header><div class="entry-content"><div class="series">
     <blockquote>This is the second article in a series of posts detailing the launch of our mobile site.</blockquote>
     <ol>
         <li><a href="../../posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
         <li><a href="../../posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
-        <li>Planning Page Load Sequence</li>
+        <li><a href="../../posts/mobile-page-load">Planning Page Load Sequence</a></li>
         <li>HTTP Caching with Fastly</li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>

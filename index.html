@@ -6,7 +6,20 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="./">Bites</a></h1><ul class="unstyled nav"><li><a href="./">Blog</a></li><li><a href="./open_source">Open Source</a></li><li><a href="./news">News</a></li></ul></header><div id="main"><div id="content"><div><section>Bites is the developer site from the team building the platform for local food shopping and distribution at
 <a href="http://www.goodeggs.com">goodeggs.com</a>. Here we share our experiences building applications with
-full-stack JavaScript, our open source projects and insight into a developer's life at Good Eggs.</section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="./posts/promises-trycatch-zones/">Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone</a></h1><p class="meta"><a href="./authors/alex_gorbatchev/">Alex Gorbatchev</a> on <time datetime="2014-06-09T00:00:00.000Z">June 9th, 2014</time></p></header><div class="entry-content"><blockquote>
+full-stack JavaScript, our open source projects and insight into a developer's life at Good Eggs.</section></div><div class="blog-index"><article><header><h1 class="entry-title"><a href="./posts/mobile-page-load/">Loading Scripts in the Critical Path: A Commerce Case Study</a></h1><p class="meta"><a href="./authors/adam_hull/">Adam Hull</a> on <time datetime="2014-06-16T00:00:00.000Z">June 16th, 2014</time></p></header><div class="entry-content"><div class="series">
+    <blockquote>This is the third article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li><a href="./posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
+        <li><a href="./posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
+        <li><a href="./posts/mobile-page-load">Planning Page Load Sequence</a></li>
+        <li>HTTP Caching with Fastly</li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
+
+<p>Starting javascript on DOMContentLoaded, a pattern <a href="https://docs.angularjs.org/guide/bootstrap">baked into</a> or <a href="http://backbonejs.org/docs/todos.html#section-2">recommended by</a> many frameworks, defers some work that could be done earlier.  There aren&#39;t many examples of what can be done early, or how to wire it up.  Here&#39;s how we did it on the Good Eggs mobile site.
+</div><footer><a rel="full-article" href="./posts/mobile-page-load/">Continue…</a></footer></article><article><header><h1 class="entry-title"><a href="./posts/promises-trycatch-zones/">Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone</a></h1><p class="meta"><a href="./authors/alex_gorbatchev/">Alex Gorbatchev</a> on <time datetime="2014-06-09T00:00:00.000Z">June 9th, 2014</time></p></header><div class="entry-content"><blockquote>
 <p>Reposted with permission by <a href="http://strongloop.com/">StrongLoop</a>. Originally appeared on <a href="http://strongloop.com/strongblog/comparing-node-js-promises-trycatch-zone-js-angular/">April 16, 2014</a>.</p>
 </blockquote>
 <h1 id="handling-errors-in-async-flow">Handling errors in async flow</h1>
@@ -35,7 +48,7 @@ full-stack JavaScript, our open source projects and insight into a developer's l
     <ol>
         <li><a href="./posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
         <li><a href="./posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
-        <li>Planning Page Load Sequence</li>
+        <li><a href="./posts/mobile-page-load">Planning Page Load Sequence</a></li>
         <li>HTTP Caching with Fastly</li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
@@ -51,7 +64,7 @@ But neither felt quite right for our mobile site.</p>
     <ol>
         <li><a href="./posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
         <li><a href="./posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
-        <li>Planning Page Load Sequence</li>
+        <li><a href="./posts/mobile-page-load">Planning Page Load Sequence</a></li>
         <li>HTTP Caching with Fastly</li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
@@ -105,9 +118,4 @@ A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB an
 </blockquote>
 
 
-</div><footer><a rel="full-article" href="./posts/first-cultivate-meetup/">Continue…</a></footer></article><article><header><h1 class="entry-title"><a href="./posts/fall-2013/">In Season for Fall and Winter</a></h1><p class="meta"><a href="./authors/alon_salant/">Alon Salant</a> on <time datetime="2013-09-30T00:00:00.000Z">September 30th, 2013</time></p></header><div class="entry-content"><p>Last week <a href="http://blog.goodeggs.com/post/62349630794/were-thrilled-to-partner-with-sequoia-capital-to">we announced our Series A funding</a>
-led by Sequoia Capital. After a summer of hustling to grow sales and build tools to keep great local food flowing smoothly
-through our San Francisco foodhub we can now turn attention to building the systems we need to scale Good Eggs in
-Brooklyn, New Orleans, Los Angeles and beyond.</p>
-<p>Here&#39;s an overview of what we&#39;re working on and what&#39;s coming up for the software development team at Good Eggs.</p>
-</div><footer><a rel="full-article" href="./posts/fall-2013/">Continue…</a></footer></article><div class="pagination"><a class="prev" href="./index.1">← Older</a></div></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
+</div><footer><a rel="full-article" href="./posts/first-cultivate-meetup/">Continue…</a></footer></article><div class="pagination"><a class="prev" href="./index.1">← Older</a></div></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>

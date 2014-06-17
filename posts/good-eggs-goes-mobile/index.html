@@ -9,7 +9,7 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
     <ol>
         <li><a href="../../posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
         <li><a href="../../posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
-        <li>Planning Page Load Sequence</li>
+        <li><a href="../../posts/mobile-page-load">Planning Page Load Sequence</a></li>
         <li>HTTP Caching with Fastly</li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
@@ -44,25 +44,30 @@ layouts and content of our pages; a little too complex for fluid grids, and
 media queries.</p>
 <h3 id="fresh-start">Fresh Start</h3>
 <p>Instead of continuing with our &quot;desktop&quot; stack built on
-<a href="http://backbonejs.org/">Backbone</a>, we decided to take the opportunity for a fresh start. 
+<a href="http://backbonejs.org/">Backbone</a>, we decided to take the opportunity for a fresh start.
 With <a href="http://backbonejs.org/">Backbone</a>,
 <a href="http://angularjs.org/">Angular</a>, <a href="http://emberjs.com/">Ember</a>, and other client
 side frameworks, the user has to wait for the JavaScript to be loaded before any
-client side rendering can begin, and we really wanted to prioritize initial page load. 
+client side rendering can begin, and we really wanted to prioritize initial page load.
 We decided for our use cases, we could deliver a better experience by generating HTML on the server side so the phone
 can begin rendering as soon as it starts receiving data from the initial request.</p>
 <p>In the coming weeks, we&#39;ll be taking a deeper dive on some of the major
 architectural decisions we made. Check back to learn about:</p>
 <ul>
-<li><p><strong>Rivets instead of Backbone/Angular/etc.</strong><br><a href="http://www.rivetsjs.com/">Rivets</a>, turned out to be just the right size for this project.  Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.</p>
+<li><p><strong>Rivets instead of Backbone/Angular/etc.</strong>
+<a href="http://www.rivetsjs.com/">Rivets</a>, turned out to be just the right size for this project.  Its simple hooks for server-side pre-rendering, Angular inspired declarative binding, and small pageweight helped us get commits in fast and deliver tiny snacks to pocket-sized screens at speeds approaching our sub-second dreams.</p>
 </li>
-<li><p><strong>Planning page load sequence for faster initial page load</strong><br>To get food on the screen quickly, we considered each step of the page load cycle: the first packet through user-specific javascript execution.</p>
+<li><p><strong>Planning page load sequence for faster initial page load</strong>
+To get food on the screen quickly, we considered each step of the page load cycle: the first packet through user-specific javascript execution.</p>
 </li>
-<li><p><strong>HTTP Caching with <a href="https://www.fastly.com/">Fastly</a></strong><br>Especially with server-side generated HTML, we knew HTTP caching would be our best bet for fast page loads. By normalizing our request headers, separating session information into separate AJAX calls, and setting appropriate cache headers, we achieved significant performance gains.</p>
+<li><p><strong>HTTP Caching with <a href="https://www.fastly.com/">Fastly</a></strong>
+Especially with server-side generated HTML, we knew HTTP caching would be our best bet for fast page loads. By normalizing our request headers, separating session information into separate AJAX calls, and setting appropriate cache headers, we achieved significant performance gains.</p>
 </li>
-<li><p><strong>Appropriate image sizes with <a href="http://www.imgix.com/">imgix</a></strong><br>Folks really seem to <em>get</em> GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We&#39;ve found a balance.</p>
+<li><p><strong>Appropriate image sizes with <a href="http://www.imgix.com/">imgix</a></strong>
+Folks really seem to <em>get</em> GoodEggs when they can see the food.  The photos are very very very important.  Modern iPhones have dense displays that demand high quality photos, but their networks are often strained.  We&#39;ve found a balance.</p>
 </li>
-<li><p><strong>Integration testing over unit testing</strong><br>We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.</p>
+<li><p><strong>Integration testing over unit testing</strong>
+We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.</p>
 </li>
 </ul>
 <p>And in the meanwhile, go take a look at <a href="http://goodeggs.com">goodeggs.com</a> in a mobile device and let us know what you think!</p>
