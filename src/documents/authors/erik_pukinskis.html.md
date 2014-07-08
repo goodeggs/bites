@@ -5,4 +5,4 @@ photoUrl: "https://goodeggs.imgix.net/user_profile_photo/FDB6tTTyT964wiK2yL7L_Er
 layout: author
 ---
 
-Erik is from the Connecticut woods. He likes chickens, bikes, feminism, and making tools. He has been coding for Good Eggs since April 2014.
+I live in Oakland, but grew up in the woods in Connecticut. California wins at food, and I love the wild thinking here, but I miss the snow and the trees from back home. I like chickens, bikes, feminism, decadent vegan food, and toolmaking. I've been coding for Good Eggs since April 2014.
