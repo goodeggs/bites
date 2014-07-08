@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
+    "grunt-cli": "*",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-copy": "~0.4.1",
