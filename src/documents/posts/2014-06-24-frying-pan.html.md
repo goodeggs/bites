@@ -7,18 +7,24 @@ disqus:
   url: "http://bites.goodeggs.com/posts/frying-pan/"
 ---
 
-I am 32 and Good Eggs is the first company I have ever drawn a salary from. It was never my intention--I dreamed of working at Alias|Wavefront or Pixar when I was a kid. But the most exciting opportunties I had were always hourly gigs, contracting jobs, grad school, or most recently: founding a startup.
+I am 32 and Good Eggs is the first company I have ever drawn a salary from. That wasn't exactly my intention. As a teenager drawing user interfaces in my room I dreamed of working at a 3D graphics company like Alias|Wavefront or Pixar. But since graduation the most exciting opportunties just turned out to be hourly gigs, contracting jobs, grad school, and&mdash;most recently&mdash;founding a startup.
 
-Carried by the abrosia of Paul Graham's essays, and the earnest belief that if I could build a web app I could build a company, I just tried to do it. I made paper prototypes, did usability testing, did some agile planning and test-driven-development, put out an MVP garden seed subscription, and started filling orders.
+The lure of self-employment is strong for creative types. The same imagination that helps us sniff out the source of a bug or find a clever solution to a UI problem also leads us to question management decisions. Instead of just accepting an old creaky codebase, we imagine the modern replacement. And sometimes that's your job, but in the corporate context it's not always useful. Often a patch is more useful to the company than a new pair of pants.
 
-And there went five years of my life.
+Founding a startup is an alluring alternative. There's no technical debt to work around. There are no power structures you have to reckon with. There are so few people that you get to stay in shot-calling mode pretty much all the time. You make compromises and code up ugly hacks, but they're <em>your</em> compromises and <em>your</em> ugly hacks.
 
-It turns out, starting a company is hard. And it didn't really work on the first try, or the fifth try. All those years of lone-wolf book report writing in my childhood had given me the belief that I could single-handedly achieve ANYTHING!
+It's kind of addictive.
 
-But in reality there are a bunch of management skills that I'm not that good at yet. I have a hard time saying no to fun important ideas that don't need to happen yet. Especially when I'm supposed to be saying no to myself. And I'm not that good at the clockwork check-ins and expectation setting that help employees make steady progress towards a common goal.
+And if you're a developer you do a little consulting on the side and support your entrepreneurship habit more or less indefinitely. So I've spent the last five years designing interfaces, writing code, and running a business just the way I wanted to. All those years of lone-wolf book report writing in my childhood had given me the belief that I could single-handedly achieve ANYTHING! What fun!
 
-I just started month three of my employment here at Good Eggs and I think it was the right decision. My mental health has drastically improved since backburning my startup business. Being able to focus on continuous improving without having to sweat about existential threats to the business has been a huge relief.
+But a company is more than UI and code. And growing a team into a healthy, stable company is hard. It didn't work on my first try, or my fifth try. All of that freedom allowed me to indulge my whims, but most of those whims turned out to be dead ends. And each time one of those initiatives fell apart, it took a little more of wind out of my sails, both as a boss and as a person. And without anyone else to blame those failures on, it got really hard to believe in myself.
 
-And being able to trust that my team is smart and does great stuff in my absence is *awesome*. And it's wonderful to be able to learn from some founders who seem to know what they're doing. Everyone here seems pretty happy about their jobs. Folks mostly go home at a reasonable hour and we get a ton of stuff done. So, something's working. And it's a relief to be able to spend some time understanding how a ship sails without having to tie yourself to the wheel every time a storm comes.
+So those five years felt like enough, and I got a "real" job. I come at 9:00 or 10:00. I leave at 5:00 or 6:00. Someone else decides what we eat for lunch. Honestly, someone else decides almost everything. I'm focused on supporting my coworkers, who are awesome, who I believe in.
 
-Which isn't to say I'm not still dreaming about founding an anarcho-syndicalist radically inclusive post-corporation. I've just realized it takes a village and I won't get there if I spend my time alone in the woods.
+Last month we built a refunding tool for our Community Care team and it was awesome! Not because I think refunding is at all interesting, but because I know our Community Care team is amazing and they know what they need to get their job done.
+
+I get to take time to put on my feminist hat and examine our hiring practices. I get to think about the relationship between our design an engineering teams and what tools we need to have a more integrated, iterative, agile collaboration. And the other ten thousand things that are happening in the company, all of which are incredibly important? I can ignore them completely! What a relief! Someone else is staring down each of those existential threats so that I can focus on just the ones that I think are the most important and the most suited to my skill set.
+
+And I have to say, my mental health is much improved.
+
+I'm still critical of my bosses, and I still dream about radical new organizations. But I no longer have a desire to white-knuckle something like that into existence. It takes a village, and it's nice to be a part of one.
