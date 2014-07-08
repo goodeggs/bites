@@ -9,7 +9,7 @@ disqus:
 
 I am 32 and Good Eggs is the first company I have ever drawn a salary from. That wasn't exactly my intention. As a teenager I sketched out user interfaces in my room and dreamed of working at Pixar or [Alias|Wavefront](https://web.archive.org/web/20000510065138/http://www.aliaswavefront.com/pages/home/index.html). But I guess my most exciting opportunties were always hourly gigs, contracting jobs, grad school, and&mdash;most recently&mdash;founding a startup.
 
-Self employment has a particular allure. I like design and development because they are super creative, but I can't resist applying that creativity to management philosophies, corporate structures, and every other aspect of a business. That can make it hard to work for other people, who will inevitably have different ideas about how things should work.
+I like design and development because they are super creative, but I can't resist applying that creativity to management philosophies, corporate structures, and every other aspect of a business. That can make it hard to work for other people, who will inevitably have different ideas about how things should work.
 
 Founding a startup is an alluring alternative. There's no technical debt to work around. There are no power structures you have to reckon with. You can call shots all day without worrying much about stepping on other peoples' toes. You make compromises and code up ugly hacks, but they're <em>your</em> compromises and <em>your</em> ugly hacks.
 
