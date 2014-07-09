@@ -3,7 +3,7 @@ title: Out of the frying pan
 author: Erik Pukinskis
 layout: post
 disqus:
-  shortname: frying-pan
+  shortname: fryingpan
   url: "http://bites.goodeggs.com/posts/frying-pan/"
 ---
 
@@ -15,9 +15,11 @@ Founding a startup is an alluring alternative. There's no technical debt to work
 
 It's addictive.
 
+<!-- more -->
+
 And if you can code, you can do a little consulting on the side and support your entrepreneurship habit more or less indefinitely, designing, coding, releasing, and experimenting to your heart's content.
 
-But a company is more than code. And growing a group of people into a healthy, stable team is hard. In five years of trying on my own, I wasn't able to get there. All of that freedom allowed me to indulge my whims, but most of those whims turned out to be dead ends. And each time something fell apart, it took a little more of wind out of my sails, both as a boss and as a person. Without anyone else to blame failures on, it got hard to believe in myself. And it got hard to put the work aside in the evening. Even though I was living the entrepreneurship dream, I started waking up with a belly full of dread.
+But a company is more than code. And growing a group of people into a healthy, stable team is hard. In five years of trying on my own, I wasn't able to get there. All of that freedom allowed me to indulge my whims, but most of those whims turned out to be dead ends. And each time something fell apart, it took a little more wind out of my sails, both as a boss and as a person. Without anyone else to blame failures on, it got hard to believe in myself. And it got hard to put the work aside in the evening. Even though I was living the entrepreneurship dream, I started waking up with a belly full of dread.
 
 So I reached out to Good Eggs and I got a "real" job. I get in by 10, and I leave by 6. Someone else decides what we eat for lunch. Someone else worries about our brand. Someone else worries about funding. Someone else worries about almost everything.
 
@@ -25,4 +27,4 @@ And I get to choose one or two things each week to really focus on. I'm thinking
 
 And I have to say, my mental health is much improved.
 
-So for now, I'm rather enjoying being a corporate done. I still dream of radical departures from the status quo, even here at Good Eggs, where we do a lot of things differently. But these days I have much less desire to white-knuckle things into existence all by myself. It takes a village, and going forward I'm going to try to stay a part of one.
+So for now, I'm rather enjoying being a corporate drone. I still dream of radical departures from the status quo, even here at Good Eggs, where we do a lot of things differently. But these days I have much less desire to white-knuckle things into existence all by myself. It takes a village, and going forward I'm going to try to stay a part of one.
