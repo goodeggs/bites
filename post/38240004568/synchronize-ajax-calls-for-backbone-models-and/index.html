@@ -8,16 +8,16 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bit
 <p><strong>Solution</strong>: Implement a custom sync method that chains AJAX calls using jQuery Deferred.<!-- more --></p>
 
 
-<pre class="highlight"><code class="javascript">withSerializedSync = <span class="function"><span class="keyword">function</span><span class="params">(cls)</span> {</span>
+<pre class="highlighted"><code class="javascript">withSerializedSync = <span class="keyword">function</span>(cls) {
   <span class="keyword">var</span> sync = cls.prototype.sync || Backbone.sync;
-  cls.prototype.sync = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  cls.prototype.sync = <span class="keyword">function</span>() {
     <span class="keyword">var</span> args = arguments.length ? Array.prototype.slice.call(arguments,<span class="number">0</span>) : [];
     <span class="keyword">if</span> (!<span class="keyword">this</span>._lastSync) {
       <span class="keyword">this</span>._lastSync = sync.apply(<span class="keyword">this</span>, args);
     } <span class="keyword">else</span> {
-      <span class="keyword">var</span> _this = <span class="keyword">this</span>;
-      <span class="keyword">this</span>._lastSync = <span class="keyword">this</span>._lastSync.then(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-        <span class="keyword">return</span> sync.apply(_this, args);
+      <span class="keyword">var</span> _<span class="keyword">this</span> = <span class="keyword">this</span>;
+      <span class="keyword">this</span>._lastSync = <span class="keyword">this</span>._lastSync.then(<span class="keyword">function</span>() {
+        <span class="keyword">return</span> sync.apply(_<span class="keyword">this</span>, args);
       });
     }
     <span class="keyword">return</span> <span class="keyword">this</span>._lastSync;
@@ -36,6 +36,6 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bit
 <p>In this case, our mixin defines a new sync method on the prototype or monkey patches it if it already exists. It uses the jQuery Deferred object returned by all ajax calls to chain calls to sync with <code>then</code>.</p>
 <p>You can use this mixin to add this synchronous behavior to any Backbone model or collection.</p>
 
-<pre class="highlight"><code class="javascript"><span class="keyword">var</span> MyModel = Backbone.Model.extend({});
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> MyModel = Backbone.Model.extend({});
 withSerializedSync(MyModel);</code></pre>
 </div><footer><p class="meta"><a class="basic-alignment left" href="../../../post/36053394113/synchronous-node-console-with-fibrous">&laquo; Synchronous node console with fibrous</a><a class="basic-alignment right" href="../../../post/40042760798/teacup-coffeescript-templates-for-developer-happiness">Teacup: CoffeeScript Templates for Developer Happiness &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bytes.goodeggs.com/post/38240004568/synchronize-ajax-calls-for-backbone-models-and'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
