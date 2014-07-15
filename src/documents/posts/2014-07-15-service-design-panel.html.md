@@ -13,7 +13,7 @@ disqus:
 
 Recent years have seen the rise of companies that serve well-established needs in people’s lives with novel supply chains built on the resources and hard work of individuals rather than faceless corporations.
 
-AirBnB provides travel accommodation by aggregating rooms, apartments and houses from individuals around the world. Good Eggs provides home groceries by aggregating food available directly from local farmers and foodmakers. Lyft provides taxi transportation by aggregating rides from people with cars and spare time.
+AirBnB provides travel accommodation by aggregating rooms, apartments and houses from individuals around the world. Good Eggs provides home groceries by aggregating food available directly from local farmers and foodmakers. Lyft provides daily transportation by connecting passengers to people with cars and spare time.
 
 Travel accommodation, groceries and transportation are age-old needs. These companies are serving them in new ways with hybrid online/offline services that build on the ubiquity of internet technology to organize complex supply systems into simple-to-use services for their customers.
 
