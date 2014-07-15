@@ -7,7 +7,7 @@ disqus:
   url: "http://bites.goodeggs.com/posts/service-design-panel/"
 ---
 
-<img src="/images/posts/service-design-panel/Service_Design_Graphic.png"/>
+<img src="https://dl.dropboxusercontent.com/u/1399154/service_design_panel/Service_Design_Graphic.png"/>
 
 <a href="https://www.eventbrite.com/e/a-conversation-on-service-design-with-airbnb-good-eggs-and-lyft-tickets-12270402103?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid=12270402103" alt="Eventbrite - A Conversation on Service Design with AirBnB, Good Eggs and Lyft" /></a>
 
