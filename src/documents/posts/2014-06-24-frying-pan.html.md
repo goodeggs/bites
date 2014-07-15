@@ -3,7 +3,7 @@ title: Out of the frying pan
 author: Erik Pukinskis
 layout: post
 disqus:
-  shortname: fryingpan
+  shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/posts/frying-pan/"
 ---
 

@@ -3,7 +3,7 @@ title: A Conversation on Service Design with AirBnB, Good Eggs and Lyft
 author: Alon Salant
 layout: post
 disqus:
-  shortname: service-design-panel
+  shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/posts/service-design-panel/"
 ---
 
