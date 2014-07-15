@@ -5,13 +5,13 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Tue, 15 Jul 2014 21:37:20 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 15 Jul 2014 22:00:23 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Tue, 15 Jul 2014 21:37:16 GMT</pubDate>
+        <pubDate>Tue, 15 Jul 2014 22:00:18 GMT</pubDate>
         <item>
             <title><![CDATA[A Conversation on Service Design with AirBnB, Good Eggs and Lyft]]></title>
-            <description><![CDATA[<p><img src="/images/posts/service-design-panel/Service_Design_Graphic.png"/></p>
+            <description><![CDATA[<p><img src="https://dl.dropboxusercontent.com/u/1399154/service_design_panel/Service_Design_Graphic.png"/></p>
 <p><a href="https://www.eventbrite.com/e/a-conversation-on-service-design-with-airbnb-good-eggs-and-lyft-tickets-12270402103?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid=12270402103" alt="Eventbrite - A Conversation on Service Design with AirBnB, Good Eggs and Lyft" /></a></p>
 <p>Recent years have seen the rise of companies that serve well-established needs in people’s lives with novel supply chains built on the resources and hard work of individuals rather than faceless corporations.</p>
 <p>AirBnB provides travel accommodation by aggregating rooms, apartments and houses from individuals around the world. Good Eggs provides home groceries by aggregating food available directly from local farmers and foodmakers. Lyft provides taxi transportation by aggregating rides from people with cars and spare time.</p>
