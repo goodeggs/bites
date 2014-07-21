@@ -27,6 +27,8 @@ Andrew Schapiro, _Design Lead, AirBnB_<br/>
 Robin Bigio, _Creative Director, Good Eggs_<br/>
 Frank Yoo, _Director of Product Design, Lyft_<br/>
 
+Moderated by Patrice Martin, _Co-Lead + Creative Director, IDEO.org_
+
 Doors open at 6:30pm for great nourishing local snacks and drink from Good Eggs producers. Panel discussion starts at 7:30pm. Doors close at 9:30pm.
 
 <a href="https://www.eventbrite.com/e/a-conversation-on-service-design-with-airbnb-good-eggs-and-lyft-tickets-12270402103?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid=12270402103" alt="Eventbrite - A Conversation on Service Design with AirBnB, Good Eggs and Lyft" /></a>
