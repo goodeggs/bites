@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>NodeJS RSS Module</generator>
-        <lastBuildDate>Tue, 15 Jul 2014 22:04:19 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 21 Jul 2014 18:18:11 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Tue, 15 Jul 2014 22:04:15 GMT</pubDate>
+        <pubDate>Mon, 21 Jul 2014 18:18:07 GMT</pubDate>
         <item>
             <title><![CDATA[A Conversation on Service Design with AirBnB, Good Eggs and Lyft]]></title>
             <description><![CDATA[<p><img src="https://dl.dropboxusercontent.com/u/1399154/service_design_panel/Service_Design_Graphic.png"/></p>
@@ -22,6 +22,7 @@
 <p>Andrew Schapiro, <em>Design Lead, AirBnB</em><br/>
 Robin Bigio, <em>Creative Director, Good Eggs</em><br/>
 Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
+<p>Moderated by Patrice Martin, <em>Co-Lead + Creative Director, IDEO.org</em></p>
 <p>Doors open at 6:30pm for great nourishing local snacks and drink from Good Eggs producers. Panel discussion starts at 7:30pm. Doors close at 9:30pm.</p>
 <p><a href="https://www.eventbrite.com/e/a-conversation-on-service-design-with-airbnb-good-eggs-and-lyft-tickets-12270402103?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid=12270402103" alt="Eventbrite - A Conversation on Service Design with AirBnB, Good Eggs and Lyft" /></a></p>
 ]]></description>
