@@ -21,7 +21,7 @@ How do you design and deploy a brand across digital and physical experiences? Ho
 
 Join us for a conversation on the challenges, learnings and opportunities in designing for these kinds of services.
 
-This event is a panel discussion with leaders in design from AirBnb, Good Eggs and Lyft.
+This event is a panel discussion with leaders in design from Airbnb, Good Eggs and Lyft.
 
 Andrew Schapiro, _Design Lead, AirBnB_<br/>
 Robin Bigio, _Creative Director, Good Eggs_<br/>
