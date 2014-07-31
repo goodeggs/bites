@@ -23,7 +23,7 @@ Join us for a conversation on the challenges, learnings and opportunities in des
 
 This event is a panel discussion with leaders in design from Airbnb, Good Eggs and Lyft.
 
-Andrew Schapiro, _Design Lead, Airbnb_<br/>
+Katie Dill, _Experience Design Lead, Airbnb_<br/>
 Robin Bigio, _Creative Director, Good Eggs_<br/>
 Frank Yoo, _Director of Product Design, Lyft_<br/>
 
