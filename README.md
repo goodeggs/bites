@@ -80,7 +80,7 @@ When it looks right commit and push your post:
     > git ci -m "Yay. I wrote a post."
     > git push
 
-When you're ready to share, make a pull request and send an E-Mail to [mailto:eng@goodeggs.com](eng@goodeggs.com) and ask for feedback.
+When you're ready to share, make a pull request and send an E-Mail to [eng@goodeggs.com](mailto:eng@goodeggs.com) and ask for feedback.
 
 And then stage and release:
 
@@ -102,7 +102,7 @@ Subject: [blog post] Good Eggs Goes Mobile
 
 A series of posts about how the Good Eggs mobile site was built written by Adam and me.
 
-Help sprad the word!
+Help spread the word!
 Post - http://bites.goodeggs.com/posts/good-eggs-goes-mobile/
 Breaddit - http://goodeggs.meteor.com/posts/KsJtJMNBY5QT6jiv2
 Twitter - https://twitter.com/GoodEggsEng/status/461273753620455424
