@@ -22,7 +22,7 @@ What to blog about?
 -------------------
 Posts can range from in-depth technical articles to brief posts relating a personal experience about software. Our goal is to share what we're doing here in Good Eggs in all aspects of Engineering. They can be short, long, or anywhere in between. Here are a few ideas:
 
-* design patters and techniques we're using
+* design patterns and techniques we're using
 * tools, services, and libraries we're using
 * open source software we authored
 * process (daily standups, retrospectives, etc)
