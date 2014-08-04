@@ -20,15 +20,15 @@ When user navigates back with back button page can be loaded from cache very qui
 This is different from normal cache which only caches HTML code.&quot;</p>
 </blockquote>
 <p>It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:</p>
-<pre class="highlighted"><code class="coffeescript">    window.onpageshow, (event) =&gt;
+<pre class="highlight"><code class="coffeescript">    window.onpageshow, <span class="function"><span class="params">(event)</span> =&gt;</span>
       <span class="keyword">if</span> event.persisted
         overlay.hide() <span class="comment"># Hide the spinner overlay</span></code></pre>
 <p>Seemed like it should work, but it didn&#39;t!  After a lot more research and even more a lot more trial-and-error, we noticed we had multiple window.onpageshow assignments.  jQuery to the rescue (yet again)!</p>
-<pre class="highlighted"><code class="coffeescript">    $(window).<span class="literal">on</span> <span class="string">'pageshow'</span>, (event) =&gt;
+<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
       <span class="keyword">if</span> event.persisted
         overlay.hide()</code></pre>
 <p>With our fix in place we were ready to head home and have a beer, right?  Nope!  What if we needed to sneak past bfcache again?  Well how about we move the code to our main Page class and define an overwritable function called onBrowserBack?</p>
-<pre class="highlighted"><code class="coffeescript">    $(window).<span class="literal">on</span> <span class="string">'pageshow'</span>, (event) =&gt;
+<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
       <span class="keyword">if</span> event.persisted
         overlay.hide()
         <span class="property">@onBrowserBack</span>?()</code></pre>

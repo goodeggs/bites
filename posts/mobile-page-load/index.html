@@ -32,10 +32,10 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 
 <p>Starting javascript on DOMContentLoaded, a pattern <a href="https://docs.angularjs.org/guide/bootstrap">baked into</a> or <a href="http://backbonejs.org/docs/todos.html#section-2">recommended by</a> many frameworks, defers some work that could be done earlier.  There aren&#39;t many examples of what can be done early, or how to wire it up.  Here&#39;s how we did it on the Good Eggs mobile site.
 <!-- more --></p>
-<h2>The Problem</h2>
+<h2 id="the-problem">The Problem</h2>
 <p>DOMContentLoaded is the start of life for most Javascript apps. It&#39;s a browser event signalling HTML has been fully parsed, and javascript can do <a href="http://blogs.msdn.com/b/ie/archive/2008/04/23/what-happened-to-operation-aborted.aspx">its worst</a>. Frameworks like Angular wait by default for this event before starting up. Usually, our app must start up before a visitor can accomplish whatever it is they came for.  We need to wire up event listeners.  We might even need to generate DOM elements by rendering templates. DOMContentLoaded quickly becomes a bottleneck in our <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp">critical rendering path</a>.  Phones, with their high-latency networks, exacerbate the problem.  An extra request for javascript can <a href="http://calendar.perfplanet.com/2011/carrier-networks-down-the-rabbit-hole/">add hundreds of milliseconds</a>.</p>
 <p>While this bottleneck is fairly <a href="https://groups.google.com/forum/#!topic/closure-library-discuss/G-7Ltdavy0E">widely</a> <a href="https://alexsexton.com/blog/2010/01/dont-let-document-ready-slow-you-down/">known</a>, and most frameworks provide hooks for motivated developers to work around it, examples of starting up rich browser apps early are sparse. The Good Eggs engineering team, unconvinced that the heavy-backbone client-rendered approach of our desktop site could deliver a satisfying mobile experience, explored early start up.</p>
-<h2>Our Approach</h2>
+<h2 id="our-approach">Our Approach</h2>
 <div class="right">
 <img src="../../images/mobile-page-load/complete-page.jpg" alt="finished page">
 </div>
@@ -52,7 +52,7 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p>Loading the page on an iPhone 5 over a 3G network reveals this timeline:</p>
 <p><img src="../../images/mobile-page-load/timeline.jpg" alt="timeline"></p>
 <p>Note that all three of these events occur on this page before <a href="https://developer.mozilla.org/en-US/docs/Web/Reference/Events/DOMContentLoaded">DOMContentLoaded</a>, the traditional launchpoint for single page js apps.  We&#39;re piggybacking on the browser&#39;s <a href="http://en.wikipedia.org/wiki/Incremental_rendering">incremental rendering</a> to wire up javascript before the DOM has fully finished loading.</p>
-<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
   <span class="comment">&lt;!-- 1. Page DOM Loaded --&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
@@ -63,7 +63,7 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
 <span class="comment">&lt;!-- DOMContentLoaded --&gt;</span></code></pre>
 <p>What can we do at these points? We&#39;ll explore each in detail below.</p>
-<h2>Page DOM Loaded</h2>
+<h2 id="page-dom-loaded">Page DOM Loaded</h2>
 <div class="right">
 <img src="../../images/mobile-page-load/page-dom-loaded.jpg" alt="page dom loaded">
 </div>
@@ -74,7 +74,7 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p>By building the page with this stage of the lifecycle in mind, and pre-rendering on the server, we show information about the blueberries a full second before DOMContentLoaded.  If the user is just browsing (not shopping), this is the end of their critical path.</p>
 <div class="clear"></div>
 
-<h2>Page JS Loaded</h2>
+<h2 id="page-js-loaded">Page JS Loaded</h2>
 <div class="right">
 <img src="../../images/mobile-page-load/page-js-loaded.jpg" alt="page js loaded">
 </div>
@@ -83,7 +83,7 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p>Although we&#39;ve wired up event listeners for the &quot;Add to Basket&quot; button and quantity toggle (saving future script execution cycles), we keep the button hidden until we know if the user already has some of these blueberries in their basket so we can message appropriately.</p>
 <div class="clear"></div>
 
-<h2>Session Loaded</h2>
+<h2 id="session-loaded">Session Loaded</h2>
 <div class="right">
 <img src="../../images/mobile-page-load/all-js-loaded.jpg" alt="finished page">
 </div>
@@ -96,14 +96,14 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p><img src="../../images/mobile-page-load/network.jpg" alt="network"></p>
 <p>For visitors who came to shop (rather than ogle), the &quot;Add to Basket&quot; button is in the critical path. They can&#39;t leave this page with the blueberries they came for until they click that button. We wait for session information to load before showing the button so shoppers can see how many, if any, blueberries they&#39;re already getting.</p>
 <p>The session request is often the slowest for this user flow. We want to start it as early as possible, so we load it with a script tag. Firing off an XmlHttpRequest from the page js would be more convenient for developers (we&#39;d get a sucess callback to wire into), but doing so would delay starting the session request until after the page script had loaded and executed, potentially several hundred millis.  Instead we place a script tag just below the page js script tag in the body:</p>
-<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">startPage(<span class="comment">/*...*/</span>)</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/session.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></pre>
 <p>With this arrangement, modern browsers will download both scripts in parallel, and execute them in the order they appear in the DOM. The page script can listen for the session script to finish, fill in the user details, and complete our page.</p>
-<h2>Next Steps</h2>
+<h2 id="next-steps">Next Steps</h2>
 <p>There are still major oppourtunities to optimize our critical path.</p>
 <p>Currently, to keep the build process simple, we inline all the styles for the whole site in the head of every page. This should be trimmed down to only the styles used on the page, and ideally on the styles for the above-the-fold content.</p>
 <div class="right">

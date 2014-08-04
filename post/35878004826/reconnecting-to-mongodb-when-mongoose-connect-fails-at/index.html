@@ -14,11 +14,11 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../../">Bit
 <p><span>Seems like a bit of a cop out to me. You&#8217;ll try to reconnect on an interval if you loose the connection but not if you can&#8217;t connect initially? Doesn&#8217;t everyone need this functionality?</span></p>
 <p>Well, we clearly do so we implemented it and are sharing it here for you.</p>
 
-<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> mongoose = require(<span class="string">'mongoose'</span>)
+<pre class="highlight"><code class="javascript"><span class="keyword">var</span> mongoose = require(<span class="string">'mongoose'</span>)
 <span class="keyword">var</span> mongoUrl = <span class="string">"mongodb://localhost:27017/test"</span>
 
-<span class="keyword">var</span> connectWithRetry = <span class="keyword">function</span>() {
-  <span class="keyword">return</span> mongoose.connect(mongoUrl, <span class="keyword">function</span>(err) {
+<span class="keyword">var</span> connectWithRetry = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">return</span> mongoose.connect(mongoUrl, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
     <span class="keyword">if</span> (err) {
       console.error(<span class="string">'Failed to connect to mongo on startup - retrying in 5 sec'</span>, err);
       setTimeout(connectWithRetry, <span class="number">5000</span>);
