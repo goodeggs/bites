@@ -4,21 +4,39 @@
         <title><![CDATA[Bites from Good Eggs]]></title>
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
-        <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 04 Aug 2014 19:23:15 GMT</lastBuildDate>
+        <generator>NodeJS RSS Module</generator>
+        <lastBuildDate>Wed, 13 Aug 2014 19:42:33 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Mon, 04 Aug 2014 19:23:11 GMT</pubDate>
+        <pubDate>Wed, 13 Aug 2014 19:42:27 GMT</pubDate>
+        <item>
+            <title><![CDATA[Video: A Conversation on Service Design with Airbnb, Good Eggs and Lyft]]></title>
+            <description><![CDATA[<p>Last Wednesday, Aug 6, we hosted <a href="/posts/service-design-panel">A Conversation Service Design with Airbnb, Good Eggs and Lyft</a>. Here&#39;s the video of that conversation for those who were unable to join us in person.</p>
+<iframe width="560" height="315" src="//www.youtube.com/embed/fkb08n81NAw" frameborder="0" allowfullscreen></iframe>
+
+<p><br>
+Thanks to Patrice Martin from IDEO.org for her skillful moderating and to Katie Dill from Airbnb, Robin Bigio from Good Eggs and Frank Yoo from Lyft for their great insights. Thanks also to those who shared <a href="https://twitter.com/search?q=%23cultivatedesign">photos and thoughts with #cultivatedesign</a>.</p>
+<h2>What I learned</h2>
+<p>One concept in particular stood out for me. It was the idea that you can&#39;t actually design all touch points of the customer experience across a service that spans the physical and digital realms and where much of the actual service is provided by a third party. Rather, identify and nurture a set of core values across all members of your team, your customers and your service providers and allow them to manifest those values in ways that are natural to them. Through this you will find behaviors emerging out in the wild that are consistent with those core values and result in a remarkably consistent experience for all involved.</p>
+<p>For Airbnb a core value is that the host is the hero of the guest experience. For Good Eggs it is the mission to grow and sustain local food systems worldwide. For Lyft it is a quirky style that celebrates individualism.</p>
+<p>What did you learn?</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/posts/service-design-panel-video/</link>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/service-design-panel-video/            </guid>
+            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
+            <pubDate>Wed, 13 Aug 2014 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Loud and Proud: What's Your Ideal Workplace?]]></title>
             <description><![CDATA[<p>Imagine your ideal workplace. What’s it look like? More to the point, what’s it sound like?</p>
 <p>The Good Eggs foodhub in San Francisco, where the engineering team resides, isn’t the quietest place I’ve ever worked. Every morning, there’s local farmers wheeling in crate after crate of watermelons and tomatoes and so much more. There’s the sound of our operations team working to get all that food into the right bins and later into the right cars, delivering people good, local food, grown with integrity. There’s the chatter of the daily standup meetings that spring up all around the foodhub throughout the morning as each team gears up for the day.</p>
 <p>Is all that action distracting? Not for me! I absolutely love it. When I wake up every morning, I can’t imagine a better, more exciting place to go work. Our foodhub isn’t a shrine to silent contemplation. And it shouldn’t be. It’s a living, breathing part of the new food economy that we’re helping to build.</p>
 <p>There are two things in particular that I love about coding in the foodhub.</p>
-<h2 id="rapid-feedback">Rapid Feedback</h2>
+<h2>Rapid Feedback</h2>
 <p>Last week, we on the “operations tools” team built some new features to use barcodes and scanners to make it easier to keep track of the food we receive at the foodhub every morning. Tuesday afternoon, we pushed the code to production. Wednesday morning, the receiving lead in San Francisco, Zach, used the new tools to check in that day’s food as it arrived. Some features worked well, and some didn’t, so he walked the twenty yards over to our cluster of desks and told us about it. Wednesday afternoon, we pushed some updates. Thursday morning, Zach used it again and gave us his stamp of approval.</p>
 <p>It’s easy to talk about the value of rapid prototyping. I think it’s tough to imagine really making it happen without the easy communication that our foodhub creates.</p>
-<h2 id="task-significance-finding-meaning-in-work">Task Significance: Finding Meaning in Work</h2>
+<h2>Task Significance: Finding Meaning in Work</h2>
 <p>What makes for good work? People point to many different things: interesting challenges. Room for creativity. <a href="https://www.goodeggs.com/about/team/sfbay">Great teammates</a>. Constant learning and growth. I’ve found all of those in abundance at Good Eggs.</p>
 <p>But most of all, I’ve found meaning in my work here. Theorists of work describe <a href="http://imondrow.blogspot.com/2010/12/significance-of-task-significance.html">“task significance”</a> as the perception that one&#39;s job has a positive impact on other people. Not surprisingly, task significance is strongly correlated with <a href="http://psycnet.apa.org/journals/apl/93/1/108/">higher performance</a> and <a href="http://rop.sagepub.com/content/24/1/18.full.pdf">satisfaction</a> at work.</p>
 <p>Task significance is easy to come by at Good Eggs. Every day, the foodhub reminds me of why I’m working here. I’m working to support the farmer who shows up at our foodhub twice a week, selling locally, organically grown produce. I&#39;m working to support our awesome, skilled operations team as they lovingly sort through produce, carefully pack bags, and efficiently deliver food to our waiting customers. I&#39;m working to support the people who will soon receive their orders, so that they can eat delicious, healthy meals while participating in a thriving local economy.</p>
@@ -28,7 +46,8 @@
 <p>What makes a good workplace for you? Let us know!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/ideal-workplace/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/ideal-workplace/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/ideal-workplace/            </guid>
             <dc:creator><![CDATA[Adam Perelman]]></dc:creator>
             <pubDate>Mon, 04 Aug 2014 00:00:00 GMT</pubDate>
         </item>
@@ -50,7 +69,8 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p><a href="https://www.eventbrite.com/e/a-conversation-on-service-design-with-airbnb-good-eggs-and-lyft-tickets-12270402103?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid=12270402103" alt="Eventbrite - A Conversation on Service Design with Airbnb, Good Eggs and Lyft" /></a></p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/service-design-panel/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/service-design-panel/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/service-design-panel/            </guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Tue, 15 Jul 2014 00:00:00 GMT</pubDate>
         </item>
@@ -70,7 +90,8 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>So for now, I&#39;m rather enjoying being a corporate drone. I still dream of radical departures from the status quo, even here at Good Eggs, where we do a lot of things differently. But these days I have much less desire to white-knuckle things into existence all by myself. It takes a village, and going forward I&#39;m going to try to stay a part of one.</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/frying-pan/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/frying-pan/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/frying-pan/            </guid>
             <dc:creator><![CDATA[Erik Pukinskis]]></dc:creator>
             <pubDate>Tue, 24 Jun 2014 00:00:00 GMT</pubDate>
         </item>
@@ -90,10 +111,10 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 
 <p>Starting javascript on DOMContentLoaded, a pattern <a href="https://docs.angularjs.org/guide/bootstrap">baked into</a> or <a href="http://backbonejs.org/docs/todos.html#section-2">recommended by</a> many frameworks, defers some work that could be done earlier.  There aren&#39;t many examples of what can be done early, or how to wire it up.  Here&#39;s how we did it on the Good Eggs mobile site.
 <!-- more --></p>
-<h2 id="the-problem">The Problem</h2>
+<h2>The Problem</h2>
 <p>DOMContentLoaded is the start of life for most Javascript apps. It&#39;s a browser event signalling HTML has been fully parsed, and javascript can do <a href="http://blogs.msdn.com/b/ie/archive/2008/04/23/what-happened-to-operation-aborted.aspx">its worst</a>. Frameworks like Angular wait by default for this event before starting up. Usually, our app must start up before a visitor can accomplish whatever it is they came for.  We need to wire up event listeners.  We might even need to generate DOM elements by rendering templates. DOMContentLoaded quickly becomes a bottleneck in our <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp">critical rendering path</a>.  Phones, with their high-latency networks, exacerbate the problem.  An extra request for javascript can <a href="http://calendar.perfplanet.com/2011/carrier-networks-down-the-rabbit-hole/">add hundreds of milliseconds</a>.</p>
 <p>While this bottleneck is fairly <a href="https://groups.google.com/forum/#!topic/closure-library-discuss/G-7Ltdavy0E">widely</a> <a href="https://alexsexton.com/blog/2010/01/dont-let-document-ready-slow-you-down/">known</a>, and most frameworks provide hooks for motivated developers to work around it, examples of starting up rich browser apps early are sparse. The Good Eggs engineering team, unconvinced that the heavy-backbone client-rendered approach of our desktop site could deliver a satisfying mobile experience, explored early start up.</p>
-<h2 id="our-approach">Our Approach</h2>
+<h2>Our Approach</h2>
 <div class="right">
 <img src="/images/mobile-page-load/complete-page.jpg" alt="finished page">
 </div>
@@ -110,7 +131,7 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>Loading the page on an iPhone 5 over a 3G network reveals this timeline:</p>
 <p><img src="/images/mobile-page-load/timeline.jpg" alt="timeline"></p>
 <p>Note that all three of these events occur on this page before <a href="https://developer.mozilla.org/en-US/docs/Web/Reference/Events/DOMContentLoaded">DOMContentLoaded</a>, the traditional launchpoint for single page js apps.  We&#39;re piggybacking on the browser&#39;s <a href="http://en.wikipedia.org/wiki/Incremental_rendering">incremental rendering</a> to wire up javascript before the DOM has fully finished loading.</p>
-<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
   <span class="comment">&lt;!-- 1. Page DOM Loaded --&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
@@ -121,7 +142,7 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <span class="tag">&lt;/<span class="title">body</span>&gt;</span>
 <span class="comment">&lt;!-- DOMContentLoaded --&gt;</span></code></pre>
 <p>What can we do at these points? We&#39;ll explore each in detail below.</p>
-<h2 id="page-dom-loaded">Page DOM Loaded</h2>
+<h2>Page DOM Loaded</h2>
 <div class="right">
 <img src="/images/mobile-page-load/page-dom-loaded.jpg" alt="page dom loaded">
 </div>
@@ -132,7 +153,7 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>By building the page with this stage of the lifecycle in mind, and pre-rendering on the server, we show information about the blueberries a full second before DOMContentLoaded.  If the user is just browsing (not shopping), this is the end of their critical path.</p>
 <div class="clear"></div>
 
-<h2 id="page-js-loaded">Page JS Loaded</h2>
+<h2>Page JS Loaded</h2>
 <div class="right">
 <img src="/images/mobile-page-load/page-js-loaded.jpg" alt="page js loaded">
 </div>
@@ -141,7 +162,7 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>Although we&#39;ve wired up event listeners for the &quot;Add to Basket&quot; button and quantity toggle (saving future script execution cycles), we keep the button hidden until we know if the user already has some of these blueberries in their basket so we can message appropriately.</p>
 <div class="clear"></div>
 
-<h2 id="session-loaded">Session Loaded</h2>
+<h2>Session Loaded</h2>
 <div class="right">
 <img src="/images/mobile-page-load/all-js-loaded.jpg" alt="finished page">
 </div>
@@ -154,14 +175,14 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p><img src="/images/mobile-page-load/network.jpg" alt="network"></p>
 <p>For visitors who came to shop (rather than ogle), the &quot;Add to Basket&quot; button is in the critical path. They can&#39;t leave this page with the blueberries they came for until they click that button. We wait for session information to load before showing the button so shoppers can see how many, if any, blueberries they&#39;re already getting.</p>
 <p>The session request is often the slowest for this user flow. We want to start it as early as possible, so we load it with a script tag. Firing off an XmlHttpRequest from the page js would be more convenient for developers (we&#39;d get a sucess callback to wire into), but doing so would delay starting the session request until after the page script had loaded and executed, potentially several hundred millis.  Instead we place a script tag just below the page js script tag in the body:</p>
-<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">startPage(<span class="comment">/*...*/</span>)</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/session.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></pre>
 <p>With this arrangement, modern browsers will download both scripts in parallel, and execute them in the order they appear in the DOM. The page script can listen for the session script to finish, fill in the user details, and complete our page.</p>
-<h2 id="next-steps">Next Steps</h2>
+<h2>Next Steps</h2>
 <p>There are still major oppourtunities to optimize our critical path.</p>
 <p>Currently, to keep the build process simple, we inline all the styles for the whole site in the head of every page. This should be trimmed down to only the styles used on the page, and ideally on the styles for the above-the-fold content.</p>
 <div class="right">
@@ -175,7 +196,8 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>We&#39;re hoping these three page load hooks give us the flexibility to tune mobile and responsive web perfomance moving forward.  If you&#39;ve tried a different approach to optimizing the DOMContentLoaded bottleneck, we&#39;d love to hear about it!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/mobile-page-load/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/mobile-page-load/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/mobile-page-load/            </guid>
             <dc:creator><![CDATA[Adam Hull]]></dc:creator>
             <pubDate>Mon, 16 Jun 2014 00:00:00 GMT</pubDate>
         </item>
@@ -184,15 +206,15 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
             <description><![CDATA[<blockquote>
 <p>Reposted with permission by <a href="http://strongloop.com/">StrongLoop</a>. Originally appeared on <a href="http://strongloop.com/strongblog/comparing-node-js-promises-trycatch-zone-js-angular/">April 16, 2014</a>.</p>
 </blockquote>
-<h1 id="handling-errors-in-async-flow">Handling errors in async flow</h1>
+<h1>Handling errors in async flow</h1>
 <p>In the <a href="http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/">previous article</a> we&#39;ve talked about managing async flow and escaping the <a href="http://callbackhell.com/">callback hell</a>.</p>
-<h2 id="the-problem">The problem</h2>
+<h2>The problem</h2>
 <p>Handling errors in asynchronous flow is pretty straightforward and easy. Handling errors in asynchronous flow in a clean and easy to follow manner - not so much.</p>
 <!-- more -->
 
 <p>Lets look at the following code:</p>
-<pre class="highlight"><code class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
-  findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
+<pre class="highlighted"><code class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
+  findPackage(packageName, <span class="keyword">function</span>(err, content) {
     <span class="keyword">if</span> (err) {
       done(err);
     }
@@ -204,12 +226,12 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
         done(e);
       }
 
-      findDependencies(<span class="package"><span class="keyword">package</span>, <span class="title">function</span>(<span class="title">err</span>, <span class="title">dependencies</span>)) {</span>
+      findDependencies(<span class="keyword">package</span>, <span class="keyword">function</span>(err, dependencies)) {
         <span class="keyword">if</span> (err) {
           done(err);
         }
         <span class="keyword">else</span> {
-          processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
+          processDependencies(dependencies, <span class="keyword">function</span>(err) {
             <span class="keyword">if</span> (err) {
               done(err);
             }
@@ -223,23 +245,23 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
   });
 }</code></pre>
 <p>We are covering all possible failure cases here using combination of <code>try/catch</code> and callback error handling, but boy do we repeat ourselves over and over again. Lets try and rewrite this!</p>
-<h2 id="error-handling-using-try-catch">Error handling using try/catch</h2>
-<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
-  <span class="keyword">try</span> {
-    findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
-      <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+<h2>Error handling using try/catch</h2>
+<pre class="highlighted"><code class="vbscript"><span class="keyword">function</span> updateDependencies(packageName, done) {
+  try {
+    findPackage(packageName, <span class="keyword">function</span>(<span class="built_in">err</span>, content) {
+      <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
 
-      findDependencies(JSON.parse(content), <span class="function"><span class="keyword">function</span><span class="params">(err, dependencies)</span>) {</span>
-        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+      findDependencies(JSON.parse(content), <span class="keyword">function</span>(<span class="built_in">err</span>, dependencies)) {
+        <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
 
-        processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
-          <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+        processDependencies(dependencies, <span class="keyword">function</span>(<span class="built_in">err</span>) {
+          <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
 
           done(<span class="literal">null</span>, dependencies);
         });
       });
     });
-  } <span class="keyword">catch</span> (e) {
+  } catch (e) {
     done(e);
   }
 }</code></pre>
@@ -249,32 +271,32 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>If an error occurs at some point in the future inside asynchronous <code>findPackage</code> - <strong>nothing will be caught</strong>.</p>
 <p><img src="http://goodeggs.github.io/bites/images/posts/promises-trycatch-zones/catch-fail.gif"/></p>
 <p>Not useful.</p>
-<h2 id="error-handling-using-promises">Error handling using promises</h2>
+<h2>Error handling using promises</h2>
 <p>In the <a href="http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/">previous article</a> we&#39;ve talked about managing asynchronous flow and escaping the <a href="http://callbackhell.com/">callback hell</a> with promises. Lets put this promises to work here and rewrite this function.</p>
 <p>For the sake of moving forward quicker lets assume we are using <a href="https://github.com/petkaantonov/bluebird">Bluebird</a> promises library and that all our APIs now return promises instead of taking callbacks:</p>
-<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName)</span> {</span>
+<pre class="highlighted"><code class="lua"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName)</span></span> {
   <span class="keyword">return</span> findPackage(packageName)
-    .<span class="keyword">then</span>(<span class="transposed_variable">JSON.</span>parse)
+    .<span class="keyword">then</span>(JSON.parse)
     .<span class="keyword">then</span>(findDependencies)
     .<span class="keyword">then</span>(processDependencies)
-    .<span class="keyword">then</span>(<span class="transposed_variable">res.</span>send)
+    .<span class="keyword">then</span>(res.send)
     ;
 }</code></pre>
 <p>Oh wow, that is so much nicer! Right? Right!</p>
 <p>But Alex, &quot;we&#39;ve lost our error handling&quot;, you might say. That&#39;s right, we don&#39;t need to do anything special here to propagate error because we return a promise and there&#39;s built in support for error flow. Lets see how error handling might look like with promises:</p>
-<pre class="highlight"><code class="scilab"><span class="transposed_variable">button.</span>addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+<pre class="highlighted"><code class="avrasm">button<span class="preprocessor">.addEventListener</span>(<span class="string">"click"</span>, function() {
   updateDependencies(<span class="string">"packageName"</span>)
-    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(dependencies)</span> {</span>
-      <span class="transposed_variable">output.</span>innerHTML = <span class="transposed_variable">dependencies.</span>join(<span class="string">"\n"</span>);
+    <span class="preprocessor">.then</span>(function(dependencies) {
+      output<span class="preprocessor">.innerHTML</span> = dependencies<span class="preprocessor">.join</span>(<span class="string">"\n"</span>)<span class="comment">;</span>
     })
-    .<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
-      <span class="transposed_variable">output.</span>innerHTML = <span class="string">"There was an error"</span>;
-    });
-});</code></pre>
+    <span class="preprocessor">.catch</span>(function(err) {
+      output<span class="preprocessor">.innerHTML</span> = <span class="string">"There was an error"</span><span class="comment">;</span>
+    })<span class="comment">;</span>
+})<span class="comment">;</span></code></pre>
 <p>Very slick, I&#39;m a fan!</p>
-<h2 id="error-using-zones">Error using Zones</h2>
+<h2>Error using Zones</h2>
 <p>Handling rejected promises works really well when we are in full control of the flow. But what happens if some third-party code throws an error during an asynchronous operation? Lets look at another example:</p>
-<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">thirdPartyFunction</span><span class="params">()</span> {</span>
+<pre class="highlighted"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">thirdPartyFunction</span><span class="params">()</span> {</span>
   <span class="function"><span class="keyword">function</span> <span class="title">fakeXHR</span><span class="params">()</span> {</span>
     <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Invalid dependencies"</span>);
   }
@@ -290,46 +312,46 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 
 main();</code></pre>
 <p>In this case, we wouldn&#39;t have a chance to catch and process the error. Generally, the only recourse here is using half baked <code>window.onerror</code> that doesn&#39;t give you any stack information at all. At least you can log something, right? Not that there&#39;s much to log:</p>
-<pre class="highlight"><code class="vbnet">Uncaught <span class="keyword">Error</span>: Invalid dependencies
+<pre class="highlighted"><code class="nginx"><span class="title">Uncaught</span> Error: Invalid dependencies
     fakeXHR</code></pre>
 <p>Up until recently that was pretty much all we had. However, this january <a href="https://github.com/btford">Brian Ford</a> of the <a href="http://angularjs.org">angular.js</a> fame has released <a href="https://github.com/btford/zone.js/">Zone.js</a> which aims to help tackle this.</p>
 <p>Basically, <a href="https://github.com/btford/zone.js/">Zone.js</a> <strong>overrides all asynchronous functions in the browser</strong> with custom implementations which allows it to keep track of the context. Dangerous? Yes! But as we say in Soviet Russia, &quot;he who doesn&#39;t risk never gets to drink champagne&quot; (or in English &quot;nothing ventured, nothing gained&quot;).</p>
 <p>Anyways, lets look at how this works. Assuming you have included <code>zones.js</code> and <code>long-stack-trace-zone.js</code> as per the docs, we just change <code>main()</code> call to:</p>
-<pre class="highlight"><code class="avrasm">zone<span class="preprocessor">.fork</span>(Zone<span class="preprocessor">.longStackTraceZone</span>)<span class="preprocessor">.run</span>(main)<span class="comment">;</span></code></pre>
+<pre class="highlighted"><code class="avrasm">zone<span class="preprocessor">.fork</span>(Zone<span class="preprocessor">.longStackTraceZone</span>)<span class="preprocessor">.run</span>(main)<span class="comment">;</span></code></pre>
 <p>Refresh, click the button, and now our stack looks like this:</p>
-<pre class="highlight"><code class="bash">Error: Invalid dependencies
-    at fakeXHR (script.js:<span class="number">7</span>:<span class="number">11</span>)
-    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
-    at zoneBoundFn (zones.js:<span class="number">27</span>:<span class="number">19</span>)
---- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">106</span>ms ago
+<pre class="highlighted"><code class="bash">Error: Invalid dependencies
+    at fakeXHR (script.js:7:11)
+    at Zone.run (zones.js:41:19)
+    at zoneBoundFn (zones.js:27:19)
+--- Tue Mar 25 2014 21:20:32 GMT-0700 (PDT) - 106ms ago
 Error
-    at Function.getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
-    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
-    at zone.(anonymous function) (zones.js:<span class="number">61</span>:<span class="number">27</span>)
-    at marker (zones.js:<span class="number">66</span>:<span class="number">25</span>)
-    at thirdPartyFunction (script.js:<span class="number">10</span>:<span class="number">3</span>)
-    at HTMLButtonElement.onClick (script.js:<span class="number">15</span>:<span class="number">5</span>)
-    at HTMLButtonElement.x.event.dispatch (jquery.js:<span class="number">5</span>:<span class="number">10006</span>)
-    at HTMLButtonElement.y.handle (jquery.js:<span class="number">5</span>:<span class="number">6789</span>)
-    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
---- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">1064</span>ms ago
+    at Function.getStacktraceWithUncaughtError (long-stack-trace-zone.js:24:32)
+    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:70:43)
+    at Zone.bind (zones.js:25:21)
+    at zone.(anonymous function) (zones.js:61:27)
+    at marker (zones.js:66:25)
+    at thirdPartyFunction (script.js:10:3)
+    at HTMLButtonElement.onClick (script.js:15:5)
+    at HTMLButtonElement.x.event.dispatch (jquery.js:5:10006)
+    at HTMLButtonElement.y.handle (jquery.js:5:6789)
+    at Zone.run (zones.js:41:19)
+--- Tue Mar 25 2014 21:20:32 GMT-0700 (PDT) - 1064ms ago
 Error
-    at getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
-    at Function.Zone.getStacktrace (long-stack-trace-zone.js:<span class="number">37</span>:<span class="number">15</span>)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
-    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
-    at HTMLButtonElement.obj.addEventListener (zones.js:<span class="number">132</span>:<span class="number">37</span>)
-    at Object.x.event.add (jquery.js:<span class="number">5</span>:<span class="number">7262</span>)
-    at HTMLButtonElement.&lt;anonymous&gt; (jquery.js:<span class="number">5</span>:<span class="number">14336</span>)
-    at Function.x.extend.each (jquery.js:<span class="number">4</span>:<span class="number">4575</span>)
-    at x.fn.x.each (jquery.js:<span class="number">4</span>:<span class="number">1626</span>)
-    at x.fn.extend.on (jquery.js:<span class="number">5</span>:<span class="number">14312</span>)</code></pre>
+    at getStacktraceWithUncaughtError (long-stack-trace-zone.js:24:32)
+    at Function.Zone.getStacktrace (long-stack-trace-zone.js:37:15)
+    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:70:43)
+    at Zone.bind (zones.js:25:21)
+    at HTMLButtonElement.obj.addEventListener (zones.js:132:37)
+    at Object.x.event.add (jquery.js:5:7262)
+    at HTMLButtonElement.&lt;anonymous&gt; (jquery.js:5:14336)
+    at Function.x.extend.each (jquery.js:4:4575)
+    at x.fn.x.each (jquery.js:4:1626)
+    at x.fn.extend.on (jquery.js:5:14312)</code></pre>
 <p>What the what?? Cool! We can now see that the relevant code path started in our <code>onClick</code> method and went into <code>thirdPartyFunction</code>.</p>
 <p>The cool part is, since <a href="https://github.com/btford/zone.js/">Zone.js</a> overrides browser methods, it doesn&#39;t matter what libraries you use. It just works.</p>
-<h2 id="another-async-flow-control-project-called-zones-">Another async flow control project called Zones?</h2>
+<h2>Another async flow control project called Zones?</h2>
 <p>Yep, StrongLoop’s <a href="https://github.com/piscisaureus">Bert Belder</a> has been working on a similar idea called “<a href="https://www.npmjs.org/package/zone">Zone</a>“ for a few months now. (Not to be confused with the Angular <a href="https://github.com/btford/zone.js/">Zone.js</a> project we&#39;ve just been discussing, which shares the same name and some technical characteristics. Yeah, it’s a little confusing, but we are actively working with <a href="https://github.com/btford">Brian Ford</a> on how to potentially bring together these two projects for the mutual benefit of the JavaScript and Node communities. Stay tuned!)</p>
-<h2 id="why-a-node-specific-zones-project-">Why a Node-specific Zones project?</h2>
+<h2>Why a Node-specific Zones project?</h2>
 <p>Currently, there are a couple of problems that make it really hard to deal with asynchronous control flow in Node that Zones looks to address. Specifically:</p>
 <ul>
 <li>Stack traces are useless when an asynchronous function fails.</li>
@@ -344,7 +366,7 @@ Error
 <li>Sometimes there is a need to associate user data to an asynchronous flow. There is currently no way to do this.</li>
 </ul>
 <p>Want to learn more about Zones? Stay tuned for more information in the coming weeks. Follow us on <a href="https://twitter.com/StrongLoop">Twitter</a> or subscribe to our <a href="http://strongloop.com/newsletter-registration/">newsletter</a> to make sure you don’t miss the announcements.</p>
-<h2 id="what-s-next-">What&#39;s next?</h2>
+<h2>What&#39;s next?</h2>
 <ul>
 <li>Watch <a href="http://www.youtube.com/watch?v=3IqtmUscE_U">Brian&#39;s presentation</a> from ngconf 2014, it&#39;s pretty cool!</li>
 <li>Add <a href="https://github.com/btford/zone.js/">Zone.js</a> to your application.</li>
@@ -353,7 +375,8 @@ Error
 <p><img src="http://goodeggs.github.io/bites/images/posts/promises-trycatch-zones/party.gif"/></p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/promises-trycatch-zones/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/promises-trycatch-zones/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/promises-trycatch-zones/            </guid>
             <dc:creator><![CDATA[Alex Gorbatchev]]></dc:creator>
             <pubDate>Mon, 09 Jun 2014 00:00:00 GMT</pubDate>
         </item>
@@ -375,15 +398,15 @@ When user navigates back with back button page can be loaded from cache very qui
 This is different from normal cache which only caches HTML code.&quot;</p>
 </blockquote>
 <p>It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:</p>
-<pre class="highlight"><code class="coffeescript">    window.onpageshow, <span class="function"><span class="params">(event)</span> =&gt;</span>
+<pre class="highlighted"><code class="coffeescript">    window.onpageshow, (event) =&gt;
       <span class="keyword">if</span> event.persisted
         overlay.hide() <span class="comment"># Hide the spinner overlay</span></code></pre>
 <p>Seemed like it should work, but it didn&#39;t!  After a lot more research and even more a lot more trial-and-error, we noticed we had multiple window.onpageshow assignments.  jQuery to the rescue (yet again)!</p>
-<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
+<pre class="highlighted"><code class="coffeescript">    $(window).<span class="literal">on</span> <span class="string">'pageshow'</span>, (event) =&gt;
       <span class="keyword">if</span> event.persisted
         overlay.hide()</code></pre>
 <p>With our fix in place we were ready to head home and have a beer, right?  Nope!  What if we needed to sneak past bfcache again?  Well how about we move the code to our main Page class and define an overwritable function called onBrowserBack?</p>
-<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
+<pre class="highlighted"><code class="coffeescript">    $(window).<span class="literal">on</span> <span class="string">'pageshow'</span>, (event) =&gt;
       <span class="keyword">if</span> event.persisted
         overlay.hide()
         <span class="property">@onBrowserBack</span>?()</code></pre>
@@ -392,7 +415,8 @@ This is different from normal cache which only caches HTML code.&quot;</p>
 <p>If you&#39;ve read this far and you&#39;re interested in more on the ins-and-outs of how browsers deal with caching history you&#39;ll probably find <a href="http://madhatted.com/2013/6/16/you-do-not-understand-browser-history">You do not understand browser history</a> interesting and useful!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/you-forgot-about-bfcache/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/you-forgot-about-bfcache/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/you-forgot-about-bfcache/            </guid>
             <dc:creator><![CDATA[Brian Underwood]]></dc:creator>
             <pubDate>Wed, 28 May 2014 00:00:00 GMT</pubDate>
         </item>
@@ -400,7 +424,7 @@ This is different from normal cache which only caches HTML code.&quot;</p>
             <title><![CDATA[What Are Your Hiring Criteria?]]></title>
             <description><![CDATA[<p>What are the criteria you use when hiring for your team? Have you written them down?</p>
 <p>Lots of people think they have clear criteria for hiring but have never taken the time to write them down. Written criteria are an important component of an effective hiring process. In this post I&#39;ll share some guidance on establishing clear criteria, how to use them to design an efficient interview process, and the role they play in developing diversity on your team.</p>
-<h2 id="defining-your-hiring-criteria">Defining Your Hiring Criteria</h2>
+<h2>Defining Your Hiring Criteria</h2>
 <p>There are a number strategies you can use to get to your criteria. If you haven&#39;t already you could probably just write them down right now and have something to work with. That&#39;s a fine start. Sharing them with your team for review and revision is likely to make them even better.</p>
 <p>Another approach is to actively engage your team in developing your criteria. You can get pretty far with this short exercise.</p>
 <ul>
@@ -422,23 +446,23 @@ This is different from normal cache which only caches HTML code.&quot;</p>
 </ul>
 <p>Even with this short list of criteria you&#39;ll notice that there are differences. The first two can be more easily answered with yes/no while the third really needs to be evaluated on a scale. For us, the first two are also must-haves, while the third is desired but not required.</p>
 <p>This is fine. Just be clear on which criteria are must-haves versus which ones you have as criteria because insight into how well a candidate meets that criteria will be important in your hiring decision.</p>
-<h2 id="disqualifying-criteria">Disqualifying Criteria</h2>
+<h2>Disqualifying Criteria</h2>
 <p>If a candidate meets any of your disqualifying criteria it means that you will definitely not hire them. Many of your must-have criteria can simply be inverted to create a disqualifier. The useful disqualifiers are the ones that can be easily evaluated and therefore used early in your process. Be sure to call them out in your written criteria and use them in the initial screening of candidates.</p>
 <p>At Good Eggs, we consider it a disqualifier if a candidate does not value our mission to grow and sustain local food systems. So we are sure to get an understanding of a candidate&#39;s relation to food and their desire to work on a social cause. If you&#39;re solely interested in Good Eggs because you&#39;re stoked to work with Node.js, it&#39;s not going to work out.</p>
-<h2 id="hiring-criteria-and-your-interview-process">Hiring Criteria and Your Interview Process</h2>
+<h2>Hiring Criteria and Your Interview Process</h2>
 <p>The goal of your interview process should be to determine how well a candidate meets your criteria and therefore if you want to invite them to join your team. By the time your interviews are done you should be able to discuss the candidate in relation to each of the criteria.</p>
 <p>Before a candidate interviews with our team at Good Eggs, the people who are going to participate in the interview have a short meeting to review our criteria, identify those criteria for which we already have insight and those for which we specifically want to get more. Our existing insights may come from work history, phone conversations, Github...</p>
 <p>We&#39;ve designed our interview sessions to give us coverage across all of our criteria. Different interviewers are responsible for getting insight into different criteria. When we pass the candidate from one interview to the next, we tell the next interviewer(s) if we have outstanding questions that we would like them to try to answer.</p>
 <p>When we gather to make a decision on how to move forward we use our criteria to have a focused conversation about the strengths and weaknesses of the candidate. Do they meet the criteria for which we require a &quot;yes&quot; and for the others how well did they perform? If we find that we disagree on our evaluation or have failed to gain insight into one or more of our criteria then we may design next steps to get more insight into those specifics.</p>
 <p>Occasionally the situation comes up when a candidate appears to meet our criteria yet we are not inclined to make a decision to hire. This is a clear indication that we are using implicit criteria in addition to our explicit written criteria. If you find yourself in this situation, take the time to articulate the reason why you do not want to hire and modify your criteria to include it.</p>
-<h2 id="hiring-criteria-and-diversity">Hiring Criteria and Diversity</h2>
+<h2>Hiring Criteria and Diversity</h2>
 <p>The first important step in supporting diversity in hiring is to be sure that you are using explicit rather than implicit criteria. Implicit criteria are too easily subject to personal biases and inconsistent application across candidates. Explicit written criteria can be used consistently for all candidates and are easier to evaluate and revise for inclusiveness.</p>
 <p>In February I attended an orientation for <a href="http://code2040.org/">Code 2040</a> hosted at the offices of Andreesen Horowitz. Code 2040 is an organization that creates internship opportunities in Silicon Valley for black and latino engineering students from across the country. We are thrilled to have a Code 2040 alum, Estefanía Ortiz, joining us an intern for summer 2014.</p>
 <p>Ben Horowitz is a supporter and board member of Code 2040. When asked for his thoughts on general strategies for improving diversity on teams he talked about hiring criteria in a way that helped to expand my thinking and appreciate the value of the criteria we already had in place. He said that a common approach to increasing diversity on a team is to effectively lower the standards for hiring. Hiring managers think that in order to make positions available to more people they need to lower their bar. This approach is a poor one because neither a new hire nor the existing team is happy knowing that the bar has been lowered.</p>
 <p>A much better approach is to change your criteria so as to be more inclusive without lowering your high standards.</p>
 <p>Our requirement that candidates are aligned with our mission to grow and sustain local food systems is interesting to evaluate in this light. In many communities in this country basic groceries are hard enough to find, let alone the amazing local and organic produce we enjoy in California. Some immigrants come from communities that have existing strong food cultures so have less experience with the ills of industrial food in this country.</p>
 <p>We used to require that team members demonstrate passion for fixing food in this country and a personal commitment to our mission. We&#39;ve been able to grow an amazing team with that focus but we strive to be more inclusive as we continue to grow. We&#39;ve realized that what really matters is that members of our team want their work to be toward making positive change in the world and see aligning themselves with Good Eggs as a way to meet that need. It&#39;s a subtle change but opens the door to many more amazing people who want to help us achieve our mission.</p>
-<h2 id="how-to-apply-this-to-your-own-team">How To Apply This To Your Own Team</h2>
+<h2>How To Apply This To Your Own Team</h2>
 <p>It&#39;s pretty easy to put these suggestions into practice.</p>
 <ol>
 <li>Write down your criteria</li>
@@ -454,7 +478,8 @@ This is different from normal cache which only caches HTML code.&quot;</p>
 </blockquote>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/written-hiring-criteria/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/written-hiring-criteria/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/written-hiring-criteria/            </guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Tue, 29 Apr 2014 00:00:00 GMT</pubDate>
         </item>
@@ -479,49 +504,50 @@ But neither felt quite right for our mobile site.</p>
 <p>We had two priorities for our mobile toolchain: <!-- more -->the page had to load
 fast, and we had to code ... efficiently. <a href="http://www.rivetsjs.com/">Rivets</a> with its
 declarative data-binding and simple hooks for server-side pre-rendering fit the task well.</p>
-<h2 id="backbone-no">Backbone, No</h2>
+<h2>Backbone, No</h2>
 <p>Backbone had few constraints.  You could imagine a fast page load sequence using it.  For us, it really lost points for developer friendliness.  A seemingly small but pervasive example: <code>Model.get()</code>.  It interrupts my javascript flow.  Do I need <code>.get</code> or just <code>.</code> to traverse this object graph?  Combining <code>get</code> with nested models and objects is especially convoluted.  My mind frequnetly cycled though the permutations: <code>model.get(&#39;address.zip&#39;)</code>, <code>model.get(&#39;address&#39;).get(&#39;zip&#39;)</code>, or <code>model.get(&#39;address&#39;).zip</code> ?  Luckily, recent Android and iOS devices already totalled 85% of our mobile traffic, so we were comfortable relying on ES5&#39;s <code>Object.defineProperty</code> to unlock Rivets native change detection syntax.</p>
-<h2 id="angular-not-yet">Angular, Not Yet</h2>
+<h2>Angular, Not Yet</h2>
 <p>Angular suffered on page load performance.  Following library conventions, we&#39;d have to wait for 100+k of javascript to load, parse, and execute before we could show much of value to our visitor.  Inspired by Bryan McQuade&#39;s <a href="http://calendar.perfplanet.com/2012/make-your-mobile-pages-render-in-under-one-second/">perscription for a fast mobile page</a>, we decided this was unacceptable.  Angular&#39;s declarative binding did speed up code slinging and generate good vibes on projects that used it, so we were glad to discover Rivets&#39;  similar bindings with fewer strong opinions and a much lighter pageweight.</p>
-<h2 id="rivets-use-it-now">Rivets, Use it Now</h2>
+<h2>Rivets, Use it Now</h2>
 <p><a href="http://www.rivetsjs.com/">Rivets</a> is very limited in scope.  With it, you get binding and a little bit of formatting.  That&#39;s it.  We had to decide many more architectural conventions like when to bind and what to bind to (stay tuned for a forthcoming post detailing the page load sequence we settled on).  Two Rivets details emerged worth sharing: binding and nesting contexts.</p>
 <p><img src="/images/mobile-screenshot.jpg" alt="Mobile screenshot"></p>
 <p>In browsers supporting <code>Object.defineProperty</code>, Rivets will bind to any object.  Rivets docs refer to this object as the context.  We bound simple views directly to domain models.  For more complex views, we wrapped up interaction logic in objects reminiscent of Angular scopes.  These objects exposed methods to be called from bindings or tests.  Consider your shopping basket.  We sum the number of treats you&#39;re getting into a total displayed in the top right corner.  This count is maintained by a binding directly to a basket model.  When you click a plus button, a rivets binding invokes a method on the bound basket model. The same model bound to the view.  These two conventions let us wire up simple bindings with minimal boilerplate (no deciding when to render and re-render) and gave us an expected place to add and test more complex wiring.</p>
 <p>The behavior of the top 50 or so pixels of the mobile site, call it the top bar, changes a lot.  That&#39;s valuable space on a small screen.  We broke the behaviors into several contexts to prevent the complexity from exploding our brains.  Binding multiple contexts to the same DOM tree with Rivets isn&#39;t totally straightforward, but it&#39;s very doable.  Out of the box, when you bind a context to an element, all children elements are bound to the same context. For us, this meant that the basket bindings got the top nav context instead of the basket model. Boom.  Broken.  Luckily Rivets lets you declare custom prefixes for your bindings.  We adopted a convention of prefixing each binding with the name of the context.  This let us bind <code>rv-top-nav-*</code> as soon as the page loaded, and bind <code>rv-basket-*</code> on nested elements later.</p>
-<pre class="highlight"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>,<span class="function"> -&gt;</span>
-  a <span class="string">'.logo'</span>, <span class="attribute">href</span>: <span class="string">"/"</span>,<span class="function"> -&gt;</span>
-      i <span class="string">'.icon.icon-logo'</span>, <span class="attribute">alt</span>: <span class="string">'good eggs'</span>
+<pre class="highlighted"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>, -&gt;
+  a <span class="string">'.logo'</span>, href: <span class="string">"/"</span>, -&gt;
+      i <span class="string">'.icon.icon-logo'</span>, alt: <span class="string">'good eggs'</span>
 
   <span class="comment"># other top nav code ...</span>
 
-  a <span class="string">'#basket.icon'</span>, <span class="attribute">href</span>: <span class="string">"/basket"</span>,<span class="function"> -&gt;</span>
+  a <span class="string">'#basket.icon'</span>, href: <span class="string">"/basket"</span>, -&gt;
     i <span class="string">'.icon.icon-basket'</span>
     div <span class="string">'.items-count'</span>, <span class="string">'rv-basket-text'</span>: <span class="string">'itemsCount'</span>, <span class="string">'0'</span></code></pre>
 <p>And then binding to our objects:</p>
-<pre class="highlight"><code class="coffeescript">module.<span class="function"><span class="title">exports</span> = -&gt;</span>
-  <span class="attribute">state</span>: <span class="string">'full'</span>
+<pre class="highlighted"><code class="coffeescript">module.<span class="function"><span class="title">exports</span></span> = -&gt;
+  state: <span class="string">'full'</span>
 
-  <span class="attribute">bind</span>:<span class="function"> -&gt;</span>
+  bind: -&gt;
     <span class="property">@el</span> = $(<span class="string">'.top-nav'</span>)
 
     rivets.bind <span class="property">@el</span>.toArray(), @,
-      <span class="attribute">config</span>:
-        <span class="attribute">prefix</span>: <span class="string">'rv-top-nav'</span>
+      config:
+        prefix: <span class="string">'rv-top-nav'</span>
 
     @
 
-  <span class="attribute">bindToSession</span>: <span class="function"><span class="params">(session)</span> -&gt;</span>
+  bindToSession: (session) -&gt;
     <span class="property">@user</span> = session.user
 
     rivets.bind $(<span class="string">'#basket'</span>).toArray(), session.basket
-      <span class="attribute">config</span>:
-        <span class="attribute">prefix</span>: <span class="string">'rv-basket'</span>
+      config:
+        prefix: <span class="string">'rv-basket'</span>
 
     @</code></pre>
 <p>Rivets declarative binding rocks for mobile web.  Try it out!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/rivets-for-mobile/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/rivets-for-mobile/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/rivets-for-mobile/            </guid>
             <dc:creator><![CDATA[Adam Hull]]></dc:creator>
             <pubDate>Fri, 25 Apr 2014 00:00:00 GMT</pubDate>
         </item>
@@ -552,20 +578,20 @@ checking out. To create the mobile experience we considered three options:</p>
 </ol>
 <!-- more -->
 
-<h3 id="native-someday">Native Someday</h3>
+<h3>Native Someday</h3>
 <p>While native mobile apps offer the potential for a superior user experience, our
 first priority was handling the 25% of traffic already coming to our website.
 Even with a nagging banner to download a native app, we&#39;d still have users
 visiting our site on mobile devices. Additionally, we wanted to be able to
 iterate quickly on the mobile platform and not be at the whim of the App Store&#39;s
 approval process nor users&#39; responsibilities to install updates.</p>
-<h3 id="not-responsive-enough">Not Responsive Enough</h3>
+<h3>Not Responsive Enough</h3>
 <p>We also ruled out a responsive design pretty quickly. Our requirements for the
 mobile application were to deliver a fast and simple experience. With such small
 screen real estate on the phone, we knew we wanted to completely rethink the
 layouts and content of our pages; a little too complex for fluid grids, and
 media queries.</p>
-<h3 id="fresh-start">Fresh Start</h3>
+<h3>Fresh Start</h3>
 <p>Instead of continuing with our &quot;desktop&quot; stack built on
 <a href="http://backbonejs.org/">Backbone</a>, we decided to take the opportunity for a fresh start.
 With <a href="http://backbonejs.org/">Backbone</a>,
@@ -596,23 +622,10 @@ We skipped adding unit tests on browser and express controller code in all but t
 <p>And in the meanwhile, go take a look at <a href="http://goodeggs.com">goodeggs.com</a> in a mobile device and let us know what you think!</p>
 ]]></description>
             <link>http://goodeggs.github.io/bites/posts/good-eggs-goes-mobile/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/good-eggs-goes-mobile/</guid>
+            <guid isPermaLink="true">
+                http://goodeggs.github.io/bites/posts/good-eggs-goes-mobile/            </guid>
             <dc:creator><![CDATA[Michael Kebbekus and Adam Hull]]></dc:creator>
             <pubDate>Fri, 11 Apr 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[JS Hack for Good with JSFest]]></title>
-            <description><![CDATA[<p>We&#39;re partnering with <a href="http://jsfest.com">JSFest</a> to host a JavaScript hack night for social good on Sunday evening March 9. JSFest runs March 6-12 in San Francisco.</p>
-<p>Let&#39;s spend a few hours hacking together to make the world a better place. Bring your project or your desire to help others with theirs. Open source and socially-minded projects are all welcome. If you want to give a short presentation or run a mini workshop we have the facilities and welcome your initiative.</p>
-<p>We&#39;ll kick off with project intros and requests for help to connect hackers with the projects they are interested in.</p>
-<p>Start at 6pm with some great local food and drink to help us all connect, kick off at 6:30pm and doors close at 10:00pm.
-A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB and more will be around to help and with some projects of their own.</p>
-<p><a href="http://www.meetup.com/cultivate/events/167399892/">Reserve your spot</a> and we&#39;ll see you Sunday!</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/js-hack-for-good/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/js-hack-for-good/</guid>
-            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
-            <pubDate>Tue, 04 Mar 2014 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
