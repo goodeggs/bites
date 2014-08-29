@@ -24,7 +24,7 @@ module.exports = (docpad) ->
 
   div -> section -> raw """
 Bites is the developer site from the team building the platform for local food shopping and distribution at
-<a href="http://www.goodeggs.com">goodeggs.com</a>. Here we share our experiences building applications with
+<a href="https://www.goodeggs.com">goodeggs.com</a>. Here we share our experiences building applications with
 full-stack JavaScript, our open source projects and insight into a developer's life at Good Eggs.
 """
 

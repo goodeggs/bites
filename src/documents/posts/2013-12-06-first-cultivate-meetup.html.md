@@ -27,7 +27,7 @@ Over 80 members of the developer community came together on a chilly San Francis
 
 As Good Eggs CTO Alon Salant said in an opening statement, "We are building tools that affect real people in the real world. It's about affecting real change in someone's work to enhance their life."
 
-The event kicked off with with a delicious bang: [Love & Hummus](http://www.goodeggs.com/loveandhummus) delivered an exceptional dining experience. Hearty falafel wraps, homemade tahini sauce, spicy hummus, sultry baklava, and mint-garnish lemonade.
+The event kicked off with with a delicious bang: [Love & Hummus](https://www.goodeggs.com/loveandhummus) delivered an exceptional dining experience. Hearty falafel wraps, homemade tahini sauce, spicy hummus, sultry baklava, and mint-garnish lemonade.
 
 If your mouth isn't watering yet, wait till you sink your teeth into the presentations.
 
@@ -57,7 +57,7 @@ Read more about [cluster round-robin load balancing](http://strongloop.com/stron
 MongoDB Performance Fundamentals for Web Apps
 ---
 
-[Adam Hull](http://www.goodeggs.com/about/team/sfbay/522103184f08c30300000028) from Good Eggs was our final presenter, and he finished strong! We were lucky to have insights from Adam into performance, speed, and use of Mongo. The presentation ended with a pretty long Q&A session that surfaced  answers to some questions that the collective developer community seemed to have been yearning to ask. Many of the remarks were confirmed with a head-nod from two developers from MongoLab in the audience. Head nods and "ah ha's" all around!
+[Adam Hull](https://www.goodeggs.com/about/team/sfbay/522103184f08c30300000028) from Good Eggs was our final presenter, and he finished strong! We were lucky to have insights from Adam into performance, speed, and use of Mongo. The presentation ended with a pretty long Q&A session that surfaced  answers to some questions that the collective developer community seemed to have been yearning to ask. Many of the remarks were confirmed with a head-nod from two developers from MongoLab in the audience. Head nods and "ah ha's" all around!
 
 Lightning Talks
 ---

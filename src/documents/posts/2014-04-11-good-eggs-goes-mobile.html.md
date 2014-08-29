@@ -22,7 +22,7 @@ disqus:
 
 In the past 6 months, 25% of our traffic came from mobile devices, and those users faced a
 daunting, near impossible shopping experience. In response, we launched a new
-mobile version of [goodeggs.com](http://goodeggs.com) two weeks ago with an
+mobile version of [goodeggs.com](https://www.goodeggs.com) two weeks ago with an
 eye to simplify our major use case of filling your basket with products and
 checking out. To create the mobile experience we considered three options:
 
@@ -75,4 +75,4 @@ Folks really seem to _get_ GoodEggs when they can see the food.  The photos are 
 * __Integration testing over unit testing__
 We skipped adding unit tests on browser and express controller code in all but the most critical cases, minimizing the overhead of making sweeping changes, which we made frequently while figuring out our new Rivets-based architecture. Browser based integration tests assured us that shoppers could still experience their journeys after our changes. They were a huge help and a small burden.
 
-And in the meanwhile, go take a look at [goodeggs.com](http://goodeggs.com) in a mobile device and let us know what you think!
+And in the meanwhile, go take a look at [goodeggs.com](https://www.goodeggs.com) in a mobile device and let us know what you think!
