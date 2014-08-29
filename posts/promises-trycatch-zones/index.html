@@ -7,15 +7,15 @@ ga('create', 'UA-26193287-5', 'github.io');
 ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites</a></h1><ul class="unstyled nav"><li><a href="../../">Blog</a></li><li><a href="../../open_source">Open Source</a></li><li><a href="../../news">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="http://fpio.goodeggs.com/api/file/DkcUdnQSE63IauiZq4CW/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Alex Gorbatchev" /><h1 class="entry-title">Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone</h1><p class="meta"><a href="../../authors/alex_gorbatchev/">Alex Gorbatchev</a> on <time datetime="2014-06-09T00:00:00.000Z">June 9th, 2014</time></p></header><div class="entry-content"><blockquote>
 <p>Reposted with permission by <a href="http://strongloop.com/">StrongLoop</a>. Originally appeared on <a href="http://strongloop.com/strongblog/comparing-node-js-promises-trycatch-zone-js-angular/">April 16, 2014</a>.</p>
 </blockquote>
-<h1>Handling errors in async flow</h1>
+<h1 id="handling-errors-in-async-flow">Handling errors in async flow</h1>
 <p>In the <a href="http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/">previous article</a> we&#39;ve talked about managing async flow and escaping the <a href="http://callbackhell.com/">callback hell</a>.</p>
-<h2>The problem</h2>
+<h2 id="the-problem">The problem</h2>
 <p>Handling errors in asynchronous flow is pretty straightforward and easy. Handling errors in asynchronous flow in a clean and easy to follow manner - not so much.</p>
 <!-- more -->
 
 <p>Lets look at the following code:</p>
-<pre class="highlighted"><code class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
-  findPackage(packageName, <span class="keyword">function</span>(err, content) {
+<pre class="highlight"><code class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
+  findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
     <span class="keyword">if</span> (err) {
       done(err);
     }
@@ -27,12 +27,12 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
         done(e);
       }
 
-      findDependencies(<span class="keyword">package</span>, <span class="keyword">function</span>(err, dependencies)) {
+      findDependencies(<span class="package"><span class="keyword">package</span>, <span class="title">function</span>(<span class="title">err</span>, <span class="title">dependencies</span>)) {</span>
         <span class="keyword">if</span> (err) {
           done(err);
         }
         <span class="keyword">else</span> {
-          processDependencies(dependencies, <span class="keyword">function</span>(err) {
+          processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
             <span class="keyword">if</span> (err) {
               done(err);
             }
@@ -46,23 +46,23 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
   });
 }</code></pre>
 <p>We are covering all possible failure cases here using combination of <code>try/catch</code> and callback error handling, but boy do we repeat ourselves over and over again. Lets try and rewrite this!</p>
-<h2>Error handling using try/catch</h2>
-<pre class="highlighted"><code class="vbscript"><span class="keyword">function</span> updateDependencies(packageName, done) {
-  try {
-    findPackage(packageName, <span class="keyword">function</span>(<span class="built_in">err</span>, content) {
-      <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
+<h2 id="error-handling-using-try-catch">Error handling using try/catch</h2>
+<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
+  <span class="keyword">try</span> {
+    findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
+      <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
 
-      findDependencies(JSON.parse(content), <span class="keyword">function</span>(<span class="built_in">err</span>, dependencies)) {
-        <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
+      findDependencies(JSON.parse(content), <span class="function"><span class="keyword">function</span><span class="params">(err, dependencies)</span>) {</span>
+        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
 
-        processDependencies(dependencies, <span class="keyword">function</span>(<span class="built_in">err</span>) {
-          <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
+        processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
+          <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
 
           done(<span class="literal">null</span>, dependencies);
         });
       });
     });
-  } catch (e) {
+  } <span class="keyword">catch</span> (e) {
     done(e);
   }
 }</code></pre>
@@ -72,32 +72,32 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p>If an error occurs at some point in the future inside asynchronous <code>findPackage</code> - <strong>nothing will be caught</strong>.</p>
 <p><img src="http://goodeggs.github.io/bites/images/posts/promises-trycatch-zones/catch-fail.gif"/></p>
 <p>Not useful.</p>
-<h2>Error handling using promises</h2>
+<h2 id="error-handling-using-promises">Error handling using promises</h2>
 <p>In the <a href="http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/">previous article</a> we&#39;ve talked about managing asynchronous flow and escaping the <a href="http://callbackhell.com/">callback hell</a> with promises. Lets put this promises to work here and rewrite this function.</p>
 <p>For the sake of moving forward quicker lets assume we are using <a href="https://github.com/petkaantonov/bluebird">Bluebird</a> promises library and that all our APIs now return promises instead of taking callbacks:</p>
-<pre class="highlighted"><code class="lua"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName)</span></span> {
+<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName)</span> {</span>
   <span class="keyword">return</span> findPackage(packageName)
-    .<span class="keyword">then</span>(JSON.parse)
+    .<span class="keyword">then</span>(<span class="transposed_variable">JSON.</span>parse)
     .<span class="keyword">then</span>(findDependencies)
     .<span class="keyword">then</span>(processDependencies)
-    .<span class="keyword">then</span>(res.send)
+    .<span class="keyword">then</span>(<span class="transposed_variable">res.</span>send)
     ;
 }</code></pre>
 <p>Oh wow, that is so much nicer! Right? Right!</p>
 <p>But Alex, &quot;we&#39;ve lost our error handling&quot;, you might say. That&#39;s right, we don&#39;t need to do anything special here to propagate error because we return a promise and there&#39;s built in support for error flow. Lets see how error handling might look like with promises:</p>
-<pre class="highlighted"><code class="avrasm">button<span class="preprocessor">.addEventListener</span>(<span class="string">"click"</span>, function() {
+<pre class="highlight"><code class="scilab"><span class="transposed_variable">button.</span>addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
   updateDependencies(<span class="string">"packageName"</span>)
-    <span class="preprocessor">.then</span>(function(dependencies) {
-      output<span class="preprocessor">.innerHTML</span> = dependencies<span class="preprocessor">.join</span>(<span class="string">"\n"</span>)<span class="comment">;</span>
+    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(dependencies)</span> {</span>
+      <span class="transposed_variable">output.</span>innerHTML = <span class="transposed_variable">dependencies.</span>join(<span class="string">"\n"</span>);
     })
-    <span class="preprocessor">.catch</span>(function(err) {
-      output<span class="preprocessor">.innerHTML</span> = <span class="string">"There was an error"</span><span class="comment">;</span>
-    })<span class="comment">;</span>
-})<span class="comment">;</span></code></pre>
+    .<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
+      <span class="transposed_variable">output.</span>innerHTML = <span class="string">"There was an error"</span>;
+    });
+});</code></pre>
 <p>Very slick, I&#39;m a fan!</p>
-<h2>Error using Zones</h2>
+<h2 id="error-using-zones">Error using Zones</h2>
 <p>Handling rejected promises works really well when we are in full control of the flow. But what happens if some third-party code throws an error during an asynchronous operation? Lets look at another example:</p>
-<pre class="highlighted"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">thirdPartyFunction</span><span class="params">()</span> {</span>
+<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">thirdPartyFunction</span><span class="params">()</span> {</span>
   <span class="function"><span class="keyword">function</span> <span class="title">fakeXHR</span><span class="params">()</span> {</span>
     <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Invalid dependencies"</span>);
   }
@@ -113,46 +113,46 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 
 main();</code></pre>
 <p>In this case, we wouldn&#39;t have a chance to catch and process the error. Generally, the only recourse here is using half baked <code>window.onerror</code> that doesn&#39;t give you any stack information at all. At least you can log something, right? Not that there&#39;s much to log:</p>
-<pre class="highlighted"><code class="nginx"><span class="title">Uncaught</span> Error: Invalid dependencies
+<pre class="highlight"><code class="vbnet">Uncaught <span class="keyword">Error</span>: Invalid dependencies
     fakeXHR</code></pre>
 <p>Up until recently that was pretty much all we had. However, this january <a href="https://github.com/btford">Brian Ford</a> of the <a href="http://angularjs.org">angular.js</a> fame has released <a href="https://github.com/btford/zone.js/">Zone.js</a> which aims to help tackle this.</p>
 <p>Basically, <a href="https://github.com/btford/zone.js/">Zone.js</a> <strong>overrides all asynchronous functions in the browser</strong> with custom implementations which allows it to keep track of the context. Dangerous? Yes! But as we say in Soviet Russia, &quot;he who doesn&#39;t risk never gets to drink champagne&quot; (or in English &quot;nothing ventured, nothing gained&quot;).</p>
 <p>Anyways, lets look at how this works. Assuming you have included <code>zones.js</code> and <code>long-stack-trace-zone.js</code> as per the docs, we just change <code>main()</code> call to:</p>
-<pre class="highlighted"><code class="avrasm">zone<span class="preprocessor">.fork</span>(Zone<span class="preprocessor">.longStackTraceZone</span>)<span class="preprocessor">.run</span>(main)<span class="comment">;</span></code></pre>
+<pre class="highlight"><code class="avrasm">zone<span class="preprocessor">.fork</span>(Zone<span class="preprocessor">.longStackTraceZone</span>)<span class="preprocessor">.run</span>(main)<span class="comment">;</span></code></pre>
 <p>Refresh, click the button, and now our stack looks like this:</p>
-<pre class="highlighted"><code class="bash">Error: Invalid dependencies
-    at fakeXHR (script.js:7:11)
-    at Zone.run (zones.js:41:19)
-    at zoneBoundFn (zones.js:27:19)
---- Tue Mar 25 2014 21:20:32 GMT-0700 (PDT) - 106ms ago
+<pre class="highlight"><code class="bash">Error: Invalid dependencies
+    at fakeXHR (script.js:<span class="number">7</span>:<span class="number">11</span>)
+    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
+    at zoneBoundFn (zones.js:<span class="number">27</span>:<span class="number">19</span>)
+--- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">106</span>ms ago
 Error
-    at Function.getStacktraceWithUncaughtError (long-stack-trace-zone.js:24:32)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:70:43)
-    at Zone.bind (zones.js:25:21)
-    at zone.(anonymous function) (zones.js:61:27)
-    at marker (zones.js:66:25)
-    at thirdPartyFunction (script.js:10:3)
-    at HTMLButtonElement.onClick (script.js:15:5)
-    at HTMLButtonElement.x.event.dispatch (jquery.js:5:10006)
-    at HTMLButtonElement.y.handle (jquery.js:5:6789)
-    at Zone.run (zones.js:41:19)
---- Tue Mar 25 2014 21:20:32 GMT-0700 (PDT) - 1064ms ago
+    at Function.getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
+    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
+    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
+    at zone.(anonymous function) (zones.js:<span class="number">61</span>:<span class="number">27</span>)
+    at marker (zones.js:<span class="number">66</span>:<span class="number">25</span>)
+    at thirdPartyFunction (script.js:<span class="number">10</span>:<span class="number">3</span>)
+    at HTMLButtonElement.onClick (script.js:<span class="number">15</span>:<span class="number">5</span>)
+    at HTMLButtonElement.x.event.dispatch (jquery.js:<span class="number">5</span>:<span class="number">10006</span>)
+    at HTMLButtonElement.y.handle (jquery.js:<span class="number">5</span>:<span class="number">6789</span>)
+    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
+--- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">1064</span>ms ago
 Error
-    at getStacktraceWithUncaughtError (long-stack-trace-zone.js:24:32)
-    at Function.Zone.getStacktrace (long-stack-trace-zone.js:37:15)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:70:43)
-    at Zone.bind (zones.js:25:21)
-    at HTMLButtonElement.obj.addEventListener (zones.js:132:37)
-    at Object.x.event.add (jquery.js:5:7262)
-    at HTMLButtonElement.&lt;anonymous&gt; (jquery.js:5:14336)
-    at Function.x.extend.each (jquery.js:4:4575)
-    at x.fn.x.each (jquery.js:4:1626)
-    at x.fn.extend.on (jquery.js:5:14312)</code></pre>
+    at getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
+    at Function.Zone.getStacktrace (long-stack-trace-zone.js:<span class="number">37</span>:<span class="number">15</span>)
+    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
+    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
+    at HTMLButtonElement.obj.addEventListener (zones.js:<span class="number">132</span>:<span class="number">37</span>)
+    at Object.x.event.add (jquery.js:<span class="number">5</span>:<span class="number">7262</span>)
+    at HTMLButtonElement.&lt;anonymous&gt; (jquery.js:<span class="number">5</span>:<span class="number">14336</span>)
+    at Function.x.extend.each (jquery.js:<span class="number">4</span>:<span class="number">4575</span>)
+    at x.fn.x.each (jquery.js:<span class="number">4</span>:<span class="number">1626</span>)
+    at x.fn.extend.on (jquery.js:<span class="number">5</span>:<span class="number">14312</span>)</code></pre>
 <p>What the what?? Cool! We can now see that the relevant code path started in our <code>onClick</code> method and went into <code>thirdPartyFunction</code>.</p>
 <p>The cool part is, since <a href="https://github.com/btford/zone.js/">Zone.js</a> overrides browser methods, it doesn&#39;t matter what libraries you use. It just works.</p>
-<h2>Another async flow control project called Zones?</h2>
+<h2 id="another-async-flow-control-project-called-zones-">Another async flow control project called Zones?</h2>
 <p>Yep, StrongLoop’s <a href="https://github.com/piscisaureus">Bert Belder</a> has been working on a similar idea called “<a href="https://www.npmjs.org/package/zone">Zone</a>“ for a few months now. (Not to be confused with the Angular <a href="https://github.com/btford/zone.js/">Zone.js</a> project we&#39;ve just been discussing, which shares the same name and some technical characteristics. Yeah, it’s a little confusing, but we are actively working with <a href="https://github.com/btford">Brian Ford</a> on how to potentially bring together these two projects for the mutual benefit of the JavaScript and Node communities. Stay tuned!)</p>
-<h2>Why a Node-specific Zones project?</h2>
+<h2 id="why-a-node-specific-zones-project-">Why a Node-specific Zones project?</h2>
 <p>Currently, there are a couple of problems that make it really hard to deal with asynchronous control flow in Node that Zones looks to address. Specifically:</p>
 <ul>
 <li>Stack traces are useless when an asynchronous function fails.</li>
@@ -167,7 +167,7 @@ Error
 <li>Sometimes there is a need to associate user data to an asynchronous flow. There is currently no way to do this.</li>
 </ul>
 <p>Want to learn more about Zones? Stay tuned for more information in the coming weeks. Follow us on <a href="https://twitter.com/StrongLoop">Twitter</a> or subscribe to our <a href="http://strongloop.com/newsletter-registration/">newsletter</a> to make sure you don’t miss the announcements.</p>
-<h2>What&#39;s next?</h2>
+<h2 id="what-s-next-">What&#39;s next?</h2>
 <ul>
 <li>Watch <a href="http://www.youtube.com/watch?v=3IqtmUscE_U">Brian&#39;s presentation</a> from ngconf 2014, it&#39;s pretty cool!</li>
 <li>Add <a href="https://github.com/btford/zone.js/">Zone.js</a> to your application.</li>
