@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 03 Sep 2014 17:52:10 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 03 Sep 2014 17:53:58 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Wed, 03 Sep 2014 17:52:04 GMT</pubDate>
+        <pubDate>Wed, 03 Sep 2014 17:53:52 GMT</pubDate>
         <item>
             <title><![CDATA[Being an Intern at Good Eggs]]></title>
             <description><![CDATA[<p>My name is Estefania Ortiz and I am a rising Junior studying Computer Science at Stanford. This summer I am working as a Software Engineering Intern at Good Eggs. A typical conversation when meeting or running into other interns in the area usually goes something like this: </p>
@@ -20,6 +20,8 @@
 -Emm, the website...<br></p>
 <p>Given that a lot of interns have an intern project, this conversation can be a little awkward sometimes. Questions like How do you get evaluated? and How do you know what to do? often come up, and to be completely honest I have been looking for answers to these questions myself during the summer. </p>
 <p>So far this is what I&#39;ve got...</p>
+<!-- more -->
+
 <h3>How do you know what to do?</h3>
 
 <p>Given that I don&#39;t have a pre-defined intern project, my workflow is similar to that of the rest of the engineers at the company. Every day I come into the office and work on the next thing that has to get done. I am getting exposure to the <a href= 'http://agilemethodology.org/'>Agile </a> and <a href='http://xprogramming.com/what-is-extreme-programming/'>XP</a> processes used at Good Eggs to determine what that next thing is, and I get to see how things go from ideas to shipped code. This experience has taught me a lot in terms of prioritizing, estimating, and planning work.</p>
@@ -66,6 +68,8 @@ Thanks to Patrice Martin from IDEO.org for her skillful moderating and to Katie 
 <p>The Good Eggs foodhub in San Francisco, where the engineering team resides, isn’t the quietest place I’ve ever worked. Every morning, there’s local farmers wheeling in crate after crate of watermelons and tomatoes and so much more. There’s the sound of our operations team working to get all that food into the right bins and later into the right cars, delivering people good, local food, grown with integrity. There’s the chatter of the daily standup meetings that spring up all around the foodhub throughout the morning as each team gears up for the day.</p>
 <p>Is all that action distracting? Not for me! I absolutely love it. When I wake up every morning, I can’t imagine a better, more exciting place to go work. Our foodhub isn’t a shrine to silent contemplation. And it shouldn’t be. It’s a living, breathing part of the new food economy that we’re helping to build.</p>
 <p>There are two things in particular that I love about coding in the foodhub.</p>
+<!-- more -->
+
 <h2 id="rapid-feedback">Rapid Feedback</h2>
 <p>Last week, we on the “operations tools” team built some new features to use barcodes and scanners to make it easier to keep track of the food we receive at the foodhub every morning. Tuesday afternoon, we pushed the code to production. Wednesday morning, the receiving lead in San Francisco, Zach, used the new tools to check in that day’s food as it arrived. Some features worked well, and some didn’t, so he walked the twenty yards over to our cluster of desks and told us about it. Wednesday afternoon, we pushed some updates. Thursday morning, Zach used it again and gave us his stamp of approval.</p>
 <p>It’s easy to talk about the value of rapid prototyping. I think it’s tough to imagine really making it happen without the easy communication that our foodhub creates.</p>
