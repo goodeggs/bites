@@ -15,6 +15,8 @@ Is all that action distracting? Not for me! I absolutely love it. When I wake up
 
 There are two things in particular that I love about coding in the foodhub.
 
+<!-- more -->
+
 Rapid Feedback
 --------------
 Last week, we on the “operations tools” team built some new features to use barcodes and scanners to make it easier to keep track of the food we receive at the foodhub every morning. Tuesday afternoon, we pushed the code to production. Wednesday morning, the receiving lead in San Francisco, Zach, used the new tools to check in that day’s food as it arrived. Some features worked well, and some didn’t, so he walked the twenty yards over to our cluster of desks and told us about it. Wednesday afternoon, we pushed some updates. Thursday morning, Zach used it again and gave us his stamp of approval.

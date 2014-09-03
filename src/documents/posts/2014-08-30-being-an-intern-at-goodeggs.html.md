@@ -20,6 +20,8 @@ Given that a lot of interns have an intern project, this conversation can be a l
 
 So far this is what I've got...
 
+<!-- more -->
+
 <h3>How do you know what to do?</h3>
 
 Given that I don't have a pre-defined intern project, my workflow is similar to that of the rest of the engineers at the company. Every day I come into the office and work on the next thing that has to get done. I am getting exposure to the <a href= 'http://agilemethodology.org/'>Agile </a> and <a href='http://xprogramming.com/what-is-extreme-programming/'>XP</a> processes used at Good Eggs to determine what that next thing is, and I get to see how things go from ideas to shipped code. This experience has taught me a lot in terms of prioritizing, estimating, and planning work.
