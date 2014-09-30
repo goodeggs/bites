@@ -23,7 +23,9 @@ module.exports = (grunt) ->
           '!**/20??-??-??-*/index.html'
           'styles/**'
           'images/**'
+          'fonts/**'
           'favicon.png'
+          'favicon.ico'
           'rss'
           'CNAME'
         ]
