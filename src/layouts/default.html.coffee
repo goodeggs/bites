@@ -24,6 +24,7 @@ module.exports = ({site, document, content}) ->
       meta name: 'viewport', content: 'width=device-width, initial-scale=1'
 
       link rel: 'icon', type: 'image/png', href: '/favicon.png'
+      link rel: 'shortcut icon', href: '//www.goodeggs.com/favicon.ico?v=2'
       link rel: 'stylesheet', href: '/styles/main.css'
       link rel: 'alternate', title: 'RSS', type: 'application/rss+xml', href: '/rss'
 
