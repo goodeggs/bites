@@ -19,7 +19,7 @@ style: |
         <li>[Good Eggs Goes Mobile](/posts/good-eggs-goes-mobile)</li>
         <li>[Rivets for Mobile Web](/posts/rivets-for-mobile)</li>
         <li>[Planning Page Load Sequence](/posts/mobile-page-load)</li>
-        <li>HTTP Caching with Fastly</li>
+        <li>[Speed with Node and Varnish](/posts/speed-up-your-responsive-app-with-node-and-varnish)</li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
     </ol>

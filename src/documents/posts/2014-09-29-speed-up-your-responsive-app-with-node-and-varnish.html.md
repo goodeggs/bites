@@ -1,11 +1,23 @@
 ---
-title: Server Side Responsive with Express and Varnish
+title: Speed up your responsive app with Node and Varnish
 author: Adam Hull
 layout: post
 disqus:
   shortname: goodeggsbytes
-  url: "http://bytes.goodeggs.com/post/server-side-responsive-express-varnish"
+  url: "http://bytes.goodeggs.com/post/speed-up-your-responsive-app-with-node-and-varnish"
 ---
+
+<div class="series">
+    <blockquote>This is the fourth article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li>[Good Eggs Goes Mobile](/posts/good-eggs-goes-mobile)</li>
+        <li>[Rivets for Mobile Web](/posts/rivets-for-mobile)</li>
+        <li>[Planning Page Load Sequence](/posts/mobile-page-load)</li>
+        <li>[Speed with Node and Varnish](/posts/speed-up-your-responsive-app-with-node-and-varnish)</li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
 
 Conversations about responsive design often focus on the browser: media queries, grids, and the like, but there's more!  Creating a great experience on all sorts of consumer-grade doo-dads demands some work on the server.
 
