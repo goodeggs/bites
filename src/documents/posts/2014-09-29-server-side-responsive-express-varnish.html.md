@@ -7,18 +7,18 @@ disqus:
   url: "http://bytes.goodeggs.com/post/server-side-responsive-express-varnish"
 ---
 
-Conversations about responsive design often focus on the browser: media queries, grids, and the like, but there's more!  A great experience on all manner of consumer-grade doo-dads demands some work on the server.
+Conversations about responsive design often focus on the browser: media queries, grids, and the like, but there's more!  Creating a great experience on all sorts of consumer-grade doo-dads demands some work on the server.
 
-For example, shoppers with full-sized computers don't want all their grocery aisles hidden behind a hamburger menu. The markup to generate the desktop navigation is different enough from the mobile hamburger that using media queries would be a stretch (heh, get it?).  By trimming the more complicated desktop markup from the mobile response, we save precious page weight for a faster load time.
+On Good Eggs, shoppers with full-sized computers don't want all their grocery aisles hidden behind a collapsible menu. The markup to generate the desktop navigation is different enough from the mobile navigation that using media queries would be a stretch (heh, get it?).  By trimming the more complicated desktop markup from the mobile response, we save precious page weight for a faster load time.
 
-Here's how we send different responses to different devices while maximizing cache hits. Let's take a journey along the request-response cycle:
+Let's take a journey along the request-response cycle to illustrate how we send different responses to different devices while maximizing cache hits:
 
 ![Flow Diagram](/images/posts/server-side-responsive-express-varnish/flow.jpg)
 <!-- more -->
 
 ## Request
 
-Browsers send requests to a [varnish](https://www.varnish-cache.org/) cache server ([Fastly](https://www.fastly.com/) has worked great).  All requests come with a User-Agent header that hints at the shopper's device.
+Browsers send requests to a [varnish](https://www.varnish-cache.org/) cache server ([Fastly](https://www.fastly.com/) has worked great for us).  All requests come with a User-Agent header that hints at the shopper's device.
 
 iPhone 5 sends something like:
 
