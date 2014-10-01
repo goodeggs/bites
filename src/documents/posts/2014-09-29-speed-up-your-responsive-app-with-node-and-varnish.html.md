@@ -4,7 +4,7 @@ author: Adam Hull
 layout: post
 disqus:
   shortname: goodeggsbytes
-  url: "http://bytes.goodeggs.com/post/speed-up-your-responsive-app-with-node-and-varnish"
+  url: "http://bites.goodeggs.com/post/speed-up-your-responsive-app-with-node-and-varnish"
 ---
 
 <div class="series">
