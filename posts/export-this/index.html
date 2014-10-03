@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Export This: Interface Design Patterns for Node.js Modules | Bites from Good Eggs</title><meta name="author" content="Alon Salant" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="../../favicon.ico?v=2" /><link rel="stylesheet" href="../../styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="../../rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Export This: Interface Design Patterns for Node.js Modules | Bites from Good Eggs</title><meta name="author" content="Alon Salant" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/png" href="../../favicon.png" /><link rel="stylesheet" href="../../styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="../../rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -24,25 +24,25 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <p>First some fundamentals.</p>
 <p>In Node requiring a file is requiring the module it defines. All modules have a reference to an implicit <code>module</code> object whose property <code>module.exports</code> is what is returned when you call <code>require</code>. A reference to <code>module.exports</code> is also available as <code>exports</code>.</p>
 <p>It&#39;s as if there were an implicit line at the beginning of each module that reads:</p>
-<pre class="highlight"><code class="coffeescript"><span class="reserved">var</span> <span class="built_in">exports</span> = module.<span class="built_in">exports</span> = {};</code></pre>
+<pre class="highlighted"><code class="delphi"><span class="keyword">var</span> <span class="keyword">exports</span> = module.<span class="keyword">exports</span> = <span class="comment">{}</span>;</code></pre>
 <p>If you want to export a function, you have to assign it to <code>module.exports</code>. Assigning a function to <code>exports</code> would just reassign the <code>exports</code> reference but <code>module.exports</code> would still point at the original empty object.</p>
 <p>So we can define a module <code>function.js</code> that exports a function:</p>
-<pre class="highlight"><code class="matlab"><span class="transposed_variable">module.</span>exports = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+<pre class="highlighted"><code class="matlab"><span class="transposed_variable">module.</span>exports = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
   <span class="keyword">return</span> <span class="cell">{name: <span class="string">'Jane'</span>}</span>;
 };</code></pre>
 <p>and require it with:</p>
-<pre class="highlight"><code class="php"><span class="keyword">var</span> func = <span class="keyword">require</span>(<span class="string">'./function'</span>);</code></pre>
+<pre class="highlighted"><code class="php"><span class="keyword">var</span> func = <span class="keyword">require</span>(<span class="string">'./function'</span>);</code></pre>
 <p>An important behavior of <code>require</code> is that it caches the value of <code>module.exports</code> and returns that same value for all future calls to <code>require</code>. It caches based on the absolute file path of the required file. So if you want your module to be able to return different values, you should have it export a function that can then be invoked to return a new value.</p>
 <p>To demonstrate with the Node REPL:</p>
-<pre class="highlight"><code class="delphi">$ node
-&gt; f1 = require(<span class="string">'/Users/alon/Projects/export_this/function'</span>);
-[<span class="function"><span class="keyword">Function</span>]
-&gt; <span class="title">f2</span> = <span class="title">require</span><span class="params">(<span class="string">'./function'</span>)</span>;</span> <span class="comment">// Same location</span>
-[<span class="function"><span class="keyword">Function</span>]
-&gt; <span class="title">f1</span> === <span class="title">f2</span>
-<span class="title">true</span>
-&gt; <span class="title">f1</span><span class="params">()</span> === <span class="title">f2</span><span class="params">()</span>
-<span class="title">false</span></span></code></pre>
+<pre class="highlighted"><code class="ruby"><span class="variable">$ </span>node
+&gt; f1 = <span class="keyword">require</span>(<span class="string">'/Users/alon/Projects/export_this/function'</span>);
+[<span class="constant">Function</span>]
+&gt; f2 = <span class="keyword">require</span>(<span class="string">'./function'</span>); <span class="regexp">//</span> <span class="constant">Same</span> location
+[<span class="constant">Function</span>]
+&gt; f1 === f2
+<span class="keyword">true</span>
+&gt; f1() === f2()
+<span class="keyword">false</span></code></pre>
 <p>You can see that <code>require</code> is returning the same function instance but that the objects returned by that function are different instances for each call.</p>
 <p>For more detail on Node&#39;s module system <a href="http://nodejs.org/api/modules.html">the core docs</a> provide good detail and are worth a read.</p>
 <p>And now on to the interface patterns.</p>
@@ -50,25 +50,25 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <h2 id="exports-a-namespace">Exports a Namespace</h2>
 <p>A simple and common pattern is to export an object with a number of properties, primarily but not limited to functions. This allows the code requiring the module to pull in a collection of related functionality under a single namespace.</p>
 <p>When you require a module that exports a namespace, you&#39;ll usually either assign the entire namespace to a variable and use its members through that reference, or assign members directly to local variables:</p>
-<pre class="highlight"><code class="scilab">var fs = require(<span class="string">'fs'</span>),
-    readFile = <span class="transposed_variable">fs.</span>readFile,
-    ReadStream = <span class="transposed_variable">fs.</span>ReadStream;
+<pre class="highlighted"><code class="haskell"><span class="title">var</span> fs = require('fs'),
+    readFile = fs.readFile,
+    <span class="type">ReadStream</span> = fs.<span class="type">ReadStream</span>;
 
-readFile(<span class="string">'./file.txt'</span>, <span class="function"><span class="keyword">function</span><span class="params">(err, data)</span> {</span>
-  <span class="transposed_variable">console.</span>log(<span class="string">"readFile contents: '</span>%<span class="transposed_variable">s'</span><span class="string">", data);
-});
+<span class="title">readFile</span>('./file.txt', function(err, <span class="typedef"><span class="keyword">data</span>) <span class="container">{
+  <span class="title">console</span>.<span class="title">log</span>("<span class="title">readFile</span> <span class="title">contents</span>: '%<span class="title">s'</span>", <span class="title">data</span>);
+}</span>);</span>
 
-new ReadStream('</span>./<span class="transposed_variable">file.</span><span class="transposed_variable">txt'</span>).on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span> {</span>
-  <span class="transposed_variable">console.</span>log(<span class="string">"ReadStream contents: '</span>%<span class="transposed_variable">s'</span><span class="string">", data);
-});</span></code></pre>
+<span class="title">new</span> <span class="type">ReadStream</span>('./file.txt').on('<span class="typedef"><span class="keyword">data</span>', function<span class="container">(<span class="title">data</span>)</span> <span class="container">{
+  <span class="title">console</span>.<span class="title">log</span>("<span class="type">ReadStream</span> <span class="title">contents</span>: '%<span class="title">s'</span>", <span class="title">data</span>);
+}</span>);</span></code></pre>
 <p>Here&#39;s what the <a href="https://github.com/joyent/node/blob/e5346932bcbc523489c9418b82fde31cb666ee99/lib/fs.js#L33"><code>fs</code> core module</a> is doing:</p>
-<pre class="highlight"><code class="coffeescript"><span class="reserved">var</span> fs = <span class="built_in">exports</span>;</code></pre>
+<pre class="highlighted"><code class="nginx"><span class="title">var</span> fs = exports;</code></pre>
 <p>It first assigns the local variable <code>fs</code> to the implicit exports object and then assigns function references to properties of <code>fs</code>. Because <code>fs</code> references <code>exports</code> and exports is the object you get when you call <code>require(&#39;fs&#39;)</code> anything assigned to <code>fs</code> will be available on the object you get from <code>require</code>.</p>
-<pre class="highlight"><code class="r">fs.readFile = <span class="keyword">function</span>(path, options, callback_) {
+<pre class="highlighted"><code class="r">fs.readFile = <span class="keyword">function</span>(path, options, callback_) {
   // <span class="keyword">...</span>
 };</code></pre>
 <p>Anything is fair game. It then exports a constructor:</p>
-<pre class="highlight"><code class="r">fs.ReadStream = ReadStream;
+<pre class="highlighted"><code class="r">fs.ReadStream = ReadStream;
 
 <span class="keyword">function</span> ReadStream(path, options) {
   // <span class="keyword">...</span>
@@ -77,7 +77,7 @@ ReadStream.prototype.open = <span class="keyword">function</span>() {
   // <span class="keyword">...</span>
 }</code></pre>
 <p>When exporting a namespace, you can assign properties to <code>exports</code> as the <code>fs</code> module does above, or assign a new object to <code>module.exports</code>.</p>
-<pre class="highlight"><code class="r">module.exports = {
+<pre class="highlighted"><code class="r">module.exports = {
   version: <span class="string">'1.0'</span>,
 
   doSomething: <span class="keyword">function</span>() {
@@ -85,20 +85,20 @@ ReadStream.prototype.open = <span class="keyword">function</span>() {
   }
 }</code></pre>
 <p>A common use of exporting a namespace is to export the root of another module so that one require statement gives the caller access to a number of other modules. At Good Eggs, we implement each of our domain models in a separate module that exports the model constructor (see <a href="#constructor">Exports a Constructor</a> below) and then have an index file in the directory where the models live that exports all of the models. This allows us to pull in our models under a <code>models</code> namespace.</p>
-<pre class="highlight"><code class="php"><span class="keyword">var</span> models = <span class="keyword">require</span>(<span class="string">'./models'</span>),
-    User = models.User,
+<pre class="highlighted"><code class="apache">var models = <span class="keyword">require</span>('./models'),
+    <span class="keyword">User</span> = models.<span class="keyword">User</span>,
     Product = models.Product;</code></pre>
 <p>For CoffeeScript users, <a href="http://coffeescript.org/#destructuring">destructuring assignment</a> make this even cleaner.</p>
-<pre class="highlight"><code class="ruby">{<span class="constant">User</span>, <span class="constant">Product</span>} = <span class="keyword">require</span> <span class="string">'./models'</span></code></pre>
+<pre class="highlighted"><code class="apache">{<span class="keyword">User</span>, Product} = <span class="keyword">require</span> './models'</code></pre>
 <p><code>index.js</code> might look like:</p>
-<pre class="highlight"><code class="ruby">exports.<span class="constant">User</span> = <span class="keyword">require</span>(<span class="string">'./user'</span>);
-exports.<span class="constant">Person</span> = <span class="keyword">require</span>(<span class="string">'./person'</span>);</code></pre>
+<pre class="highlighted"><code class="apache">exports.<span class="keyword">User</span> = <span class="keyword">require</span>('./<span class="keyword">user</span>');
+exports.Person = <span class="keyword">require</span>('./person');</code></pre>
 <p>In reality, we use a small library that requires all sibling files and exports their modules with CamelCase names so the <code>index.js</code> file in our models directory actually reads:</p>
-<pre class="highlight"><code class="ruby"><span class="keyword">module</span>.exports = <span class="keyword">require</span>(<span class="string">'../lib/require_siblings'</span>)(__filename);</code></pre>
+<pre class="highlighted"><code class="ruby"><span class="keyword">module</span>.exports = <span class="keyword">require</span>(<span class="string">'../lib/require_siblings'</span>)(__filename);</code></pre>
 <p><a name='function'></a></p>
 <h2 id="exports-a-function">Exports a Function</h2>
 <p>Another pattern is to export a function as the interface to a module. A common use of this pattern is to export a factory function that returns an object when invoked. We see this when using <a href="http://expressjs.com">Express.js</a>:</p>
-<pre class="highlight"><code class="php"><span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>);
+<pre class="highlighted"><code class="php"><span class="keyword">var</span> express = <span class="keyword">require</span>(<span class="string">'express'</span>);
 <span class="keyword">var</span> app = express();
 
 app.get(<span class="string">'/hello'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res)</span> {</span>
@@ -106,7 +106,7 @@ app.get(<span class="string">'/hello'</span>, <span class="function"><span class
 });</code></pre>
 <p>The function exported by Express is used to create a new Express application. In your own use of this pattern, your factory function may take arguments used to configure or initialize the object returned.</p>
 <p>To export a function, you must assign your function to module.exports. <a href="https://github.com/visionmedia/express/blob/2e68ddbae9cec2d0b22f48f35ef4da964f51949e/lib/express.js#L18">Express does</a>:</p>
-<pre class="highlight"><code class="r">exports = module.exports = createApplication;
+<pre class="highlighted"><code class="r">exports = module.exports = createApplication;
 
 <span class="keyword">...</span>
 
@@ -115,18 +115,18 @@ app.get(<span class="string">'/hello'</span>, <span class="function"><span class
 }</code></pre>
 <p>It&#39;s assigning the <code>createApplication</code> function to <code>module.exports</code> and then to the implicit <code>exports</code> variable. Now <code>exports</code> is the function that the module exports.</p>
 <p>Express also uses this exported function as a namespace:</p>
-<pre class="highlight"><code class="haskell"><span class="title">exports</span>.version = '<span class="number">3.1</span><span class="number">.1</span>';</code></pre>
+<pre class="highlighted"><code class="profile"><span class="filename">exports.version = '3.1.1';</code></pre>
 <p>Note that there&#39;s nothing to stop us from using the exported function as a namespace that can expose references to other functions, constructors or objects serving as namespaces themselves.</p>
 <p>When exporting a function, it is good practice to name the function so that it will show up in stack traces. Note the stack trace differences in these two examples:</p>
-<pre class="highlight"><code class="javascript"><span class="comment">// bomb1.js</span>
+<pre class="highlighted"><code class="javascript"><span class="comment">// bomb1.js</span>
 module.exports = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
   <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'boom'</span>);
 };</code></pre>
-<pre class="highlight"><code class="javascript"><span class="comment">// bomb2.js</span>
+<pre class="highlighted"><code class="javascript"><span class="comment">// bomb2.js</span>
 module.exports = <span class="function"><span class="keyword">function</span> <span class="title">bomb</span><span class="params">()</span> {</span>
   <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'boom'</span>);
 };</code></pre>
-<pre class="highlight"><code class="r">$ node
+<pre class="highlighted"><code class="r">$ node
 &gt; bomb = <span class="keyword">require</span>(<span class="string">'./bomb1'</span>);
 [Function]
 &gt; bomb()
@@ -148,24 +148,24 @@ Error: boom
 <p>Exporting a higher order function is a useful pattern when you want to return a function from your module but need to take input that controls the behavior of that function.</p>
 <p><a href="http://www.senchalabs.org/connect/">Connect middleware</a> provide a lot of pluggable functionality for Express and other web frameworks. A middleware is a function that takes three arguments - <code>(req, res, next)</code>. The convention in connect middleware is to export a function that when called returns the middleware function. This allows the exported function to take arguments that can be used to configure the middleware and are available through closure scope to the middleware when it is handling a request.</p>
 <p>For example, here&#39;s the connect <a href="http://www.senchalabs.org/connect/query.html"><code>query</code> middleware</a> used internally by Express to parse query string parameters into a an object available as <code>req.query</code>.</p>
-<pre class="highlight"><code class="php"><span class="keyword">var</span> connect = <span class="keyword">require</span>(<span class="string">'connect'</span>),
+<pre class="highlighted"><code class="php"><span class="keyword">var</span> connect = <span class="keyword">require</span>(<span class="string">'connect'</span>),
     query = <span class="keyword">require</span>(<span class="string">'connect/lib/middleware/query'</span>);
 
 <span class="keyword">var</span> app = connect();
 app.<span class="keyword">use</span>(query({maxKeys: <span class="number">100</span>}));</code></pre>
 <p>The <code>query</code> source looks like:</p>
-<pre class="highlight"><code class="scilab">var qs = require(<span class="string">'qs'</span>)
-  , parse = require(<span class="string">'../utils'</span>).parseUrl;
+<pre class="highlighted"><code class="lua">var qs = <span class="built_in">require</span>(<span class="string">'qs'</span>)
+  , parse = <span class="built_in">require</span>(<span class="string">'../utils'</span>).parseUrl;
 
-<span class="transposed_variable">module.</span>exports = <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(options)</span>{</span>
-  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(req, res, next)</span>{</span>
-    <span class="keyword">if</span> (!<span class="transposed_variable">req.</span>query) {
-      <span class="transposed_variable">req.</span>query = ~<span class="transposed_variable">req.</span><span class="transposed_variable">url.</span>indexOf(<span class="string">'?'</span>)
-        ? <span class="transposed_variable">qs.</span>parse(parse(req).query, options)
+<span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(options)</span></span>{
+  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">(req, res, next)</span></span>{
+    <span class="keyword">if</span> (!req.query) {
+      req.query = ~req.url.indexOf(<span class="string">'?'</span>)
+        ? qs.parse(parse(req).query, options)
         : {};
     }
 
-    next();
+    <span class="built_in">next</span>();
   };
 };</code></pre>
 <p>For every request handled by the <code>query</code> middleware, the <code>options</code> argument available through closure scope is passed along to Node&#39;s core <code>qs</code> (query string) module.</p>
@@ -173,35 +173,35 @@ app.<span class="keyword">use</span>(query({maxKeys: <span class="number">100</s
 <p><a name='constructor'></a></p>
 <h2 id="exports-a-constructor">Exports a Constructor</h2>
 <p>We define classes in JavaScript with constructor functions and create instances of classes with the <code>new</code> keyword.</p>
-<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> {</span>
-  <span class="transposed_variable">this.</span>name = name;
-}
+<pre class="highlighted"><code class="delphi"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> <span class="comment">{
+  this.name = name;
+}</span>
 
-<span class="transposed_variable">Person.</span><span class="transposed_variable">prototype.</span>greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">return</span> <span class="string">"Hi, I'</span>m <span class="transposed_variable">Jane.</span><span class="string">";
-};
+<span class="title">Person</span>.<span class="title">prototype</span>.<span class="title">greet</span> = <span class="title">function</span><span class="params">()</span> <span class="comment">{
+  return "Hi, I'm Jane.";
+}</span>;</span>
 
-var person = new Person('</span><span class="transposed_variable">Jane'</span>);
-<span class="transposed_variable">console.</span>log(<span class="transposed_variable">person.</span>greet()); <span class="comment">// prints: Hi, I'm Jane</span></code></pre>
+<span class="keyword">var</span> person = new Person(<span class="string">'Jane'</span>);
+console.log(person.greet()); <span class="comment">// prints: Hi, I'm Jane</span></code></pre>
 <p>For this pattern implement a class-per-file and export the constructor to make your project organization clear and to make it easy for other developers to find the implementation of a class. At Good Eggs, we implement classes in files with underscore_names and assign them to CamelCase names.</p>
-<pre class="highlight"><code class="php"><span class="keyword">var</span> Person = <span class="keyword">require</span>(<span class="string">'./person'</span>);
+<pre class="highlighted"><code class="php"><span class="keyword">var</span> Person = <span class="keyword">require</span>(<span class="string">'./person'</span>);
 
 <span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>);</code></pre>
 <p>The implementation might look like:</p>
-<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> {</span>
-  <span class="transposed_variable">this.</span>name = name;
-}
+<pre class="highlighted"><code class="delphi"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name)</span> <span class="comment">{
+  this.name = name;
+}</span>
 
-<span class="transposed_variable">Person.</span><span class="transposed_variable">prototype.</span>greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  <span class="keyword">return</span> <span class="string">"Hi, I'</span>m <span class="string">" + this.name;
-};
+<span class="title">Person</span>.<span class="title">prototype</span>.<span class="title">greet</span> = <span class="title">function</span><span class="params">()</span> <span class="comment">{
+  return "Hi, I'm " + this.name;
+}</span>;</span>
 
-module.exports = Person;</span></code></pre>
+module.<span class="keyword">exports</span> = Person;</code></pre>
 <p><a name='singleton'></a></p>
 <h2 id="exports-a-singleton">Exports a Singleton</h2>
 <p>Export a <a href="http://en.wikipedia.org/wiki/Singleton_pattern">singleton</a> when you want all users of your module to share the state and behavior of a single class instance.</p>
 <p><a href="http://mongoosejs.com">Mongoose</a> is an object-document mapping library used to create rich domain models persisted in MongoDB.</p>
-<pre class="highlight"><code class="r">var mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>);
+<pre class="highlighted"><code class="r">var mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>);
 mongoose.connect(<span class="string">'mongodb://localhost/test'</span>);
 
 var Cat = mongoose.model(<span class="string">'Cat'</span>, { name: String });
@@ -212,7 +212,7 @@ kitty.save(<span class="keyword">function</span> (err) {
   console.log(<span class="string">'meow'</span>);
 });</code></pre>
 <p>What is that <code>mongoose</code> object we get back when we require Mongoose? Internally, the <code>mongoose</code> module is doing:</p>
-<pre class="highlight"><code class="r"><span class="keyword">function</span> Mongoose() {
+<pre class="highlighted"><code class="r"><span class="keyword">function</span> Mongoose() {
   //<span class="keyword">...</span>
 }
 
@@ -220,9 +220,9 @@ module.exports = exports = new Mongoose();</code></pre>
 <p>Because <code>require</code> caches the value assigned to <code>module.exports</code>, all calls to <code>require(&#39;mongoose&#39;)</code> will return this same instance ensuring that it is a singleton in our application. Mongoose uses an object-oriented design to encapsulate and decouple functionality, maintain state and support readability and comprehension, but creates a simple interface to users by creating and exporting an instance of the Mongoose class.</p>
 <p>It also uses this singleton instance as a namespace to make other constructors available if needed by the user, including the Mongoose constructor itself. You might use the <code>Mongoose</code> constructor to create additional instances of mongoose connecting to additional MongoDB databases.</p>
 <p>Internally, Mongoose does:</p>
-<pre class="highlight"><code class="avrasm">Mongoose<span class="preprocessor">.prototype</span><span class="preprocessor">.Mongoose</span> = Mongoose<span class="comment">;</span></code></pre>
+<pre class="highlighted"><code class="avrasm">Mongoose<span class="preprocessor">.prototype</span><span class="preprocessor">.Mongoose</span> = Mongoose<span class="comment">;</span></code></pre>
 <p>So that you can do:</p>
-<pre class="highlight"><code class="php"><span class="keyword">var</span> mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>),
+<pre class="highlighted"><code class="php"><span class="keyword">var</span> mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>),
     Mongoose = mongoose.Mongoose;
 
 <span class="keyword">var</span> myMongoose = <span class="keyword">new</span> Mongoose();
@@ -232,7 +232,7 @@ myMongoose.connect(<span class="string">'mongodb://localhost/test'</span>);</cod
 <p>A required module can do more than just export a value. It can also modify global objects or objects returned when requiring other modules. It can define new global objects. It can just do this or do this in addition to exporting something useful.</p>
 <p>Use this pattern when you need to extend or alter the behavior of global objects to provide the behavior delivered by your module. While certainly controversial and to be used judiciously (especially in open source work), this pattern can also be indispensable.</p>
 <p><a href="https://github.com/visionmedia/should.js">Should.js</a> is an assertion library designed to be used in unit testing:</p>
-<pre class="highlight"><code class="matlab">require(<span class="string">'should'</span>);
+<pre class="highlighted"><code class="matlab">require(<span class="string">'should'</span>);
 
 var user = <span class="cell">{
     name: <span class="string">'Jane'</span>
@@ -240,7 +240,7 @@ var user = <span class="cell">{
 
 <span class="transposed_variable">user.</span><span class="transposed_variable">name.</span><span class="transposed_variable">should.</span>equal(<span class="string">'Jane'</span>);</code></pre>
 <p>Should.js <a href="https://github.com/visionmedia/should.js/blob/68000f47d01408cacb80441a1d9bf10ba423e54c/lib/should.js#L107-L113">extends Object with a non-enumerable property <code>should</code></a> to provide a clean syntax for writing unit test asserts. Internally, <code>should.js</code> does:</p>
-<pre class="highlight"><code class="r">var should = <span class="keyword">function</span>(obj) {
+<pre class="highlighted"><code class="r">var should = <span class="keyword">function</span>(obj) {
   <span class="keyword">return</span> new Assertion(util.isWrapperType(obj) ? obj.valueOf(): obj);
 };
 
@@ -264,11 +264,11 @@ Object.defineProperty(Object.prototype, <span class="string">'should'</span>, {
 <p>Implement a module to patch an existing module when it doesn&#39;t provide an interface to customizing its behavior in the way you need. This pattern is a variant of the previous. Instead of modifying a global object, we are relying on the caching behavior of Node&#39;s module system to patch the same instance of a module that other code gets when it requires that module.</p>
 <p>By default Mongoose names MongoDB collections by lowercasing and pluralizing the model name. For a model named <code>CreditCardAccountEntry</code> we&#39;d end up with a collection named <code>creditcardaccountentries</code>. I prefer <code>credit_card_account_entries</code> and I want this behavior universally.</p>
 <p>Here&#39;s the source for a module that patches <code>mongoose.model</code> when the module is required:</p>
-<pre class="highlight"><code class="php"><span class="keyword">var</span> Mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>).Mongoose;
+<pre class="highlighted"><code class="php"><span class="keyword">var</span> Mongoose = <span class="keyword">require</span>(<span class="string">'mongoose'</span>).Mongoose;
 <span class="keyword">var</span> _ = <span class="keyword">require</span>(<span class="string">'underscore'</span>);
 
 <span class="keyword">var</span> model = Mongoose.prototype.model;
-<span class="keyword">var</span> modelWithUnderScoreCollectionName = <span class="function"><span class="keyword">function</span><span class="params">(name, schema, collection, skipInit)</span> {</span>
+<span class="keyword">var</span> modelWithUnderScoreCollectionName = function(name, schema, collection, skipInit) {
   collection = collection || _(name).chain().underscore().pluralize().value();
   model.call(<span class="keyword">this</span>, name, schema, collection, skipInit);
 };

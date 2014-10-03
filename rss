@@ -5,10 +5,79 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 01 Oct 2014 18:48:46 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 03 Oct 2014 03:47:51 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Wed, 01 Oct 2014 18:48:42 GMT</pubDate>
+        <pubDate>Fri, 03 Oct 2014 03:47:46 GMT</pubDate>
+        <item>
+            <title><![CDATA[Speed up your responsive app with Node and Varnish]]></title>
+            <description><![CDATA[<div class="series">
+    <blockquote>This is the fourth article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li><a href="/posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
+        <li><a href="/posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
+        <li><a href="/posts/mobile-page-load">Planning Page Load Sequence</a></li>
+        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish">Speed with Node and Varnish</a></li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
+
+<p>Conversations about responsive design often focus on the browser: media queries, grids, and the like, but there&#39;s more!  Creating a great experience on all sorts of consumer-grade doo-dads demands some work on the server.</p>
+<p>On Good Eggs, shoppers with full-sized computers don&#39;t want all their grocery aisles hidden behind a collapsible menu. The markup to generate the desktop navigation is different enough from the mobile navigation that using media queries would be a stretch (heh, get it?).  By trimming the more complicated desktop markup from the mobile response, we save precious page weight for a faster load time.</p>
+<p>Let&#39;s take a journey along the request-response cycle to illustrate how we send different responses to different devices while maximizing cache hits:</p>
+<p><img src="/images/posts/server-side-responsive-express-varnish/flow.jpg" alt="Flow Diagram">
+<!-- more --></p>
+<h2 id="request">Request</h2>
+<p>Browsers send requests to a <a href="https://www.varnish-cache.org/">varnish</a> cache server (<a href="https://www.fastly.com/">Fastly</a> has worked great for us).  All requests come with a User-Agent header that hints at the shopper&#39;s device.</p>
+<p>iPhone 5 sends something like:</p>
+<pre class="highlighted"><code class="axapta">Mozilla/<span class="number">5.0</span> (iPhone; CPU iPhone OS <span class="number">5</span>_0 <span class="keyword">like</span> Mac OS X) AppleWebKit/<span class="number">534.46</span> (KHTML, <span class="keyword">like</span> Gecko) Version/<span class="number">5.1</span> Mobile/<span class="number">9</span>A334 Safari/<span class="number">7534.48</span><span class="number">.3</span></code></pre>
+<p>while IE 11 on Windows 8 sends:</p>
+<pre class="highlighted"><code class="smalltalk"><span class="class">Mozilla</span>/<span class="number">5.0</span> (<span class="class">Windows</span> <span class="class">NT</span> <span class="number">6.3</span>; <span class="class">Trident</span>/<span class="number">7.0</span>; <span class="method">rv:</span><span class="number">11.0</span>) like <span class="class">Gecko</span></code></pre>
+<p>which is <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/21/internet-explorer-11-user-agent-string-ua-string-sniffing-compatibility-with-gecko-webkit.aspx">a deliberate lie</a> but gives us enough information to call it a desktop browser.</p>
+<p>Grouping these messy headers into nice buckets of devices: <code>phone</code>, <code>tablet</code>, or <code>desktop</code> in our case, is the job of <a href="https://github.com/varnish/varnish-devicedetect">varnish-device-detect</a>.  To get up and running quickly, <a href="https://github.com/goodeggs/connect-devicedetect">connect-device-detect</a> can do the same grouping within the express server, but grouping at the edge cache yields much better hit rates.  Our express server only has to generate one <code>phone</code> response, which varnish will serve to iPhones, Androids, or any other devices who&#39;s User-Agent string matches our phone regular expressions.</p>
+<p>Varnish sends the device bucket on to our Express server as an <code>X-UA-Device</code> header. In Express, we use <a href="https://github.com/goodeggs/connect-device-router">connect-device-router</a> to switch controllers per device:</p>
+<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> express = require(<span class="string">'express'</span>),
+    device = require(<span class="string">'connect-device-router'</span>);
+
+express()
+  .get(<span class="string">'/food'</span>,
+    device(<span class="string">'phone'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
+      # ...
+      res.render(<span class="string">'mobileView'</span>)
+    }),
+    device(<span class="string">'desktop'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
+      # ...
+      res.render(<span class="string">'desktopView'</span>)
+    }),
+    <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
+      # <span class="keyword">default</span>
+    }
+  )</code></pre>
+<p>Matched routes also get a <code>req.device</code> string for branching within a template or a shared controller.</p>
+<h2 id="response">Response</h2>
+<p>Now our controller has generated a response, and we&#39;re on our way back out. Device router adds a <code>Vary: X-UA-Device</code> header only to matched routes, so routes that serve the same response to all devices will hit the same cache regardless of which device requests them.</p>
+<p>Varnish includes the <code>Vary</code> header by default when calculating cache keys, so device router&#39;s <code>Vary: X-UA-Device</code> triggers separate cached responses per device bucket.</p>
+<p>Our setup has a few customizations on top of varnish-devicedetect to support downstream caching, including adding a <code>Vary: User-Agent</code> header, since downstream caches won&#39;t have bucketed the device:</p>
+<pre class="highlighted"><code class="r">sub vcl_deliver {
+  <span class="keyword">...</span>
+  set resp.http.vary = resp.http.vary <span class="string">", User-Agent"</span>;
+
+  <span class="comment"># We also remove the Vary: X-UA-Device set upstream by connect-device-router</span>
+  set resp.http.vary = regsuball(resp.http.vary, <span class="string">"[, ]*?X-UA-Device"</span>, <span class="string">""</span>);
+
+  <span class="comment"># And copy over the X-UA-Device bucket for easy auditing in browser</span>
+  set resp.http.X-UA-Device = req.http.X-UA-Device;
+  <span class="keyword">...</span>
+}</code></pre>
+<p>Now browsers can store the reponse locally, and won&#39;t need to make another request until their cached response is stale.</p>
+<p>Caching can get a little mind bending.  I often found myself wondering why I couldn&#39;t just send <code>Vary: X-UA-Device</code> all the way back to the browser, I mean we&#39;re telling the browser what it&#39;s X-UA-Device is in the response, right?.  <a href="http://stackoverflow.com/questions/21056733/can-i-vary-on-a-custom-header">The answer</a> seems obvious in retrospect.  What else is confusing?</p>
+]]></description>
+            <link>http://goodeggs.github.io/bites/posts/speed-up-your-responsive-app-with-node-and-varnish/</link>
+            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/speed-up-your-responsive-app-with-node-and-varnish/</guid>
+            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
+            <pubDate>Mon, 29 Sep 2014 00:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Being an Intern at Good Eggs]]></title>
             <description><![CDATA[<p>My name is Estefania Ortiz and I am a rising Junior studying Computer Science at Stanford. This summer I am working as a Software Engineering Intern at Good Eggs. A typical conversation when meeting or running into other interns in the area usually goes something like this: </p>
@@ -137,7 +206,7 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
         <li><a href="/posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
         <li><a href="/posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
         <li><a href="/posts/mobile-page-load">Planning Page Load Sequence</a></li>
-        <li>HTTP Caching with Fastly</li>
+        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish">Speed with Node and Varnish</a></li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
     </ol>
@@ -165,7 +234,7 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>Loading the page on an iPhone 5 over a 3G network reveals this timeline:</p>
 <p><img src="/images/mobile-page-load/timeline.jpg" alt="timeline"></p>
 <p>Note that all three of these events occur on this page before <a href="https://developer.mozilla.org/en-US/docs/Web/Reference/Events/DOMContentLoaded">DOMContentLoaded</a>, the traditional launchpoint for single page js apps.  We&#39;re piggybacking on the browser&#39;s <a href="http://en.wikipedia.org/wiki/Incremental_rendering">incremental rendering</a> to wire up javascript before the DOM has fully finished loading.</p>
-<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
   <span class="comment">&lt;!-- 1. Page DOM Loaded --&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
@@ -209,7 +278,7 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p><img src="/images/mobile-page-load/network.jpg" alt="network"></p>
 <p>For visitors who came to shop (rather than ogle), the &quot;Add to Basket&quot; button is in the critical path. They can&#39;t leave this page with the blueberries they came for until they click that button. We wait for session information to load before showing the button so shoppers can see how many, if any, blueberries they&#39;re already getting.</p>
 <p>The session request is often the slowest for this user flow. We want to start it as early as possible, so we load it with a script tag. Firing off an XmlHttpRequest from the page js would be more convenient for developers (we&#39;d get a sucess callback to wire into), but doing so would delay starting the session request until after the page script had loaded and executed, potentially several hundred millis.  Instead we place a script tag just below the page js script tag in the body:</p>
-<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
   <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
   <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">startPage(<span class="comment">/*...*/</span>)</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
@@ -246,8 +315,8 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <!-- more -->
 
 <p>Lets look at the following code:</p>
-<pre class="highlight"><code class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
-  findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
+<pre class="highlighted"><code class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
+  findPackage(packageName, <span class="keyword">function</span>(err, content) {
     <span class="keyword">if</span> (err) {
       done(err);
     }
@@ -259,12 +328,12 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
         done(e);
       }
 
-      findDependencies(<span class="package"><span class="keyword">package</span>, <span class="title">function</span>(<span class="title">err</span>, <span class="title">dependencies</span>)) {</span>
+      findDependencies(<span class="keyword">package</span>, <span class="keyword">function</span>(err, dependencies)) {
         <span class="keyword">if</span> (err) {
           done(err);
         }
         <span class="keyword">else</span> {
-          processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
+          processDependencies(dependencies, <span class="keyword">function</span>(err) {
             <span class="keyword">if</span> (err) {
               done(err);
             }
@@ -279,22 +348,22 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 }</code></pre>
 <p>We are covering all possible failure cases here using combination of <code>try/catch</code> and callback error handling, but boy do we repeat ourselves over and over again. Lets try and rewrite this!</p>
 <h2 id="error-handling-using-try-catch">Error handling using try/catch</h2>
-<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
-  <span class="keyword">try</span> {
-    findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
-      <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+<pre class="highlighted"><code class="vbscript"><span class="keyword">function</span> updateDependencies(packageName, done) {
+  try {
+    findPackage(packageName, <span class="keyword">function</span>(<span class="built_in">err</span>, content) {
+      <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
 
-      findDependencies(JSON.parse(content), <span class="function"><span class="keyword">function</span><span class="params">(err, dependencies)</span>) {</span>
-        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+      findDependencies(JSON.parse(content), <span class="keyword">function</span>(<span class="built_in">err</span>, dependencies)) {
+        <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
 
-        processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
-          <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
+        processDependencies(dependencies, <span class="keyword">function</span>(<span class="built_in">err</span>) {
+          <span class="keyword">if</span> (<span class="built_in">err</span>) throw <span class="built_in">err</span>;
 
           done(<span class="literal">null</span>, dependencies);
         });
       });
     });
-  } <span class="keyword">catch</span> (e) {
+  } catch (e) {
     done(e);
   }
 }</code></pre>
@@ -307,29 +376,29 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <h2 id="error-handling-using-promises">Error handling using promises</h2>
 <p>In the <a href="http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/">previous article</a> we&#39;ve talked about managing asynchronous flow and escaping the <a href="http://callbackhell.com/">callback hell</a> with promises. Lets put this promises to work here and rewrite this function.</p>
 <p>For the sake of moving forward quicker lets assume we are using <a href="https://github.com/petkaantonov/bluebird">Bluebird</a> promises library and that all our APIs now return promises instead of taking callbacks:</p>
-<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName)</span> {</span>
+<pre class="highlighted"><code class="lua"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName)</span></span> {
   <span class="keyword">return</span> findPackage(packageName)
-    .<span class="keyword">then</span>(<span class="transposed_variable">JSON.</span>parse)
+    .<span class="keyword">then</span>(JSON.parse)
     .<span class="keyword">then</span>(findDependencies)
     .<span class="keyword">then</span>(processDependencies)
-    .<span class="keyword">then</span>(<span class="transposed_variable">res.</span>send)
+    .<span class="keyword">then</span>(res.send)
     ;
 }</code></pre>
 <p>Oh wow, that is so much nicer! Right? Right!</p>
 <p>But Alex, &quot;we&#39;ve lost our error handling&quot;, you might say. That&#39;s right, we don&#39;t need to do anything special here to propagate error because we return a promise and there&#39;s built in support for error flow. Lets see how error handling might look like with promises:</p>
-<pre class="highlight"><code class="scilab"><span class="transposed_variable">button.</span>addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+<pre class="highlighted"><code class="avrasm">button<span class="preprocessor">.addEventListener</span>(<span class="string">"click"</span>, function() {
   updateDependencies(<span class="string">"packageName"</span>)
-    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(dependencies)</span> {</span>
-      <span class="transposed_variable">output.</span>innerHTML = <span class="transposed_variable">dependencies.</span>join(<span class="string">"\n"</span>);
+    <span class="preprocessor">.then</span>(function(dependencies) {
+      output<span class="preprocessor">.innerHTML</span> = dependencies<span class="preprocessor">.join</span>(<span class="string">"\n"</span>)<span class="comment">;</span>
     })
-    .<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
-      <span class="transposed_variable">output.</span>innerHTML = <span class="string">"There was an error"</span>;
-    });
-});</code></pre>
+    <span class="preprocessor">.catch</span>(function(err) {
+      output<span class="preprocessor">.innerHTML</span> = <span class="string">"There was an error"</span><span class="comment">;</span>
+    })<span class="comment">;</span>
+})<span class="comment">;</span></code></pre>
 <p>Very slick, I&#39;m a fan!</p>
 <h2 id="error-using-zones">Error using Zones</h2>
 <p>Handling rejected promises works really well when we are in full control of the flow. But what happens if some third-party code throws an error during an asynchronous operation? Lets look at another example:</p>
-<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">thirdPartyFunction</span><span class="params">()</span> {</span>
+<pre class="highlighted"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">thirdPartyFunction</span><span class="params">()</span> {</span>
   <span class="function"><span class="keyword">function</span> <span class="title">fakeXHR</span><span class="params">()</span> {</span>
     <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Invalid dependencies"</span>);
   }
@@ -345,41 +414,41 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 
 main();</code></pre>
 <p>In this case, we wouldn&#39;t have a chance to catch and process the error. Generally, the only recourse here is using half baked <code>window.onerror</code> that doesn&#39;t give you any stack information at all. At least you can log something, right? Not that there&#39;s much to log:</p>
-<pre class="highlight"><code class="vbnet">Uncaught <span class="keyword">Error</span>: Invalid dependencies
+<pre class="highlighted"><code class="nginx"><span class="title">Uncaught</span> Error: Invalid dependencies
     fakeXHR</code></pre>
 <p>Up until recently that was pretty much all we had. However, this january <a href="https://github.com/btford">Brian Ford</a> of the <a href="http://angularjs.org">angular.js</a> fame has released <a href="https://github.com/btford/zone.js/">Zone.js</a> which aims to help tackle this.</p>
 <p>Basically, <a href="https://github.com/btford/zone.js/">Zone.js</a> <strong>overrides all asynchronous functions in the browser</strong> with custom implementations which allows it to keep track of the context. Dangerous? Yes! But as we say in Soviet Russia, &quot;he who doesn&#39;t risk never gets to drink champagne&quot; (or in English &quot;nothing ventured, nothing gained&quot;).</p>
 <p>Anyways, lets look at how this works. Assuming you have included <code>zones.js</code> and <code>long-stack-trace-zone.js</code> as per the docs, we just change <code>main()</code> call to:</p>
-<pre class="highlight"><code class="avrasm">zone<span class="preprocessor">.fork</span>(Zone<span class="preprocessor">.longStackTraceZone</span>)<span class="preprocessor">.run</span>(main)<span class="comment">;</span></code></pre>
+<pre class="highlighted"><code class="avrasm">zone<span class="preprocessor">.fork</span>(Zone<span class="preprocessor">.longStackTraceZone</span>)<span class="preprocessor">.run</span>(main)<span class="comment">;</span></code></pre>
 <p>Refresh, click the button, and now our stack looks like this:</p>
-<pre class="highlight"><code class="bash">Error: Invalid dependencies
-    at fakeXHR (script.js:<span class="number">7</span>:<span class="number">11</span>)
-    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
-    at zoneBoundFn (zones.js:<span class="number">27</span>:<span class="number">19</span>)
---- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">106</span>ms ago
+<pre class="highlighted"><code class="bash">Error: Invalid dependencies
+    at fakeXHR (script.js:7:11)
+    at Zone.run (zones.js:41:19)
+    at zoneBoundFn (zones.js:27:19)
+--- Tue Mar 25 2014 21:20:32 GMT-0700 (PDT) - 106ms ago
 Error
-    at Function.getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
-    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
-    at zone.(anonymous function) (zones.js:<span class="number">61</span>:<span class="number">27</span>)
-    at marker (zones.js:<span class="number">66</span>:<span class="number">25</span>)
-    at thirdPartyFunction (script.js:<span class="number">10</span>:<span class="number">3</span>)
-    at HTMLButtonElement.onClick (script.js:<span class="number">15</span>:<span class="number">5</span>)
-    at HTMLButtonElement.x.event.dispatch (jquery.js:<span class="number">5</span>:<span class="number">10006</span>)
-    at HTMLButtonElement.y.handle (jquery.js:<span class="number">5</span>:<span class="number">6789</span>)
-    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
---- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">1064</span>ms ago
+    at Function.getStacktraceWithUncaughtError (long-stack-trace-zone.js:24:32)
+    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:70:43)
+    at Zone.bind (zones.js:25:21)
+    at zone.(anonymous function) (zones.js:61:27)
+    at marker (zones.js:66:25)
+    at thirdPartyFunction (script.js:10:3)
+    at HTMLButtonElement.onClick (script.js:15:5)
+    at HTMLButtonElement.x.event.dispatch (jquery.js:5:10006)
+    at HTMLButtonElement.y.handle (jquery.js:5:6789)
+    at Zone.run (zones.js:41:19)
+--- Tue Mar 25 2014 21:20:32 GMT-0700 (PDT) - 1064ms ago
 Error
-    at getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
-    at Function.Zone.getStacktrace (long-stack-trace-zone.js:<span class="number">37</span>:<span class="number">15</span>)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
-    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
-    at HTMLButtonElement.obj.addEventListener (zones.js:<span class="number">132</span>:<span class="number">37</span>)
-    at Object.x.event.add (jquery.js:<span class="number">5</span>:<span class="number">7262</span>)
-    at HTMLButtonElement.&lt;anonymous&gt; (jquery.js:<span class="number">5</span>:<span class="number">14336</span>)
-    at Function.x.extend.each (jquery.js:<span class="number">4</span>:<span class="number">4575</span>)
-    at x.fn.x.each (jquery.js:<span class="number">4</span>:<span class="number">1626</span>)
-    at x.fn.extend.on (jquery.js:<span class="number">5</span>:<span class="number">14312</span>)</code></pre>
+    at getStacktraceWithUncaughtError (long-stack-trace-zone.js:24:32)
+    at Function.Zone.getStacktrace (long-stack-trace-zone.js:37:15)
+    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:70:43)
+    at Zone.bind (zones.js:25:21)
+    at HTMLButtonElement.obj.addEventListener (zones.js:132:37)
+    at Object.x.event.add (jquery.js:5:7262)
+    at HTMLButtonElement.&lt;anonymous&gt; (jquery.js:5:14336)
+    at Function.x.extend.each (jquery.js:4:4575)
+    at x.fn.x.each (jquery.js:4:1626)
+    at x.fn.extend.on (jquery.js:5:14312)</code></pre>
 <p>What the what?? Cool! We can now see that the relevant code path started in our <code>onClick</code> method and went into <code>thirdPartyFunction</code>.</p>
 <p>The cool part is, since <a href="https://github.com/btford/zone.js/">Zone.js</a> overrides browser methods, it doesn&#39;t matter what libraries you use. It just works.</p>
 <h2 id="another-async-flow-control-project-called-zones-">Another async flow control project called Zones?</h2>
@@ -430,15 +499,15 @@ When user navigates back with back button page can be loaded from cache very qui
 This is different from normal cache which only caches HTML code.&quot;</p>
 </blockquote>
 <p>It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:</p>
-<pre class="highlight"><code class="coffeescript">    window.onpageshow, <span class="function"><span class="params">(event)</span> =&gt;</span>
+<pre class="highlighted"><code class="coffeescript">    window.onpageshow, (event) =&gt;
       <span class="keyword">if</span> event.persisted
         overlay.hide() <span class="comment"># Hide the spinner overlay</span></code></pre>
 <p>Seemed like it should work, but it didn&#39;t!  After a lot more research and even more a lot more trial-and-error, we noticed we had multiple window.onpageshow assignments.  jQuery to the rescue (yet again)!</p>
-<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
+<pre class="highlighted"><code class="coffeescript">    $(window).<span class="literal">on</span> <span class="string">'pageshow'</span>, (event) =&gt;
       <span class="keyword">if</span> event.persisted
         overlay.hide()</code></pre>
 <p>With our fix in place we were ready to head home and have a beer, right?  Nope!  What if we needed to sneak past bfcache again?  Well how about we move the code to our main Page class and define an overwritable function called onBrowserBack?</p>
-<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
+<pre class="highlighted"><code class="coffeescript">    $(window).<span class="literal">on</span> <span class="string">'pageshow'</span>, (event) =&gt;
       <span class="keyword">if</span> event.persisted
         overlay.hide()
         <span class="property">@onBrowserBack</span>?()</code></pre>
@@ -512,73 +581,6 @@ This is different from normal cache which only caches HTML code.&quot;</p>
             <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/written-hiring-criteria/</guid>
             <dc:creator><![CDATA[Alon Salant]]></dc:creator>
             <pubDate>Tue, 29 Apr 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Rivets for Mobile Web]]></title>
-            <description><![CDATA[<div class="series">
-    <blockquote>This is the second article in a series of posts detailing the launch of our mobile site.</blockquote>
-    <ol>
-        <li><a href="/posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
-        <li><a href="/posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
-        <li><a href="/posts/mobile-page-load">Planning Page Load Sequence</a></li>
-        <li>HTTP Caching with Fastly</li>
-        <li>Appropriate image sizes with imgix</li>
-        <li>Integration testing over unit testing</li>
-    </ol>
-</div>
-
-<p>Before coding a phone-sized farmer&#39;s market, the Good Eggs team built
-production sites using tools at both extremes of the javascript application
-ecosystem:  Backbone for our desktop experience and Angular for our internal tools.
-But neither felt quite right for our mobile site.</p>
-<p>We had two priorities for our mobile toolchain: <!-- more -->the page had to load
-fast, and we had to code ... efficiently. <a href="http://www.rivetsjs.com/">Rivets</a> with its
-declarative data-binding and simple hooks for server-side pre-rendering fit the task well.</p>
-<h2 id="backbone-no">Backbone, No</h2>
-<p>Backbone had few constraints.  You could imagine a fast page load sequence using it.  For us, it really lost points for developer friendliness.  A seemingly small but pervasive example: <code>Model.get()</code>.  It interrupts my javascript flow.  Do I need <code>.get</code> or just <code>.</code> to traverse this object graph?  Combining <code>get</code> with nested models and objects is especially convoluted.  My mind frequnetly cycled though the permutations: <code>model.get(&#39;address.zip&#39;)</code>, <code>model.get(&#39;address&#39;).get(&#39;zip&#39;)</code>, or <code>model.get(&#39;address&#39;).zip</code> ?  Luckily, recent Android and iOS devices already totalled 85% of our mobile traffic, so we were comfortable relying on ES5&#39;s <code>Object.defineProperty</code> to unlock Rivets native change detection syntax.</p>
-<h2 id="angular-not-yet">Angular, Not Yet</h2>
-<p>Angular suffered on page load performance.  Following library conventions, we&#39;d have to wait for 100+k of javascript to load, parse, and execute before we could show much of value to our visitor.  Inspired by Bryan McQuade&#39;s <a href="http://calendar.perfplanet.com/2012/make-your-mobile-pages-render-in-under-one-second/">perscription for a fast mobile page</a>, we decided this was unacceptable.  Angular&#39;s declarative binding did speed up code slinging and generate good vibes on projects that used it, so we were glad to discover Rivets&#39;  similar bindings with fewer strong opinions and a much lighter pageweight.</p>
-<h2 id="rivets-use-it-now">Rivets, Use it Now</h2>
-<p><a href="http://www.rivetsjs.com/">Rivets</a> is very limited in scope.  With it, you get binding and a little bit of formatting.  That&#39;s it.  We had to decide many more architectural conventions like when to bind and what to bind to (stay tuned for a forthcoming post detailing the page load sequence we settled on).  Two Rivets details emerged worth sharing: binding and nesting contexts.</p>
-<p><img src="/images/mobile-screenshot.jpg" alt="Mobile screenshot"></p>
-<p>In browsers supporting <code>Object.defineProperty</code>, Rivets will bind to any object.  Rivets docs refer to this object as the context.  We bound simple views directly to domain models.  For more complex views, we wrapped up interaction logic in objects reminiscent of Angular scopes.  These objects exposed methods to be called from bindings or tests.  Consider your shopping basket.  We sum the number of treats you&#39;re getting into a total displayed in the top right corner.  This count is maintained by a binding directly to a basket model.  When you click a plus button, a rivets binding invokes a method on the bound basket model. The same model bound to the view.  These two conventions let us wire up simple bindings with minimal boilerplate (no deciding when to render and re-render) and gave us an expected place to add and test more complex wiring.</p>
-<p>The behavior of the top 50 or so pixels of the mobile site, call it the top bar, changes a lot.  That&#39;s valuable space on a small screen.  We broke the behaviors into several contexts to prevent the complexity from exploding our brains.  Binding multiple contexts to the same DOM tree with Rivets isn&#39;t totally straightforward, but it&#39;s very doable.  Out of the box, when you bind a context to an element, all children elements are bound to the same context. For us, this meant that the basket bindings got the top nav context instead of the basket model. Boom.  Broken.  Luckily Rivets lets you declare custom prefixes for your bindings.  We adopted a convention of prefixing each binding with the name of the context.  This let us bind <code>rv-top-nav-*</code> as soon as the page loaded, and bind <code>rv-basket-*</code> on nested elements later.</p>
-<pre class="highlight"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>,<span class="function"> -&gt;</span>
-  a <span class="string">'.logo'</span>, <span class="attribute">href</span>: <span class="string">"/"</span>,<span class="function"> -&gt;</span>
-      i <span class="string">'.icon.icon-logo'</span>, <span class="attribute">alt</span>: <span class="string">'good eggs'</span>
-
-  <span class="comment"># other top nav code ...</span>
-
-  a <span class="string">'#basket.icon'</span>, <span class="attribute">href</span>: <span class="string">"/basket"</span>,<span class="function"> -&gt;</span>
-    i <span class="string">'.icon.icon-basket'</span>
-    div <span class="string">'.items-count'</span>, <span class="string">'rv-basket-text'</span>: <span class="string">'itemsCount'</span>, <span class="string">'0'</span></code></pre>
-<p>And then binding to our objects:</p>
-<pre class="highlight"><code class="coffeescript">module.<span class="function"><span class="title">exports</span> = -&gt;</span>
-  <span class="attribute">state</span>: <span class="string">'full'</span>
-
-  <span class="attribute">bind</span>:<span class="function"> -&gt;</span>
-    <span class="property">@el</span> = $(<span class="string">'.top-nav'</span>)
-
-    rivets.bind <span class="property">@el</span>.toArray(), @,
-      <span class="attribute">config</span>:
-        <span class="attribute">prefix</span>: <span class="string">'rv-top-nav'</span>
-
-    @
-
-  <span class="attribute">bindToSession</span>: <span class="function"><span class="params">(session)</span> -&gt;</span>
-    <span class="property">@user</span> = session.user
-
-    rivets.bind $(<span class="string">'#basket'</span>).toArray(), session.basket
-      <span class="attribute">config</span>:
-        <span class="attribute">prefix</span>: <span class="string">'rv-basket'</span>
-
-    @</code></pre>
-<p>Rivets declarative binding rocks for mobile web.  Try it out!</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/rivets-for-mobile/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/rivets-for-mobile/</guid>
-            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
-            <pubDate>Fri, 25 Apr 2014 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
