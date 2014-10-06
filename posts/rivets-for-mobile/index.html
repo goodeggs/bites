@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Rivets for Mobile Web | Bites from Good Eggs</title><meta name="author" content="Adam Hull" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/png" href="../../favicon.png" /><link rel="stylesheet" href="../../styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="../../rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Rivets for Mobile Web | Bites from Good Eggs</title><meta name="author" content="Adam Hull" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="../../favicon.ico?v=2" /><link rel="stylesheet" href="../../styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="../../rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -37,34 +37,34 @@ declarative data-binding and simple hooks for server-side pre-rendering fit the 
 <p><img src="../../images/mobile-screenshot.jpg" alt="Mobile screenshot"></p>
 <p>In browsers supporting <code>Object.defineProperty</code>, Rivets will bind to any object.  Rivets docs refer to this object as the context.  We bound simple views directly to domain models.  For more complex views, we wrapped up interaction logic in objects reminiscent of Angular scopes.  These objects exposed methods to be called from bindings or tests.  Consider your shopping basket.  We sum the number of treats you&#39;re getting into a total displayed in the top right corner.  This count is maintained by a binding directly to a basket model.  When you click a plus button, a rivets binding invokes a method on the bound basket model. The same model bound to the view.  These two conventions let us wire up simple bindings with minimal boilerplate (no deciding when to render and re-render) and gave us an expected place to add and test more complex wiring.</p>
 <p>The behavior of the top 50 or so pixels of the mobile site, call it the top bar, changes a lot.  That&#39;s valuable space on a small screen.  We broke the behaviors into several contexts to prevent the complexity from exploding our brains.  Binding multiple contexts to the same DOM tree with Rivets isn&#39;t totally straightforward, but it&#39;s very doable.  Out of the box, when you bind a context to an element, all children elements are bound to the same context. For us, this meant that the basket bindings got the top nav context instead of the basket model. Boom.  Broken.  Luckily Rivets lets you declare custom prefixes for your bindings.  We adopted a convention of prefixing each binding with the name of the context.  This let us bind <code>rv-top-nav-*</code> as soon as the page loaded, and bind <code>rv-basket-*</code> on nested elements later.</p>
-<pre class="highlighted"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>, -&gt;
-  a <span class="string">'.logo'</span>, href: <span class="string">"/"</span>, -&gt;
-      i <span class="string">'.icon.icon-logo'</span>, alt: <span class="string">'good eggs'</span>
+<pre class="highlight"><code class="coffeescript">div <span class="string">'rv-top-nav-show'</span>: <span class="string">'state | is full'</span>,<span class="function"> -&gt;</span>
+  a <span class="string">'.logo'</span>, <span class="attribute">href</span>: <span class="string">"/"</span>,<span class="function"> -&gt;</span>
+      i <span class="string">'.icon.icon-logo'</span>, <span class="attribute">alt</span>: <span class="string">'good eggs'</span>
 
   <span class="comment"># other top nav code ...</span>
 
-  a <span class="string">'#basket.icon'</span>, href: <span class="string">"/basket"</span>, -&gt;
+  a <span class="string">'#basket.icon'</span>, <span class="attribute">href</span>: <span class="string">"/basket"</span>,<span class="function"> -&gt;</span>
     i <span class="string">'.icon.icon-basket'</span>
     div <span class="string">'.items-count'</span>, <span class="string">'rv-basket-text'</span>: <span class="string">'itemsCount'</span>, <span class="string">'0'</span></code></pre>
 <p>And then binding to our objects:</p>
-<pre class="highlighted"><code class="coffeescript">module.<span class="function"><span class="title">exports</span></span> = -&gt;
-  state: <span class="string">'full'</span>
+<pre class="highlight"><code class="coffeescript">module.<span class="function"><span class="title">exports</span> = -&gt;</span>
+  <span class="attribute">state</span>: <span class="string">'full'</span>
 
-  bind: -&gt;
+  <span class="attribute">bind</span>:<span class="function"> -&gt;</span>
     <span class="property">@el</span> = $(<span class="string">'.top-nav'</span>)
 
     rivets.bind <span class="property">@el</span>.toArray(), @,
-      config:
-        prefix: <span class="string">'rv-top-nav'</span>
+      <span class="attribute">config</span>:
+        <span class="attribute">prefix</span>: <span class="string">'rv-top-nav'</span>
 
     @
 
-  bindToSession: (session) -&gt;
+  <span class="attribute">bindToSession</span>: <span class="function"><span class="params">(session)</span> -&gt;</span>
     <span class="property">@user</span> = session.user
 
     rivets.bind $(<span class="string">'#basket'</span>).toArray(), session.basket
-      config:
-        prefix: <span class="string">'rv-basket'</span>
+      <span class="attribute">config</span>:
+        <span class="attribute">prefix</span>: <span class="string">'rv-basket'</span>
 
     @</code></pre>
 <p>Rivets declarative binding rocks for mobile web.  Try it out!</p>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Speed up your responsive app with Node and Varnish | Bites from Good Eggs</title><meta name="author" content="Adam Hull" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/png" href="../../favicon.png" /><link rel="stylesheet" href="../../styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="../../rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Speed up your responsive app with Node and Varnish | Bites from Good Eggs</title><meta name="author" content="Adam Hull" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="../../favicon.ico?v=2" /><link rel="stylesheet" href="../../styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="../../rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
@@ -24,13 +24,13 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="../../">Bites<
 <h2 id="request">Request</h2>
 <p>Browsers send requests to a <a href="https://www.varnish-cache.org/">varnish</a> cache server (<a href="https://www.fastly.com/">Fastly</a> has worked great for us).  All requests come with a User-Agent header that hints at the shopper&#39;s device.</p>
 <p>iPhone 5 sends something like:</p>
-<pre class="highlighted"><code class="axapta">Mozilla/<span class="number">5.0</span> (iPhone; CPU iPhone OS <span class="number">5</span>_0 <span class="keyword">like</span> Mac OS X) AppleWebKit/<span class="number">534.46</span> (KHTML, <span class="keyword">like</span> Gecko) Version/<span class="number">5.1</span> Mobile/<span class="number">9</span>A334 Safari/<span class="number">7534.48</span><span class="number">.3</span></code></pre>
+<pre class="highlight"><code class="vbnet">Mozilla/<span class="number">5.0</span> (iPhone; CPU iPhone OS <span class="number">5</span>_0 <span class="keyword">like</span> Mac OS X) AppleWebKit/<span class="number">534.46</span> (KHTML, <span class="keyword">like</span> Gecko) Version/<span class="number">5.1</span> Mobile/<span class="number">9</span>A334 Safari/<span class="number">7534.48</span><span class="number">.3</span></code></pre>
 <p>while IE 11 on Windows 8 sends:</p>
-<pre class="highlighted"><code class="smalltalk"><span class="class">Mozilla</span>/<span class="number">5.0</span> (<span class="class">Windows</span> <span class="class">NT</span> <span class="number">6.3</span>; <span class="class">Trident</span>/<span class="number">7.0</span>; <span class="method">rv:</span><span class="number">11.0</span>) like <span class="class">Gecko</span></code></pre>
+<pre class="highlight"><code class="smalltalk"><span class="class">Mozilla</span>/<span class="number">5.0</span> (<span class="class">Windows</span> <span class="class">NT</span> <span class="number">6.3</span>; <span class="class">Trident</span>/<span class="number">7.0</span>; <span class="method">rv:</span><span class="number">11.0</span>) like <span class="class">Gecko</span></code></pre>
 <p>which is <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/21/internet-explorer-11-user-agent-string-ua-string-sniffing-compatibility-with-gecko-webkit.aspx">a deliberate lie</a> but gives us enough information to call it a desktop browser.</p>
 <p>Grouping these messy headers into nice buckets of devices: <code>phone</code>, <code>tablet</code>, or <code>desktop</code> in our case, is the job of <a href="https://github.com/varnish/varnish-devicedetect">varnish-device-detect</a>.  To get up and running quickly, <a href="https://github.com/goodeggs/connect-devicedetect">connect-device-detect</a> can do the same grouping within the express server, but grouping at the edge cache yields much better hit rates.  Our express server only has to generate one <code>phone</code> response, which varnish will serve to iPhones, Androids, or any other devices who&#39;s User-Agent string matches our phone regular expressions.</p>
 <p>Varnish sends the device bucket on to our Express server as an <code>X-UA-Device</code> header. In Express, we use <a href="https://github.com/goodeggs/connect-device-router">connect-device-router</a> to switch controllers per device:</p>
-<pre class="highlighted"><code class="javascript"><span class="keyword">var</span> express = require(<span class="string">'express'</span>),
+<pre class="highlight"><code class="javascript"><span class="keyword">var</span> express = require(<span class="string">'express'</span>),
     device = require(<span class="string">'connect-device-router'</span>);
 
 express()
@@ -52,7 +52,7 @@ express()
 <p>Now our controller has generated a response, and we&#39;re on our way back out. Device router adds a <code>Vary: X-UA-Device</code> header only to matched routes, so routes that serve the same response to all devices will hit the same cache regardless of which device requests them.</p>
 <p>Varnish includes the <code>Vary</code> header by default when calculating cache keys, so device router&#39;s <code>Vary: X-UA-Device</code> triggers separate cached responses per device bucket.</p>
 <p>Our setup has a few customizations on top of varnish-devicedetect to support downstream caching, including adding a <code>Vary: User-Agent</code> header, since downstream caches won&#39;t have bucketed the device:</p>
-<pre class="highlighted"><code class="r">sub vcl_deliver {
+<pre class="highlight"><code class="r">sub vcl_deliver {
   <span class="keyword">...</span>
   set resp.http.vary = resp.http.vary <span class="string">", User-Agent"</span>;
 
