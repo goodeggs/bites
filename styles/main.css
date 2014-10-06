@@ -106,7 +106,7 @@ thead,thead th{font-weight:bold;font-size:1em}
 thead{border-bottom:2px solid #333}
 body > header{padding:0;margin:20px 0;}
 body > header h1{float:left;margin-right:30px;margin-left:-5px;}
-body > header h1 a{display:block;color:#333;background-image:url("../images/goodeggs_logo_bites_small.png");height:70px;line-height:75px;padding-left:105px;background-repeat:no-repeat;background-position:0 bottom;vertical-align:bottom;color:#333 !important;text-decoration:none !important;}
+body > header h1 a{display:block;color:#333;background-image:url("../images/goodeggs_logo_bites_small.png");height:70px;line-height:75px;padding-left:95px;background-repeat:no-repeat;background-position:0 bottom;vertical-align:bottom;color:#333 !important;text-decoration:none !important;}
 body > header h1 a:hover{color:#6ab5b1}
 body > header ul.nav{float:left;margin:12px 0 0 0;}
 body > header ul.nav li{float:left;margin:20px 0 0 30px}

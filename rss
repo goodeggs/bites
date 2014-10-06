@@ -5,10 +5,10 @@
         <description><![CDATA[Bites from Good Eggs]]></description>
         <link>http://goodeggs.github.io/bites</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 06 Oct 2014 19:40:06 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 06 Oct 2014 19:44:13 GMT</lastBuildDate>
         <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
         <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Mon, 06 Oct 2014 19:40:01 GMT</pubDate>
+        <pubDate>Mon, 06 Oct 2014 19:44:09 GMT</pubDate>
         <item>
             <title><![CDATA[Speed up your responsive app with Node and Varnish]]></title>
             <description><![CDATA[<div class="series">
