@@ -53,7 +53,7 @@ After a big push to get the second version of the website out — better, faster
 - Let’s talk about handling big launches.
 - Let’s talk about communication between groups. 
 
-It helps that all the individuals are awesome in their own right, but it helps more that we are constantly working out how to be better as team.
+It helps that all the individuals are awesome in their own right, but it helps more that we are constantly working out how to be better as a team.
 We not only become a better team but also learn how to become better teammates.  
 
 ### One last thing:  your attention span.
