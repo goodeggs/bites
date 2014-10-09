@@ -1,5 +1,5 @@
 ---
-title: Video: A Conversation on Service Design with Airbnb, Good Eggs and Lyft
+title: "Video: A Conversation on Service Design with Airbnb, Good Eggs and Lyft"
 author: Alon Salant
 layout: post
 disqus:

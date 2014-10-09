@@ -1,5 +1,5 @@
 ---
-title: Loud and Proud: What's Your Ideal Workplace?
+title: "Loud and Proud: What's Your Ideal Workplace?"
 author: Adam Perelman
 layout: post
 disqus:

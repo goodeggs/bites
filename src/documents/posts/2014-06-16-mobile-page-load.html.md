@@ -1,5 +1,5 @@
 ---
-title: Loading Scripts in the Critical Path: A Commerce Case Study
+title: "Loading Scripts in the Critical Path: A Commerce Case Study"
 author: Adam Hull
 layout: post
 disqus:
