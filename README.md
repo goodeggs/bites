@@ -64,7 +64,7 @@ Install and fire up the development server
 
 Start a new branch
 
-    > git co -b <post-slug>
+    > git checkout -b <post-slug>
 
 Add a new post to [src/documents/posts](https://github.com/goodeggs/bites/tree/master/src/documents/posts)
 
@@ -77,7 +77,7 @@ Check it out at `http://localhost:8000/your-post-slug` or just `grunt open:previ
 When it looks right commit and push your post:
 
     > git add .
-    > git ci -m "Yay. I wrote a post."
+    > git commit -m "Yay. I wrote a post."
     > git push
 
 When you're ready to share, make a pull request and send an E-Mail to [eng@goodeggs.com](mailto:eng@goodeggs.com) and ask for feedback.
