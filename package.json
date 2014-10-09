@@ -12,7 +12,6 @@
     "docpad-plugin-paged": "~2.1.4",
     "docpad-plugin-rss": "~2.0.0",
     "docpad-plugin-stylus": "~2.3.0",
-    "docpad-plugin-teacup": "~2.0.3",
     "docpad-plugin-highlightjs": "~2.1.6"
   },
   "devDependencies": {
@@ -27,7 +26,21 @@
     "grunt-open": "~0.2.0",
     "grunt-relative-root": "~0.1.0",
     "grunt-shell": "~0.2.2",
-    "matchdep": "~0.1.2"
+    "matchdep": "~0.1.2",
+    "metalsmith": "~1.0.1",
+    "metalsmith-assets": "git://github.com/hurrymaplelad/metalsmith-assets.git#metalsmith-v1",
+    "metalsmith-collections": "~0.6.0",
+    "metalsmith-collections-paginate": "~1.0.0",
+    "metalsmith-feed": "0.0.2",
+    "metalsmith-jekyll-dates": "0.0.5",
+    "metalsmith-permalinks": "~0.4.0",
+    "metalsmith-markdown": "~0.2.1",
+    "metalsmith-metallic": "git://github.com/hurrymaplelad/metalsmith-metallic.git#tolerate-whitespace",
+    "metalsmith-more": "~0.2.0",
+    "metalsmith-teacup": "0.0.4",
+    "gulp": "~3.8.8",
+    "gulp-util": "~3.0.1",
+    "teacup": "~0.4.2"
   },
   "repository": {
     "type": "git",

@@ -17,7 +17,6 @@ module.exports =
         .findAllLive(author: @document.author)
         .first().toJSON()
 
-
   collections:
     posts: (database) ->
       database.findAllLive({relativeOutDirPath: 'posts'}, [date: -1])

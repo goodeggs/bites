@@ -1,5 +1,5 @@
 require 'sugar'
-{renderable, text, raw, div, p, h1, header, footer, a, article, footer, time} = require 'teacup'
+{renderable, render, text, raw, div, p, h1, header, footer, a, article, footer, time} = require 'teacup'
 
 excerptSplitter = /<!--\s*more\s*-->/i
 
@@ -21,28 +21,34 @@ module.exports = helpers =
 
     time datetime: date.utc(true).toISOString(), formatted
 
-  postsIndex: renderable (docs) ->
-    for doc in docs
+  postsIndex: renderable (files) ->
+    for file in files
       article ->
-        unless doc.noHeader
+        unless file.noHeader
           header ->
             h1 '.entry-title', ->
-              a {href: doc.url}, doc.title
+              a {href: file.path}, file.title
             p '.meta', ->
-              a href: "/authors/#{doc.author.underscore()}/", doc.author
+              a href: "/authors/#{file.author.underscore()}/", file.author
               text ' on '
-              helpers.date doc
-        content = doc.contentRenderedWithoutLayouts
+              helpers.date file
+        content = file.contentContentsWithoutLayout
         div '.entry-content', ->
           raw helpers.excerpt content
         if helpers.hasExcerpt content
           footer ->
-            a rel: 'full-article', href: doc.url, 'Continue…'
+            a rel: 'full-article', href: file.path, 'Continue…'
 
-  paginate: renderable (page) ->
+  paginate: renderable (file) ->
     div '.pagination', ->
-      if page.hasNextPage()
-        a '.prev', href: page.getNextPage(), '← Older'
-      # a {href: '/archives/'}, 'Archives'
-      if page.hasPrevPage()
-        a '.next', href: page.getPrevPage(), '→ Newer'
+      if file.paginate.next
+        a '.prev', href: file.paginate.next.path, '← Older'
+      if file.paginate.previous
+        a '.next', href: file.paginate.previous.path, '→ Newer'
+
+  # Nests layouts
+  nest: (parent, layout) ->
+    renderable (file) ->
+      file = Object.create(file)
+      file.contents = render layout, file
+      parent file

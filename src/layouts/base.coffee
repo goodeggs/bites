@@ -4,22 +4,23 @@
   script, text
 } = require 'teacup'
 
-module.exports = ({site, document, content}) ->
+module.exports = (file) ->
+  {site} = file
   doctype 5
   throw new Error() unless {}.constructor is Object
   html '.no-js', lang: 'en', ->
     head ->
       meta charset: 'utf-8'
-      title document.title and "#{document.title} | #{site.title}" or site.title
+      title file.title and "#{file.title} | #{site.title}" or site.title
 
-      if document.author
-        meta name: 'author', content: document.author
-      if document.description
-        meta name: 'description', content: document.description
-      if document.keywords
-        meta name: 'keywords', content: document.keywords
-      if document.canonical
-        link rel: 'canonical', href: document.canonical
+      if file.author
+        meta name: 'author', content: file.author
+      if file.description
+        meta name: 'description', content: file.description
+      if file.keywords
+        meta name: 'keywords', content: file.keywords
+      if file.canonical
+        link rel: 'canonical', href: file.canonical
 
       meta name: 'viewport', content: 'width=device-width, initial-scale=1'
 
@@ -49,7 +50,7 @@ module.exports = ({site, document, content}) ->
 
       div '#main', ->
         div '#content', ->
-          raw content
+          raw file.contents
 
       footer ->
         div '.mission', 'Our mission is to grow and sustain local food systems worldwide.'

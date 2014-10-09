@@ -85,7 +85,7 @@ The outer `try/catch` block will never catch anything because `findPackage` is a
 
 If an error occurs at some point in the future inside asynchronous `findPackage` - **nothing will be caught**.
 
-<img src="<%- @site.url %>/images/posts/promises-trycatch-zones/catch-fail.gif"/>
+<img src="/images/posts/promises-trycatch-zones/catch-fail.gif"/>
 
 Not useful.
 
@@ -215,7 +215,7 @@ Want to learn more about Zones? Stay tuned for more information in the coming we
 * Add [Zone.js][6] to your application.
 * Profit!
 
-<img src="<%- @site.url %>/images/posts/promises-trycatch-zones/party.gif"/>
+<img src="/images/posts/promises-trycatch-zones/party.gif"/>
 
 [1]: http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/
 [2]: http://callbackhell.com/
