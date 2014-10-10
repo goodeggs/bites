@@ -1,6 +1,7 @@
 # Bites
 The Good Eggs developer blog.
 
+[![Build Status](http://img.shields.io/travis/goodeggs/bites.svg?style=flat-square)](https://travis-ci.org/goodeggs/bites)
 
 Why blog?
 ---------
