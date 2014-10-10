@@ -50,7 +50,8 @@
     "chai": "~1.9.2",
     "process-logger": "~0.1.0",
     "mocha-fibers": "~1.0.3",
-    "fibrous": "~0.3.3"
+    "fibrous": "~0.3.3",
+    "metalsmith-permalinks": "~0.4.0"
   },
   "repository": {
     "type": "git",
