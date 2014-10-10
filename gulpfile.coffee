@@ -7,7 +7,22 @@ gulp.task 'clean', ->
   del = require 'del'
   del.sync ['build', 'release']
 
-gulp.task 'generate', require './metalsmith'
+gulp.task 'metalsmith', require './metalsmith'
+
+gulp.task 'styles', ->
+  nib = require 'nib'
+  stylus = require 'gulp-stylus'
+  rename = require 'gulp-rename'
+
+  gulp.src 'src/styles/rollup.styl'
+  .pipe stylus
+    use: nib()
+    compress: settings.optimizeAssets
+    linenos: !settings.optimizeAssets
+  .pipe rename 'main.css'
+  .pipe gulp.dest 'build/styles'
+
+gulp.task 'build', ['metalsmith', 'styles']
 
 servers =
   dev: null
@@ -38,7 +53,7 @@ gulp.task 'serve:selenium', ->
 
   return tcpPort.waitUntilUsed(settings.seleniumServer.port, 500, 20000)
 
-gulp.task 'spec', ['generate', 'serve:dev', 'serve:selenium'], (done) ->
+gulp.task 'spec', ['build', 'serve:dev', 'serve:selenium'], (done) ->
   {spawn} = require 'child_process'
   mocha = spawn 'mocha', [
     '--compilers', 'coffee:coffee-script/register'
@@ -62,10 +77,10 @@ gulp.task 'watch', ->
       when 'styl'
         gulp.start 'styles'
       else
-        gulp.start 'generate'
+        gulp.start 'metalsmith'
   .start()
 
-gulp.task 'dev', ['generate', 'serve:dev', 'watch']
+gulp.task 'dev', ['build', 'serve:dev', 'watch']
 
 gulp.task 'open', ['dev'], ->
   open = require 'open'

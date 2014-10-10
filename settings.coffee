@@ -25,6 +25,11 @@ settings = convict
     default: 'chrome'
     env: 'BROWSER'
 
+  optimizeAssets:
+    doc: "Minimize built css and js"
+    format: Boolean
+    default: false
+
 .validate()
 .get()
 
