@@ -4,12 +4,41 @@ settings = require './settings'
 
 gulp.task 'generate', require './metalsmith'
 
+servers =
+  dev: null
+  selenium: null
+  shutdown: (done) ->
+    @dev.close =>
+      @selenium.kill()
+      done?()
+
 gulp.task 'serve:dev', (done) ->
   connect = require 'connect'
   serveStatic = require 'serve-static'
 
-  connect()
+  servers.dev = connect()
   .use serveStatic('build')
   .listen settings.port, done
+
+gulp.task 'serve:selenium', ->
+  selenium = require 'selenium-standalone'
+  tcpPort = require 'tcp-port-used'
+
+  servers.selenium = selenium
+    stdio: settings.verbose and 'inherit' or 'ignore'
+    ['-port', settings.seleniumServer.port]
+
+  return tcpPort.waitUntilUsed(settings.seleniumServer.port)
+
+gulp.task 'spec', ['generate', 'serve:dev', 'serve:selenium'], (done) ->
+  {spawn} = require 'child_process'
+  mocha = spawn 'mocha', [
+    '--compilers', 'coffee:coffee-script/register'
+    '--reporter', 'spec'
+    'spec/*.spec.coffee'
+  ], {stdio: 'inherit'}
+  .on 'exit', (code) ->
+    servers.shutdown ->
+      done code or null
 
 gulp.task 'dev', ['generate', 'serve:dev']

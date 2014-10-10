@@ -43,11 +43,20 @@
     "teacup": "~0.4.2",
     "connect": "~3.2.0",
     "serve-static": "~1.6.4",
-    "convict": "~0.4.2"
+    "convict": "~0.4.2",
+    "mocha": "~1.21.4",
+    "selenium-standalone": "~2.43.1-5",
+    "tcp-port-used": "~0.1.2",
+    "wd": "~0.3.8",
+    "chai": "~1.9.2",
+    "chai-as-promised": "~4.1.1"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/goodeggs/bites.git"
+  },
+  "scripts": {
+    "test": "gulp spec"
   },
   "author": "eng@goodeggs.com",
   "license": "BSD",
