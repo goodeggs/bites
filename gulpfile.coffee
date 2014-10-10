@@ -54,7 +54,18 @@ gulp.task 'spec', ['generate', 'serve:dev', 'serve:selenium'], (done) ->
   logProcess mocha, prefix: settings.verbose and '[mocha]' or ''
   return null # don't return a stream
 
-gulp.task 'dev', ['generate', 'serve:dev']
+gulp.task 'watch', ->
+  watch = require 'este-watch'
+  watch ['src/documents', 'src/layouts', 'src/styles', 'src/files'], (e) ->
+    gutil.log 'Changed', gutil.colors.cyan e.filepath
+    switch e.extension
+      when 'styl'
+        gulp.start 'styles'
+      else
+        gulp.start 'generate'
+  .start()
+
+gulp.task 'dev', ['generate', 'serve:dev', 'watch']
 
 gulp.task 'open', ['dev'], ->
   open = require 'open'
