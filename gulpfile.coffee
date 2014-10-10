@@ -32,7 +32,7 @@ gulp.task 'serve:selenium', ->
   if settings.verbose
     logProcess servers.selenium, prefix: '[selenium-server]'
 
-  return tcpPort.waitUntilUsed(settings.seleniumServer.port)
+  return tcpPort.waitUntilUsed(settings.seleniumServer.port, 500, 10000)
 
 gulp.task 'spec', ['generate', 'serve:dev', 'serve:selenium'], (done) ->
   {spawn} = require 'child_process'
