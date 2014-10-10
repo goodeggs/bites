@@ -39,6 +39,7 @@ gulp.task 'spec', ['generate', 'serve:dev', 'serve:selenium'], (done) ->
   mocha = spawn 'mocha', [
     '--compilers', 'coffee:coffee-script/register'
     '--reporter', 'spec'
+    '--ui', 'mocha-fibers'
     'spec/*.spec.coffee'
   ]
   .on 'exit', (code) ->

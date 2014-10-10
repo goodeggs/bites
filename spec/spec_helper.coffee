@@ -1,13 +1,9 @@
 wd = require 'wd'
 chai = require 'chai'
-asPromsed = require 'chai-as-promised'
+fibrous = require 'fibrous'
 settings = require '../settings'
 
-asPromsed.transferPromiseness = wd.transferPromiseness
-
-chai
-  .use asPromsed
-  .should()
+global.expect = chai.expect
 
 before ->
   @browser = wd.promiseChainRemote()
@@ -26,6 +22,7 @@ before ->
       browserName: settings.browser
     .configureHttp
       baseUrl: settings.devServerUrl()
+    .sync.nodeify()
 
 after ->
-  @browser.quit()
+  @browser.sync.quit()

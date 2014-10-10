@@ -2,7 +2,7 @@ require './spec_helper'
 
 describe 'post listings page', ->
   before ->
-    @browser.get '/'
+    @browser.sync.get '/'
 
   it 'has a title', ->
-    @browser.title().should.become 'Bites from Good Eggs'
+    expect(@browser.sync.title()).to.equal 'Bites from Good Eggs'
