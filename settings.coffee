@@ -11,6 +11,7 @@ settings = convict
     doc: "Dial the console logging up to 11"
     format: Boolean
     default: false
+    env: 'VERBOSE'
 
   seleniumServer:
     port:

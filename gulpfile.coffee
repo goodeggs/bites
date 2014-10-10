@@ -1,6 +1,7 @@
 gulp = require 'gulp'
 gutil = require 'gulp-util'
 settings = require './settings'
+logProcess = require 'process-logger'
 
 gulp.task 'generate', require './metalsmith'
 
@@ -25,8 +26,11 @@ gulp.task 'serve:selenium', ->
   tcpPort = require 'tcp-port-used'
 
   servers.selenium = selenium
-    stdio: settings.verbose and 'inherit' or 'ignore'
+    stdio: settings.verbose and 'pipe' or 'ignore'
     ['-port', settings.seleniumServer.port]
+
+  if settings.verbose
+    logProcess servers.selenium, prefix: '[selenium-server]'
 
   return tcpPort.waitUntilUsed(settings.seleniumServer.port)
 
@@ -36,9 +40,12 @@ gulp.task 'spec', ['generate', 'serve:dev', 'serve:selenium'], (done) ->
     '--compilers', 'coffee:coffee-script/register'
     '--reporter', 'spec'
     'spec/*.spec.coffee'
-  ], {stdio: 'inherit'}
+  ]
   .on 'exit', (code) ->
     servers.shutdown ->
       done code or null
+
+  logProcess mocha, prefix: settings.verbose and '[mocha]' or ''
+  return null # don't return a stream
 
 gulp.task 'dev', ['generate', 'serve:dev']

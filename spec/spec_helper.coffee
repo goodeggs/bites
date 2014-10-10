@@ -10,8 +10,18 @@ chai
   .should()
 
 before ->
-  @timeout 5000
   @browser = wd.promiseChainRemote()
+
+  if settings.verbose
+    @browser
+      .on 'status', (info) ->
+        console.log info
+      .on 'command', (eventType, command, response) ->
+        console.log 'wd', eventType, command, (response || '')
+
+before ->
+  @timeout 5000
+  @browser
     .init
       browserName: settings.browser
     .configureHttp
