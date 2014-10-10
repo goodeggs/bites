@@ -32,10 +32,10 @@ module.exports = helpers =
               a href: "/authors/#{file.author.underscore()}/", file.author
               text ' on '
               helpers.date file
-        content = file.contentContentsWithoutLayout
+        content = file.less or file.contentsWithoutLayout
         div '.entry-content', ->
-          raw helpers.excerpt content
-        if helpers.hasExcerpt content
+          raw content
+        if file.less
           footer ->
             a rel: 'full-article', href: file.path, 'Continue…'
 
