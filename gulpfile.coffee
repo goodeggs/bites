@@ -3,6 +3,10 @@ gutil = require 'gulp-util'
 settings = require './settings'
 logProcess = require 'process-logger'
 
+gulp.task 'clean', ->
+  del = require 'del'
+  del.sync ['build', 'release']
+
 gulp.task 'generate', require './metalsmith'
 
 servers =
