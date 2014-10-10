@@ -40,7 +40,10 @@
     "metalsmith-teacup": "0.0.4",
     "gulp": "~3.8.8",
     "gulp-util": "~3.0.1",
-    "teacup": "~0.4.2"
+    "teacup": "~0.4.2",
+    "connect": "~3.2.0",
+    "serve-static": "~1.6.4",
+    "convict": "~0.4.2"
   },
   "repository": {
     "type": "git",
