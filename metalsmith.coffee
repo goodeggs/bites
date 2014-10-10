@@ -7,8 +7,8 @@ metallic = require 'metalsmith-metallic'
 metalsmith = require 'metalsmith'
 more = require 'metalsmith-more'
 paginate = require 'metalsmith-collections-paginate'
-permalinks = require 'metalsmith-permalinks'
 teacup = require 'metalsmith-teacup'
+{relative, basename, dirname} = require 'path'
 
 dateThenTitle = (a, b) ->
   if a.date == b.date
@@ -59,16 +59,14 @@ module.exports = (done) ->
       path: 'posts/:num/index.html'
       template: 'posts'
 
-  .use permalinks
-    relative: false
-    pattern: ':slug'
-
-  # Absolute paths, trailing slashes
+  # Generate file paths
   .use (files, metalsmith, done) ->
     for filename, file of files
-      file.path = '/' + file.path
-      if file.path.length > 1
-        file.path += '/'
+      file.path = '/'
+      if dir = dirname(filename)
+        file.path += "#{dir}/"
+      unless (base = file.slug or basename(filename)) is 'index'
+        file.path += "#{base}/"
     done()
 
   .use feed collection: 'posts'
