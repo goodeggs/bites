@@ -44,6 +44,7 @@ gulp.task 'spec', ['generate', 'serve:dev', 'serve:selenium'], (done) ->
     '--compilers', 'coffee:coffee-script/register'
     '--reporter', 'spec'
     '--ui', 'mocha-fibers'
+    '--timeout', 10000
     'spec/*.spec.coffee'
   ]
   .on 'exit', (code) ->

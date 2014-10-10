@@ -1,9 +1,14 @@
 wd = require 'wd'
 chai = require 'chai'
+asPromised = require 'chai-as-promised'
 fibrous = require 'fibrous'
 settings = require '../settings'
 
-global.expect = chai.expect
+asPromised.transferPromiseness = wd.transferPromiseness
+
+chai
+  .use asPromised
+  .should()
 
 before ->
   @browser = wd.promiseChainRemote()
@@ -16,7 +21,6 @@ before ->
         console.log 'wd', eventType, command, (response || '')
 
 before ->
-  @timeout 5000
   @browser
     .init
       browserName: settings.browser

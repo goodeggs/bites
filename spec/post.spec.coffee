@@ -12,7 +12,7 @@ describe 'post page', ->
       @url = @browser.sync.url()
 
     it 'is nested in the /posts path', ->
-      expect(@url).to.contain '/posts/'
+      @url.should.contain '/posts/'
 
     it 'has a trailing slash', ->
-      expect(@url).to.match /\/$/
+      @url.should.match /\/$/

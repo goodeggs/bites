@@ -23,7 +23,7 @@ module.exports = helpers =
 
   postsIndex: renderable (files) ->
     for file in files
-      article ->
+      article (file.less and '.truncated' or 'full'), ->
         unless file.noHeader
           header ->
             h1 '.entry-title', ->
@@ -37,7 +37,7 @@ module.exports = helpers =
           raw content
         if file.less
           footer ->
-            a rel: 'full-article', href: file.path, 'Continue…'
+            a '.more', rel: 'full-article', href: file.path, 'Continue…'
 
   paginate: renderable (file) ->
     div '.pagination', ->
