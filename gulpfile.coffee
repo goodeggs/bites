@@ -1,7 +1,6 @@
 gulp = require 'gulp'
 gutil = require 'gulp-util'
 settings = require './settings'
-logProcess = require 'process-logger'
 
 gulp.task 'clean', ->
   del = require 'del'
@@ -43,6 +42,7 @@ gulp.task 'serve:dev', (done) ->
 gulp.task 'serve:selenium', ->
   selenium = require 'selenium-standalone'
   tcpPort = require 'tcp-port-used'
+  logProcess = require 'process-logger'
 
   servers.selenium = selenium
     stdio: settings.verbose and 'pipe' or 'ignore'
@@ -53,7 +53,7 @@ gulp.task 'serve:selenium', ->
 
   return tcpPort.waitUntilUsed(settings.seleniumServer.port, 500, 20000)
 
-gulp.task 'spec:crawl', ['build', 'serve:dev'], (done) ->
+gulp.task 'crawl', ['build', 'serve:dev'], (done) ->
   Crawler = require 'simplecrawler'
   referrers = {}
   crawler = Crawler.crawl settings.devServerUrl()
@@ -67,8 +67,10 @@ gulp.task 'spec:crawl', ['build', 'serve:dev'], (done) ->
     .on 'complete', done
   crawler.timeout = 2000
 
-gulp.task 'spec:mocha', ['build', 'serve:dev', 'serve:selenium'], (done) ->
+gulp.task 'mocha', ['build', 'serve:dev', 'serve:selenium'], (done) ->
   {spawn} = require 'child_process'
+  logProcess = require 'process-logger'
+
   mocha = spawn 'mocha', [
     '--compilers', 'coffee:coffee-script/register'
     '--reporter', 'spec'
@@ -81,8 +83,8 @@ gulp.task 'spec:mocha', ['build', 'serve:dev', 'serve:selenium'], (done) ->
   logProcess mocha, prefix: settings.verbose and '[mocha]' or ''
   return null # don't return a stream
 
-gulp.task 'spec', ['spec:crawl', 'spec:mocha'], (done) ->
-    servers.shutdown done
+gulp.task 'spec', ['crawl', 'mocha'], (done) ->
+  servers.shutdown done
 
 gulp.task 'watch', ->
   watch = require 'este-watch'
@@ -132,15 +134,12 @@ gulp.task 'nochanges', (done) ->
   git = require 'gift'
 
   git('.').status (err, status) ->
-    switch
-      when err
-        done err
-      when not status.clean
-        for filename, status of status.files
-          gutil.log gutil.colors.red "#{status.type} #{filename}"
-        done new Error 'Cant publish uncommitted changes'
-      else
-        done()
+    unless status?.clean
+      for filename, status of status.files
+        gutil.log gutil.colors.red "#{status.type} #{filename}"
+      done new Error 'There are uncommitted changes'
+    else
+      done()
 
 # Commits built site to gh-pages branch
 release = ({push}={}) ->

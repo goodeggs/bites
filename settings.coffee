@@ -1,6 +1,6 @@
 convict = require 'convict'
 
-settings = convict
+conf = convict
   port:
     doc: "Localhost port dev server should listen on"
     format: 'port'
@@ -31,9 +31,8 @@ settings = convict
     default: false
 
 .validate()
-.get()
 
-settings.devServerUrl = ->
+module.exports = conf.get()
+
+module.exports.devServerUrl = ->
   "http://localhost:#{@port}"
-
-module.exports = settings
