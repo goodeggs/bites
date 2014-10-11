@@ -79,11 +79,11 @@ module.exports = (done) ->
   .use feed collection: 'posts'
 
   # Map layouts to templates
-  # .use (files, metalsmith, done) ->
-  #   for filename, file of files
-  #     continue unless file.layout
-  #     file.template = file.layout
-  #   done()
+  .use (files, metalsmith, done) ->
+    for filename, file of files
+      continue unless file.layout
+      file.template = file.layout
+    done()
   .use teacup directory: 'src/layouts'
 
   # .use assets

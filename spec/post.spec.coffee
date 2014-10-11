@@ -16,3 +16,16 @@ describe 'post page', ->
 
     it 'has a trailing slash', ->
       @url.should.match /\/$/
+
+describe 'bfcache post', ->
+  before ->
+    @browser.sync.get '/posts/you-forgot-about-bfcache/'
+
+  it 'has generated title and author markup', ->
+    @browser
+      .elementByCss '.entry-title'
+      .text().should.become "You Forgot About bfcache!"
+
+      .elementByCss '.entry-author-name'
+      .text().should.eventually.contain "Brian"
+      .sync.nodeify()

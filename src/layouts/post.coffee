@@ -1,9 +1,10 @@
 url = require 'url'
 {a, article, div, footer, h1, header, p, script, style, tag, text, raw, img} = require 'teacup'
-{date} = require '../partials/helpers'
+{date, nest} = require '../partials/helpers'
 disqus = require '../partials/disqus'
+base = require './base'
 
-module.exports = (file) ->
+module.exports = nest base, (file) ->
   {site, collections} = file
 
   author = collections.authors.filter(({author}) -> file.author == author)[0]
@@ -19,7 +20,7 @@ module.exports = (file) ->
           img '.author', src: author.photoUrl, alt: author.author
           h1 '.entry-title', file.title
           p '.meta', =>
-            a href: "/authors/#{file.author.underscore()}/", file.author
+            a '.entry-author-name', href: "/authors/#{file.author.underscore()}/", file.author
             text ' on '
             date file
           if file.canonical?

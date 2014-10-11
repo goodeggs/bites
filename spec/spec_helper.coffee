@@ -10,6 +10,8 @@ chai
   .use asPromised
   .should()
 
+global.fibrous = fibrous
+
 before ->
   @browser = wd.promiseChainRemote()
 
