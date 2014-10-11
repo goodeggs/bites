@@ -66,7 +66,9 @@
     "string": "~2.1.0",
     "extend": "~2.0.0",
     "stream-end": "~0.1.0",
-    "git-config": "0.0.6"
+    "git-config": "0.0.6",
+    "gulp-gh-pages": "~0.4.0",
+    "gift": "~0.4.3-1"
   },
   "repository": {
     "type": "git",

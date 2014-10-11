@@ -126,3 +126,39 @@ gulp.task 'new:post', (done) ->
         .pipe rename "#{date}-#{slug}.md"
         .pipe gulp.dest 'src/documents/posts'
         .pipe end done
+
+# Fails if there are uncommitted changes
+gulp.task 'nochanges', (done) ->
+  git = require 'gift'
+
+  git('.').status (err, status) ->
+    switch
+      when err
+        done err
+      when not status.clean
+        for filename, status of status.files
+          gutil.log gutil.colors.red "#{status.type} #{filename}"
+        done new Error 'Cant publish uncommitted changes'
+      else
+        done()
+
+# Commits built site to gh-pages branch
+release = ({push}={}) ->
+  git = require 'gift'
+  end = require 'stream-end'
+  ghPages = require 'gulp-gh-pages'
+
+  (done) ->
+    git('.').current_commit (err, commit) ->
+      sourceId = commit.id[...12]
+      gulp.src 'build/**/*'
+      .pipe ghPages
+        cacheDir: './release'
+        message: "Released from #{sourceId}"
+        push: push
+      .pipe end done
+
+gulp.task 'stage', ['build'], release push: false
+
+gulp.task 'publish', ['clean', 'nochanges', 'build', 'spec'], release push: true
+
