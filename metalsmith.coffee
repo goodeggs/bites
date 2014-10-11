@@ -60,6 +60,12 @@ module.exports = (done) ->
       path: 'posts/:num/index.html'
       template: 'posts'
 
+    openSource:
+      perPage: 20
+      first: 'open_source/index.html'
+      path: 'open_source/:num/index.html'
+      template: 'open_source'
+
   # Generate file paths
   .use (files, metalsmith, done) ->
     for filename, file of files

@@ -1,17 +1,9 @@
----
-title: Open Source
-layout: default
-collection: openSource
----
 {raw, div, section} = require 'teacup'
-{postsIndex} = require '../partials/helpers'
+{postsIndex, nest} = require '../partials/helpers'
+base = require './base'
 
-module.exports = (docpad) ->
-  # TODO: extract this
-  document = docpad.document
-  page = {}
-  page.docs = docpad.getCollection(document.collection)
-    .map((doc) -> doc.toJSON())
+module.exports = nest base, (file) ->
+  file.title = 'Open Source'
 
   div -> section -> raw """
 We're psyched to be active members of a community that is building great tools for JavaScript developers
@@ -20,5 +12,5 @@ across the stack. A couple projects are featured below and you can check out all
 """
 
   div '.blog-index', ->
-    postsIndex(page.docs)
+    postsIndex(file.paginate.files)
 

@@ -46,8 +46,8 @@ module.exports = (file) ->
         ul '.unstyled.nav', ->
           for section, url of {
             'Blog': '/',
-            # 'Open Source': '/open_source',
-            # 'News': '/news'
+            'Open Source': '/open_source/',
+            # 'News': '/news/'
           }
             li ->
               a href: url, section
