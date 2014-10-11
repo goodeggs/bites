@@ -26,7 +26,7 @@ module.exports = (file) ->
 
       link rel: 'shortcut icon', href: '/favicon.ico?v=2'
       link rel: 'stylesheet', href: '/styles/main.css'
-      # link rel: 'alternate', title: 'RSS', type: 'application/rss+xml', href: '/rss'
+      link rel: 'alternate', title: 'RSS', type: 'application/rss+xml', href: '/rss'
 
       if site.googleAnalytics?.id
         script """

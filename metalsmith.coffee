@@ -76,7 +76,9 @@ module.exports = (done) ->
       file.path = normalize "/#{file.path or ''}/"
     done()
 
-  .use feed collection: 'posts'
+  .use feed
+    collection: 'posts'
+    destination: 'rss'
 
   # Map layouts to templates
   .use (files, metalsmith, done) ->
