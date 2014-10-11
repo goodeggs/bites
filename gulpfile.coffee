@@ -59,9 +59,13 @@ gulp.task 'serve:selenium', ->
     stdio: settings.verbose and 'pipe' or 'ignore'
     ['-port', settings.seleniumServer.port]
 
-  server.unref()
   if settings.verbose
     logProcess server, prefix: '[selenium-server]'
+
+  # Don't hold gulp open
+  [server, server.stdin, server.stdout, server.stderr]
+    .filter Boolean
+    .map (s) -> s.unref()
 
   servers.selenium = server
   return tcpPort.waitUntilUsed(settings.seleniumServer.port, 500, 20000)
