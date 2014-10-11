@@ -26,31 +26,44 @@ gulp.task 'build', ['metalsmith', 'styles']
 servers =
   dev: null
   selenium: null
-  shutdown: (done) ->
-    @dev.close =>
-      @selenium?.kill()
-      done?()
 
 gulp.task 'serve:dev', (done) ->
   connect = require 'connect'
   serveStatic = require 'serve-static'
+  http = require 'http'
+  port = settings.port
 
-  servers.dev = connect()
-  .use serveStatic('build')
-  .listen settings.port, done
+  app = connect()
+    .use serveStatic('build')
+  server = http.createServer app
+    .on 'error', (err) ->
+      if err.code is 'EADDRINUSE'
+        fallbackPort = port + Math.floor(Math.random() * 1000)
+        gutil.log "#{port} is busy, trying #{fallbackPort}"
+        setImmediate -> server.listen fallbackPort
+      else
+        throw err
+    .on 'listening', ->
+      settings.port = server.address().port
+      server.unref()
+      done()
+  server.listen port
+  servers.dev = server
 
 gulp.task 'serve:selenium', ->
   selenium = require 'selenium-standalone'
   tcpPort = require 'tcp-port-used'
   logProcess = require 'process-logger'
 
-  servers.selenium = selenium
+  server = selenium
     stdio: settings.verbose and 'pipe' or 'ignore'
     ['-port', settings.seleniumServer.port]
 
+  server.unref()
   if settings.verbose
-    logProcess servers.selenium, prefix: '[selenium-server]'
+    logProcess server, prefix: '[selenium-server]'
 
+  servers.selenium = server
   return tcpPort.waitUntilUsed(settings.seleniumServer.port, 500, 20000)
 
 gulp.task 'crawl', ['build', 'serve:dev'], (done) ->
@@ -70,6 +83,7 @@ gulp.task 'crawl', ['build', 'serve:dev'], (done) ->
 gulp.task 'mocha', ['build', 'serve:dev', 'serve:selenium'], (done) ->
   {spawn} = require 'child_process'
   logProcess = require 'process-logger'
+  extend = require 'extend'
 
   mocha = spawn 'mocha', [
     '--compilers', 'coffee:coffee-script/register'
@@ -77,14 +91,13 @@ gulp.task 'mocha', ['build', 'serve:dev', 'serve:selenium'], (done) ->
     '--ui', 'mocha-fibers'
     '--timeout', 10000
     'spec/*.spec.coffee'
-  ]
+  ], env: extend({}, process.env, PORT: settings.port)
   .on 'exit', (code) -> done code or null
 
   logProcess mocha, prefix: settings.verbose and '[mocha]' or ''
   return null # don't return a stream
 
-gulp.task 'spec', ['crawl', 'mocha'], (done) ->
-  servers.shutdown done
+gulp.task 'spec', ['crawl', 'mocha']
 
 gulp.task 'watch', ->
   watch = require 'este-watch'
@@ -97,7 +110,8 @@ gulp.task 'watch', ->
         gulp.start 'metalsmith'
   .start()
 
-gulp.task 'dev', ['build', 'serve:dev', 'watch']
+gulp.task 'dev', ['build', 'serve:dev', 'watch'], ->
+  servers.dev.ref()
 
 gulp.task 'open', ['dev'], ->
   open = require 'open'
