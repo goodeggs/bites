@@ -47,7 +47,7 @@ module.exports = (file) ->
           for section, url of {
             'Blog': '/',
             'Open Source': '/open_source/',
-            # 'News': '/news/'
+            'News': '/news/'
           }
             li ->
               a href: url, section

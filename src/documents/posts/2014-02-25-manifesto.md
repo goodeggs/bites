@@ -2,7 +2,7 @@
 title: The Good Eggs Software Development Manifesto
 author: Alon Salant
 layout: post
-tags: [news]
+collection: [news, posts]
 disqus:
   shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/posts/manifesto/"
