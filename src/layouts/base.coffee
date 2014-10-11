@@ -26,7 +26,7 @@ module.exports = (file) ->
 
       link rel: 'shortcut icon', href: '/favicon.ico?v=2'
       link rel: 'stylesheet', href: '/styles/main.css'
-      link rel: 'alternate', title: 'RSS', type: 'application/rss+xml', href: '/rss'
+      # link rel: 'alternate', title: 'RSS', type: 'application/rss+xml', href: '/rss'
 
       if site.googleAnalytics?.id
         script """
@@ -44,7 +44,11 @@ module.exports = (file) ->
         h1 ->
           a href: '/', 'Bites'
         ul '.unstyled.nav', ->
-          for section, url of {'Blog': '/', 'Open Source': '/open_source', 'News': '/news'}
+          for section, url of {
+            'Blog': '/',
+            # 'Open Source': '/open_source',
+            # 'News': '/news'
+          }
             li ->
               a href: url, section
 

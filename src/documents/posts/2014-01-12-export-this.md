@@ -17,13 +17,13 @@ In this post I'll share my observations of the Node module system and the ways i
 
 I discuss seven patterns below, many of which can be used in combination. They are:
 
-* [Exports a Namespace](/posts/export-this#namespace)
-* [Exports a Function](/posts/export-this#function)
-* [Exports a Higher Order Function](/posts/export-this#higher_order_function)
-* [Exports a Constructor](/posts/export-this#constructor)
-* [Exports a Singleton](/posts/export-this#singleton)
-* [Extends a Global Object](/posts/export-this#global_object)
-* [Applies a Monkey Patch](/posts/export-this#monkey_patch)
+* [Exports a Namespace](/posts/export-this/#namespace)
+* [Exports a Function](/posts/export-this/#function)
+* [Exports a Higher Order Function](/posts/export-this/#higher_order_function)
+* [Exports a Constructor](/posts/export-this/#constructor)
+* [Exports a Singleton](/posts/export-this/#singleton)
+* [Extends a Global Object](/posts/export-this/#global_object)
+* [Applies a Monkey Patch](/posts/export-this/#monkey_patch)
 
 <!-- more -->
 

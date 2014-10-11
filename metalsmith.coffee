@@ -9,7 +9,7 @@ more = require 'metalsmith-more'
 paginate = require 'metalsmith-collections-paginate'
 teacup = require 'metalsmith-teacup'
 permalinks = require 'metalsmith-permalinks'
-{dirname} = require 'path'
+{dirname, normalize} = require 'path'
 
 dateThenTitle = (a, b) ->
   if a.date == b.date
@@ -68,12 +68,12 @@ module.exports = (done) ->
 
   .use permalinks
     relative: false
-    pattern: ':dirname/:slug/'
+    pattern: ':dirname/:slug'
 
-  ## Absolute paths
+  ## Absolute paths with trailing slashes
   .use (files, metalsmith, done) ->
     for filename, file of files
-      file.path = '/' + file.path
+      file.path = normalize "/#{file.path or ''}/"
     done()
 
   .use feed collection: 'posts'
@@ -86,9 +86,9 @@ module.exports = (done) ->
     done()
   .use teacup directory: 'src/layouts'
 
-  # .use assets
-  #   source: 'static'
-  #   destination: '.'
+  .use assets
+    source: 'src/files'
+    destination: '.'
 
   .destination 'build'
   .clean false # handled by gulp

@@ -29,7 +29,7 @@ servers =
   selenium: null
   shutdown: (done) ->
     @dev.close =>
-      @selenium.kill()
+      @selenium?.kill()
       done?()
 
 gulp.task 'serve:dev', (done) ->
@@ -53,7 +53,21 @@ gulp.task 'serve:selenium', ->
 
   return tcpPort.waitUntilUsed(settings.seleniumServer.port, 500, 20000)
 
-gulp.task 'spec', ['build', 'serve:dev', 'serve:selenium'], (done) ->
+gulp.task 'spec:crawl', ['build', 'serve:dev'], (done) ->
+  Crawler = require 'simplecrawler'
+  referrers = {}
+  crawler = Crawler.crawl settings.devServerUrl()
+    .on 'discoverycomplete', (item, urls) ->
+      referrers[url] = item.url for url in urls
+    .on 'fetchheaders', (item, res) ->
+      unless res.statusCode is 200
+        message = "Bad link #{res.statusCode} #{item.url} from #{referrers[item.url]}"
+        gutil.log gutil.colors.red message
+        throw new Error message
+    .on 'complete', done
+  crawler.timeout = 2000
+
+gulp.task 'spec:mocha', ['build', 'serve:dev', 'serve:selenium'], (done) ->
   {spawn} = require 'child_process'
   mocha = spawn 'mocha', [
     '--compilers', 'coffee:coffee-script/register'
@@ -62,12 +76,13 @@ gulp.task 'spec', ['build', 'serve:dev', 'serve:selenium'], (done) ->
     '--timeout', 10000
     'spec/*.spec.coffee'
   ]
-  .on 'exit', (code) ->
-    servers.shutdown ->
-      done code or null
+  .on 'exit', (code) -> done code or null
 
   logProcess mocha, prefix: settings.verbose and '[mocha]' or ''
   return null # don't return a stream
+
+gulp.task 'spec', ['spec:crawl', 'spec:mocha'], (done) ->
+    servers.shutdown done
 
 gulp.task 'watch', ->
   watch = require 'este-watch'
