@@ -100,3 +100,29 @@ gulp.task 'dev', ['build', 'serve:dev', 'watch']
 gulp.task 'open', ['dev'], ->
   open = require 'open'
   open settings.devServerUrl()
+
+gulp.task 'new:post', (done) ->
+  template = require 'gulp-template'
+  rename = require 'gulp-rename'
+  inquirer = require 'inquirer'
+  string = require 'string'
+  extend = require 'extend'
+  end = require 'stream-end'
+  gitConfig = require 'git-config'
+
+  gitConfig (err, config) ->
+    author = config?.user?.name or ''
+
+    inquirer.prompt [
+      {name: 'title', message: 'Title'}
+      {name: 'author', message: 'Author', default: author}
+    ], (answers) ->
+      date = gutil.date new Date(), 'isoDate'
+      slug = string(answers.title).slugify().s
+      data = extend answers, {date, slug}
+
+      gulp.src 'generators/post.ld'
+        .pipe template(data)
+        .pipe rename "#{date}-#{slug}.md"
+        .pipe gulp.dest 'src/documents/posts'
+        .pipe end done
