@@ -29,3 +29,9 @@ describe 'bfcache post', ->
       .elementByCss '.entry-author-name'
       .text().should.eventually.contain "Brian"
       .sync.nodeify()
+
+  it 'has syntax highlighting', ->
+    @browser
+      .elementByCss 'code .hljs-keyword'
+      .getComputedCss('color').should.eventually.equal 'rgba(170, 13, 145, 1)'
+      .sync.nodeify()
