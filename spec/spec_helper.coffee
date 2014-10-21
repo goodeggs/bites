@@ -1,12 +1,14 @@
 wd = require 'wd'
 chai = require 'chai'
 asPromised = require 'chai-as-promised'
+colored = require 'chai-colors'
 fibrous = require 'fibrous'
 settings = require '../settings'
 
 asPromised.transferPromiseness = wd.transferPromiseness
 
 chai
+  .use colored
   .use asPromised
   .should()
 
