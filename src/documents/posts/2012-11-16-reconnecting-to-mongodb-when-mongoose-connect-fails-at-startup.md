@@ -35,4 +35,5 @@ var connectWithRetry = function() {
 };
 connectWithRetry();
 ```
+
 <p class="gist"><a href="http://gist.github.com/4092454">View gist on GitHub</a></p>

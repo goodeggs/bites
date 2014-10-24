@@ -1,7 +1,7 @@
 node_modules/
 npm-debug.log
-out/
 release/
+build/
 .idea
 .DS_STORE
 

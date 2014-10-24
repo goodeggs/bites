@@ -17,13 +17,13 @@ In this post I'll share my observations of the Node module system and the ways i
 
 I discuss seven patterns below, many of which can be used in combination. They are:
 
-* [Exports a Namespace](/posts/export-this#namespace)
-* [Exports a Function](/posts/export-this#function)
-* [Exports a Higher Order Function](/posts/export-this#higher_order_function)
-* [Exports a Constructor](/posts/export-this#constructor)
-* [Exports a Singleton](/posts/export-this#singleton)
-* [Extends a Global Object](/posts/export-this#global_object)
-* [Applies a Monkey Patch](/posts/export-this#monkey_patch)
+* [Exports a Namespace](/posts/export-this/#namespace)
+* [Exports a Function](/posts/export-this/#function)
+* [Exports a Higher Order Function](/posts/export-this/#higher_order_function)
+* [Exports a Constructor](/posts/export-this/#constructor)
+* [Exports a Singleton](/posts/export-this/#singleton)
+* [Extends a Global Object](/posts/export-this/#global_object)
+* [Applies a Monkey Patch](/posts/export-this/#monkey_patch)
 
 <!-- more -->
 
@@ -178,9 +178,10 @@ app.get('/hello', function (req, res) {
   res.send "Hi there! We're using Express v" + express.version;
 });
 ```
+
 The function exported by Express is used to create a new Express application. In your own use of this pattern, your factory function may take arguments used to configure or initialize the object returned.
 
-To export a function, you must assign your function to module.exports. [Express does](https://github.com/visionmedia/express/blob/2e68ddbae9cec2d0b22f48f35ef4da964f51949e/lib/express.js#L18):
+To export a function, you must assign your function to module.exports. [Express does](https://github.com/visionmedia/express/blob/2e68ddbae9cec2d0b22f48f35ef4da964f51949e/lib/express.js#L18) :
 
 ```
 exports = module.exports = createApplication;

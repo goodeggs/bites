@@ -1,5 +1,5 @@
 ---
-title: Video: A Conversation on Service Design with Airbnb, Good Eggs and Lyft
+title: "Video: A Conversation on Service Design with Airbnb, Good Eggs and Lyft"
 author: Alon Salant
 layout: post
 disqus:
@@ -7,7 +7,7 @@ disqus:
   url: "http://bites.goodeggs.com/posts/service-design-panel-video/"
 ---
 
-Last Wednesday, Aug 6, we hosted [A Conversation Service Design with Airbnb, Good Eggs and Lyft](/posts/service-design-panel). Here's the video of that conversation for those who were unable to join us in person.
+Last Wednesday, Aug 6, we hosted [A Conversation Service Design with Airbnb, Good Eggs and Lyft](/posts/service-design-panel/). Here's the video of that conversation for those who were unable to join us in person.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/fkb08n81NAw" frameborder="0" allowfullscreen></iframe>
 

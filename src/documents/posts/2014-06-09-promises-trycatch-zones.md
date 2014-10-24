@@ -21,6 +21,7 @@ Handling errors in asynchronous flow is pretty straightforward and easy. Handlin
 
 Lets look at the following code:
 
+```js
     function updateDependencies(packageName, done) {
       findPackage(packageName, function(err, content) {
         if (err) {
@@ -52,11 +53,13 @@ Lets look at the following code:
         }
       });
     }
+```
 
 We are covering all possible failure cases here using combination of `try/catch` and callback error handling, but boy do we repeat ourselves over and over again. Lets try and rewrite this!
 
 ## Error handling using try/catch
 
+``` js
     function updateDependencies(packageName, done) {
       try {
         findPackage(packageName, function(err, content) {
@@ -76,6 +79,7 @@ We are covering all possible failure cases here using combination of `try/catch`
         done(e);
       }
     }
+```
 
 Nice! That's much better. However, if we run this now, no errors will be caught. What's going on here?
 
@@ -85,7 +89,7 @@ The outer `try/catch` block will never catch anything because `findPackage` is a
 
 If an error occurs at some point in the future inside asynchronous `findPackage` - **nothing will be caught**.
 
-<img src="<%- @site.url %>/images/posts/promises-trycatch-zones/catch-fail.gif"/>
+<img src="/images/posts/promises-trycatch-zones/catch-fail.gif"/>
 
 Not useful.
 
@@ -95,6 +99,7 @@ In the [previous article][1] we've talked about managing asynchronous flow and e
 
 For the sake of moving forward quicker lets assume we are using [Bluebird][3] promises library and that all our APIs now return promises instead of taking callbacks:
 
+``` js
     function updateDependencies(packageName) {
       return findPackage(packageName)
         .then(JSON.parse)
@@ -103,11 +108,13 @@ For the sake of moving forward quicker lets assume we are using [Bluebird][3] pr
         .then(res.send)
         ;
     }
+```
 
 Oh wow, that is so much nicer! Right? Right!
 
 But Alex, "we've lost our error handling", you might say. That's right, we don't need to do anything special here to propagate error because we return a promise and there's built in support for error flow. Lets see how error handling might look like with promises:
 
+``` js
     button.addEventListener("click", function() {
       updateDependencies("packageName")
         .then(function(dependencies) {
@@ -117,6 +124,7 @@ But Alex, "we've lost our error handling", you might say. That's right, we don't
           output.innerHTML = "There was an error";
         });
     });
+```
 
 Very slick, I'm a fan!
 
@@ -124,6 +132,7 @@ Very slick, I'm a fan!
 
 Handling rejected promises works really well when we are in full control of the flow. But what happens if some third-party code throws an error during an asynchronous operation? Lets look at another example:
 
+``` js
     function thirdPartyFunction() {
       function fakeXHR() {
         throw new Error("Invalid dependencies");
@@ -139,6 +148,7 @@ Handling rejected promises works really well when we are in full control of the 
     }
 
     main();
+```
 
 In this case, we wouldn't have a chance to catch and process the error. Generally, the only recourse here is using half baked `window.onerror` that doesn't give you any stack information at all. At least you can log something, right? Not that there's much to log:
 
@@ -151,7 +161,9 @@ Basically, [Zone.js][6] **overrides all asynchronous functions in the browser** 
 
 Anyways, lets look at how this works. Assuming you have included `zones.js` and `long-stack-trace-zone.js` as per the docs, we just change `main()` call to:
 
+``` js
     zone.fork(Zone.longStackTraceZone).run(main);
+```
 
 Refresh, click the button, and now our stack looks like this:
 
@@ -215,7 +227,7 @@ Want to learn more about Zones? Stay tuned for more information in the coming we
 * Add [Zone.js][6] to your application.
 * Profit!
 
-<img src="<%- @site.url %>/images/posts/promises-trycatch-zones/party.gif"/>
+<img src="/images/posts/promises-trycatch-zones/party.gif"/>
 
 [1]: http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/
 [2]: http://callbackhell.com/
