@@ -178,9 +178,10 @@ app.get('/hello', function (req, res) {
   res.send "Hi there! We're using Express v" + express.version;
 });
 ```
+
 The function exported by Express is used to create a new Express application. In your own use of this pattern, your factory function may take arguments used to configure or initialize the object returned.
 
-To export a function, you must assign your function to module.exports. [Express does](https://github.com/visionmedia/express/blob/2e68ddbae9cec2d0b22f48f35ef4da964f51949e/lib/express.js#L18):
+To export a function, you must assign your function to module.exports. [Express does](https://github.com/visionmedia/express/blob/2e68ddbae9cec2d0b22f48f35ef4da964f51949e/lib/express.js#L18) :
 
 ```
 exports = module.exports = createApplication;
