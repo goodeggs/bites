@@ -7,6 +7,35 @@ disqus:
   url: "http://bites.goodeggs.com/post/speeding-up-good-eggs"
 ---
 
+1. The problems
+  * client side rendering was taking a long time
+  * server side listing of products was taking a long time
+  * client side app boot up time
+
+2. Moving things server side
+  * a responsive reskin of our mobile app
+  * eliminating round-trips on first load
+
+3. Introducing MarketProduct
+  * Availabilities
+  * How market products are structured
+  * How we query them
+  * How and when we rebuild them
+
+4. Introducing ProductTiles
+  * why: rendering our templates on large pages was slow
+  * what a tile is
+  * cache key
+  * punching in availability
+  * getting tiles workflow (mget redis query)
+  * invalidating and regenerating old tiles
+
+5. Covered Queries in Mongo
+ * adding key data to mongo indexes
+
+# --------
+
+
 How we sped up our market.
 
 For thoes of you that have been shopping with us at good eggs for a while now, you might recall the old site. It looked something like this:
@@ -79,4 +108,5 @@ This means we can get all of the products available to buy on the day before tha
             cutoff: $gt: new Date()
             status: 'availabile'
 
-On the backend, we have a set of what we refer to as observers. These are hooked into the mongoose post save hooks and perform some work asyncronously. So, essentially they give us a chance to update related things when something changes. In this case, we are watching changes to `Product`, `Vendor` and `ProductAvailabilityConstraint` and when they change, we rebuild the `MarketProducts` that are related. This keeps the market in sync with the changes to the products..
+On the backend, we have a set of what we refer to as observers. These are hooked into the mongoose post save hooks and perform some work asyncronously. So, essentially they give us a chance to update related things when something changes. In this case, we are watching changes to `Product`, `Vendor` and `ProductAvailabilityConstraint` and when they change, we rebuild the `MarketProducts` that are related. This keeps the market in sync with the changes to any of the related data.
+
