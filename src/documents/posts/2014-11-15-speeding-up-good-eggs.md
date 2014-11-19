@@ -8,9 +8,9 @@ disqus:
 ---
 
 1. The problems
-  * client side rendering was taking a long time
+  * client side app boot up time and loop back
   * server side listing of products was taking a long time
-  * client side app boot up time
+  * client side rendering was taking a long time
 
 2. Moving things server side
   * a responsive reskin of our mobile app
@@ -36,23 +36,78 @@ disqus:
 # --------
 
 
-How we sped up our market.
-
 For thoes of you that have been shopping with us at good eggs for a while now, you might recall the old site. It looked something like this:
 
 
-And it was slow.
+And it was slow. Slow like molasses in the winter.
 
-We decided to do something about that a few months ago and here's how we've managed to speed thing up significantly...
+With our rebuild of the site, we had a few things we wanted to make sure we accomplished:
 
-# Our Infastructure at the Time
+1. The new site had to be responsive. We were all tired of making changes in our desktop codebase and our mobile codebase at the time and they were even starting to diverge a bit
+2. Performace needed to improve
+
+We'll talk mostly about the perfomance here, but it helps to undertand that we also wanted to make sure we're building for more devices in the future.
+
+
+So, now onto performance...
+
+## Why it was slow
+
+### 1) We had built a large client side app
+
+The first issue was that we built a large client side app that needed to be downloaded and run for you to see products. This meant that our page load life-cycle looked something like this:
+
+1. Download the client-side app
+2. The app starts up and determines what it needs to show
+3. We download the data that needs to be shown
+4. We take the responses from the server and render them in your browser
+5. You can now see products and even buy them
+
+When we looked at how to make things faster, we realized that no matter how fast all of this happened, we would still be seeing page load times close to 1 second even if we tuned the snot out of everything.
+
+
+### 2) Determining what products to show on a page was hard at the time
+
+MongoDb is our datastore of choice and the data we need to figure out if a product is available is scattered into 5 collections, and with the way things were structured at the time, it meant 5 or more queries were needed to show you products and that we needed to stich all this data together somehow to figure out what was available and how it should be shown.
+
+
+### 3) Generating the html for products was surprisingly time-consuming
+
+Once we moved things server side and were able to quickly retrieve the right list of products to show you, we realized that the majority of our time was being spent generating html to send to the client. This really concearned us, since it would essentialy block the node process for nearly a full second at a time on large pages, meaning we could queue up a lot of requests and easily overload our servers CPU in production. Not a great idea!
+
+
+
+
+# Moving Client Side
+
+Earlier this year we had built a mobile optimized site (and we even wrote about how we built it) that happened to already be generating html server side. Since we also wanted things to be responsive, we chose this as our starting point.
+
+
+-----------------------------------------
+
+## Our problems at the time
+
+Our original marketplace was built for producers to sell diretly and wasn't initially designed to show or work with the number of products we currently offer. This made development rather slow and not all of the code made sense the way it was used.
+
+
+This and the fact that it was a large client side app lead to less than ideal performance. We really had these problems:
+
+
+So, in essence we had a few real problems:
+1. the app wa
+1. client side app boot up time
+2. client side rendering was taking a long time
+3. server side listing of products was taking a long time
+
+
+## Our Infastructure at the Time
 
 1) node & coffeescript
 2) mongo db & mongoose for mappings, validations and other interesting things
 3) backbone and LOTS of client side rendering with ajax calls to fetch the data
 
 
-# The Complexities
+## The Complexities
 Working with thousands of local producers, most of them very small and early on in their business comes with a very interesting set of challenges. Many of our producers would have trouble fulfilling orders every day of the week or on short notice, so we have schedules of when they can be here to drop food off and how much lead time they need to make their products.
 
 Lots of people that we work with do this as a part-time job or have limited access to kitchens to make their foods or for some farmers, they might have limited access to trucks to bring thier produce to the city.
@@ -76,7 +131,7 @@ All in, answering the question "how many of this product can we sell on tuesday?
 Needless to say, this was excruciatingly slow.
 
 
-# Doing Something About It
+## Doing Something About It
 
 We decided what we needed was to make sure everything we were using to determine what list of products to show was pre-calculated so we could query in mongo to see what products are available on any given upcoming day.
 
