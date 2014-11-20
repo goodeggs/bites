@@ -51,7 +51,7 @@ We'll talk mostly about the perfomance here, but it helps to undertand that we a
 
 So, now onto performance...
 
-## Why it was slow
+# Why it was slow
 
 ### 1) We had built a large client side app
 
@@ -68,7 +68,7 @@ When we looked at how to make things faster, we realized that no matter how fast
 
 ### 2) Determining what products to show on a page was hard at the time
 
-MongoDb is our datastore of choice and the data we need to figure out if a product is available is scattered into 5 collections, and with the way things were structured at the time, it meant 5 or more queries were needed to show you products and that we needed to stich all this data together somehow to figure out what was available and how it should be shown.
+MongoDb is our datastore of choice and the data we need to figure out if a product is available is scattered into 5 collections, and with the way things were structured at the time, it meant 5 or more queries were needed to show you products. On top of this, we needed to stich all this data together in memory to figure out if we could show products.
 
 
 ### 3) Generating the html for products was surprisingly time-consuming
@@ -102,9 +102,9 @@ So, in essence we had a few real problems:
 
 ## Our Infastructure at the Time
 
-1) node & coffeescript
-2) mongo db & mongoose for mappings, validations and other interesting things
-3) backbone and LOTS of client side rendering with ajax calls to fetch the data
+1. node & coffeescript
+2. mongo db & mongoose for mappings, validations and other interesting things
+3. backbone and LOTS of client side rendering with ajax calls to fetch the data
 
 
 ## The Complexities
@@ -114,54 +114,105 @@ Lots of people that we work with do this as a part-time job or have limited acce
 
 On top of this, lots of our producers can't (yet) opperate at large scale, so they need to make sure they don't get more orders than they can fulfill on any given day.
 
-Because of this we have what ends up being a very powerful rules engine for determining if something can be sold on a given day.
+Because of this we have some very flexible rules to determine if a product can be sold.
 
 The rules generally follow this parrern right now when determining if a product can be ordered for a specific day:
 
-1) Is Good Eggs open on the day?
-2) Is it before the market wide order deadline for the day?
-3) Does the producer fulfill orders on this day?
-4) Is it before the producers custom order cutoff for the day (if they have one)?
-5) Can the producer still make and sell any for the day?
+1. Is Good Eggs open on the day?
+2. Is it before the market wide order deadline for the day?
+3. Is the producer actively selling (some are a seasonal business)?
+3. Does the producer fulfill orders on this day?
+4. Is it before the producers custom order deadline for the day (if they have one)?
+5. Is the product available for sale (as opposed to discontinued or out of season for example)?
+5. Does the producer have the capacity to make and sell any for the day?
 
-(That last one sounds simple, but is actually by-far the most complex)
+(That last one sounds simple, but is actually by-far the most complex, involving a fair amount of processing)
 
-All in, answering the question "how many of this product can we sell on tuesday?" involves getting data from 4 separate collections in mongo, join it all together in memory and perform more calculations than we really have any business doing to show a list of products to you. What made this even worse, is that we had to query for and return all of the products even if they were not available in order to find out what products could actually be sold on a given day.
+At the time, all this data lived in MongoDb and it was spread out across 4 collections:
+* `vendors` contains the status & schedule information for the producers
+* `foodhubs` contains the schedule for the overall market
+* `products` contains the product details and status
+* `product_availabilities` contains the rules and quantity remaining for products over time periods. This is where we would know if something was sold out or no longer available
 
-Needless to say, this was excruciatingly slow.
+So, answering the question "how many of this product can we sell on tuesday?" involves getting data from 4 separate collections in mongo, joining it together in memory and performing more calculations than we really have any business doing to show a list of products to you. What made this even worse, is that we had to query for and return all of the products even if they were not available in order to find out what products could actually be sold on a given day. The worst part about this is that most of these queries had to be done syncronously.
+
+For example, getting the list of products to display in the San Francisco produce section would go something like this:
+
+1. load the foodhub (this happens on most requests and isn't really a problem)
+2. after that, load all the products tagged in the 'produce' category
+3. after that, load all the vendors for thoes products based on the vendor id on the products
+4. in parallel, load all the availability rules for the products
+
+Needless to say, this was excruciatingly slow and it was happening on nearly every page view.
 
 
-## Doing Something About It
+## Denormalization to the rescue
 
-We decided what we needed was to make sure everything we were using to determine what list of products to show was pre-calculated so we could query in mongo to see what products are available on any given upcoming day.
+Our solution to this was to do all of the complex calculations behind the sceens and store the results in a separate collection that we optimized for querying and displaying products in the marketplace. We call them `MarketProduct`s. This data is read-only and contains flattened out availability data and everything else we would need to show a product in the marketplace.
 
-We ended up with something called MarketProduct and a schema like this:
+Here's roughly what the one for Josey Baker's Break of the Week looks like:
 
-    _id: # matches the traditional product id
-    name:
-    slug:
-    vendor:
-      name:
-      slug:
-    availabilities: [
-      day:
-      status:
-      cutoff:
-      quantity:
-    ]
-    tags: []
-    categories: []
+    { _id: 4f4eeeb1112637040000005c,
+      cacheKey: '98d28fb8e06962b471285ed554b2e95f',
+      foodshed: 'sfbay',
+      name: 'Bread of the Week',
+      price: 5.99,
+      slug: 'bread-of-the-week',
+      sectionOrder:
+       { breads: 1,
+         'organic-ingredients': 4,
+         'local-business': 2 },
+      status: 'available',
+      availabilities:
+       [ { day: '2014-11-08', status: 'unavailable' },
+         { day: '2014-11-09', status: 'unavailable' },
+         { day: '2014-11-10', quantity: Infinity, cutoff: 1415520000000, status: 'available' },
+         { day: '2014-11-11', quantity: Infinity, cutoff: 1415606400000, status: 'available' },
+         { day: '2014-11-12', quantity: Infinity, cutoff: 1415692800000, status: 'available' },
+         { day: '2014-11-13', quantity: Infinity, cutoff: 1415779200000, status: 'available' },
+         { day: '2014-11-14', status: 'unavailable' } ],
+      tags:
+       [ 'Breads',
+         'Local Business',
+         'Organic Ingredients' ],
+      categories: [ 'bakery' ],
+      vendor:
+       { name: 'Josey Baker Bread',
+         slug: 'joseybakerbread',
+         city: 'San Francisco, CA',
+         photo: { key: 'vendor_photo/6uziaPPTweSl4wmVIk6A_joseybakerbread.jpg' } },
+      photos:
+       [ { key: 'product_photos/nT2iqPL7QwajWI0f8hev_bread.jpg' },
+         { key: 'product_photos/MpnwEYhIQraUgunsx46O_bread6.jpg' },
+         { key: 'product_photos/X53TRtYiTBWypRhSgtXB_bread7.jpg', },
+         { key: 'product_photos/rAkPotPTFqBibeNw5cRM_bread8.jpg', },
+         { key: 'product_photos/GGrFXMgHQ2S3YFTjFMYM_bread9.jpg', } ] }
+
+
+There are some pretty important things going on here...
+
+1. We've used the schedules and availabilities to pre-calculate the quantities available over the next week in a way that we can query them. You can see this under the `availabilities` property.
+2. The key vendor information is embedded in this structure so we don't have to query for it in order to show their image and a link to their webstand
+3. We have a list of the categories and tags that this product should show up under. You can see this in the `categories` and `tags` properties.
+4. We have pre-calculated the products sort order for different areas of the site. You can see this in the `sectionOrder` property.
+
+All of this means that we can now execute one query and get back exactly the list of products we want to show, even if the customer wants to filter by a future shopping day because they might be adding to a subscription.
 
 This means we can get all of the products available to buy on the day before thanksgiving like this:
 
       MarketProduct.sync.find
         category: 'thanksgiving'
         foodshed: 'sfbay'
-        availability:
+        availabilities:
           $elemMatch:
             day: '2014-11-16'
             cutoff: $gt: new Date()
             status: 'availabile'
+
+For thoes of you that have never used it before `$elemMatch` in MongoDB works something like a subquery in a SQL database would. It looks for one entry in the `availabilities` arrray that matches all the criteria. It allows us to query for a day where the product is for sale and the order deadline (`cutoff`) has not passed. It also allows us to index this data well, whereas an approach with the date string as the field name
+
+
+## Keeping `MarketProduct`s up to date
 
 On the backend, we have a set of what we refer to as observers. These are hooked into the mongoose post save hooks and perform some work asyncronously. So, essentially they give us a chance to update related things when something changes. In this case, we are watching changes to `Product`, `Vendor` and `ProductAvailabilityConstraint` and when they change, we rebuild the `MarketProducts` that are related. This keeps the market in sync with the changes to any of the related data.
 
