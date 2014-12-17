@@ -79,7 +79,7 @@ after ->
 
 describe 'Webdriver tutorial', ->
   beforeEach ->
-    @driver.get 'http://localhost:8000/posts/using-selenium-webdriver-in-nodejs/'
+    @driver.get 'http://bites.goodeggs.com/posts/using-selenium-webdriver-in-nodejs/'
 
   it 'has the title of the post in the window\'s title', ->
     expect(@driver.getTitle()).to.eventually.contain
@@ -87,11 +87,11 @@ describe 'Webdriver tutorial', ->
 
   it 'has publication date', ->
     text = @driver.findElement(css: '.post .meta time').getText()
-    expect(text).to.eventually.equal 'December 9th, 2014'
+    expect(text).to.eventually.equal 'December 17th, 2014'
 
   it 'links back to the homepage', ->
     @driver.findElement(linkText: 'Bites').click()
-    expect(@driver.getCurrentUrl()).to.eventually.equal 'http://localhost:8000/'
+    expect(@driver.getCurrentUrl()).to.eventually.equal 'http://bites.goodeggs.com/'
 ```
 
 Save all that to `integration-test.coffee` and run it like this:
@@ -166,7 +166,7 @@ the driver to visit a page with `get()`:
 
 ```coffeescript
 beforeEach ->
-  @driver.get 'http://localhost:8000/posts/using-selenium-webdriver-in-nodejs/'
+  @driver.get 'http://bites.goodeggs.com/posts/using-selenium-webdriver-in-nodejs/'
 ```
 
 Some notes about this.
@@ -255,7 +255,7 @@ We know the publication date of a post can be found with the css selector `.post
 ```
 it 'has publication date', ->
   text = @driver.findElement(css: '.post .meta time').getText()
-  expect(text).to.eventually.equal 'December 9th, 2014'
+  expect(text).to.eventually.equal 'December 17th, 2014'
 ```
 
 There are lots of other ways you can look for DOM elements using findElement.
@@ -282,7 +282,7 @@ right place.
 ```coffeescript
 it 'links back to the homepage', ->
   @driver.findElement(linkText: 'Bites').click()
-  expect(@driver.getCurrentUrl()).to.eventually.equal 'http://localhost:8000/'
+  expect(@driver.getCurrentUrl()).to.eventually.equal 'http://bites.goodeggs.com/'
 ```
 
 In this example, we're using the same `findElement()` call that I described
@@ -313,7 +313,7 @@ it 'links back to the homepage', ->
     .then =>
       @driver.getCurrentUrl()
     .then (url) ->
-      expect(url).to.equal 'http://localhost:8000/'
+      expect(url).to.equal 'http://bites.goodeggs.com/'
 ```
 
 Much less pretty. To make writing integration tests easier, the `selenium-webdriver`
