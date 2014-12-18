@@ -4,7 +4,7 @@ author: Max Edmands
 layout: post
 disqus:
   shortname: goodeggsbytes
-  url: "http://bites.goodeggs.com/post/using-selenium-webdriver-in-nodejs"
+  url: "http://bites.goodeggs.com/post/selenium-webdriver-nodejs-tutorial"
 ---
 
 If you're writing a web application using node.js, you will want to spend some
@@ -79,7 +79,7 @@ after ->
 
 describe 'Webdriver tutorial', ->
   beforeEach ->
-    @driver.get 'http://bites.goodeggs.com/posts/using-selenium-webdriver-in-nodejs/'
+    @driver.get 'http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/'
 
   it 'has the title of the post in the window\'s title', ->
     expect(@driver.getTitle()).to.eventually.contain
@@ -166,7 +166,7 @@ the driver to visit a page with `get()`:
 
 ```coffeescript
 beforeEach ->
-  @driver.get 'http://bites.goodeggs.com/posts/using-selenium-webdriver-in-nodejs/'
+  @driver.get 'http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/'
 ```
 
 Some notes about this.
@@ -343,6 +343,12 @@ works, for instance.
 - [`selenium-webdriver` API documentation][api]
 - [`selenium-webdriver` user guide][guide]
 - [More information about the Promises/A+ standard][promises]
+
+Webdriver is a really powerful tool. It makes it so easy to write really
+comprehensive integration tests in Node.JS! You can also use it to build
+sophisticated web crawlers, automate filling in forms, you name it. How do you
+use `selenium-webdriver`? What parts are confusing for you? If you have any
+thoughts, please chime in with a comment!
 
 [selenium-webdriver-npm]: https://www.npmjs.com/package/selenium-webdriver
 [api]: http://selenium.googlecode.com/git/docs/api/javascript/index.html
