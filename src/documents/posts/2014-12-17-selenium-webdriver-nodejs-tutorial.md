@@ -16,6 +16,23 @@ a browser using `selenium-webdriver` for node.
 
 <!-- more -->
 
+## 0. Wat.
+
+Selenium-webdriver lets you write robots that control web browsers.
+
+This is incredibly useful for:
+
+- Integration tests
+- Webcrawlers that can understand javascript
+- Automated screenshot-grabbing
+- You name it
+- But really, integration tests are probably the killer use-case.
+
+Here's an example of the kind of raw power this affords you:
+
+<img src="http://i.imgur.com/NdNlihs.gif" width=615 alt="a gif of webdriver in action">
+![]
+
 ## 1. Install the modules you need
 
 You're going to need a copy of the
@@ -150,6 +167,8 @@ after ->
 This will kill all of the the other processes that started running because of
 our test setup. If you don't do this, you could end up with tons of browser
 processes awkwardly idling on your machine.
+
+![lots and lots of chrome icons](https://www.evernote.com/shard/s3/sh/8f5fe500-d628-4cf3-b5a1-2c841406fc5b/fdb6e2d880d0520afefbf24693c94589/deep/0/Screen-Shot-2014-12-17-at-4.47.00-PM.png)
 
 Finally, we're going to want to put all of our tests inside a `describe` block,
 so that they're all in one logical place:
@@ -319,9 +338,8 @@ it 'links back to the homepage', ->
 Much less pretty. To make writing integration tests easier, the `selenium-webdriver`
 authors wrote an awesome control-flow management utility into the library, that
 basically manages all the promises under the hood, so you don't need to
-explicitly write all of the `then()` calls. They have [a pretty great write-up of
-this library in their user
-guide.](https://code.google.com/p/selenium/wiki/WebDriverJs#Control_Flows)
+explicitly write all of the `then()` calls. They have
+[a pretty great write-up of this library in their user guide.](https://code.google.com/p/selenium/wiki/WebDriverJs#Control_Flows)
 
 In short, the Control Flow library makes it so that whenever you ask a driver
 instance to do something, it waits until the previous thing you asked it to do
