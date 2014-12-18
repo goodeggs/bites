@@ -31,7 +31,6 @@ This is incredibly useful for:
 Here's an example of the kind of raw power this affords you:
 
 <img src="http://i.imgur.com/NdNlihs.gif" width=615 alt="a gif of webdriver in action">
-![]
 
 ## 1. Install the modules you need
 
