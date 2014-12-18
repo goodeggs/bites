@@ -18,7 +18,7 @@ a browser using `selenium-webdriver` for node.
 
 ## 0. Wat.
 
-Selenium-webdriver lets you write robots that control web browsers.
+`selenium-webdriver` lets you write robots that control web browsers.
 
 This is incredibly useful for:
 
