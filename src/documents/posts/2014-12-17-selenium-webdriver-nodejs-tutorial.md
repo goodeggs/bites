@@ -10,13 +10,13 @@ disqus:
 If you're writing a web application using node.js, you will want to spend some
 time writing integration tests for it. At Good Eggs, we use `selenium-webdriver`
 for our integration tests. It's a reliable and comprehensive library, but
-unfortunately great documentation for it is difficult to find on the internet.
-That changes today. Here's a step-by-step guide to getting started controlling
+finding great documentation on the internet is surprisingly difficult.
+That changes today. Here's a step-by-step guide to start controlling
 a browser using `selenium-webdriver` for node.
 
 <!-- more -->
 
-## 0. Wat.
+## 0. Wat
 
 `selenium-webdriver` lets you write robots that control web browsers.
 
@@ -26,7 +26,6 @@ This is incredibly useful for:
 - Webcrawlers that can understand javascript
 - Automated screenshot-grabbing
 - You name it
-- But really, integration tests are probably the killer use-case.
 
 Here's an example of the kind of raw power this affords you:
 
@@ -123,9 +122,9 @@ all down to understand how it works.
 ## 3. Build your driver instance
 
 The `selenium-webdriver` module lets you create "drivers" that can control
-individual browser instances. There are many types of drivers -- ones that know
-how to talk to every major browser, including mobile browsers and
-[PhantomJS][phantom] -- and they can be configured to react differently to
+individual browser instances. There are many types of drivers that talk to
+every major browser, including mobile browsers and
+[PhantomJS][phantom]. They can be configured to react differently to
 browser actions like log messages or alert dialogs.
 
 In our example, we'll create a driver that knows how to control Google Chrome.
@@ -145,7 +144,7 @@ driver = new selenium.Builder()
 Using the mocha test runner, we can do most of the work for this setup step
 inside a `before` block, which ensures that it happens before any of the
 individual tests run. In addition, we can assign our new driver to the context
-of the test by referring to it as `@driver` -- that way, we'll be able to use
+of the test by referring to it as `@driver`. Now, we'll be able to use
 the driver instance in every one of our tests:
 
 ```coffeescript
@@ -239,12 +238,12 @@ it 'has the title of the post in the window\'s title', ->
       'Getting started with Selenium Webdriver for node.js'
 ```
 
-`getTitle()` returns a promise for the window's title. (Remember, we're talking
+`getTitle()` returns a promise for the window's title (remember, we're talking
 to a browser that's running in a different process, here, so pretty much
-*everytyhing* that we do is going to be asynchronous.) We have to make sure our
-assertion only runs after the promise has resolved.
+*everytyhing* that we do is going to be asynchronous). After the promise has resolved
+we can run our assertion.
 
-Another, cleaner-looking, way to do this is with the `chai-as-promised` library,
+Another, cleaner-looking, way to do this is with the `chai-as-promised` library
 which lets you make assertions on promises:
 
 ```coffeescript
@@ -308,17 +307,17 @@ above, except now we're clicking on the element with `click()` instead of
 asking for its text.
 
 Once we've clicked, we check the browser's current URL with
-`@driver.getCurrentUrl()`, and compare it to our expectation, which is that it
+`@driver.getCurrentUrl()` and compare it to our expectation that it
 should be the homepage.
 
 
 ## Extra credit: Understanding the webdriver promise manager
 
 `selenium-webdriver` allows you to write your code in a declarative,
-straightforward style, despite the fact that in reality everything is happening
-asynchronously. This makes for really readable tests, which is great.
+straightforward style despite the fact that in reality everything is happening
+asynchronously. This makes for really readable tests!
 
-On the other hand, if you're used to writing async code in Node.JS, using
+On the other hand, if you're used to writing async code in Node.JS using
 promises or the more idiomatic node callback style, reading and writing
 webdriver tests might be a little bit jarring at first. For example, you might
 have expected that last test to have been written like this:
@@ -346,12 +345,13 @@ is complete before it follows your latest instruction. Magic!
 
 If you want, you can also add other asynchronous interactions to this control
 flow, so that you can, for example, check database state after you submit a
-form, or send an email before you check your inbox -- the possibilities are
-endless.
+form, or send an email before you check your inbox.
 
 This is how our
 [`mongoose-webdriver`](https://github.com/goodeggs/mongoose-webdriver) module
 works, for instance.
+
+The possibilities are endless.
 
 
 ## Helpful links and more documentation
