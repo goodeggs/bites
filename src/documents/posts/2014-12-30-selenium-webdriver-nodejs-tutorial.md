@@ -102,7 +102,7 @@ describe 'Webdriver tutorial', ->
 
   it 'has publication date', ->
     text = @driver.findElement(css: '.post .meta time').getText()
-    expect(text).to.eventually.equal 'December 17th, 2014'
+    expect(text).to.eventually.equal 'December 30th, 2014'
 
   it 'links back to the homepage', ->
     @driver.findElement(linkText: 'Bites').click()
@@ -272,7 +272,7 @@ We know the publication date of a post can be found with the css selector `.post
 ```
 it 'has publication date', ->
   text = @driver.findElement(css: '.post .meta time').getText()
-  expect(text).to.eventually.equal 'December 17th, 2014'
+  expect(text).to.eventually.equal 'December 30th, 2014'
 ```
 
 There are lots of other ways you can look for DOM elements using findElement.
