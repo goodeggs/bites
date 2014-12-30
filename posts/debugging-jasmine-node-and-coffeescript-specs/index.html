@@ -1,0 +1,85 @@
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Debugging jasmine-node and CoffeeScript specs | Bites from Good Eggs</title><meta name="author" content="Alon Salant" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="/favicon.ico?v=2" /><link rel="stylesheet" href="/styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="/rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26193287-5', 'github.io');
+ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></h1><ul class="unstyled nav"><li><a href="/">Blog</a></li><li><a href="/open_source/">Open Source</a></li><li><a href="/news/">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="http://fpio.goodeggs.com/api/file/dr8oggORaYMYXX016dAQ/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Alon Salant" /><h1 class="entry-title">Debugging jasmine-node and CoffeeScript specs</h1><p class="meta"><a class="entry-author-name" href="/authors/alon_salant/">Alon Salant</a> on <time datetime="2011-10-17T19:00:00.000Z">October 17th, 2011</time></p></header><div class="entry-content"><p>We’re writing our node apps in <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a>, debugging with <a href="https://github.com/dannycoates/node-inspector">node-inspector</a> and testing with <a href="https://github.com/mhevery/jasmine-node">jasmine-node</a>.
+</p></p>
+<p>
+jasmine-node does not provide a mechanism to pass command line options to node, so to run a spec with debugging enabled, you <!-- more -->run jasmine-node with:
+</p>
+
+<pre><code class="bash">node --debug-brk node_modules/jasmine-node/lib/jasmine-node/cli.js \
+  specs/app.spec.js</code></pre>
+
+<p>
+This will stop the debugger on the first line of cli.js. Open node-inspector in your browser per it’s instructions and you’ll see the debugger stopped there. Put a ‘debugger;’ line at the spot in your code where you want to stop and debug, continue execution and you’ll be at the ‘debugger;’ line. Good to go.
+</p>
+<p>
+To do the same thing for a spec written in CoffeeScript, you would run jasmine-node with:
+</p>
+
+<pre><code class="bash">node --debug-brk node_modules/jasmine-node/lib/jasmine-node/cli.js \
+  --coffee specs/app.spec.coffee</code></pre>
+
+<p>
+We aren’t entirely happy with jasmine-node. For example it automatically requires all spec helpers and copies their exported methods and objects to GLOBAL. It’s support for asynchronous specs is fairly primitive.
+</p>
+<p>
+We took a quick stab at writing a new runner for jasmine that would run our coffee node specs. The following uses only the TerminalReporter that comes with the jasmine-node npm module and the version of Jasmine that it bundles:
+</p>
+
+<pre><code class="coffee">process.env.NODE_ENV = <span class="hljs-string">'test'</span> <span class="hljs-keyword">unless</span> process.env.NODE_ENV?
+
+sys = <span class="hljs-built_in">require</span> <span class="hljs-string">"sys"</span>
+_ = <span class="hljs-built_in">require</span> <span class="hljs-string">"underscore"</span>
+
+dir = <span class="hljs-string">"jasmine-node/lib/jasmine-node/"</span>
+filename =  <span class="hljs-string">"jasmine-2.0.0.rc1"</span>
+
+<span class="hljs-comment"># Copy 'it', 'describe',... to global</span>
+<span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">of</span> <span class="hljs-built_in">require</span>(<span class="hljs-string">"<span class="hljs-subst">#{dir}</span><span class="hljs-subst">#{filename}</span>"</span>)
+  <span class="hljs-built_in">global</span>[key] = value
+
+<span class="hljs-comment"># Use jasmine-node's TerminalReporter for console output</span>
+TerminalReporter = <span class="hljs-built_in">require</span>(<span class="hljs-string">"<span class="hljs-subst">#{dir}</span>reporter"</span>).TerminalReporter
+jasmine.getEnv().addReporter(<span class="hljs-keyword">new</span> TerminalReporter(
+  <span class="hljs-attribute">print</span>: sys.<span class="hljs-built_in">print</span>
+  <span class="hljs-attribute">color</span>: <span class="hljs-literal">true</span>
+  <span class="hljs-attribute">stackFilter</span>: <span class="hljs-function"><span class="hljs-params">(text)</span> -&gt;</span>
+    _<span class="hljs-function"><span class="hljs-params">(text.split <span class="hljs-regexp">/\n/</span>)</span>.<span class="hljs-title">filter</span><span class="hljs-params">((line) -&gt; line.indexOf(<span class="hljs-string">"<span class="hljs-subst">#{dir}</span><span class="hljs-subst">#{filename}</span>"</span>) == -<span class="hljs-number">1</span>)</span>.<span class="hljs-title">join</span><span class="hljs-params">(<span class="hljs-string">'\n'</span>)</span>
+))
+
+<span class="hljs-title">process</span>.<span class="hljs-title">nextTick</span> -&gt;</span>
+  jasmine.getEnv().execute()</code></pre>
+
+<p>
+To use this runner, we require it in our spec_helper.coffee file and require spec_helper.coffee at the top of each of our specs. With this setup, running a spec is as simple as:
+</p>
+
+<pre><code class="bash">coffee spec/app.spec.coffee</code></pre>
+
+<p>
+And debugging is as simple as:
+</p>
+
+<pre><code class="bash">coffee --nodejs --debug-brk spec/app.spec.coffee</code></pre>
+
+<p>
+Sweet.
+</p>
+<p>
+I like running my specs this way but like jasmine-node for running a whole suite of tests locally and in continuous integration. To have both working together, we only include this runner in our spec_helper.coffee if jasmine has not already been loaded by jasmine-node:
+</p>
+
+<pre><code class="coffee">process.env.NODE_ENV = <span class="hljs-string">'test'</span> <span class="hljs-keyword">unless</span> process.env.NODE_ENV?
+
+<span class="hljs-built_in">require</span> <span class="hljs-string">'./jasmine_runner'</span> <span class="hljs-keyword">unless</span> jasmine?
+
+<span class="hljs-comment">#...</span></code></pre>
+
+<p>
+With this setup, I can easily run my coffee specs from the command line and my entire suite before committing and in continuous integration.
+</p>
+</div><footer><p class="meta"><a class="basic-alignment right" href="/posts/better-asynchronous-jasmine-node-specs/">Better asynchronous jasmine-node specs &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bytes.goodeggs.com/post/11587373922/debugging-jasmine-node-and-coffeescript-specs'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>

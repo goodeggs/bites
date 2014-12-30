@@ -1,189 +1,1587 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-family:inherit;font-size:100%;vertical-align:baseline}
-body{line-height:1;color:#000;background:#fff}
-ol,ul{list-style:none}
-table{border-collapse:separate;border-spacing:0;vertical-align:middle}
-caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}
-a img{border:none}
-article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,main{margin:0;padding:0;border:0;outline:0;display:block}
-audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
-audio:not([controls]),[hidden]{display:none}
-@font-face{font-family:'PublicoHeadline';src:url("../fonts/PublicoHeadline-Black-Web.eot");src:url("../fonts/PublicoHeadline-Black-Web.eot?#iefix") format('embedded-opentype'),url("../fonts/PublicoHeadline-Black-Web.woff") format('woff'),url("../fonts/PublicoHeadline-Black-Web.ttf") format('truetype'),url("../fonts/PublicoHeadline-Black-Web.svg#publico_headline_webblack") format('svg');font-weight:normal;font-style:normal}
-@font-face{font-family:'PublicoText';src:url("../fonts/PublicoText-Bold-Web.eot");src:url("../fonts/PublicoText-Bold-Web.eot?#iefix") format('embedded-opentype'),url("../fonts/PublicoText-Bold-Web.woff") format('woff'),url("../fonts/PublicoText-Bold-Web.ttf") format('truetype');font-weight:bold;font-style:normal}
-@font-face{font-family:'Graphik';src:url("../static/fonts/Graphik-Regular-Web.eot");src:url("../static/fonts/Graphik-Regular-Web.eot?#iefix") format('embedded-opentype'),url("../static/fonts/Graphik-Regular-Web.woff") format('woff'),url("../static/fonts/Graphik-Regular-Web.ttf") format('truetype'),url("../static/fonts/Graphik-Regular-Web.svg#graphik_webregular") format('svg');font-weight:normal;font-style:normal}
-@font-face{font-family:'Graphik';src:url("../static/fonts/Graphik-Bold-Web.eot");src:url("../static/fonts/Graphik-Bold-Web.eot?#iefix") format('embedded-opentype'),url("../static/fonts/Graphik-Bold-Web.woff") format('woff'),url("../static/fonts/Graphik-Bold-Web.ttf") format('truetype'),url("../static/fonts/Graphik-Bold-Web.svg#graphik_webbold") format('svg');font-weight:bold;font-style:normal}
-a{color:#007084;text-decoration:none;}
-a:hover,a:active{text-decoration:underline}
-html,body{background:#f2f0e8}
-body > footer{font-size:80%;margin-top:10px}
-.heading,h1,h2,h3,h4,h5,h6{font-family:PublicoHeadline,"Helvetica Neue",Helvetica,Arial,sans-serif}
-.sans,body,article header p.meta,#content .blog-index footer{font-family:Graphik,'HelveticaNeue-Light','HelveticaNeue',Helvetica,Arial,sans-serif}
-.serif{font-family:"PT Serif",Georgia,Times,"Times New Roman",serif}
-.mono,pre,code,tt{font-family:PragmataPro,Menlo,Monaco,"Andale Mono","Lucida Console","Courier New",monospace;font-size:85%}
-body > header h1{font-size:55px !important;font-family:PublicoText,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:bold;line-height:.85em}
-body{font-size:1em;line-height:1.5em;color:#333;}
-h1{font-size:1.8em;line-height:1.2em}
-h3{line-height:1.8}
-@media only screen and (min-width: 768px){h1{font-size:2.2em;line-height:1.2em}
-}h1,h2,h3,h4,h5,h6{text-rendering:optimizelegibility;font-weight:600;color:#333;}
-h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover,h5 a:hover,h6 a:hover{color:#333 !important}
-h2,section h1{font-size:1.5em}
-h3,section h2,section section h1{font-size:1.3em}
-h4,section h3,section section h2,section section section h1{font-size:1em}
-h5,section h4,section section h3{font-size:.9em}
-h6,section h5,section section h4,section section section h3{font-size:.8em}
-p,blockquote,ul,ol,pre,code{margin-bottom:1.5em}
-ul{list-style-type:circle;}
-ul ul{list-style-type:disc;margin-bottom:0;}
-ul ul ul{list-style-type:square;margin-bottom:0}
-ol{list-style-type:decimal;}
-ol ol{list-style-type:lower-alpha;margin-bottom:0;}
-ol ol ol{list-style-type:lower-roman;margin-bottom:0}
-ul,ol,ul ul,ol ul,ul ol,ol ol{margin-left:1.3em}
-ul.unstyled,ol.unstyled{margin-left:0;list-style-type:none}
-strong{font-weight:bold}
-em{font-style:italic}
-mark{color:#626262;background-color:transparent;font-weight:normal;font-style:italic;font-family:"PT Serif",Georgia,Times,"Times New Roman",serif}
-sup,sub{font-size:.6em;display:inline;padding:0 1px}
-sup{vertical-align:super}
-sub{bottom:-.5em}
-q{font-style:italic;}
-q:before{content:"\201C"}
-q:after{content:"\201D"}
-em,dfn{font-style:italic}
-strong,dfn{font-weight:bold}
-del,s{text-decoration:line-through}
-abbr,acronym{border-bottom:1px dotted;cursor:help}
-pre > code{line-height:1.5}
-hr{margin-bottom:.2em}
-small{font-size:.8em}
-big{font-size:1.2em}
-blockquote{font-style:italic;position:relative;font-size:1.2em;font-weight:lighter;line-height:1.5em;padding-left:1em;}
-blockquote cite{display:block;font-style:italic;font-size:80%;line-height:1.2;padding-right:30%;text-align:right;}
-blockquote cite a{color:#888 !important;word-wrap:break-word}
-@media only screen and (min-width: 992px){blockquote{padding-left:1.5em;border-left-width:4px}
-}.pullquote-right:before,.pullquote-left:before{padding:0;border:none;content:attr(data-pullquote);float:right;width:45%;margin:.5em 0 1em 1.5em;position:relative;top:7px;font-size:1.4em;line-height:1.45em}
-.pullquote-left:before{float:left;margin:.5em 1.5em 1em 0}
-.force-wrap,article a{white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;white-space:pre-wrap;word-wrap:break-word}
-h1.status-code{font-size:12em}
-.group,body > header,body > nav,body > footer,body #content > article,body #content > div > article,body #content > div > section,body div.pagination{zoom:1}
-.group:before,body > header:before,body > nav:before,body > footer:before,body #content > article:before,body #content > div > article:before,body #content > div > section:before,body div.pagination:before,.group:after,body > header:after,body > nav:after,body > footer:after,body #content > article:after,body #content > div > article:after,body #content > div > section:after,body div.pagination:after{content:"";display:table}
-.group:after,body > header:after,body > nav:after,body > footer:after,body #content > article:after,body #content > div > article:after,body #content > div > section:after,body div.pagination:after{clear:both}
-body{-webkit-text-size-adjust:none;max-width:676px;position:relative;margin:0 auto;}
-body > header,body > nav,body > footer,body #content > article,body #content > div > article,body #content > div > section{padding-left:24px;padding-right:24px;}
-@media only screen and (min-width: 768px){body > header,body > nav,body > footer,body #content > article,body #content > div > article,body #content > div > section{padding-left:34px;padding-right:34px}
-}body div.pagination{padding-left:24px;padding-right:24px;}
-@media only screen and (min-width: 768px){body div.pagination{padding-left:34px;padding-right:34px}
-}body > header{font-size:1em;padding-top:2em;padding-bottom:.75em}
-#content > div,#content > article{width:100%}
-.basic-alignment.left,table.left,article img.left,article video.left{float:left;margin-right:1.5em}
-.basic-alignment.right,table.right,article img.right,article video.right{float:right;margin-left:1.5em}
-.basic-alignment.center,table.center,article img.center,article video.center{display:block;margin:0 auto 1.5em}
-.basic-alignment.left,table.left,article img.left,article video.left,.basic-alignment.right,table.right,article img.right,article video.right{margin-bottom:.8em}
-#content{border-right:none;}
-#content > div,#content > article{padding-top:12px;padding-bottom:12px}
-@media only screen and (min-width: 550px){body > header{font-size:1em}
-}@media only screen and (min-width: 768px){body{-webkit-text-size-adjust:auto}
-body > header{font-size:1.3em}
-#main{zoom:1;padding:0;margin:0 auto}
-#main:before,#main:after{content:"";display:table}
-#main:after{clear:both}
-#content{zoom:1;position:relative;}
-#content:before,#content:after{content:"";display:table}
-#content:after{clear:both}
-#content .no-sidebar{margin-right:0;border-right:0}
-#content > div,#content > article{padding-top:17px;padding-bottom:17px;float:left}
-#content > div.intro{padding-left:24px;padding-right:24px;}
-@media only screen and (min-width: 768px){{padding-left:34px;padding-right:34px}
-}}@media only screen and (min-width: 992px){body > header{font-size:1.3em}
-#content > div,#content > article{padding-top:17px;padding-bottom:17px}
-}dl{margin-bottom:1em}
-dt{font-weight:bold}
-dt,dd,li{padding-bottom:.25em}
-@media only screen and (min-width: 550px){dt{float:none}
-}@media only screen and (min-width: 750px){dt{clear:left;float:left;padding-right:.5em;width:10em}
-}table{padding:.25em .25em}
-thead,thead th{font-weight:bold;font-size:1em}
-thead{border-bottom:2px solid #333}
-body > header{padding:0;margin:20px 0;}
-body > header h1{float:left;margin-right:30px;margin-left:-5px;}
-body > header h1 a{display:block;color:#333;background-image:url("../images/goodeggs_logo_bites_small.png");height:70px;line-height:75px;padding-left:95px;background-repeat:no-repeat;background-position:0 bottom;vertical-align:bottom;color:#333 !important;text-decoration:none !important;}
-body > header h1 a:hover{color:#6ab5b1}
-body > header ul.nav{float:left;margin:12px 0 0 0;}
-body > header ul.nav li{float:left;margin:20px 0 0 30px}
-body > footer .mission{font-style:italic;font-size:1.2em}
-.context-row,article pre > code,article p.update{padding-top:1em;padding-bottom:1em;padding-left:24px;padding-right:24px;margin-left:-24px;margin-right:-24px;}
-@media only screen and (min-width: 768px){.context-row,article pre > code,article p.update{padding-left:34px;padding-right:34px}
-}@media only screen and (min-width: 768px){.context-row,article pre > code,article p.update{margin-left:-34px;margin-right:-34px}
-}.separator,article > footer .byline + time:before,article > footer time +time:before,article > footer .comments:before,article > footer .byline ~ .categories:before{content:"—";padding:0 .4em 0 .2em;display:inline-block}
-article{padding-top:34px;background-color:#fff;-webkit-box-shadow:0 0 20px -1px #d1d1d1;box-shadow:0 0 20px -1px #d1d1d1;}
-article img.author{float:right;padding:0 0 25px 25px;height:150px;width:150px}
-article header{position:relative;margin-bottom:1em;}
-article header h1{margin:0;}
-article header h1 a{text-decoration:none;}
-article header h1 a:hover{text-decoration:none}
-article header p{font-size:.9em;color:#a2a2a2;margin:0;}
-@media only screen and (min-width: 768px){article header{margin-bottom:1.5em}
-}article h2{margin:.8em 0}
-.entry-content article h2:first-child,article header + h2{margin-top:0}
-article h2:first-child,article header + h2{background:none}
-article .feature{padding-top:.5em;margin-bottom:1em;padding-bottom:1em;background:#666 bottom left repeat-x;line-height:1.3em}
-article img,article video{padding:.25em;background-color:#fff;}
-article img.framed,article video.framed{padding:10px;border:1px solid #ccc}
-article video{margin:0 auto 1.5em;display:block;width:100%}
-article > footer{margin-top:2em;}
-article > footer p.meta{margin-bottom:.8em;font-size:.85em;clear:both;overflow:hidden}
-article #flash{margin-bottom:1.5em}
-article table.controls{margin:.3in auto;}
-article table.controls caption{text-align:center}
-article table.controls th{text-align:right}
-article table.controls td{padding-left:6px}
-article ul.footnotes{margin:1.2em}
-article code{background:#f5f7f7;padding:2px}
-article pre > code{background-color:#f5f7f7;overflow:auto;border:none}
-article p.update{background-color:#fffff5;}
-article p.update:before{content:'Update:';font-family:PublicoHeadline,"Helvetica Neue",Helvetica,Arial,sans-serif;display:block;margin-bottom:.3em}
-article div.series{border:1px solid #333;padding:25px;margin-bottom:25px;clear:both;}
-article div.series blockquote{display:table-cell;margin:0;padding:0;width:50%;vertical-align:middle}
-article div.series ol{display:table-cell;margin-bottom:0;font-size:14px;line-height:18px;padding-left:50px}
-#content .blog-index article{padding-bottom:1.5em;margin-top:18px}
-#content .blog-index article:first-child{margin-top:0}
-#content .blog-index article header{background:none}
-#content .blog-index article div.series{display:none}
-#content .blog-index article h1 a{color:inherit;}
-#content .blog-index article h1 a:hover{color:#6ab5b1}
-#content .blog-index a[rel=full-article]{display:inline-block;margin-right:.5em}
-#content .blog-index footer{margin-top:1em}
-#content div.pagination{text-align:center;font-size:.95em;position:relative;padding-top:1.5em;padding-bottom:1.5em;}
-#content div.pagination a{text-decoration:none;color:#888;}
-#content div.pagination a.prev{position:absolute;left:0}
-#content div.pagination a.next{position:absolute;right:0}
-#content div.pagination a:hover{color:#6ab5b1}
-#content section.profile .meta{float:left;}
-#content section.profile .meta img{margin-right:20px;-webkit-box-shadow:0 0 10px -1px #333;box-shadow:0 0 10px -1px #333;width:150px}
-#content section.profile .content{display:table;}
-#content section.profile .content p{margin-bottom:.5em}
-#content section.profile .content .author{font-style:italic}
-#content section.profile .coauthor{margin-bottom:30px}
-pre code{display:block;color:#000;background:#fff}
-pre .comment,pre .template_comment,pre .javadoc,pre .comment *{color:#006a00}
-pre .keyword,pre .literal,pre .nginx .title{color:#aa0d91}
-pre .method,pre .list .title,pre .tag .title,pre .setting .value,pre .winutils,pre .tex .command,pre .http .title,pre .request,pre .status{color:#008}
-pre .envvar,pre .tex .special{color:#660}
-pre .string{color:#c41a16}
-pre .tag .value,pre .cdata,pre .filter .argument,pre .attr_selector,pre .apache .cbracket,pre .date,pre .regexp{color:#080}
-pre .sub .identifier,pre .pi,pre .tag,pre .tag .keyword,pre .decorator,pre .ini .title,pre .shebang,pre .prompt,pre .hexcolor,pre .rules .value,pre .css .value .number,pre .symbol,pre .symbol .string,pre .number,pre .css .function,pre .clojure .title,pre .clojure .built_in,pre .function .title,pre .coffeescript .attribute{color:#1c00cf}
-pre .class .title,pre .haskell .type,pre .smalltalk .class,pre .javadoctag,pre .yardoctag,pre .phpdoc,pre .typename,pre .tag .attribute,pre .doctype,pre .class .id,pre .built_in,pre .setting,pre .params,pre .clojure .attribute{color:#5c2699}
-pre .variable{color:#3f6e74}
-pre .css .tag,pre .rules .property,pre .pseudo,pre .subst{color:#000}
-pre .css .class,pre .css .id{color:#9b703f}
-pre .value .important{color:#f70;font-weight:bold}
-pre .rules .keyword{color:#c5af75}
-pre .annotation,pre .apache .sqbracket,pre .nginx .built_in{color:#9b859d}
-pre .preprocessor,pre .preprocessor *{color:#643820}
-pre .tex .formula{background-color:#eee;font-style:italic}
-pre .diff .header,pre .chunk{color:#808080;font-weight:bold}
-pre .diff .change{background-color:#bccff9}
-pre .addition{background-color:#baeeba}
-pre .deletion{background-color:#ffc8bd}
-pre .comment .yardoctag{font-weight:bold}
-pre .method .id{color:#000}
+
+/* line 15 : /Users/michaelkebbekus/Projects/bites/src/styles/rollup.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/gulp-stylus/node_modules/stylus/lib/functions/index.styl */
+
+/* line 286 : /Users/michaelkebbekus/Projects/bites/node_modules/gulp-stylus/node_modules/stylus/lib/functions/index.styl */
+
+/* line 13 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/index.styl */
+
+/* line 13 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/index.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/border.styl */
+
+/* line 10 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/border.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+
+/* line 28 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/color-image.styl */
+
+/* line 4 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/color-image.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/flex.styl */
+
+/* line 196 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/flex.styl */
+
+/* line 90 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/gradients.styl */
+
+/* line 90 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/gradients.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/config.styl */
+
+/* line 11 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/config.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/iconic.styl */
+
+/* line 7 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/iconic.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/image.styl */
+
+/* line 25 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/image.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/overflow.styl */
+
+/* line 20 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/overflow.styl */
+
+/* line 3 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/positions.styl */
+
+/* line 66 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/positions.styl */
+
+/* line 3 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+
+/* line 78 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+
+/* line 5 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/index.styl */
+
+/* line 5 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/index.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/aliases.styl */
+
+/* line 12 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/aliases.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/ellipsis.styl */
+
+/* line 9 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/ellipsis.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/hide-text.styl */
+
+/* line 8 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/hide-text.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/replace-text.styl */
+
+/* line 9 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/replace-text.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/shadow-stroke.styl */
+
+/* line 2 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/text/shadow-stroke.styl */
+
+/* line 541 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/vendor.styl */
+
+/* line 11 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/vendor.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/config.styl */
+
+/* line 577 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/config.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/size.styl */
+
+/* line 4 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 14 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff;
+}
+
+/* line 16 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+ol,
+ul {
+  list-style: none;
+}
+
+/* line 18 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle;
+}
+
+/* line 20 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 22 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+a img {
+  border: none;
+}
+
+/* line 68 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+main {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  display: block;
+}
+
+/* line 73 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* line 77 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/reset.styl */
+audio:not([controls]),
+[hidden] {
+  display: none;
+}
+
+/* line 28 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/size.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/media.styl */
+
+/* line 3 : /Users/michaelkebbekus/Projects/bites/src/styles/base/media.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/fonts.styl */
+@font-face {
+  font-family: 'PublicoHeadline';
+  src: url("/fonts/PublicoHeadline-Black-Web.eot");
+  src: url("/fonts/PublicoHeadline-Black-Web.eot?#iefix") format('embedded-opentype'), url("/fonts/PublicoHeadline-Black-Web.woff") format('woff'), url("/fonts/PublicoHeadline-Black-Web.ttf") format('truetype'), url("/fonts/PublicoHeadline-Black-Web.svg#publico_headline_webblack") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PublicoText';
+  src: url("/fonts/PublicoText-Bold-Web.eot");
+  src: url("/fonts/PublicoText-Bold-Web.eot?#iefix") format('embedded-opentype'), url("/fonts/PublicoText-Bold-Web.woff") format('woff'), url("/fonts/PublicoText-Bold-Web.ttf") format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url("/fonts/Graphik-Regular-Web.eot");
+  src: url("/fonts/Graphik-Regular-Web.eot?#iefix") format('embedded-opentype'), url("/fonts/Graphik-Regular-Web.woff") format('woff'), url("/fonts/Graphik-Regular-Web.ttf") format('truetype'), url("/fonts/Graphik-Regular-Web.svg#graphik_webregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Graphik';
+  src: url("/fonts/Graphik-Bold-Web.eot");
+  src: url("/fonts/Graphik-Bold-Web.eot?#iefix") format('embedded-opentype'), url("/fonts/Graphik-Bold-Web.woff") format('woff'), url("/fonts/Graphik-Bold-Web.ttf") format('truetype'), url("/fonts/Graphik-Bold-Web.svg#graphik_webbold") format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* line 42 : /Users/michaelkebbekus/Projects/bites/src/styles/base/fonts.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/utilities.styl */
+
+/* line 27 : /Users/michaelkebbekus/Projects/bites/src/styles/base/utilities.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/theme.styl */
+
+/* line 52 : /Users/michaelkebbekus/Projects/bites/src/styles/base/theme.styl */
+a {
+  color: #007084;
+  text-decoration: none;
+}
+
+/* line 56 : /Users/michaelkebbekus/Projects/bites/src/styles/base/theme.styl */
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+
+/* line 59 : /Users/michaelkebbekus/Projects/bites/src/styles/base/theme.styl */
+html,
+body {
+  background: #f2f0e8;
+}
+
+/* line 62 : /Users/michaelkebbekus/Projects/bites/src/styles/base/theme.styl */
+body > footer {
+  font-size: 80%;
+  margin-top: 10px;
+}
+
+/* line 64 : /Users/michaelkebbekus/Projects/bites/src/styles/base/theme.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+
+/* line 16 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+.heading,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: PublicoHeadline, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 19 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+.sans,
+body,
+article header p.meta,
+#content .blog-index footer {
+  font-family: Graphik, 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+}
+
+/* line 20 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+.serif {
+  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+}
+
+/* line 21 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+.mono,
+pre,
+code,
+tt {
+  font-family: PragmataPro, Menlo, Monaco, "Andale Mono", "Lucida Console", "Courier New", monospace;
+  font-size: 85%;
+}
+
+/* line 25 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+body > header h1 {
+  font-size: 55px !important;
+  font-family: PublicoText, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 0.85em;
+}
+
+/* line 32 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+body {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: #333;
+}
+
+/* line 38 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h1 {
+  font-size: 1.8em;
+  line-height: 1.2em;
+}
+
+/* line 42 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h3 {
+  line-height: 1.8;
+}
+@media only screen and (min-width: 768px) {
+
+/* line 47 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+  h1 {
+    font-size: 2.2em;
+    line-height: 1.2em;
+  }
+}
+
+/* line 50 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizelegibility;
+  font-weight: 600;
+  color: #333;
+}
+
+/* line 55 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: #333 !important;
+}
+
+/* line 57 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h2,
+section h1 {
+  font-size: 1.5em;
+}
+
+/* line 60 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h3,
+section h2,
+section section h1 {
+  font-size: 1.3em;
+}
+
+/* line 63 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h4,
+section h3,
+section section h2,
+section section section h1 {
+  font-size: 1em;
+}
+
+/* line 66 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h5,
+section h4,
+section section h3 {
+  font-size: 0.9em;
+}
+
+/* line 69 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h6,
+section h5,
+section section h4,
+section section section h3 {
+  font-size: 0.8em;
+}
+
+/* line 72 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+p,
+blockquote,
+ul,
+ol,
+pre,
+code {
+  margin-bottom: 1.5em;
+}
+
+/* line 75 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ul {
+  list-style-type: circle;
+}
+
+/* line 76 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ul ul {
+  list-style-type: disc;
+  margin-bottom: 0px;
+}
+
+/* line 77 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ul ul ul {
+  list-style-type: square;
+  margin-bottom: 0px;
+}
+
+/* line 81 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ol {
+  list-style-type: decimal;
+}
+
+/* line 82 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ol ol {
+  list-style-type: lower-alpha;
+  margin-bottom: 0px;
+}
+
+/* line 83 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ol ol ol {
+  list-style-type: lower-roman;
+  margin-bottom: 0px;
+}
+
+/* line 87 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+
+/* line 87 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ul,
+ol,
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-left: 1.3em;
+}
+
+/* line 89 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+ul.unstyled,
+ol.unstyled {
+  margin-left: 0;
+  list-style-type: none;
+}
+
+/* line 94 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+strong {
+  font-weight: bold;
+}
+
+/* line 96 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+em {
+  font-style: italic;
+}
+
+/* line 98 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+mark {
+  color: #626262;
+  background-color: transparent;
+  font-weight: normal;
+  font-style: italic;
+  font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+}
+
+/* line 105 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+sup,
+sub {
+  font-size: 0.6em;
+  display: inline;
+  padding: 0 1px;
+}
+
+/* line 109 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+sup {
+  vertical-align: super;
+}
+
+/* line 111 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+sub {
+  bottom: -0.5em;
+}
+
+/* line 113 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+q {
+  font-style: italic;
+}
+
+/* line 114 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+q:before {
+  content: "\201C";
+}
+
+/* line 115 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+q:after {
+  content: "\201D";
+}
+
+/* line 118 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+em,
+dfn {
+  font-style: italic;
+}
+
+/* line 120 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+strong,
+dfn {
+  font-weight: bold;
+}
+
+/* line 122 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+del,
+s {
+  text-decoration: line-through;
+}
+
+/* line 124 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+abbr,
+acronym {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+/* line 126 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+
+/* line 129 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+pre > code {
+  line-height: 1.5;
+}
+
+/* line 132 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+hr {
+  margin-bottom: 0.2em;
+}
+
+/* line 134 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+small {
+  font-size: 0.8em;
+}
+
+/* line 136 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+big {
+  font-size: 1.2em;
+}
+
+/* line 138 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+blockquote {
+  font-style: italic;
+  position: relative;
+  font-size: 1.2em;
+  font-weight: lighter;
+  line-height: 1.5em;
+  padding-left: 1em;
+}
+
+/* line 146 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+blockquote cite {
+  display: block;
+  font-style: italic;
+  font-size: 80%;
+  line-height: 1.2;
+  padding-right: 30%;
+  text-align: right;
+}
+
+/* line 153 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+blockquote cite a {
+  color: #888 !important;
+  word-wrap: break-word;
+}
+@media only screen and (min-width: 992px) {
+
+/* line 158 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+  blockquote {
+    padding-left: 1.5em;
+    border-left-width: 4px;
+  }
+}
+
+/* line 164 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+.pullquote-right:before,
+.pullquote-left:before {
+/* Reset metrics. */
+  padding: 0;
+  border: none;
+/* Content */
+  content: attr(data-pullquote);
+/* Pull out to the right, modular scale based margins. */
+  float: right;
+  width: 45%;
+  margin: 0.5em 0 1em 1.5em;
+/* Baseline correction */
+  position: relative;
+  top: 7px;
+  font-size: 1.4em;
+  line-height: 1.45em;
+}
+
+/* line 185 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+.pullquote-left:before {
+/* Make left pullquotes align properly. */
+  float: left;
+  margin: 0.5em 1.5em 1em 0;
+}
+
+/* line 192 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+.force-wrap,
+article a {
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 200 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+h1.status-code {
+  font-size: 12em;
+}
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/typography.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+
+/* line 26 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+.group,
+body > header,
+body > nav,
+body > footer,
+body #content > article,
+body #content > div > article,
+body #content > div > section,
+body div.pagination {
+  zoom: 1;
+}
+
+/* line 22 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+.group:before,
+body > header:before,
+body > nav:before,
+body > footer:before,
+body #content > article:before,
+body #content > div > article:before,
+body #content > div > section:before,
+body div.pagination:before,
+.group:after,
+body > header:after,
+body > nav:after,
+body > footer:after,
+body #content > article:after,
+body #content > div > article:after,
+body #content > div > section:after,
+body div.pagination:after {
+  content: "";
+  display: table;
+}
+
+/* line 26 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+.group:after,
+body > header:after,
+body > nav:after,
+body > footer:after,
+body #content > article:after,
+body #content > div > article:after,
+body #content > div > section:after,
+body div.pagination:after {
+  clear: both;
+}
+
+/* line 29 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+body {
+  -webkit-text-size-adjust: none;
+  max-width: 676px;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* line 35 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+body > header,
+body > nav,
+body > footer,
+body #content > article,
+body #content > div > article,
+body #content > div > section {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media only screen and (min-width: 768px) {
+
+/* line 11 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  body > header,
+  body > nav,
+  body > footer,
+  body #content > article,
+  body #content > div > article,
+  body #content > div > section {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+/* line 44 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+body div.pagination {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+@media only screen and (min-width: 768px) {
+
+/* line 11 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  body div.pagination {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+/* line 48 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+body > header {
+  font-size: 1em;
+  padding-top: 2em;
+  padding-bottom: 0.75em;
+}
+
+/* line 53 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+
+/* line 54 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+#content > div,
+#content > article {
+  width: 100%;
+}
+
+/* line 58 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+
+/* line 59 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+.basic-alignment.left,
+table.left,
+article img.left,
+article video.left {
+  float: left;
+  margin-right: 1.5em;
+}
+
+/* line 62 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+.basic-alignment.right,
+table.right,
+article img.right,
+article video.right {
+  float: right;
+  margin-left: 1.5em;
+}
+
+/* line 65 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+.basic-alignment.center,
+table.center,
+article img.center,
+article video.center {
+  display: block;
+  margin: 0 auto 1.5em;
+}
+
+/* line 68 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+.basic-alignment.left,
+table.left,
+article img.left,
+article video.left,
+.basic-alignment.right,
+table.right,
+article img.right,
+article video.right {
+  margin-bottom: 0.8em;
+}
+
+/* line 72 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+#content {
+  border-right: none;
+}
+
+/* line 74 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+#content > div,
+#content > article {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+@media only screen and (min-width: 550px) {
+
+/* line 79 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  body > header {
+    font-size: 1em;
+  }
+}
+@media only screen and (min-width: 768px) {
+
+/* line 83 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  body {
+    -webkit-text-size-adjust: auto;
+  }
+
+/* line 85 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  body > header {
+    font-size: 1.3em;
+  }
+
+/* line 87 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  #main {
+    zoom: 1;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+/* line 22 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+  #main:before,
+  #main:after {
+    content: "";
+    display: table;
+  }
+
+/* line 26 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+  #main:after {
+    clear: both;
+  }
+
+/* line 91 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  #content {
+    zoom: 1;
+    position: relative;
+  }
+
+/* line 22 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+  #content:before,
+  #content:after {
+    content: "";
+    display: table;
+  }
+
+/* line 26 : /Users/michaelkebbekus/Projects/bites/node_modules/nib/lib/nib/clearfix.styl */
+  #content:after {
+    clear: both;
+  }
+
+/* line 94 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  #content .no-sidebar {
+    margin-right: 0;
+    border-right: 0;
+  }
+
+/* line 97 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  #content > div,
+  #content > article {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    float: left;
+  }
+
+/* line 101 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  #content > div.intro {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media only screen and (min-width: 992px) {
+
+/* line 105 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  body > header {
+    font-size: 1.3em;
+  }
+
+/* line 107 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+
+/* line 108 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  #content > div,
+  #content > article {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+}
+
+/* line 112 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+dl {
+  margin-bottom: 1em;
+}
+
+/* line 114 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+dt {
+  font-weight: bold;
+}
+
+/* line 116 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+dt,
+dd,
+li {
+  padding-bottom: 0.25em;
+}
+@media only screen and (min-width: 550px) {
+
+/* line 119 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  dt {
+    float: none;
+  }
+}
+@media only screen and (min-width: 750px) {
+
+/* line 122 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  dt {
+    clear: left;
+    float: left;
+    padding-right: 0.5em;
+    width: 10em;
+  }
+}
+
+/* line 128 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+table {
+  padding: 0.25em 0.25em;
+}
+
+/* line 131 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+thead,
+thead th {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+/* line 134 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+thead {
+  border-bottom: 2px solid #333;
+}
+
+/* line 11 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+@media only screen and (min-width: 768px) and (min-width: 768px) {
+
+/* line 101 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  > div.intro {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+body > header {
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* line 4 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+body > header h1 {
+  float: left;
+  margin-right: 30px;
+  margin-left: -5px;
+}
+
+/* line 8 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+body > header h1 a {
+  display: block;
+  color: #333;
+  background-image: url("/images/goodeggs_logo_bites_small.png");
+  height: 70px;
+  line-height: 75px;
+  padding-left: 95px;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  vertical-align: bottom;
+  color: #333 !important;
+  text-decoration: none !important;
+}
+
+/* line 25 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+body > header h1 a:hover {
+  color: #6ab5b1;
+}
+
+/* line 28 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+body > header ul.nav {
+  float: left;
+  margin: 12px 0 0 0;
+}
+
+/* line 31 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+body > header ul.nav li {
+  float: left;
+  margin: 20px 0 0 30px;
+}
+
+/* line 33 : /Users/michaelkebbekus/Projects/bites/src/styles/header.styl */
+
+/* line 33 : /Users/michaelkebbekus/Projects/bites/src/styles/footer.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/footer.styl */
+
+/* line 2 : /Users/michaelkebbekus/Projects/bites/src/styles/footer.styl */
+body > footer .mission {
+  font-style: italic;
+  font-size: 1.2em;
+}
+
+/* line 4 : /Users/michaelkebbekus/Projects/bites/src/styles/footer.styl */
+
+/* line 4 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+.context-row,
+article pre > code,
+article p.update {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-left: -24px;
+  margin-right: -24px;
+}
+@media only screen and (min-width: 768px) {
+
+/* line 11 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  .context-row,
+  article pre > code,
+  article p.update,
+article pre > code,
+article p.update {
+    padding-left: 34px;
+    padding-right: 34px;
+  }
+}
+@media only screen and (min-width: 768px) {
+
+/* line 18 : /Users/michaelkebbekus/Projects/bites/src/styles/base/layout.styl */
+  .context-row,
+  article pre > code,
+  article p.update,
+article pre > code,
+article p.update {
+    margin-left: -34px;
+    margin-right: -34px;
+  }
+}
+
+/* line 7 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+.separator,
+article > footer .byline + time:before,
+article > footer time +time:before,
+article > footer .comments:before,
+article > footer .byline ~ .categories:before {
+  content: "—";
+  padding: 0 0.4em 0 0.2em;
+  display: inline-block;
+}
+
+/* line 12 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article {
+  padding-top: 34px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 20px -1px #d1d1d1;
+  box-shadow: 0 0 20px -1px #d1d1d1;
+}
+
+/* line 17 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article img.author {
+  float: right;
+  padding: 0 0 25px 25px;
+  height: 150px;
+  width: 150px;
+}
+
+/* line 23 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+
+/* line 25 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article header {
+  position: relative;
+  margin-bottom: 1em;
+}
+
+/* line 27 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article header h1 {
+  margin: 0;
+}
+
+/* line 29 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article header h1 a {
+  text-decoration: none;
+}
+
+/* line 31 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article header h1 a:hover {
+  text-decoration: none;
+}
+
+/* line 33 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article header p {
+  font-size: 0.9em;
+  color: #a2a2a2;
+  margin: 0;
+}
+
+/* line 37 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+@media only screen and (min-width: 768px) {
+
+/* line 41 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+  article header {
+    margin-bottom: 1.5em;
+  }
+}
+
+/* line 43 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article h2 {
+  margin: 0.8em 0;
+}
+
+/* line 45 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+.entry-content article h2:first-child,
+article header + h2 {
+  margin-top: 0;
+}
+
+/* line 47 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article h2:first-child,
+article header + h2 {
+  background: none;
+}
+
+/* line 49 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article .feature {
+  padding-top: 0.5em;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  background: #666 bottom left repeat-x;
+  line-height: 1.3em;
+}
+
+/* line 55 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article img,
+article video {
+  padding: 0.25em;
+  background-color: #fff;
+}
+
+/* line 59 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article img.framed,
+article video.framed {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/* line 62 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article video {
+  margin: 0 auto 1.5em;
+  display: block;
+  width: 100%;
+}
+
+/* line 65 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article > footer {
+  margin-top: 2em;
+}
+
+/* line 67 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article > footer p.meta {
+  margin-bottom: 0.8em;
+  font-size: 0.85em;
+  clear: both;
+  overflow: hidden;
+}
+
+/* line 72 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+
+/* line 75 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article #flash {
+  margin-bottom: 1.5em;
+}
+
+/* line 77 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article table.controls {
+  margin: 0.3in auto;
+}
+
+/* line 79 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article table.controls caption {
+  text-align: center;
+}
+
+/* line 81 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article table.controls th {
+  text-align: right;
+}
+
+/* line 83 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article table.controls td {
+  padding-left: 6px;
+}
+
+/* line 85 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article ul.footnotes {
+  margin: 1.2em;
+}
+
+/* line 88 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article code {
+  background: #f5f7f7;
+  padding: 2px;
+}
+
+/* line 92 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article pre > code {
+  background-color: #f5f7f7;
+  overflow: auto;
+  border: none;
+  display: block;
+}
+
+/* line 99 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article p.update {
+  background-color: #fffff5;
+}
+
+/* line 102 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article p.update:before {
+  content: 'Update:';
+  font-family: PublicoHeadline, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+/* line 108 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article div.series {
+  border: 1px solid #333;
+  padding: 25px;
+  margin-bottom: 25px;
+  clear: both;
+}
+
+/* line 114 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article div.series blockquote {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  vertical-align: middle;
+}
+
+/* line 121 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+article div.series ol {
+  display: table-cell;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 18px;
+  padding-left: 50px;
+}
+
+/* line 128 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+
+/* line 129 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index article {
+  padding-bottom: 1.5em;
+  margin-top: 18px;
+}
+
+/* line 132 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index article:first-child {
+  margin-top: 0;
+}
+
+/* line 134 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index article header {
+  background: none;
+}
+
+/* line 137 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index article div.series {
+  display: none;
+}
+
+/* line 140 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+
+/* line 141 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index article h1 a {
+  color: inherit;
+}
+
+/* line 143 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index article h1 a:hover {
+  color: #6ab5b1;
+}
+
+/* line 145 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index a[rel=full-article] {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+/* line 148 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content .blog-index footer {
+  margin-top: 1em;
+}
+
+/* line 152 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content div.pagination {
+  text-align: center;
+  font-size: 0.95em;
+  position: relative;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+/* line 159 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content div.pagination a {
+  text-decoration: none;
+  color: #888;
+}
+
+/* line 162 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content div.pagination a.prev {
+  position: absolute;
+  left: 0;
+}
+
+/* line 165 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content div.pagination a.next {
+  position: absolute;
+  right: 0;
+}
+
+/* line 168 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content div.pagination a:hover {
+  color: #6ab5b1;
+}
+
+/* line 171 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+
+/* line 172 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content section.profile .meta {
+  float: left;
+}
+
+/* line 175 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content section.profile .meta img {
+  margin-right: 20px;
+  -webkit-box-shadow: 0 0 10px -1px #333;
+  box-shadow: 0 0 10px -1px #333;
+  width: 150px;
+}
+
+/* line 180 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content section.profile .content {
+  display: table;
+}
+
+/* line 183 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content section.profile .content p {
+  margin-bottom: 0.5em;
+}
+
+/* line 185 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content section.profile .content .author {
+  font-style: italic;
+}
+
+/* line 188 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+#content section.profile .coauthor {
+  margin-bottom: 30px;
+}
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/blog.styl */
+
+/* line 1 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+
+/* line 7 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #fff;
+  color: #000;
+  -webkit-text-size-adjust: none;
+}
+
+/* line 16 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-comment,
+.hljs-template_comment,
+.hljs-javadoc {
+  color: #006a00;
+}
+
+/* line 22 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-keyword,
+.hljs-literal,
+.nginx .hljs-title {
+  color: #aa0d91;
+}
+
+/* line 27 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.method,
+.hljs-list .hljs-title,
+.hljs-tag .hljs-title,
+.setting .hljs-value,
+.hljs-winutils,
+.tex .hljs-command,
+.http .hljs-title,
+.hljs-request,
+.hljs-status {
+  color: #008;
+}
+
+/* line 39 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-envvar,
+.tex .hljs-special {
+  color: #660;
+}
+
+/* line 44 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-string {
+  color: #c41a16;
+}
+
+/* line 47 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-tag .hljs-value,
+.hljs-cdata,
+.hljs-filter .hljs-argument,
+.hljs-attr_selector,
+.apache .hljs-cbracket,
+.hljs-date,
+.hljs-regexp {
+  color: #080;
+}
+
+/* line 57 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-sub .hljs-identifier,
+.hljs-pi,
+.hljs-tag,
+.hljs-tag .hljs-keyword,
+.hljs-decorator,
+.ini .hljs-title,
+.hljs-shebang,
+.hljs-prompt,
+.hljs-hexcolor,
+.hljs-rules .hljs-value,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-number,
+.css .hljs-function,
+.hljs-function .hljs-title,
+.coffeescript .hljs-attribute {
+  color: #1c00cf;
+}
+
+/* line 76 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-class .hljs-title,
+.smalltalk .hljs-class,
+.hljs-javadoctag,
+.hljs-yardoctag,
+.hljs-phpdoc,
+.hljs-dartdoc,
+.hljs-type,
+.hljs-typename,
+.hljs-tag .hljs-attribute,
+.hljs-doctype,
+.hljs-class .hljs-id,
+.hljs-built_in,
+.setting,
+.hljs-params,
+.clojure .hljs-attribute {
+  color: #5c2699;
+}
+
+/* line 94 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-variable {
+  color: #3f6e74;
+}
+
+/* line 97 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.css .hljs-tag,
+.hljs-rules .hljs-property,
+.hljs-pseudo,
+.hljs-subst {
+  color: #000;
+}
+
+/* line 104 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.css .hljs-class,
+.css .hljs-id {
+  color: #9b703f;
+}
+
+/* line 109 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-value .hljs-important {
+  color: #f70;
+  font-weight: bold;
+}
+
+/* line 114 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-rules .hljs-keyword {
+  color: #c5af75;
+}
+
+/* line 118 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-annotation,
+.apache .hljs-sqbracket,
+.nginx .hljs-built_in {
+  color: #9b859d;
+}
+
+/* line 124 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-preprocessor,
+.hljs-preprocessor *,
+.hljs-pragma {
+  color: #643820;
+}
+
+/* line 130 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.tex .hljs-formula {
+  background-color: #eee;
+  font-style: italic;
+}
+
+/* line 135 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.diff .hljs-header,
+.hljs-chunk {
+  color: #808080;
+  font-weight: bold;
+}
+
+/* line 141 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.diff .hljs-change {
+  background-color: #bccff9;
+}
+
+/* line 145 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-addition {
+  background-color: #baeeba;
+}
+
+/* line 149 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-deletion {
+  background-color: #ffc8bd;
+}
+
+/* line 153 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.hljs-comment .hljs-yardoctag {
+  font-weight: bold;
+}
+
+/* line 157 : /Users/michaelkebbekus/Projects/bites/src/styles/xcode.styl */
+.method .hljs-id {
+  color: #000;
+}

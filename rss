@@ -1,85 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title><![CDATA[Bites from Good Eggs]]></title>
-        <description><![CDATA[Bites from Good Eggs]]></description>
-        <link>http://goodeggs.github.io/bites</link>
-        <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 07 Oct 2014 18:23:59 GMT</lastBuildDate>
-        <atom:link href="http://goodeggs.github.io/bites/rss" rel="self" type="application/rss+xml"/>
-        <author><![CDATA[Good Eggs]]></author>
-        <pubDate>Tue, 07 Oct 2014 18:23:54 GMT</pubDate>
-        <item>
-            <title><![CDATA[Things Last: Work vs School]]></title>
-            <description><![CDATA[<p>In school, nothing lasts longer than 10 weeks--at least if you’re on the quarter system that Stanford subscribes to. 
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Bites from Good Eggs]]></title><description><![CDATA[Bites from Good Eggs]]></description><link>http://bites.goodeggs.com/</link><generator>metalsmith-feed</generator><lastBuildDate>Tue, 30 Dec 2014 20:21:22 GMT</lastBuildDate><atom:link href="http://bites.goodeggs.com/rss" rel="self" type="application/rss+xml"/><author><![CDATA[Good Eggs]]></author><item><title><![CDATA[Getting started with Selenium Webdriver for node.js]]></title><description><![CDATA[<p>If you&#39;re writing a web application using node.js, you will want to spend some
+time writing integration tests for it. At Good Eggs, we use <code>selenium-webdriver</code>
+for our integration tests. It&#39;s a reliable and comprehensive library, but
+finding great documentation on the internet is surprisingly difficult.
+That changes today. Here&#39;s a step-by-step guide to start controlling
+a browser using <code>selenium-webdriver</code> for node.</p>]]></description><link>http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/</guid><dc:creator><![CDATA[Max Edmands]]></dc:creator><pubDate>Tue, 30 Dec 2014 20:00:00 GMT</pubDate></item><item><title><![CDATA[Things Last: Work vs School]]></title><description><![CDATA[<p>In school, nothing lasts longer than 10 weeks--at least if you’re on the quarter system that Stanford subscribes to.
 A few do, like your roommate or your unfortunate streak of nights where you had to drink coffee after midnight, but, otherwise, your life is turning over every quarter of the year.
 New classes, new projects, new teammates.</p>
-<p>The funny thing about work in the real world:  <strong>things last</strong>.</p>
-<!-- more -->
-
-<p>Of course it’s not that simple, but reductive statements make nice hooks. </p>
-<h3 id="from-school-to-work">From School to Work</h3>
-<p>Coming from school to Good Eggs was more than coming from academia to industry, classes to internship, or Stanford to SF. 
-It was moving from a world that took itself apart and rebuilt itself every ten weeks to one that had existed for years before I came and continues to do so now that I’m back to tumbling through the cycles of school again.
-There’s code in our site that’s been around since 2012 (and probably earlier). That’s a dozen heat-deaths of the student’s universe. </p>
-<p>That feeling of permanency might sound odd because things change so fast at Good Eggs.
-The energy levels go from high to alpine; the sprints last a month and then we’re blazing on to something new.
-But we’re building a product that’s going to stick around, even as it changes.
-What you write is going out there to the real world, and people are going to use it until we have time to make something even better. </p>
-<p>Of course, that’s par for the course for anyone who’s been working for a while.
-But put yourself in my shoes (or those old shoes of yours from college), when no one saw your code except you and an autograding script.
-During my internship I worked on tools for the producers who work with Good Eggs and for our internal team.
-Those schedules, order summaries, and dashboards are out there, getting used.
-Compare that to a problem set or the same memory allocator that thousands of students wrote before you.
-Suddenly knowing your work will get used is kind of exhilarating, isn’t it?</p>
-<p>Guess what else sticks around? Your coworkers.
-Back in college, sure, your classmates will still be taking your same courses. They’ll still be the people you see around campus or red-eyed in the library at two A.M. surreptitiously eating a power bar while hiding from librarians, but if that last project didn’t go so well, guess who you won’t be working with ever again?</p>
-<p>And that’s kind of unfortunate.</p>
-<p>It’s easier to just ditch what didn’t work and try again or to hold onto those people you work really well with like the last parachute in a leaking hot-air balloon.
-But if you learn anything about collaboration from that experience, it’s all accidental.  </p>
-<p>You can’t do that at a company.
-These people are all you’ve got, and that’s awesome.
-So at Good Eggs, how we work together is just as important as what we’re working on.
-In addition to building a great product, we’re spending time building a great team.
-Weekly retros, daily stand-ups, communal lunches.
-After a big push to get the second version of the website out — better, faster, stronger — meetings started popping up on the calendar.</p>
-<ul>
-<li>Let’s talk about collaboration between design and engineering.</li>
-<li>Let’s talk about handling big launches.</li>
-<li>Let’s talk about communication between groups. </li>
-</ul>
-<p>It helps that all the individuals are awesome in their own right, but it helps more that we are constantly working out how to be better as a team.
-We not only become a better team but also learn how to become better teammates.  </p>
-<h3 id="one-last-thing-your-attention-span-">One last thing:  your attention span.</h3>
-<p>No, I’m not saying kids these days can’t focus.
-But most days as a student, you’re not doing any one thing for more than three or four hours at a time.
-You’re working 14 hour days or haven’t slept since last Tuesday.
-You’re trying to juggle half a dozen things at least, and they’re all due at the same time.
-You’re taking four classes, teaching a fifth, and making sure a gaggle of freshmen don’t get abducted by aliens.</p>
-<p>Showing up to work, and then working for 8 hours, is — dare I use the word — relaxing.
-It’s a great feeling to launch a new feature, and it’s an even better feeling to be working on that one feature and knowing when you’re done there will be another one thing to work on.
-You may take a couple hours to fix a bug, to discuss code architecture, or to pair with another team, but the overall focus lasts. </p>
-<p>Probably for most of the people reading this, these comparisons are old hat.
-You went through this or maybe are going through it.
-Or perhaps you’re looking for an internship and will go through it or are going through it right now.
-If the first one’s you, I hope some of this resonated, or at least you were amused by the student stumbling wide-eyed out of academia.
-If the last one’s you, I hope you get as much joy out of the experience as I did.
-And maybe, that you’re doing it at Good Eggs.</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/things-last-work-vs-school/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/things-last-work-vs-school/</guid>
-            <dc:creator><![CDATA[Sarah Sterman]]></dc:creator>
-            <pubDate>Tue, 07 Oct 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Speed up your responsive app with Node and Varnish]]></title>
-            <description><![CDATA[<div class="series">
+<p>The funny thing about work in the real world:  <strong>things last</strong>.</p>]]></description><link>http://bites.goodeggs.com/posts/things-last-work-vs-school/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/things-last-work-vs-school/</guid><dc:creator><![CDATA[Sarah Sterman]]></dc:creator><pubDate>Tue, 07 Oct 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Speed up your responsive app with Node and Varnish]]></title><description><![CDATA[<div class="series">
     <blockquote>This is the fourth article in a series of posts detailing the launch of our mobile site.</blockquote>
     <ol>
-        <li><a href="/posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
-        <li><a href="/posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
-        <li><a href="/posts/mobile-page-load">Planning Page Load Sequence</a></li>
-        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish">Speed with Node and Varnish</a></li>
+        <li><a href="/posts/good-eggs-goes-mobile/">Good Eggs Goes Mobile</a></li>
+        <li><a href="/posts/rivets-for-mobile/">Rivets for Mobile Web</a></li>
+        <li><a href="/posts/mobile-page-load/">Planning Page Load Sequence</a></li>
+        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish/">Speed with Node and Varnish</a></li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
     </ol>
@@ -88,61 +22,7 @@ And maybe, that you’re doing it at Good Eggs.</p>
 <p>Conversations about responsive design often focus on the browser: media queries, grids, and the like, but there&#39;s more!  Creating a great experience on all sorts of consumer-grade doo-dads demands some work on the server.</p>
 <p>On Good Eggs, shoppers with full-sized computers don&#39;t want all their grocery aisles hidden behind a collapsible menu. The markup to generate the desktop navigation is different enough from the mobile navigation that using media queries would be a stretch (heh, get it?).  By trimming the more complicated desktop markup from the mobile response, we save precious page weight for a faster load time.</p>
 <p>Let&#39;s take a journey along the request-response cycle to illustrate how we send different responses to different devices while maximizing cache hits:</p>
-<p><img src="/images/posts/server-side-responsive-express-varnish/flow.jpg" alt="Flow Diagram">
-<!-- more --></p>
-<h2 id="request">Request</h2>
-<p>Browsers send requests to a <a href="https://www.varnish-cache.org/">varnish</a> cache server (<a href="https://www.fastly.com/">Fastly</a> has worked great for us).  All requests come with a User-Agent header that hints at the shopper&#39;s device.</p>
-<p>iPhone 5 sends something like:</p>
-<pre class="highlight"><code class="vbnet">Mozilla/<span class="number">5.0</span> (iPhone; CPU iPhone OS <span class="number">5</span>_0 <span class="keyword">like</span> Mac OS X) AppleWebKit/<span class="number">534.46</span> (KHTML, <span class="keyword">like</span> Gecko) Version/<span class="number">5.1</span> Mobile/<span class="number">9</span>A334 Safari/<span class="number">7534.48</span><span class="number">.3</span></code></pre>
-<p>while IE 11 on Windows 8 sends:</p>
-<pre class="highlight"><code class="smalltalk"><span class="class">Mozilla</span>/<span class="number">5.0</span> (<span class="class">Windows</span> <span class="class">NT</span> <span class="number">6.3</span>; <span class="class">Trident</span>/<span class="number">7.0</span>; <span class="method">rv:</span><span class="number">11.0</span>) like <span class="class">Gecko</span></code></pre>
-<p>which is <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/21/internet-explorer-11-user-agent-string-ua-string-sniffing-compatibility-with-gecko-webkit.aspx">a deliberate lie</a> but gives us enough information to call it a desktop browser.</p>
-<p>Grouping these messy headers into nice buckets of devices: <code>phone</code>, <code>tablet</code>, or <code>desktop</code> in our case, is the job of <a href="https://github.com/varnish/varnish-devicedetect">varnish-device-detect</a>.  To get up and running quickly, <a href="https://github.com/goodeggs/connect-devicedetect">connect-device-detect</a> can do the same grouping within the express server, but grouping at the edge cache yields much better hit rates.  Our express server only has to generate one <code>phone</code> response, which varnish will serve to iPhones, Androids, or any other devices who&#39;s User-Agent string matches our phone regular expressions.</p>
-<p>Varnish sends the device bucket on to our Express server as an <code>X-UA-Device</code> header. In Express, we use <a href="https://github.com/goodeggs/connect-device-router">connect-device-router</a> to switch controllers per device:</p>
-<pre class="highlight"><code class="javascript"><span class="keyword">var</span> express = require(<span class="string">'express'</span>),
-    device = require(<span class="string">'connect-device-router'</span>);
-
-express()
-  .get(<span class="string">'/food'</span>,
-    device(<span class="string">'phone'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
-      # ...
-      res.render(<span class="string">'mobileView'</span>)
-    }),
-    device(<span class="string">'desktop'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
-      # ...
-      res.render(<span class="string">'desktopView'</span>)
-    }),
-    <span class="function"><span class="keyword">function</span> <span class="params">(req, res, next)</span> {</span>
-      # <span class="keyword">default</span>
-    }
-  )</code></pre>
-<p>Matched routes also get a <code>req.device</code> string for branching within a template or a shared controller.</p>
-<h2 id="response">Response</h2>
-<p>Now our controller has generated a response, and we&#39;re on our way back out. Device router adds a <code>Vary: X-UA-Device</code> header only to matched routes, so routes that serve the same response to all devices will hit the same cache regardless of which device requests them.</p>
-<p>Varnish includes the <code>Vary</code> header by default when calculating cache keys, so device router&#39;s <code>Vary: X-UA-Device</code> triggers separate cached responses per device bucket.</p>
-<p>Our setup has a few customizations on top of varnish-devicedetect to support downstream caching, including adding a <code>Vary: User-Agent</code> header, since downstream caches won&#39;t have bucketed the device:</p>
-<pre class="highlight"><code class="r">sub vcl_deliver {
-  <span class="keyword">...</span>
-  set resp.http.vary = resp.http.vary <span class="string">", User-Agent"</span>;
-
-  <span class="comment"># We also remove the Vary: X-UA-Device set upstream by connect-device-router</span>
-  set resp.http.vary = regsuball(resp.http.vary, <span class="string">"[, ]*?X-UA-Device"</span>, <span class="string">""</span>);
-
-  <span class="comment"># And copy over the X-UA-Device bucket for easy auditing in browser</span>
-  set resp.http.X-UA-Device = req.http.X-UA-Device;
-  <span class="keyword">...</span>
-}</code></pre>
-<p>Now browsers can store the reponse locally, and won&#39;t need to make another request until their cached response is stale.</p>
-<p>Caching can get a little mind bending.  I often found myself wondering why I couldn&#39;t just send <code>Vary: X-UA-Device</code> all the way back to the browser, I mean we&#39;re telling the browser what it&#39;s X-UA-Device is in the response, right?.  <a href="http://stackoverflow.com/questions/21056733/can-i-vary-on-a-custom-header">The answer</a> seems obvious in retrospect.  What else is confusing?</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/speed-up-your-responsive-app-with-node-and-varnish/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/speed-up-your-responsive-app-with-node-and-varnish/</guid>
-            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
-            <pubDate>Mon, 29 Sep 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Being an Intern at Good Eggs]]></title>
-            <description><![CDATA[<p>My name is Estefania Ortiz and I am a rising Junior studying Computer Science at Stanford. This summer I am working as a Software Engineering Intern at Good Eggs. A typical conversation when meeting or running into other interns in the area usually goes something like this: </p>
+<p><img src="/images/posts/server-side-responsive-express-varnish/flow.jpg" alt="Flow Diagram">]]></description><link>http://bites.goodeggs.com/posts/speed-up-your-responsive-app-with-node-and-varnish/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/speed-up-your-responsive-app-with-node-and-varnish/</guid><dc:creator><![CDATA[Adam Hull]]></dc:creator><pubDate>Mon, 29 Sep 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Being an Intern at Good Eggs]]></title><description><![CDATA[<p>My name is Estefania Ortiz and I am a rising Junior studying Computer Science at Stanford. This summer I am working as a Software Engineering Intern at Good Eggs. A typical conversation when meeting or running into other interns in the area usually goes something like this: </p>
 <p>-Hey! What are you doing this summer? <br>
 -Interning at Good Eggs, working on the Shopping Team. <br>
 -Cool, what are you working on? <br>
@@ -150,35 +30,7 @@ express()
 -Yeah, but what’s your project? <br>
 -Emm, the website...<br></p>
 <p>Given that a lot of interns have an intern project, this conversation can be a little awkward sometimes. Questions like How do you get evaluated? and How do you know what to do? often come up, and to be completely honest I have been looking for answers to these questions myself during the summer. </p>
-<p>So far this is what I&#39;ve got...</p>
-<!-- more -->
-
-<h3>How do you know what to do?</h3>
-
-<p>Given that I don&#39;t have a pre-defined intern project, my workflow is similar to that of the rest of the engineers at the company. Every day I come into the office and work on the next thing that has to get done. I am getting exposure to the <a href= 'http://agilemethodology.org/'>Agile </a> and <a href='http://xprogramming.com/what-is-extreme-programming/'>XP</a> processes used at Good Eggs to determine what that next thing is, and I get to see how things go from ideas to shipped code. This experience has taught me a lot in terms of prioritizing, estimating, and planning work.</p>
-<h3>How do you get evaluated?</h3>
-
-<p>There are many ways for me to get feedback at Good Eggs. First of all, I have a mentor who meets with me almost every week to talk about how the internship is going, and more broadly about engineering as a career. I have weekly 1:1&#39;s with members of my team to get direct feedback on my work. <a href = 'http://www.extremeprogramming.org/rules/pair.html'>Pairing</a> and <a href = 'http://oss-watch.ac.uk/resources/pullrequest'>Pull Requests </a>help me grow by giving me new perspectives on my code and how to get things done. And if that wasn&#39;t enough, at any given point it is totally cool for me to ask questions like How am I doing?, How was pairing with me today?, or Can you take a look at my code?</p>
-<h3>What else do I like about Good Eggs?</h3>
-
-<p><b>Onboarding:</b>
-The first week of my internship was full of sessions. We covered <a href = 'https://github.com/goodeggs/fibrous'>fibrous</a>, front end frameworks, <a href = 'http://nodejs.org/'> Node.js</a> + <a href = 'http://expressjs.com/'>Express</a>, Agile and Extreme Programming, test driven development, overviews of the codebase and architecture, and setting up our development environments. This was a lot of material, and I am still learning about all of these things, but that week gave us the language to ask the right questions, and look up what we needed to know. </p>
-<p><b>Pairing:</b>
-We do a lot of pairing here. This means that I spend my time either coding on my own, coding with someone else, or watching another engineer do some coding. Switching between these three modes of learning has enabled me to learn really fast. I have been fortunate enough to pair with most people on the team, and in a very short amount of time I have seen the workflows, styles, thought processes, and concerns of an entire team of experienced engineers. This is as confusing as it is instructive. There are definitely a lot of ways of doing things, but getting exposure to so many different styles working together has been an incredible learning experience for me. </p>
-<p><b>Agency:</b>
-In a lot of ways I have been treated as being a member of the team rather than as just an intern in the team. I feel ownership of my work and I have a voice in what I want to work on, what parts of the process I want to be a part of, and what I want to learn. For example, seeing how planning work affects engineering productivity so much, I was interested in learning more about it. I mentioned this to Joe (our Tech Lead) and next thing I knew he gave me an opportunity to get exposed to this part of the process. For our Email Hackathon (a day we just worked on improving the emails sent out to customers) I had the opportunity to organize the project on <a href = 'https://www.pivotaltracker.com'>Pivotal</a> and actively participate in the process of prioritizing, estimating, and scoping the work for that day. It was a great learning experience and a lot of fun. </p>
-<p><b>Diversity:</b>
-We are all aware that there is a huge lack of diversity in tech, and as someone who cares deeply about this issue working for a company that takes ownership of the issue makes a huge difference. Even though we have a long way to go, the engineering team at Good Eggs cares about taking steps in the right direction. Partnering with <a href = 'http://code2040.org/'>CODE2040</a>, having brainstorming sessions on how to increase diversity in the team, and having a forum in which to share ideas regarding diversity in tech are all examples of ways in which we are doing this. I am really proud to be part of a team in which it is not only acceptable, but it is productive to talk about making our team more diverse.  </p>
-<p>Being an intern at Good Eggs has been an amazing experience. I have learned as much about engineering process as I have about web development. I have worked on many different parts of the codebase with a lot of different developers. I have been shipping code since the first week. I have been part of a great team of genuinely nice people. And if that wasn’t enough, I have been able to add value to a product, see it grow, and do impactful work while learning a lot.</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/being-an-intern-at-goodeggs/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/being-an-intern-at-goodeggs/</guid>
-            <dc:creator><![CDATA[Estefania Ortiz]]></dc:creator>
-            <pubDate>Sat, 30 Aug 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Video: A Conversation on Service Design with Airbnb, Good Eggs and Lyft]]></title>
-            <description><![CDATA[<p>Last Wednesday, Aug 6, we hosted <a href="/posts/service-design-panel">A Conversation Service Design with Airbnb, Good Eggs and Lyft</a>. Here&#39;s the video of that conversation for those who were unable to join us in person.</p>
+<p>So far this is what I&#39;ve got...</p>]]></description><link>http://bites.goodeggs.com/posts/being-an-intern-at-goodeggs/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/being-an-intern-at-goodeggs/</guid><dc:creator><![CDATA[Estefania Ortiz]]></dc:creator><pubDate>Sat, 30 Aug 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Video: A Conversation on Service Design with Airbnb, Good Eggs and Lyft]]></title><description><![CDATA[<p>Last Wednesday, Aug 6, we hosted <a href="/posts/service-design-panel/">A Conversation Service Design with Airbnb, Good Eggs and Lyft</a>. Here&#39;s the video of that conversation for those who were unable to join us in person.</p>
 <iframe width="560" height="315" src="//www.youtube.com/embed/fkb08n81NAw" frameborder="0" allowfullscreen></iframe>
 
 <p><br>
@@ -187,40 +39,10 @@ Thanks to Patrice Martin from IDEO.org for her skillful moderating and to Katie 
 <p>One concept in particular stood out for me. It was the idea that you can&#39;t actually design all touch points of the customer experience across a service that spans the physical and digital realms and where much of the actual service is provided by a third party. Rather, identify and nurture a set of core values across all members of your team, your customers and your service providers and allow them to manifest those values in ways that are natural to them. Through this you will find behaviors emerging out in the wild that are consistent with those core values and result in a remarkably consistent experience for all involved.</p>
 <p>For Airbnb a core value is that the host is the hero of the guest experience. For Good Eggs it is the mission to grow and sustain local food systems worldwide. For Lyft it is a quirky style that celebrates individualism.</p>
 <p>What did you learn?</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/service-design-panel-video/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/service-design-panel-video/</guid>
-            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
-            <pubDate>Wed, 13 Aug 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Loud and Proud: What's Your Ideal Workplace?]]></title>
-            <description><![CDATA[<p>Imagine your ideal workplace. What’s it look like? More to the point, what’s it sound like?</p>
+]]></description><link>http://bites.goodeggs.com/posts/service-design-panel-video/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/service-design-panel-video/</guid><dc:creator><![CDATA[Alon Salant]]></dc:creator><pubDate>Wed, 13 Aug 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Loud and Proud: What's Your Ideal Workplace?]]></title><description><![CDATA[<p>Imagine your ideal workplace. What’s it look like? More to the point, what’s it sound like?</p>
 <p>The Good Eggs foodhub in San Francisco, where the engineering team resides, isn’t the quietest place I’ve ever worked. Every morning, there’s local farmers wheeling in crate after crate of watermelons and tomatoes and so much more. There’s the sound of our operations team working to get all that food into the right bins and later into the right cars, delivering people good, local food, grown with integrity. There’s the chatter of the daily standup meetings that spring up all around the foodhub throughout the morning as each team gears up for the day.</p>
 <p>Is all that action distracting? Not for me! I absolutely love it. When I wake up every morning, I can’t imagine a better, more exciting place to go work. Our foodhub isn’t a shrine to silent contemplation. And it shouldn’t be. It’s a living, breathing part of the new food economy that we’re helping to build.</p>
-<p>There are two things in particular that I love about coding in the foodhub.</p>
-<!-- more -->
-
-<h2 id="rapid-feedback">Rapid Feedback</h2>
-<p>Last week, we on the “operations tools” team built some new features to use barcodes and scanners to make it easier to keep track of the food we receive at the foodhub every morning. Tuesday afternoon, we pushed the code to production. Wednesday morning, the receiving lead in San Francisco, Zach, used the new tools to check in that day’s food as it arrived. Some features worked well, and some didn’t, so he walked the twenty yards over to our cluster of desks and told us about it. Wednesday afternoon, we pushed some updates. Thursday morning, Zach used it again and gave us his stamp of approval.</p>
-<p>It’s easy to talk about the value of rapid prototyping. I think it’s tough to imagine really making it happen without the easy communication that our foodhub creates.</p>
-<h2 id="task-significance-finding-meaning-in-work">Task Significance: Finding Meaning in Work</h2>
-<p>What makes for good work? People point to many different things: interesting challenges. Room for creativity. <a href="https://www.goodeggs.com/about/team/sfbay">Great teammates</a>. Constant learning and growth. I’ve found all of those in abundance at Good Eggs.</p>
-<p>But most of all, I’ve found meaning in my work here. Theorists of work describe <a href="http://imondrow.blogspot.com/2010/12/significance-of-task-significance.html">“task significance”</a> as the perception that one&#39;s job has a positive impact on other people. Not surprisingly, task significance is strongly correlated with <a href="http://psycnet.apa.org/journals/apl/93/1/108/">higher performance</a> and <a href="http://rop.sagepub.com/content/24/1/18.full.pdf">satisfaction</a> at work.</p>
-<p>Task significance is easy to come by at Good Eggs. Every day, the foodhub reminds me of why I’m working here. I’m working to support the farmer who shows up at our foodhub twice a week, selling locally, organically grown produce. I&#39;m working to support our awesome, skilled operations team as they lovingly sort through produce, carefully pack bags, and efficiently deliver food to our waiting customers. I&#39;m working to support the people who will soon receive their orders, so that they can eat delicious, healthy meals while participating in a thriving local economy.</p>
-<p>Task significance? Heck yes.</p>
-<p>In the 19th century, German philosopher <a href="http://plato.stanford.edu/entries/schopenhauer/">Arthur Schopenhauer</a> <a href="https://www.goodreads.com/quotes/369017-i-have-long-held-the-opinion-that-the-amount-of">wrote</a>, &quot;I have long held the opinion that the amount of noise that anyone can bear undisturbed stands in inverse proportion to his mental capacity and therefore be regarded as a pretty fair measure of it.&quot;</p>
-<p>With all due respect, Arthur, I disagree. If the noise in question is the sound of a local, ethical, friendly food economy growing and thriving, then I want to work right in the middle of it.</p>
-<p>What makes a good workplace for you? Let us know!</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/ideal-workplace/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/ideal-workplace/</guid>
-            <dc:creator><![CDATA[Adam Perelman]]></dc:creator>
-            <pubDate>Mon, 04 Aug 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[A Conversation on Service Design with Airbnb, Good Eggs and Lyft]]></title>
-            <description><![CDATA[<p><img src="https://dl.dropboxusercontent.com/u/1399154/service_design_panel/Service_Design_Graphic.png"/></p>
+<p>There are two things in particular that I love about coding in the foodhub.</p>]]></description><link>http://bites.goodeggs.com/posts/ideal-workplace/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/ideal-workplace/</guid><dc:creator><![CDATA[Adam Perelman]]></dc:creator><pubDate>Mon, 04 Aug 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[A Conversation on Service Design with Airbnb, Good Eggs and Lyft]]></title><description><![CDATA[<p><img src="https://dl.dropboxusercontent.com/u/1399154/service_design_panel/Service_Design_Graphic.png"/></p>
 <p><a href="https://www.eventbrite.com/e/a-conversation-on-service-design-with-airbnb-good-eggs-and-lyft-tickets-12270402103?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid=12270402103" alt="Eventbrite - A Conversation on Service Design with Airbnb, Good Eggs and Lyft" /></a></p>
 <p>Recent years have seen the rise of companies that serve well-established needs in people’s lives with novel supply chains built on the resources and hard work of individuals rather than faceless corporations.</p>
 <p>Airbnb provides travel accommodation by aggregating rooms, apartments and houses from individuals around the world. Good Eggs provides home groceries by aggregating food available directly from local farmers and foodmakers. Lyft provides daily transportation by connecting passengers to people with cars and spare time.</p>
@@ -234,353 +56,113 @@ Frank Yoo, <em>Director of Product Design, Lyft</em><br/></p>
 <p>Moderated by Patrice Martin, <em>Co-Lead + Creative Director, IDEO.org</em></p>
 <p>Doors open at 6:30pm for great nourishing local snacks and drink from Good Eggs producers. Panel discussion starts at 7:30pm. Doors close at 9:30pm.</p>
 <p><a href="https://www.eventbrite.com/e/a-conversation-on-service-design-with-airbnb-good-eggs-and-lyft-tickets-12270402103?ref=ebtnebregn" target="_blank"><img src="https://www.eventbrite.com/custombutton?eid=12270402103" alt="Eventbrite - A Conversation on Service Design with Airbnb, Good Eggs and Lyft" /></a></p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/service-design-panel/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/service-design-panel/</guid>
-            <dc:creator><![CDATA[Alon Salant]]></dc:creator>
-            <pubDate>Tue, 15 Jul 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Out of the frying pan]]></title>
-            <description><![CDATA[<p>I am 32 and Good Eggs is the first company I have ever drawn a salary from. That wasn&#39;t exactly my intention. As a teenager I sketched out user interfaces in my room and dreamed of working at Pixar or <a href="https://web.archive.org/web/20000510065138/http://www.aliaswavefront.com/pages/home/index.html">Alias|Wavefront</a>. But I guess my most exciting opportunties were always hourly gigs, contracting jobs, grad school, and&mdash;most recently&mdash;founding a startup.</p>
+]]></description><link>http://bites.goodeggs.com/posts/service-design-panel/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/service-design-panel/</guid><dc:creator><![CDATA[Alon Salant]]></dc:creator><pubDate>Tue, 15 Jul 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Out of the frying pan]]></title><description><![CDATA[<p>I am 32 and Good Eggs is the first company I have ever drawn a salary from. That wasn&#39;t exactly my intention. As a teenager I sketched out user interfaces in my room and dreamed of working at Pixar or <a href="https://web.archive.org/web/20000510065138/http://www.aliaswavefront.com/pages/home/index.html">Alias|Wavefront</a>. But I guess my most exciting opportunties were always hourly gigs, contracting jobs, grad school, and&mdash;most recently&mdash;founding a startup.</p>
 <p>I like design and development because they are super creative, but I can&#39;t resist applying that creativity to management philosophies, corporate structures, and every other aspect of a business. That can make it hard to work for other people, who will inevitably have different ideas about how things should work.</p>
 <p>Founding a startup is an alluring alternative. There&#39;s no technical debt to work around. There are no power structures you have to reckon with. You can call shots all day without worrying much about stepping on other peoples&#39; toes. You make compromises and code up ugly hacks, but they&#39;re <em>your</em> compromises and <em>your</em> ugly hacks.</p>
-<p>It&#39;s addictive.</p>
-<!-- more -->
-
-<p>And if you can code, you can do a little consulting on the side and support your entrepreneurship habit more or less indefinitely, designing, coding, releasing, and experimenting to your heart&#39;s content.</p>
-<p>But a company is more than code. And growing a group of people into a healthy, stable team is hard. In five years of trying on my own, I wasn&#39;t able to get there. All of that freedom allowed me to indulge my whims, but most of those whims turned out to be dead ends. And each time something fell apart, it took a little more wind out of my sails, both as a boss and as a person. Without anyone else to blame failures on, it got hard to believe in myself. And it got hard to put the work aside in the evening. Even though I was living the entrepreneurship dream, I started waking up with a belly full of dread.</p>
-<p>So I reached out to Good Eggs and I got a &quot;real&quot; job. I get in by 10, and I leave by 6. Someone else decides what we eat for lunch. Someone else worries about our brand. Someone else worries about funding. Someone else worries about almost everything.</p>
-<p>And I get to choose one or two things each week to really focus on. I&#39;m thinking about the diversity of our engineering team. I&#39;m thinking about doing more rapid prototyping. The team seems to think agile planning and continuous integration make it less neccessary, but I&#39;m not sure.</p>
-<p>And I have to say, my mental health is much improved.</p>
-<p>So for now, I&#39;m rather enjoying being a corporate drone. I still dream of radical departures from the status quo, even here at Good Eggs, where we do a lot of things differently. But these days I have much less desire to white-knuckle things into existence all by myself. It takes a village, and going forward I&#39;m going to try to stay a part of one.</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/frying-pan/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/frying-pan/</guid>
-            <dc:creator><![CDATA[Erik Pukinskis]]></dc:creator>
-            <pubDate>Tue, 24 Jun 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Loading Scripts in the Critical Path: A Commerce Case Study]]></title>
-            <description><![CDATA[<div class="series">
+<p>It&#39;s addictive.</p>]]></description><link>http://bites.goodeggs.com/posts/frying-pan/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/frying-pan/</guid><dc:creator><![CDATA[Erik Pukinskis]]></dc:creator><pubDate>Tue, 24 Jun 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Loading Scripts in the Critical Path: A Commerce Case Study]]></title><description><![CDATA[<div class="series">
     <blockquote>This is the third article in a series of posts detailing the launch of our mobile site.</blockquote>
     <ol>
-        <li><a href="/posts/good-eggs-goes-mobile">Good Eggs Goes Mobile</a></li>
-        <li><a href="/posts/rivets-for-mobile">Rivets for Mobile Web</a></li>
-        <li><a href="/posts/mobile-page-load">Planning Page Load Sequence</a></li>
-        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish">Speed with Node and Varnish</a></li>
+        <li><a href="/posts/good-eggs-goes-mobile/">Good Eggs Goes Mobile</a></li>
+        <li><a href="/posts/rivets-for-mobile/">Rivets for Mobile Web</a></li>
+        <li><a href="/posts/mobile-page-load/">Planning Page Load Sequence</a></li>
+        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish/">Speed with Node and Varnish</a></li>
         <li>Appropriate image sizes with imgix</li>
         <li>Integration testing over unit testing</li>
     </ol>
 </div>
 
-<p>Starting javascript on DOMContentLoaded, a pattern <a href="https://docs.angularjs.org/guide/bootstrap">baked into</a> or <a href="http://backbonejs.org/docs/todos.html#section-2">recommended by</a> many frameworks, defers some work that could be done earlier.  There aren&#39;t many examples of what can be done early, or how to wire it up.  Here&#39;s how we did it on the Good Eggs mobile site.
-<!-- more --></p>
-<h2 id="the-problem">The Problem</h2>
-<p>DOMContentLoaded is the start of life for most Javascript apps. It&#39;s a browser event signalling HTML has been fully parsed, and javascript can do <a href="http://blogs.msdn.com/b/ie/archive/2008/04/23/what-happened-to-operation-aborted.aspx">its worst</a>. Frameworks like Angular wait by default for this event before starting up. Usually, our app must start up before a visitor can accomplish whatever it is they came for.  We need to wire up event listeners.  We might even need to generate DOM elements by rendering templates. DOMContentLoaded quickly becomes a bottleneck in our <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/measure-crp">critical rendering path</a>.  Phones, with their high-latency networks, exacerbate the problem.  An extra request for javascript can <a href="http://calendar.perfplanet.com/2011/carrier-networks-down-the-rabbit-hole/">add hundreds of milliseconds</a>.</p>
-<p>While this bottleneck is fairly <a href="https://groups.google.com/forum/#!topic/closure-library-discuss/G-7Ltdavy0E">widely</a> <a href="https://alexsexton.com/blog/2010/01/dont-let-document-ready-slow-you-down/">known</a>, and most frameworks provide hooks for motivated developers to work around it, examples of starting up rich browser apps early are sparse. The Good Eggs engineering team, unconvinced that the heavy-backbone client-rendered approach of our desktop site could deliver a satisfying mobile experience, explored early start up.</p>
-<h2 id="our-approach">Our Approach</h2>
-<div class="right">
-<img src="/images/mobile-page-load/complete-page.jpg" alt="finished page">
-</div>
-
-<p>We&#39;ll step through loading a page selling blueberries as an example.  It&#39;s a good candidate for page load optimization because it&#39;s high traffic, and much of the value of the page doesn&#39;t depend on the interactive elements. Visitors land on this page to learn more about blueberries, things like &quot;Who grew them?&quot;, or &quot;Were they grown with pesticides?&quot;.  If they like what they find they may decide to buy, but we can build out the shopping widgets in a few hundred milliseconds while they learn.  We&#39;re not reducing the functionality of the page, or the total work it takes to set up, just moving some of it out of the critical path.</p>
-<p>Hoping to add minimal complexity, we split the single event, DOMContentLoaded, into the three that benefitted us most:</p>
-<ol>
-<li><a href="#page-dom-loaded">Page DOM Loaded</a> - The interesting bits of HTML markup have loaded</li>
-<li><a href="#page-js-loaded">Page JS Loaded</a> - Page specific, user-independent functionality has loaded</li>
-<li><a href="#session-loaded">Session Loaded</a> - User-specific functionality and data has loaded</li>
-</ol>
-<div class="clear"></div>
-
-<p>Loading the page on an iPhone 5 over a 3G network reveals this timeline:</p>
-<p><img src="/images/mobile-page-load/timeline.jpg" alt="timeline"></p>
-<p>Note that all three of these events occur on this page before <a href="https://developer.mozilla.org/en-US/docs/Web/Reference/Events/DOMContentLoaded">DOMContentLoaded</a>, the traditional launchpoint for single page js apps.  We&#39;re piggybacking on the browser&#39;s <a href="http://en.wikipedia.org/wiki/Incremental_rendering">incremental rendering</a> to wire up javascript before the DOM has fully finished loading.</p>
-<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="comment">&lt;!-- 1. Page DOM Loaded --&gt;</span>
-  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="comment">&lt;!-- 2. Page JS Loaded --&gt;</span>
-  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">startPage({<span class="comment">/* user-agnostic data */</span>})</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/session.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="comment">&lt;!-- 3. Session JS Loaded --&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span>
-<span class="comment">&lt;!-- DOMContentLoaded --&gt;</span></code></pre>
-<p>What can we do at these points? We&#39;ll explore each in detail below.</p>
-<h2 id="page-dom-loaded">Page DOM Loaded</h2>
-<div class="right">
-<img src="/images/mobile-page-load/page-dom-loaded.jpg" alt="page dom loaded">
-</div>
-
-<p>At this point, we&#39;ve loaded the markup that makes this page useful: the name and size of the blueberries a (cached) photo, a link to the shopper&#39;s basket and more.</p>
-<p>The link to the basket and the link back to previous page are vanilla <code>&lt;a&gt;</code> tags, so the visitor can click them now before any javascript has loaded.  The hamburger menu icon won&#39;t actaully open the menu until the Page JS Loaded hook.  We could hide it until js has loaded but the flickering drew unwanted attention to that corner of the screen.</p>
-<p>Note that that basket icon, while clickable, doesn&#39;t yet have the count of items in the basket.  That user-specific count comes in with the session.</p>
-<p>By building the page with this stage of the lifecycle in mind, and pre-rendering on the server, we show information about the blueberries a full second before DOMContentLoaded.  If the user is just browsing (not shopping), this is the end of their critical path.</p>
-<div class="clear"></div>
-
-<h2 id="page-js-loaded">Page JS Loaded</h2>
-<div class="right">
-<img src="/images/mobile-page-load/page-js-loaded.jpg" alt="page js loaded">
-</div>
-
-<p>At this point, all the javascript powering interactions on this page has loaded and executed. The hamburger menu is now interactive, even though we still don&#39;t know how many items are in the user&#39;s basket.</p>
-<p>Although we&#39;ve wired up event listeners for the &quot;Add to Basket&quot; button and quantity toggle (saving future script execution cycles), we keep the button hidden until we know if the user already has some of these blueberries in their basket so we can message appropriately.</p>
-<div class="clear"></div>
-
-<h2 id="session-loaded">Session Loaded</h2>
-<div class="right">
-<img src="/images/mobile-page-load/all-js-loaded.jpg" alt="finished page">
-</div>
-
-<p>At this point, we&#39;ve got user-specific data like the contents of their basket.  We can finally fill in that pesky item count in the top right, and show the &quot;Add to Basket&quot; button.</p>
-<p>Why is this a big enough win to merit one of three lifecycle events? Caching.</p>
-<p>Fastly can deliver our js bundle cached from its CDN in less time than it takes our server to send a little user-specific session information.  The screenshot below shows the case with the largest gap, where cachable scripts are already cached on the phone (note the 304 response) and only the session requires a network request.  This is the load sequence we expect for visitors browsing around the site, looking at all the wild vegetables availing only in the spring.</p>
-<div class="clear"></div>
-
-<p><img src="/images/mobile-page-load/network.jpg" alt="network"></p>
-<p>For visitors who came to shop (rather than ogle), the &quot;Add to Basket&quot; button is in the critical path. They can&#39;t leave this page with the blueberries they came for until they click that button. We wait for session information to load before showing the button so shoppers can see how many, if any, blueberries they&#39;re already getting.</p>
-<p>The session request is often the slowest for this user flow. We want to start it as early as possible, so we load it with a script tag. Firing off an XmlHttpRequest from the page js would be more convenient for developers (we&#39;d get a sucess callback to wire into), but doing so would delay starting the session request until after the page script had loaded and executed, potentially several hundred millis.  Instead we place a script tag just below the page js script tag in the body:</p>
-<pre class="highlight"><code class="xml"><span class="tag">&lt;<span class="title">body</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="comment">&lt;!-- Page DOM ... --&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdn.example.com/page.{{hash}}.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript">startPage(<span class="comment">/*...*/</span>)</span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/session.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">body</span>&gt;</span></code></pre>
-<p>With this arrangement, modern browsers will download both scripts in parallel, and execute them in the order they appear in the DOM. The page script can listen for the session script to finish, fill in the user details, and complete our page.</p>
-<h2 id="next-steps">Next Steps</h2>
-<p>There are still major oppourtunities to optimize our critical path.</p>
-<p>Currently, to keep the build process simple, we inline all the styles for the whole site in the head of every page. This should be trimmed down to only the styles used on the page, and ideally on the styles for the above-the-fold content.</p>
-<div class="right">
-<img src="/images/mobile-page-load/incremental.jpg" alt="incremental rendering">
-</div>
-
-<p>We should optimize the order of the elements in the page DOM, so the most interesting are incrementally rendered first.  Currently the DOM order mirrors vertical order on the page, loading the navigation first.</p>
-<p>For maximum performance, all the HTML and CSS to render the above-the-fold content should <a href="http://calendar.perfplanet.com/2012/make-your-mobile-pages-render-in-under-one-second/">come in the first 15kB</a> (compressed).</p>
-<div class="clear"></div>
-
-<p>We&#39;re hoping these three page load hooks give us the flexibility to tune mobile and responsive web perfomance moving forward.  If you&#39;ve tried a different approach to optimizing the DOMContentLoaded bottleneck, we&#39;d love to hear about it!</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/mobile-page-load/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/mobile-page-load/</guid>
-            <dc:creator><![CDATA[Adam Hull]]></dc:creator>
-            <pubDate>Mon, 16 Jun 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone]]></title>
-            <description><![CDATA[<blockquote>
+<p>Starting javascript on DOMContentLoaded, a pattern <a href="https://docs.angularjs.org/guide/bootstrap">baked into</a> or <a href="http://backbonejs.org/docs/todos.html#section-2">recommended by</a> many frameworks, defers some work that could be done earlier.  There aren&#39;t many examples of what can be done early, or how to wire it up.  Here&#39;s how we did it on the Good Eggs mobile site.]]></description><link>http://bites.goodeggs.com/posts/mobile-page-load/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/mobile-page-load/</guid><dc:creator><![CDATA[Adam Hull]]></dc:creator><pubDate>Mon, 16 Jun 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone]]></title><description><![CDATA[<blockquote>
 <p>Reposted with permission by <a href="http://strongloop.com/">StrongLoop</a>. Originally appeared on <a href="http://strongloop.com/strongblog/comparing-node-js-promises-trycatch-zone-js-angular/">April 16, 2014</a>.</p>
 </blockquote>
 <h1 id="handling-errors-in-async-flow">Handling errors in async flow</h1>
 <p>In the <a href="http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/">previous article</a> we&#39;ve talked about managing async flow and escaping the <a href="http://callbackhell.com/">callback hell</a>.</p>
 <h2 id="the-problem">The problem</h2>
-<p>Handling errors in asynchronous flow is pretty straightforward and easy. Handling errors in asynchronous flow in a clean and easy to follow manner - not so much.</p>
-<!-- more -->
-
-<p>Lets look at the following code:</p>
-<pre class="highlight"><code class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
-  findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
-    <span class="keyword">if</span> (err) {
-      done(err);
-    }
-    <span class="keyword">else</span> {
-      <span class="keyword">try</span> {
-        <span class="package"><span class="keyword">package</span> = <span class="title">JSON</span>.<span class="title">parse</span>(<span class="title">content</span>);
-      }
-      <span class="title">catch</span> (<span class="title">e</span>) {</span>
-        done(e);
-      }
-
-      findDependencies(<span class="package"><span class="keyword">package</span>, <span class="title">function</span>(<span class="title">err</span>, <span class="title">dependencies</span>)) {</span>
-        <span class="keyword">if</span> (err) {
-          done(err);
-        }
-        <span class="keyword">else</span> {
-          processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
-            <span class="keyword">if</span> (err) {
-              done(err);
-            }
-            <span class="keyword">else</span> {
-              done(<span class="literal">null</span>, dependencies);
-            }
-          });
-        }
-      });
-    }
-  });
-}</code></pre>
-<p>We are covering all possible failure cases here using combination of <code>try/catch</code> and callback error handling, but boy do we repeat ourselves over and over again. Lets try and rewrite this!</p>
-<h2 id="error-handling-using-try-catch">Error handling using try/catch</h2>
-<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName, done)</span> {</span>
-  <span class="keyword">try</span> {
-    findPackage(packageName, <span class="function"><span class="keyword">function</span><span class="params">(err, content)</span> {</span>
-      <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
-
-      findDependencies(JSON.parse(content), <span class="function"><span class="keyword">function</span><span class="params">(err, dependencies)</span>) {</span>
-        <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
-
-        processDependencies(dependencies, <span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
-          <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;
-
-          done(<span class="literal">null</span>, dependencies);
-        });
-      });
-    });
-  } <span class="keyword">catch</span> (e) {
-    done(e);
-  }
-}</code></pre>
-<p>Nice! That&#39;s much better. However, if we run this now, no errors will be caught. What&#39;s going on here?</p>
-<p><code>try/catch</code> idiom works very well when you have fully synchronous code, but asynchronous operations render it useless.</p>
-<p>The outer <code>try/catch</code> block will never catch anything because <code>findPackage</code> is asynchronous. The function will begin its course while the outer stack runs through and gets to the last line without any errors.</p>
-<p>If an error occurs at some point in the future inside asynchronous <code>findPackage</code> - <strong>nothing will be caught</strong>.</p>
-<p><img src="http://goodeggs.github.io/bites/images/posts/promises-trycatch-zones/catch-fail.gif"/></p>
-<p>Not useful.</p>
-<h2 id="error-handling-using-promises">Error handling using promises</h2>
-<p>In the <a href="http://strongloop.com/strongblog/node-js-callback-hell-promises-generators/">previous article</a> we&#39;ve talked about managing asynchronous flow and escaping the <a href="http://callbackhell.com/">callback hell</a> with promises. Lets put this promises to work here and rewrite this function.</p>
-<p>For the sake of moving forward quicker lets assume we are using <a href="https://github.com/petkaantonov/bluebird">Bluebird</a> promises library and that all our APIs now return promises instead of taking callbacks:</p>
-<pre class="highlight"><code class="scilab"><span class="function"><span class="keyword">function</span> <span class="title">updateDependencies</span><span class="params">(packageName)</span> {</span>
-  <span class="keyword">return</span> findPackage(packageName)
-    .<span class="keyword">then</span>(<span class="transposed_variable">JSON.</span>parse)
-    .<span class="keyword">then</span>(findDependencies)
-    .<span class="keyword">then</span>(processDependencies)
-    .<span class="keyword">then</span>(<span class="transposed_variable">res.</span>send)
-    ;
-}</code></pre>
-<p>Oh wow, that is so much nicer! Right? Right!</p>
-<p>But Alex, &quot;we&#39;ve lost our error handling&quot;, you might say. That&#39;s right, we don&#39;t need to do anything special here to propagate error because we return a promise and there&#39;s built in support for error flow. Lets see how error handling might look like with promises:</p>
-<pre class="highlight"><code class="scilab"><span class="transposed_variable">button.</span>addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
-  updateDependencies(<span class="string">"packageName"</span>)
-    .<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(dependencies)</span> {</span>
-      <span class="transposed_variable">output.</span>innerHTML = <span class="transposed_variable">dependencies.</span>join(<span class="string">"\n"</span>);
-    })
-    .<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(err)</span> {</span>
-      <span class="transposed_variable">output.</span>innerHTML = <span class="string">"There was an error"</span>;
-    });
-});</code></pre>
-<p>Very slick, I&#39;m a fan!</p>
-<h2 id="error-using-zones">Error using Zones</h2>
-<p>Handling rejected promises works really well when we are in full control of the flow. But what happens if some third-party code throws an error during an asynchronous operation? Lets look at another example:</p>
-<pre class="highlight"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">thirdPartyFunction</span><span class="params">()</span> {</span>
-  <span class="function"><span class="keyword">function</span> <span class="title">fakeXHR</span><span class="params">()</span> {</span>
-    <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Invalid dependencies"</span>);
-  }
-
-  setTimeout(fakeXHR, <span class="number">100</span>);
-}
-
-<span class="function"><span class="keyword">function</span> <span class="title">main</span><span class="params">()</span> {</span>
-  button.on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> <span class="title">onClick</span><span class="params">()</span> {</span>
-    thirdPartyFunction();
-  });
-}
-
-main();</code></pre>
-<p>In this case, we wouldn&#39;t have a chance to catch and process the error. Generally, the only recourse here is using half baked <code>window.onerror</code> that doesn&#39;t give you any stack information at all. At least you can log something, right? Not that there&#39;s much to log:</p>
-<pre class="highlight"><code class="vbnet">Uncaught <span class="keyword">Error</span>: Invalid dependencies
-    fakeXHR</code></pre>
-<p>Up until recently that was pretty much all we had. However, this january <a href="https://github.com/btford">Brian Ford</a> of the <a href="http://angularjs.org">angular.js</a> fame has released <a href="https://github.com/btford/zone.js/">Zone.js</a> which aims to help tackle this.</p>
-<p>Basically, <a href="https://github.com/btford/zone.js/">Zone.js</a> <strong>overrides all asynchronous functions in the browser</strong> with custom implementations which allows it to keep track of the context. Dangerous? Yes! But as we say in Soviet Russia, &quot;he who doesn&#39;t risk never gets to drink champagne&quot; (or in English &quot;nothing ventured, nothing gained&quot;).</p>
-<p>Anyways, lets look at how this works. Assuming you have included <code>zones.js</code> and <code>long-stack-trace-zone.js</code> as per the docs, we just change <code>main()</code> call to:</p>
-<pre class="highlight"><code class="avrasm">zone<span class="preprocessor">.fork</span>(Zone<span class="preprocessor">.longStackTraceZone</span>)<span class="preprocessor">.run</span>(main)<span class="comment">;</span></code></pre>
-<p>Refresh, click the button, and now our stack looks like this:</p>
-<pre class="highlight"><code class="bash">Error: Invalid dependencies
-    at fakeXHR (script.js:<span class="number">7</span>:<span class="number">11</span>)
-    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
-    at zoneBoundFn (zones.js:<span class="number">27</span>:<span class="number">19</span>)
---- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">106</span>ms ago
-Error
-    at Function.getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
-    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
-    at zone.(anonymous function) (zones.js:<span class="number">61</span>:<span class="number">27</span>)
-    at marker (zones.js:<span class="number">66</span>:<span class="number">25</span>)
-    at thirdPartyFunction (script.js:<span class="number">10</span>:<span class="number">3</span>)
-    at HTMLButtonElement.onClick (script.js:<span class="number">15</span>:<span class="number">5</span>)
-    at HTMLButtonElement.x.event.dispatch (jquery.js:<span class="number">5</span>:<span class="number">10006</span>)
-    at HTMLButtonElement.y.handle (jquery.js:<span class="number">5</span>:<span class="number">6789</span>)
-    at Zone.run (zones.js:<span class="number">41</span>:<span class="number">19</span>)
---- Tue Mar <span class="number">25</span> <span class="number">2014</span> <span class="number">21</span>:<span class="number">20</span>:<span class="number">32</span> GMT-<span class="number">0700</span> (PDT) - <span class="number">1064</span>ms ago
-Error
-    at getStacktraceWithUncaughtError (long-stack-trace-zone.js:<span class="number">24</span>:<span class="number">32</span>)
-    at Function.Zone.getStacktrace (long-stack-trace-zone.js:<span class="number">37</span>:<span class="number">15</span>)
-    at Zone.longStackTraceZone.fork (long-stack-trace-zone.js:<span class="number">70</span>:<span class="number">43</span>)
-    at Zone.<span class="built_in">bind</span> (zones.js:<span class="number">25</span>:<span class="number">21</span>)
-    at HTMLButtonElement.obj.addEventListener (zones.js:<span class="number">132</span>:<span class="number">37</span>)
-    at Object.x.event.add (jquery.js:<span class="number">5</span>:<span class="number">7262</span>)
-    at HTMLButtonElement.&lt;anonymous&gt; (jquery.js:<span class="number">5</span>:<span class="number">14336</span>)
-    at Function.x.extend.each (jquery.js:<span class="number">4</span>:<span class="number">4575</span>)
-    at x.fn.x.each (jquery.js:<span class="number">4</span>:<span class="number">1626</span>)
-    at x.fn.extend.on (jquery.js:<span class="number">5</span>:<span class="number">14312</span>)</code></pre>
-<p>What the what?? Cool! We can now see that the relevant code path started in our <code>onClick</code> method and went into <code>thirdPartyFunction</code>.</p>
-<p>The cool part is, since <a href="https://github.com/btford/zone.js/">Zone.js</a> overrides browser methods, it doesn&#39;t matter what libraries you use. It just works.</p>
-<h2 id="another-async-flow-control-project-called-zones-">Another async flow control project called Zones?</h2>
-<p>Yep, StrongLoop’s <a href="https://github.com/piscisaureus">Bert Belder</a> has been working on a similar idea called “<a href="https://www.npmjs.org/package/zone">Zone</a>“ for a few months now. (Not to be confused with the Angular <a href="https://github.com/btford/zone.js/">Zone.js</a> project we&#39;ve just been discussing, which shares the same name and some technical characteristics. Yeah, it’s a little confusing, but we are actively working with <a href="https://github.com/btford">Brian Ford</a> on how to potentially bring together these two projects for the mutual benefit of the JavaScript and Node communities. Stay tuned!)</p>
-<h2 id="why-a-node-specific-zones-project-">Why a Node-specific Zones project?</h2>
-<p>Currently, there are a couple of problems that make it really hard to deal with asynchronous control flow in Node that Zones looks to address. Specifically:</p>
-<ul>
-<li>Stack traces are useless when an asynchronous function fails.</li>
-<li>Asynchronous functions are hard to compose into more high-level APIs. Imagine implementing a simple asynchronous API like bar(arg1, arg2, cb) where cb is the error-first callback that the user of the API specifies. To implement this correctly you must take care:<ul>
-<li>to always call the callback</li>
-<li>don’t call the callback more than once</li>
-<li>don’t synchronously throw and also call the callback</li>
-<li>don’t call the callback synchronously</li>
-</ul>
-</li>
-<li>It is difficult to handle errors that are raised asynchronously. Typically node will crash. If the uses chooses to ignore the error, resources may leak. Zones should make it easy to handle errors and to avoid resource leaks.</li>
-<li>Sometimes there is a need to associate user data to an asynchronous flow. There is currently no way to do this.</li>
-</ul>
-<p>Want to learn more about Zones? Stay tuned for more information in the coming weeks. Follow us on <a href="https://twitter.com/StrongLoop">Twitter</a> or subscribe to our <a href="http://strongloop.com/newsletter-registration/">newsletter</a> to make sure you don’t miss the announcements.</p>
-<h2 id="what-s-next-">What&#39;s next?</h2>
-<ul>
-<li>Watch <a href="http://www.youtube.com/watch?v=3IqtmUscE_U">Brian&#39;s presentation</a> from ngconf 2014, it&#39;s pretty cool!</li>
-<li>Add <a href="https://github.com/btford/zone.js/">Zone.js</a> to your application.</li>
-<li>Profit!</li>
-</ul>
-<p><img src="http://goodeggs.github.io/bites/images/posts/promises-trycatch-zones/party.gif"/></p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/promises-trycatch-zones/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/promises-trycatch-zones/</guid>
-            <dc:creator><![CDATA[Alex Gorbatchev]]></dc:creator>
-            <pubDate>Mon, 09 Jun 2014 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[You Forgot About bfcache!]]></title>
-            <description><![CDATA[<style>.entry-content img { display: block; margin: 0 auto }</style>
+<p>Handling errors in asynchronous flow is pretty straightforward and easy. Handling errors in asynchronous flow in a clean and easy to follow manner - not so much.</p>]]></description><link>http://bites.goodeggs.com/posts/promises-trycatch-zones/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/promises-trycatch-zones/</guid><dc:creator><![CDATA[Alex Gorbatchev]]></dc:creator><pubDate>Mon, 09 Jun 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[You Forgot About bfcache!]]></title><description><![CDATA[<style>.entry-content img { display: block; margin: 0 auto }</style>
 
 <p>So there we were, putting the polishing touches on our mobile app.  There were a few big bugs that we wanted to clean up before we launched.  One seemed a bit edge-case-y, but still not good: when iPhone users clicked on products and then subsequently clicked back to the product listings, they saw our animated spinner stuck like this:</p>
-<p><img src="/images/spin-spin.gif" alt="Waiting for user to reload"></p>
-<!-- more -->
+<p><img src="/images/spin-spin.gif" alt="Waiting for user to reload"></p>]]></description><link>http://bites.goodeggs.com/posts/you-forgot-about-bfcache/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/you-forgot-about-bfcache/</guid><dc:creator><![CDATA[Brian Underwood]]></dc:creator><pubDate>Wed, 28 May 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[What Are Your Hiring Criteria?]]></title><description><![CDATA[<p>What are the criteria you use when hiring for your team? Have you written them down?</p>
+<p>Lots of people think they have clear criteria for hiring but have never taken the time to write them down. Written criteria are an important component of an effective hiring process. In this post I&#39;ll share some guidance on establishing clear criteria, how to use them to design an efficient interview process, and the role they play in developing diversity on your team.</p>
+<h2 id="defining-your-hiring-criteria">Defining Your Hiring Criteria</h2>
+<p>There are a number strategies you can use to get to your criteria. If you haven&#39;t already you could probably just write them down right now and have something to work with. That&#39;s a fine start. Sharing them with your team for review and revision is likely to make them even better.</p>
+<p>Another approach is to actively engage your team in developing your criteria. You can get pretty far with this short exercise.</p>
+<ul>
+<li>Gather your team in a quiet room</li>
+<li>Hand out stickies and sharpies</li>
+<li>Give the team 3 minutes to write down the desirable attributes of members of your team, one attribute per sticky</li>
+<li>Have each person put their stickies on a wall and form clusters of related items</li>
+<li>Give every member of the team 4 votes to <a href="http://martinfowler.com/bliki/DotVoting.html">dot vote</a> their top attributes</li>
+</ul>
+<p>Do the items with the most votes look like your criteria? You hopefully have a mix of different criteria that cover technical skills, working style, personality traits, domain expertise and more.</p>]]></description><link>http://bites.goodeggs.com/posts/written-hiring-criteria/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/written-hiring-criteria/</guid><dc:creator><![CDATA[Alon Salant]]></dc:creator><pubDate>Tue, 29 Apr 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Rivets for Mobile Web]]></title><description><![CDATA[<div class="series">
+    <blockquote>This is the second article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li><a href="/posts/good-eggs-goes-mobile/">Good Eggs Goes Mobile</a></li>
+        <li><a href="/posts/rivets-for-mobile/">Rivets for Mobile Web</a></li>
+        <li><a href="/posts/mobile-page-load/">Planning Page Load Sequence</a></li>
+        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish/">Speed with Node and Varnish</a></li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
 
-<p>It seemed straightforward enough, but it required some researching until we ran across this <a href="https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked">stack overflow post</a>.</p>
-<p>bfcache, eh?</p>
-<p><img src="/images/cosby-huh.gif" alt="bfcache?"></p>
-<p>From the Stack Overflow answer:</p>
+<p>Before coding a phone-sized farmer&#39;s market, the Good Eggs team built
+production sites using tools at both extremes of the javascript application
+ecosystem:  Backbone for our desktop experience and Angular for our internal tools.
+But neither felt quite right for our mobile site.</p>
+<p>We had two priorities for our mobile toolchain:]]></description><link>http://bites.goodeggs.com/posts/rivets-for-mobile/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/rivets-for-mobile/</guid><dc:creator><![CDATA[Adam Hull]]></dc:creator><pubDate>Fri, 25 Apr 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[Good Eggs Goes Mobile]]></title><description><![CDATA[<div class="series">
+    <blockquote>This is the first article in a series of posts detailing the launch of our mobile site.</blockquote>
+    <ol>
+        <li><a href="/posts/good-eggs-goes-mobile/">Good Eggs Goes Mobile</a></li>
+        <li><a href="/posts/rivets-for-mobile/">Rivets for Mobile Web</a></li>
+        <li><a href="/posts/mobile-page-load/">Planning Page Load Sequence</a></li>
+        <li><a href="/posts/speed-up-your-responsive-app-with-node-and-varnish/">Speed with Node and Varnish</a></li>
+        <li>Appropriate image sizes with imgix</li>
+        <li>Integration testing over unit testing</li>
+    </ol>
+</div>
+
+<p>In the past 6 months, 25% of our traffic came from mobile devices, and those users faced a
+daunting, near impossible shopping experience. In response, we launched a new
+mobile version of <a href="https://www.goodeggs.com">goodeggs.com</a> two weeks ago with an
+eye to simplify our major use case of filling your basket with products and
+checking out. To create the mobile experience we considered three options:</p>
+<ol>
+<li>native mobile apps for iOS and Android</li>
+<li>a responsive re-design of our existing website</li>
+<li>building a mobile website from scratch</li>
+</ol>]]></description><link>http://bites.goodeggs.com/posts/good-eggs-goes-mobile/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/good-eggs-goes-mobile/</guid><dc:creator><![CDATA[Michael Kebbekus and Adam Hull]]></dc:creator><pubDate>Fri, 11 Apr 2014 19:00:00 GMT</pubDate></item><item><title><![CDATA[JS Hack for Good with JSFest]]></title><description><![CDATA[<p>We&#39;re partnering with <a href="http://jsfest.com">JSFest</a> to host a JavaScript hack night for social good on Sunday evening March 9. JSFest runs March 6-12 in San Francisco.</p>
+<p>Let&#39;s spend a few hours hacking together to make the world a better place. Bring your project or your desire to help others with theirs. Open source and socially-minded projects are all welcome. If you want to give a short presentation or run a mini workshop we have the facilities and welcome your initiative.</p>
+<p>We&#39;ll kick off with project intros and requests for help to connect hackers with the projects they are interested in.</p>
+<p>Start at 6pm with some great local food and drink to help us all connect, kick off at 6:30pm and doors close at 10:00pm.
+A few folks from Good Eggs with expertise in Node, Backbone, Angular, MongoDB and more will be around to help and with some projects of their own.</p>
+<p><a href="http://www.meetup.com/cultivate/events/167399892/">Reserve your spot</a> and we&#39;ll see you Sunday!</p>
+]]></description><link>http://bites.goodeggs.com/posts/js-hack-for-good/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/js-hack-for-good/</guid><dc:creator><![CDATA[Alon Salant]]></dc:creator><pubDate>Tue, 04 Mar 2014 20:00:00 GMT</pubDate></item><item><title><![CDATA[The Good Eggs Software Development Manifesto]]></title><description><![CDATA[<p>At Good Eggs we are on a mission <em>to grow and sustain local food systems worldwide</em>. Everyone in the company is here because they believe in this mission and our vision for a better future.</p>
+<p>So how does this apply to our work as an engineering team and what other core values keep us aligned, excited and productive? We took some time to articulate our values as a team which I am presenting here as a first draft of our Software Development Manifesto.</p>]]></description><link>http://bites.goodeggs.com/posts/manifesto/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/manifesto/</guid><dc:creator><![CDATA[Alon Salant]]></dc:creator><pubDate>Tue, 25 Feb 2014 20:00:00 GMT</pubDate></item><item><title><![CDATA[Export This: Interface Design Patterns for Node.js Modules]]></title><description><![CDATA[<p>When you require a module in Node, what are you getting back? When you write a module, what options do you have for designing its interface?</p>
+<p>When I was first learning to work in Node I found the sheer number of ways to do things to be a bit overwhelming. JavaScript is extremely flexible and the community of developers contributing to open source seem to have different styles for implementing the same thing.</p>
+<p>On my journey with Node I&#39;ve been keeping an eye out the Good Way to do things and adopting them for use in my own work and in our work at Good Eggs.</p>
+<p>In this post I&#39;ll share my observations of the Node module system and the ways in which you can use it to encapsulate and share code. My goal is to identify and illustrate useful patterns for module interface design and to help you understand when and how to use them in your own work.</p>
+<p>I discuss seven patterns below, many of which can be used in combination. They are:</p>
+<ul>
+<li><a href="/posts/export-this/#namespace">Exports a Namespace</a></li>
+<li><a href="/posts/export-this/#function">Exports a Function</a></li>
+<li><a href="/posts/export-this/#higher_order_function">Exports a Higher Order Function</a></li>
+<li><a href="/posts/export-this/#constructor">Exports a Constructor</a></li>
+<li><a href="/posts/export-this/#singleton">Exports a Singleton</a></li>
+<li><a href="/posts/export-this/#global_object">Extends a Global Object</a></li>
+<li><a href="/posts/export-this/#monkey_patch">Applies a Monkey Patch</a></li>
+</ul>]]></description><link>http://bites.goodeggs.com/posts/export-this/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/export-this/</guid><dc:creator><![CDATA[Alon Salant]]></dc:creator><pubDate>Sun, 12 Jan 2014 20:00:00 GMT</pubDate></item><item><title><![CDATA[Cultivate Inaugural Meetup]]></title><description><![CDATA[<p>The first <a href="http://www.meetup.com/cultivate">Cultivate meetup</a> was a huge success.</p>
 <blockquote>
-<p>&quot;[bfcache] is supposed to save complete state of page when user navigates away.
-When user navigates back with back button page can be loaded from cache very quickly.
-This is different from normal cache which only caches HTML code.&quot;</p>
+&quot;great first event for a meetup with a compelling mix of javascript code and social impact&quot;
 </blockquote>
-<p>It turns out that all browsers support bfcache, but Mobile Safari sometimes needed a little extra help.  That led us to try something along the lines of this:</p>
-<pre class="highlight"><code class="coffeescript">    window.onpageshow, <span class="function"><span class="params">(event)</span> =&gt;</span>
-      <span class="keyword">if</span> event.persisted
-        overlay.hide() <span class="comment"># Hide the spinner overlay</span></code></pre>
-<p>Seemed like it should work, but it didn&#39;t!  After a lot more research and even more a lot more trial-and-error, we noticed we had multiple window.onpageshow assignments.  jQuery to the rescue (yet again)!</p>
-<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
-      <span class="keyword">if</span> event.persisted
-        overlay.hide()</code></pre>
-<p>With our fix in place we were ready to head home and have a beer, right?  Nope!  What if we needed to sneak past bfcache again?  Well how about we move the code to our main Page class and define an overwritable function called onBrowserBack?</p>
-<pre class="highlight"><code class="coffeescript">    $<span class="function"><span class="params">(<span class="built_in">window</span>)</span>.<span class="title">on</span> '<span class="title">pageshow</span>', <span class="params">(event)</span> =&gt;</span>
-      <span class="keyword">if</span> event.persisted
-        overlay.hide()
-        <span class="property">@onBrowserBack</span>?()</code></pre>
-<p><img src="/images/BOOM.gif" alt="BOOM!"></p>
-<p>This turned out to be really useful because the counter of items added to the basket in our navigation menu wasn&#39;t updating either.  We just threw a bit of code into the onBrowserBack function for our product listing page which made a request to get new session data and we&#39;d fixed two bugs with one event.</p>
-<p>If you&#39;ve read this far and you&#39;re interested in more on the ins-and-outs of how browsers deal with caching history you&#39;ll probably find <a href="http://madhatted.com/2013/6/16/you-do-not-understand-browser-history">You do not understand browser history</a> interesting and useful!</p>
-]]></description>
-            <link>http://goodeggs.github.io/bites/posts/you-forgot-about-bfcache/</link>
-            <guid isPermaLink="true">http://goodeggs.github.io/bites/posts/you-forgot-about-bfcache/</guid>
-            <dc:creator><![CDATA[Brian Underwood]]></dc:creator>
-            <pubDate>Wed, 28 May 2014 00:00:00 GMT</pubDate>
-        </item>
-    </channel>
-</rss>
+
+<blockquote>
+&quot;Great meetup! Lots of interesting people and talks. Looking forward to future ones.&quot;
+</blockquote>
+
+<blockquote>
+&quot;This was a great way to kickoff the Cultivate meetups; I left informed, enthused, (oh yeah, and nourished) and committed to return.&quot;
+</blockquote>]]></description><link>http://bites.goodeggs.com/posts/first-cultivate-meetup/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/first-cultivate-meetup/</guid><dc:creator><![CDATA[Kevin Uland]]></dc:creator><pubDate>Fri, 06 Dec 2013 20:00:00 GMT</pubDate></item><item><title><![CDATA[In Season for Fall and Winter]]></title><description><![CDATA[<p>Last week <a href="http://blog.goodeggs.com/post/62349630794/were-thrilled-to-partner-with-sequoia-capital-to">we announced our Series A funding</a>
+led by Sequoia Capital. After a summer of hustling to grow sales and build tools to keep great local food flowing smoothly
+through our San Francisco foodhub we can now turn attention to building the systems we need to scale Good Eggs in
+Brooklyn, New Orleans, Los Angeles and beyond.</p>
+<p>Here&#39;s an overview of what we&#39;re working on and what&#39;s coming up for the software development team at Good Eggs.</p>]]></description><link>http://bites.goodeggs.com/posts/fall-2013/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/fall-2013/</guid><dc:creator><![CDATA[Alon Salant]]></dc:creator><pubDate>Mon, 30 Sep 2013 19:00:00 GMT</pubDate></item><item><title><![CDATA[Fibrous on Harmony Generators? Impossible]]></title><description><![CDATA[<p>A good Friday afternoon chat about asynchronous programming models left me wondering if the fibrous API could be implemented on top of <a href="http://wiki.ecmascript.org/doku.php?id=harmony:generators">ES6 generators</a>. Generators are baked in to Node 0.11, Chrome 19, and Firefox.  A port would be a big boost to interoperability.  <a href="https://github.com/google/traceur-compiler">Traceur</a> can even transform generator based code into a <a href="http://traceur-compiler.googlecode.com/git/demo/repl.html#function*%20test%20()%20%7B%0A%20%20yield%201%3B%0A%20%20var%20a%20%3D%20yield%202%3B%0A%20%20try%20%7B%0A%20%20%20%20yield%20a%3B%0A%20%20%7D%20catch%20(e)%20%7B%0A%20%20%20%20yield%2099%3B%0A%20%20%7D%0A%20%20for(var%20i%20%3D0%3B%20i%20%3C%201%3B%20i%2B%2B)%20%7B%0A%20%20%20%20yield%20123%3B%0A%20%20%7D%0A%7D%0A%0Afunction%20normal()%20%7B%0A%20%20var%20a%20%3D%20b%3B%0A%20%20return%20b%3B%0A%7D">giant state machine</a> that runs on all of today&#39;s environments.</p>
+<p>At first the port looked promising. Wikipedia claimed that general coroutines could be <a href="http://en.wikipedia.org/wiki/Coroutine#Comparison_with_generators">built on generators</a>, and many folks have <a href="http://taskjs.org/">done</a> <a href="https://gist.github.com/creationix/5762837">just</a> <a href="https://gist.github.com/Benvie/5667557">that</a>.  After a little noodling I&#39;m pretty sure it can&#39;t be done.  In a Harmony environment a function can only suspend execution at <code>yield</code> expressions and <code>yield</code> expressions can only appear in generator functions. A yield expression cannot be wrapped up behind a fibrous <code>sync</code> or <code>wait</code>.</p>]]></description><link>http://bites.goodeggs.com/posts/fibrous-on-harmony-generators/</link><guid isPermaLink="true">http://bites.goodeggs.com/posts/fibrous-on-harmony-generators/</guid><dc:creator><![CDATA[Adam Hull]]></dc:creator><pubDate>Sat, 17 Aug 2013 19:00:00 GMT</pubDate></item></channel></rss>

@@ -1,0 +1,31 @@
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Reconnecting to MongoDB when Mongoose connect fails at startup | Bites from Good Eggs</title><meta name="author" content="Alon Salant" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="/favicon.ico?v=2" /><link rel="stylesheet" href="/styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="/rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26193287-5', 'github.io');
+ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></h1><ul class="unstyled nav"><li><a href="/">Blog</a></li><li><a href="/open_source/">Open Source</a></li><li><a href="/news/">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="http://fpio.goodeggs.com/api/file/dr8oggORaYMYXX016dAQ/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Alon Salant" /><h1 class="entry-title">Reconnecting to MongoDB when Mongoose connect fails at startup</h1><p class="meta"><a class="entry-author-name" href="/authors/alon_salant/">Alon Salant</a> on <time datetime="2012-11-16T20:00:00.000Z">November 16th, 2012</time></p></header><div class="entry-content"><p>We recently experienced a short outage when a deploy to Heroku came up during a brief period when network connectivity to <a href="https://www.mongohq.com">MongoHQ</a> was down.</p>
+<p>Our app came up but failed to connect to mongo. To our surprise, it did not attempt to reconnect, so even though MongoHQ came back quickly, our app continued to report errors<!-- more --> due to no mongo connection.</p>
+<p>This was especially surprising since we use <a href="http://mongoosejs.com/">mongoose.js</a> to map to mongo, and mongoose passes the <em>auto_reconnect=true</em> flag to <a href="https://github.com/mongodb/node-mongodb-native">node-mongodb-native</a>. It turns out auto_reconnect (aka autoReconnect in some contexts) only comes in to play if the driver has already successfully established a connection to mongo.</p>
+<p><a href="https://github.com/mongodb/node-mongodb-native/issues/655">According to the driver maintainers</a>, this is by design.</p>
+<blockquote>
+<p><span>by design, autoReconnect is after a successful connection. If you need to handle the case where your app is started before the server I recommend using setTimeout and doing your own connection logic for the db.open function.</span></p>
+</blockquote>
+<p><span>Seems like a bit of a cop out to me. You&#8217;ll try to reconnect on an interval if you loose the connection but not if you can&#8217;t connect initially? Doesn&#8217;t everyone need this functionality?</span></p>
+<p>Well, we clearly do so we implemented it and are sharing it here for you.</p>
+
+<pre><code class="js"><span class="hljs-keyword">var</span> mongoose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'mongoose'</span>)
+<span class="hljs-keyword">var</span> mongoUrl = <span class="hljs-string">"mongodb://localhost:27017/test"</span>
+
+<span class="hljs-keyword">var</span> connectWithRetry = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  <span class="hljs-keyword">return</span> mongoose.connect(mongoUrl, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span> </span>{
+    <span class="hljs-keyword">if</span> (err) {
+      <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'Failed to connect to mongo on startup - retrying in 5 sec'</span>, err);
+      setTimeout(connectWithRetry, <span class="hljs-number">5000</span>);
+    }
+  });
+};
+connectWithRetry();</code></pre>
+
+<p class="gist"><a href="http://gist.github.com/4092454">View gist on GitHub</a></p>
+</div><footer><p class="meta"><a class="basic-alignment left" href="/posts/removing-a-property-from-a-mongoose-schema/">&laquo; How to Remove a Property from a Mongoose.js Schema</a><a class="basic-alignment right" href="/posts/synchronous-node-console-with-fibrous/">Synchronous node console with fibrous &raquo;</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bytes.goodeggs.com/post/35878004826/reconnecting-to-mongodb-when-mongoose-connect-fails-at'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
