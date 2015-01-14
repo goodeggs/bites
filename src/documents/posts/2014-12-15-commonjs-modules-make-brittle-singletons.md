@@ -15,7 +15,7 @@ style: |
 
 We ocassionally rely on node's [module caching](http://nodejs.org/api/modules.html#modules_caching) to share a single instance throughout a full-stack javascript project. This strategy breaks more than we'd like.
 
-If a modules `butternut` and `delicata` both `require('squash')`, they'll usually get the same (think `===`) squash instance. But not always.
+If modules `butternut` and `delicata` both `require('squash')`, they'll usually get the same (think `===`) squash instance. But not always.
 
 Here are a couple times it hasn't worked out.
 
