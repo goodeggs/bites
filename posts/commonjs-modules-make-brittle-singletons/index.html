@@ -1,0 +1,45 @@
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>CommonJS Modules Make Brittle Singletons | Bites from Good Eggs</title><meta name="author" content="Adam Hull" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="/favicon.ico?v=2" /><link rel="stylesheet" href="/styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="/rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26193287-5', 'github.io');
+ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></h1><ul class="unstyled nav"><li><a href="/">Blog</a></li><li><a href="/open_source/">Open Source</a></li><li><a href="/news/">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><style scoped="scoped">.full-width img {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1em;
+}</style><header><img class="author" src="http://fpio.goodeggs.com/api/file/ziGF1yRt2PAZq3BpMQAA/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Adam Hull" /><h1 class="entry-title">CommonJS Modules Make Brittle Singletons</h1><p class="meta"><a class="entry-author-name" href="/authors/adam_hull/">Adam Hull</a> on <time datetime="2015-01-16T20:00:00.000Z">January 16th, 2015</time></p></header><div class="entry-content"><p>We ocassionally rely on node&#39;s <a href="http://nodejs.org/api/modules.html#modules_caching">module caching</a> to share a single instance throughout a full-stack javascript project. This strategy breaks more than we&#39;d like.</p>
+<p>If modules <code>butternut</code> and <code>delicata</code> both <code>require(&#39;squash&#39;)</code>, they&#39;ll usually get the same (think <code>===</code>) squash instance. But not always.</p>
+<p>Here are a couple times it hasn&#39;t worked out.</p>
+<!-- more -->
+
+<div class="full-width">
+<img src="/images/posts/commonjs-modules-make-brittle-singletons/brittle.jpg" alt="Olive &amp; Sinclair Chocolate Co
+Bourbon Nib Brittle">
+</div>
+
+
+<p>Let&#39;s say we&#39;re really into <a href="https://github.com/laverdet/node-fibers">node-fibers</a> with its concise coroutines and error handling. We&#39;re starting a new module, tests first, so we <code>npm install mocha mocha-fibers</code> and write some failing tests.  Next we <a href="https://github.com/goodeggs/fibrous"><code>npm install fibrous</code></a> to help implement our module.  If we list installed fibers with <code>npm ls fibers</code> we get:</p>
+<pre><code>├─┬ fibrous<span class="hljs-variable">@0</span>.<span class="hljs-number">3.3</span>
+│ └── fibers<span class="hljs-variable">@1</span>.<span class="hljs-number">0</span>.<span class="hljs-number">4</span>
+└─┬ mocha-fibers<span class="hljs-variable">@1</span>.<span class="hljs-number">1.0</span>
+  └── fibers<span class="hljs-variable">@1</span>.<span class="hljs-number">0</span>.<span class="hljs-number">4</span></code></pre>
+
+<p>Uh oh, we&#39;ve got two! This can cause some pretty <a href="https://github.com/laverdet/node-fibers/issues/102">wierd</a> <a href="https://github.com/laverdet/node-fibers/issues/177">behavior</a>.  Luckily, fibers was <a href="https://github.com/laverdet/node-fibers/commit/d9bc3a7b9d486d6f45170501de8626d52dfa5dfa">patched</a> in 1.0.4 to mitigate  this particular problem using global variables.  If we care  which version of <code>fibers</code> our project uses, it&#39;s best to install it explicitly as a top level dependency, before installing <code>fibrous</code> or <code>node-fibers</code>.  For example, <code>npm install fibers fibrous mocha-fibers</code> yields:</p>
+<pre><code>├── fibers<span class="hljs-variable">@1</span>.<span class="hljs-number">0</span>.<span class="hljs-number">5</span>
+├── fibrous<span class="hljs-variable">@0</span>.<span class="hljs-number">3.3</span>
+└── mocha-fibers<span class="hljs-variable">@1</span>.<span class="hljs-number">1.0</span></code></pre>
+
+<p>Only one <code>fibers</code>, much better.</p>
+<p>Recap: multiple modules with a shared dependency can get different instances of that dependency. Nothing super new there, there&#39;s even a <a href="http://nodejs.org/api/modules.html#modules_module_caching_caveats">big caveat in the docs</a> about it.</p>
+<h2 id="let-s-add-symlinks-">Let&#39;s add symlinks!</h2>
+<p>Several folks have <a href="http://lostechies.com/derickbailey/2014/02/20/how-i-work-around-the-require-problem-in-nodejs/">noticed</a> that growing node apps often develop uncomfortably long require paths like <code>../../../../widely_shared_code</code>. At Good Eggs, we encountered these paths requiring the json manifest of versioned assets generated by <a href="https://www.npmjs.com/package/grunt-assets-versioning"><code>grunt-assets-versioning</code></a>. They require intense concentration to type accurately, and they sure don&#39;t help when we&#39;re moving files around.</p>
+<p>Symlinks are a <a href="https://github.com/substack/browserify-handbook#avoiding-">recommended workaround</a> for these long requires. If we <code>ln -s ../assets.json node_modules/assets.json</code> we can just <code>require(&#39;assets.json&#39;)</code> throughout our project, no dots required!  We can still use relative paths if we&#39;re in a file pretty close to the assets, perhaps in the same directory.  <code>require(&#39;./assets.json&#39;)</code> isn&#39;t so bad, right?</p>
+<p>Let&#39;s audit our client side bundle for duplicates with <code>browserify &lt;entrypoint&gt;.js --list | grep assets.json</code> .  Depending on our version of Browserify we may or may not get them.  Browserify <a href="https://github.com/substack/node-browserify/issues/692">can&#39;t</a> <a href="https://github.com/substack/node-browserify/pull/713">seem to</a> <a href="https://github.com/substack/node-browserify/issues/1063">make up</a> its mind if symlinks paths resolve to the same instance, but the <a href="https://github.com/substack/node-browserify/issues/692#issuecomment-37999643">authors are clear</a> about using them for singletons:</p>
+<blockquote>
+<p>Keep in mind that singletons are not guaranteed by either module loader (be it node or browserify). A lot of times you do get the same instance due to caching, but you shouldn&#39;t rely on that in order to enforce singleton semantics since it breaks in lots of cases.</p>
+</blockquote>
+<p>Browserified duplicates have caused problems ranging from bloated bundle sizes to client-side app crashes due to missing configuration in one of the duplicate instances.  We can avoid browserify duplication and still use symlinks for short require paths <em>if</em> we avoid relative requires to symlinked modules.</p>
+<h2 id="this-is-complicated">This is complicated</h2>
+<p>The module cache sure does not make a good <a href="http://martinfowler.com/articles/injection.html#UsingAServiceLocator">service locator</a>. I wonder what other patterns folks are using for distributing singleton instances throughout apps, especially dependencies shared between the browser and the server.  Dependency injection comes to mind, but it often entails  a complicated system of its own.</p>
+</div><footer><p class="meta"><a class="basic-alignment left" href="/posts/selenium-webdriver-nodejs-tutorial/">&laquo; Getting started with Selenium Webdriver for node.js</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bites.goodeggs.com/post/commonjs-modules-make-brittle-singletons'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
