@@ -27,7 +27,7 @@ Bourbon Nib Brittle](/images/posts/commonjs-modules-make-brittle-singletons/brit
 </div>
 
 
-Let's say we're really into [node-fibers](https://github.com/laverdet/node-fibers), with its concise coroutines and error handling. We're starting a new module, tests first, so we `npm install mocha mocha-fibers` and write some failing tests.  Next we [`npm install fibrous`](https://github.com/goodeggs/fibrous) to help implement our module.  If we list installed fibers with `npm ls fibers`:
+Let's say we're really into [node-fibers](https://github.com/laverdet/node-fibers) with its concise coroutines and error handling. We're starting a new module, tests first, so we `npm install mocha mocha-fibers` and write some failing tests.  Next we [`npm install fibrous`](https://github.com/goodeggs/fibrous) to help implement our module.  If we list installed fibers with `npm ls fibers` we get:
 
 ```
 ├─┬ fibrous@0.3.3
@@ -64,5 +64,5 @@ Browserified duplicates have caused problems ranging from bloated bundle sizes t
 This is complicated
 -------------------
 
-The module cache sure does not make a good [service locator](http://martinfowler.com/articles/injection.html#UsingAServiceLocator). I wonder what other patterns folks are using for distributing singleton instances throughout apps, especially dependencies shared between the browser and the server.  Dependency injection comes to mind, but often entails  a complicated system of its own.
+The module cache sure does not make a good [service locator](http://martinfowler.com/articles/injection.html#UsingAServiceLocator). I wonder what other patterns folks are using for distributing singleton instances throughout apps, especially dependencies shared between the browser and the server.  Dependency injection comes to mind, but it often entails  a complicated system of its own.
 
