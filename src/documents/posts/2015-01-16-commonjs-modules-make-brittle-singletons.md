@@ -13,7 +13,7 @@ style: |
   }
 ---
 
-We ocassionally rely on node's [module caching](http://nodejs.org/api/modules.html#modules_caching) to share a single instance throughout a full-stack javascript project. This strategy breaks more than we'd like.
+We occasionally rely on node's [module caching](http://nodejs.org/api/modules.html#modules_caching) to share a single instance throughout a full-stack javascript project. This strategy breaks more than we'd like.
 
 If modules `butternut` and `delicata` both `require('squash')`, they'll usually get the same (think `===`) squash instance. But not always.
 
@@ -36,7 +36,7 @@ Let's say we're really into [node-fibers](https://github.com/laverdet/node-fiber
   └── fibers@1.0.4
 ```
 
-Uh oh, we've got two! This can cause some pretty [wierd](https://github.com/laverdet/node-fibers/issues/102) [behavior](https://github.com/laverdet/node-fibers/issues/177).  Luckily, fibers was [patched](https://github.com/laverdet/node-fibers/commit/d9bc3a7b9d486d6f45170501de8626d52dfa5dfa) in 1.0.4 to mitigate  this particular problem using global variables.  If we care  which version of `fibers` our project uses, it's best to install it explicitly as a top level dependency, before installing `fibrous` or `node-fibers`.  For example, `npm install fibers fibrous mocha-fibers` yields:
+Uh oh, we've got two! This can cause some pretty [weird](https://github.com/laverdet/node-fibers/issues/102) [behavior](https://github.com/laverdet/node-fibers/issues/177).  Luckily, fibers was [patched](https://github.com/laverdet/node-fibers/commit/d9bc3a7b9d486d6f45170501de8626d52dfa5dfa) in 1.0.4 to mitigate  this particular problem using global variables.  If we care  which version of `fibers` our project uses, it's best to install it explicitly as a top level dependency, before installing `fibrous` or `node-fibers`.  For example, `npm install fibers fibrous mocha-fibers` yields:
 
 ```
 ├── fibers@1.0.5
@@ -64,5 +64,5 @@ Browserified duplicates have caused problems ranging from bloated bundle sizes t
 This is complicated
 -------------------
 
-The module cache sure does not make a good [service locator](http://martinfowler.com/articles/injection.html#UsingAServiceLocator). I wonder what other patterns folks are using for distributing singleton instances throughout apps, especially dependencies shared between the browser and the server.  Dependency injection comes to mind, but it often entails  a complicated system of its own.
+The module cache sure does not make a good [service locator](http://martinfowler.com/articles/injection.html#UsingAServiceLocator). I wonder what other patterns folks are using for distributing singleton instances throughout apps, especially dependencies shared between the browser and the server.  Dependency injection comes to mind, but it often entails  a complicated system of its own. Do you have a singleton strategy that's working well?
 
