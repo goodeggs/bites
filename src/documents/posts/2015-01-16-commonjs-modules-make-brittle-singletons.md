@@ -4,7 +4,7 @@ author: Adam Hull
 layout: post
 disqus:
   shortname: goodeggsbytes
-  url: "http://bites.goodeggs.com/post/commonjs-modules-make-brittle-singletons"
+  url: "http://bites.goodeggs.com/posts/commonjs-modules-make-brittle-singletons"
 style: |
   .full-width img {
     width: 100%;
