@@ -1,7 +1,7 @@
 ---
 title: Adam Hull
 author: Adam Hull
-photoUrl: http://fpio.goodeggs.com/api/file/ziGF1yRt2PAZq3BpMQAA/convert?w=150&h=150&fit=crop&align=faces&cache=true
+photoUrl: https://goodeggs1.imgix.net/user_profile_photo/XH3TxomQkqkXKeYhktNw_adam_hull.jpg?w=150&h=150&q=&fit=crop&crop=faces
 layout: author
 ---
 
