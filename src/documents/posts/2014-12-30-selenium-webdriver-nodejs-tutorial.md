@@ -68,7 +68,7 @@ Feel free to not use CoffeeScript, everything will still work fine, it'll just
 be a tiiiiny bit less fun:
 
 ```
-npm install --save coffeescript
+npm install --save coffee-script
 ```
 
 ## 2. Set up your test
