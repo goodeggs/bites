@@ -7,7 +7,7 @@ disqus:
   url: "http://bites.goodeggs.com/post/delivery-engineering"
 ---
 
-We formed the [Delivery Engineering][thoughtworks-deleng] (aka DevTools, Infrastructure, etc) team because we felt like we had crossed a threshold as an engineering organization, where it made sense to carve out a set of folks that could own shared tools and services used by all our engineering teams.  [Thoughtworks later articulated Delivery Engineering][thoughtworks-deleng] as a team that supports the culture of DevOps, by building shared tools and services that enable developers to deploy, monitor, and maintain their own production environments.  At Good Eggs, this means building continuous integration pipelines, metrics gatehering libraries, and communicating best practices for alerting.  We also work on developer productivity by building tools around asset compilation, app scaffolding, and CLIs that expose simple interfaces to complicated services.
+We formed the [Delivery Engineering][thoughtworks-deleng] (aka DevTools, Infrastructure, etc) team because we felt like we had crossed a threshold as an engineering organization, where it made sense to carve out a set of folks that could own shared tools and services used by all our engineering teams.  [Thoughtworks later articulated Delivery Engineering][thoughtworks-deleng] as a team that supports the culture of DevOps, by building shared tools and services that enable developers to deploy, monitor, and maintain their own production environments.  At Good Eggs, this means building continuous integration pipelines, metrics gathering libraries, and communicating best practices for alerting.  We also work on developer productivity by building tools around asset compilation, app scaffolding, and CLIs that expose simple interfaces to complicated services.
 
 As new teams do, we talked about our values and the strategies we'd use.  We decided on three: automation, transparency, and self-service.  Along with those core values, our internal culture of open source has been critical to our success.  We rely heavily on Github Issues, Pull Requests, and Travis' ability to do branch builds and deploys (automate all the things! -- including publishing new versions of internal node modules to a private npm repo).
 
@@ -36,5 +36,5 @@ And of course, if you want to come help us figure everything out, [we're hiring]
 [travis]: https://travis-ci.org/
 [mongolab]: https://mongolab.com/
 [sumologic]: https://www.sumologic.com/
-[hiring]: http://www.jobscore.com/jobs2/goodeggs/delivery-engineer/csPZb0liir5i_7iGalkWKP?source=Eng+Blog&sid=161
+[hiring]: http://grnh.se/sl6tik
 
