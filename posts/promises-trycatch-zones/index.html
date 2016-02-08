@@ -4,7 +4,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-26193287-5', 'github.io');
-ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></h1><ul class="unstyled nav"><li><a href="/">Blog</a></li><li><a href="/open_source/">Open Source</a></li><li><a href="/news/">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="http://fpio.goodeggs.com/api/file/DkcUdnQSE63IauiZq4CW/convert?w=150&amp;h=150&amp;fit=crop&amp;align=faces&amp;cache=true" alt="Alex Gorbatchev" /><h1 class="entry-title">Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone</h1><p class="meta"><a class="entry-author-name" href="/authors/alex_gorbatchev/">Alex Gorbatchev</a> on <time datetime="2014-06-09T19:00:00.000Z">June 9th, 2014</time></p></header><div class="entry-content"><blockquote>
+ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></h1><ul class="unstyled nav"><li><a href="/">Blog</a></li><li><a href="/open_source/">Open Source</a></li><li><a href="/news/">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="https://goodeggs.imgix.net/user_profile_photo/VaPkA5t1RJqmSmUjCJGk_alex_gorbatchev.jpg?w=150&amp;h=150&amp;fit=crop&amp;crop=faces" alt="Alex Gorbatchev" /><h1 class="entry-title">Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone</h1><p class="meta"><a class="entry-author-name" href="/authors/alex_gorbatchev/">Alex Gorbatchev</a> on <time datetime="2014-06-09T19:00:00.000Z">June 9th, 2014</time></p></header><div class="entry-content"><blockquote>
 <p>Reposted with permission by <a href="http://strongloop.com/">StrongLoop</a>. Originally appeared on <a href="http://strongloop.com/strongblog/comparing-node-js-promises-trycatch-zone-js-angular/">April 16, 2014</a>.</p>
 </blockquote>
 <h1 id="handling-errors-in-async-flow">Handling errors in async flow</h1>
@@ -12,7 +12,6 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></
 <h2 id="the-problem">The problem</h2>
 <p>Handling errors in asynchronous flow is pretty straightforward and easy. Handling errors in asynchronous flow in a clean and easy to follow manner - not so much.</p>
 <!-- more -->
-
 <p>Lets look at the following code:</p>
 <pre><code class="js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateDependencies</span><span class="hljs-params">(packageName, done)</span> </span>{
       findPackage(packageName, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, content)</span> </span>{

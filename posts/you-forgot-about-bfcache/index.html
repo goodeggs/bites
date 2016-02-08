@@ -9,7 +9,6 @@ ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></
 <p>So there we were, putting the polishing touches on our mobile app.  There were a few big bugs that we wanted to clean up before we launched.  One seemed a bit edge-case-y, but still not good: when iPhone users clicked on products and then subsequently clicked back to the product listings, they saw our animated spinner stuck like this:</p>
 <p><img src="/images/spin-spin.gif" alt="Waiting for user to reload"></p>
 <!-- more -->
-
 <p>It seemed straightforward enough, but it required some researching until we ran across this <a href="https://stackoverflow.com/questions/8788802/prevent-safari-loading-from-cache-when-back-button-is-clicked">stack overflow post</a>.</p>
 <p>bfcache, eh?</p>
 <p><img src="/images/cosby-huh.gif" alt="bfcache?"></p>
