@@ -85,7 +85,7 @@ Travis will test your branch, including a site crawler to verify links.  You can
 
 When you're ready to share, make a pull request and send an E-Mail to [eng@goodeggs.com](mailto:eng@goodeggs.com) and ask for feedback.
 
-And then publish:
+Once the pull request is merged, you should publish:
 
     > gulp publish
 
@@ -106,7 +106,6 @@ A series of posts about how the Good Eggs mobile site was built written by Adam 
 
 Help spread the word!
 Post - http://bites.goodeggs.com/posts/good-eggs-goes-mobile/
-Breaddit - http://goodeggs.meteor.com/posts/KsJtJMNBY5QT6jiv2
 Twitter - https://twitter.com/GoodEggsEng/status/461273753620455424
 
 Thanks,
@@ -120,7 +119,7 @@ Michael
  - email the owner
  - stack overflow search
 * [ ] Submit to Hacker News: https://news.ycombinator.com/submit
-* [ ] Let Cathy and the marketing team <social@goodeggs.com> know the post exists so it can be included in relevant marketing emails (e.g. how the mobile site was made)
+* [ ] Let Ally and the marketing team <social@goodeggs.com> know the post exists so it can be included in relevant marketing emails (e.g. how the mobile site was made)
 * [ ] Submit to JavaScript Weekly and/or Node Weekly: Email <peter@cooperpress.com>
 ![JavaScript Weekly Email Example](https://raw.githubusercontent.com/goodeggs/bites/master/src/files/images/javascript-weekly-example.png)
 
