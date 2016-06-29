@@ -61,5 +61,8 @@
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/goodeggs/bites/issues"
+  },
+  "engines": {
+    "node": "0.12"
   }
 }
