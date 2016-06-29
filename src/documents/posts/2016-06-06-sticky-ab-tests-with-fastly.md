@@ -13,7 +13,7 @@ Here at [Good Eggs](https://www.goodeggs.com/), we're in the process of moving a
 
 We had some very promising results from some early Apache Bench runs, but how might we determine the real-world performance difference between the two platforms?  Futhermore, how might we determine if there is a difference in user conversion?  For those that haven't heard, [Loading Time Affects Your Bottom Line](https://blog.kissmetrics.com/loading-time/).
 
-We decided the answer to both would be to set up an A/B test with our website visitors.  We'd route half of our customers to our current platform and half to Ranch, and then analyize the results.  To measure conversion over time, we'd make the choice once per browser rather than once per request, aka "sticky."  (Once per customer would be ideal, but not worth the extra effort.)
+We decided the answer to both would be to set up an A/B test with our website visitors.  We'd route half of our customers to our current platform and half to Ranch, and then analyze the results.  To measure conversion over time, we'd make the choice once per browser rather than once per request, aka "sticky."  (Once per customer would be ideal, but not worth the extra effort.)
 
 Luckily, we already used Fastly for SSL termination and edge caching.  What some folks don't know is that you can also upload custom Varnish Config Language (VCL) files to Fastly.  Starting with [an example from Fastly's docs](https://www.fastly.com/blog/best-practices-for-using-the-vary-header), I came up with this VCL:
 
