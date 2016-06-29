@@ -167,6 +167,7 @@ release = ({push}={}) ->
 
   (done) ->
     git('.').current_commit (err, commit) ->
+      return done(err) if err?
       sourceId = commit.id[...12]
       gulp.src 'build/**/*'
       .pipe ghPages
