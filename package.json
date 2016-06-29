@@ -63,6 +63,6 @@
     "url": "https://github.com/goodeggs/bites/issues"
   },
   "engines": {
-    "node": "0.12"
+    "node": "0.10"
   }
 }
