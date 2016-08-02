@@ -17,7 +17,7 @@ I experimented with a few OSS libraries and considered using the [equinox.io](ht
 
 When I say simple I mean simple: go-selfupdate exposes one public API: [`BackgroundRun`](https://github.com/sanbornm/go-selfupdate/blob/master/selfupdate/selfupdate.go#L98).  This method checks a remote HTTP server for a new version, downloads a binary patch if one was found, and applies it in-place.  `BackgroundRun` is meant to be called as a go subroutine, but I'm not a fan of CLIs that update this way.  Instead, I call it inline as part of an explicit `update` command.
 
-I hit one snag along the way that caused me to fork go-selfupdate: it uses an internally-managed TTL and will only check for updates once every 24 hours.  Since I wanted my users to grab updates explicitly, I patched in a `ForceCheck` option and set that to `true`:
+I hit one snag along the way that caused me to fork go-selfupdate: it uses an internally-managed TTL and will only check for updates once every 24 hours.  Since I wanted my users to grab updates explicitly, I [patched](https://github.com/sanbornm/go-selfupdate/pull/18) in a `ForceCheck` option and set that to `true`:
 
 ```
 diff --git a/selfupdate/selfupdate.go b/selfupdate/selfupdate.go
