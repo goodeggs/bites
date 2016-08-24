@@ -1,0 +1,100 @@
+<!DOCTYPE html><html class="no-js" lang="en"><head><meta charset="utf-8" /><title>Self-Updating Go Binaries with go-selfupdate | Bites from Good Eggs</title><meta name="author" content="Bob Zoller" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="shortcut icon" href="/favicon.ico?v=2" /><link rel="stylesheet" href="/styles/main.css" /><link rel="alternate" title="RSS" type="application/rss+xml" href="/rss" /><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-26193287-5', 'github.io');
+ga('send', 'pageview');</script></head><body><header><h1><a href="/">Bites</a></h1><ul class="unstyled nav"><li><a href="/">Blog</a></li><li><a href="/open_source/">Open Source</a></li><li><a href="/news/">News</a></li></ul></header><div id="main"><div id="content"><div><article class="post" role="article"><header><img class="author" src="https://goodeggs2.imgix.net/user_profile_photo/MshqSZmKT7GhgZ978b1Z_bob_zoller.jpg?w=150&amp;h=150&amp;q=&amp;fit=crop&amp;crop=faces" alt="Bob Zoller" /><h1 class="entry-title">Self-Updating Go Binaries with go-selfupdate</h1><p class="meta"><a class="entry-author-name" href="/authors/bob_zoller/">Bob Zoller</a> on <time datetime="2016-07-15T22:00:00.000Z">July 15th, 2016</time></p></header><div class="entry-content"><p>The main developer interface to our bespoke PaaS (called Ranch) is a command line binary written in Go.  At first, a Homebrew recipe was plenty convienent to get it onto my early adopter&#39;s OSX laptops.  Once I had a few more users and some Linux hosts (CI/CD), however, I wanted to create a built-in update command.</p>
+<p>In this post I&#39;ll cover how I built the update command, added it to my pre-existing <a href="https://github.com/laher/goxc">goxc</a>-based build &amp; release flow, and touch on a few improvements I&#39;d like to make down the road.</p>
+<!-- more -->
+<p>I experimented with a few OSS libraries and considered using the <a href="https://equinox.io/">equinox.io</a> service, but ended up settling on a simple library called <a href="https://github.com/sanbornm/go-selfupdate">go-selfupdate</a>.</p>
+<p>When I say simple I mean simple: go-selfupdate exposes one public API: <a href="https://github.com/sanbornm/go-selfupdate/blob/master/selfupdate/selfupdate.go#L98"><code>BackgroundRun</code></a>.  This method checks a remote HTTP server for a new version, downloads a binary patch if one was found, and applies it in-place.  <code>BackgroundRun</code> is meant to be called as a go subroutine, but I&#39;m not a fan of CLIs that update this way.  Instead, I call it inline as part of an explicit <code>update</code> command.</p>
+<p>I hit one snag along the way that caused me to fork go-selfupdate: it uses an internally-managed TTL and will only check for updates once every 24 hours.  Since I wanted my users to grab updates explicitly, I <a href="https://github.com/sanbornm/go-selfupdate/pull/18">patched</a> in a <code>ForceCheck</code> option and set that to <code>true</code>:</p>
+<pre><code><span class="hljs-title">diff</span> <span class="hljs-comment">--git a/selfupdate/selfupdate.go b/selfupdate/selfupdate.go</span>
+<span class="hljs-title">index</span> <span class="hljs-number">86646</span>f3.<span class="hljs-number">.4871</span>c90 <span class="hljs-number">100644</span>
+<span class="hljs-comment">--- a/selfupdate/selfupdate.go</span>
++++ b/selfupdate/selfupdate.go
+@@ -<span class="hljs-number">81</span>,<span class="hljs-number">6</span> +<span class="hljs-number">81</span>,<span class="hljs-number">7</span> @@ <span class="hljs-typedef"><span class="hljs-keyword">type</span> <span class="hljs-type">Updater</span> struct <span class="hljs-container">{
+        <span class="hljs-type">BinURL</span>         <span class="hljs-title">string</span>    // <span class="hljs-type">Base</span> <span class="hljs-type">URL</span> <span class="hljs-title">for</span> <span class="hljs-title">full</span> <span class="hljs-title">binary</span> <span class="hljs-title">downloads</span>.
+        <span class="hljs-type">DiffURL</span>        <span class="hljs-title">string</span>    // <span class="hljs-type">Base</span> <span class="hljs-type">URL</span> <span class="hljs-title">for</span> <span class="hljs-title">diff</span> <span class="hljs-title">downloads</span>.
+        <span class="hljs-type">Dir</span>            <span class="hljs-title">string</span>    // <span class="hljs-type">Directory</span> <span class="hljs-title">to</span> <span class="hljs-title">store</span> <span class="hljs-title">selfupdate</span> <span class="hljs-title">state</span>.
++       <span class="hljs-type">ForceCheck</span>     <span class="hljs-title">bool</span>      // <span class="hljs-type">Check</span> <span class="hljs-title">for</span> <span class="hljs-title">update</span> <span class="hljs-title">regardless</span> <span class="hljs-title">of</span> <span class="hljs-title">cktime</span> <span class="hljs-title">timestamp</span>
+        <span class="hljs-type">Requester</span>      <span class="hljs-type">Requester</span> //<span class="hljs-type">Optional</span> <span class="hljs-title">parameter</span> <span class="hljs-title">to</span> <span class="hljs-title">override</span> <span class="hljs-title">existing</span> <span class="hljs-title">http</span> <span class="hljs-title">request</span> <span class="hljs-title">handler</span>
+        <span class="hljs-type">Info</span>           <span class="hljs-title">struct</span> {
+                <span class="hljs-type">Version</span> <span class="hljs-title">string</span>
+@@ -117,7 +118,7 @@ <span class="hljs-title">func</span> (<span class="hljs-title">u</span> *<span class="hljs-type">Updater</span>) <span class="hljs-type">BackgroundRun</span>() <span class="hljs-title">error</span> {
+
+ <span class="hljs-title">func</span> (<span class="hljs-title">u</span> *<span class="hljs-type">Updater</span>) <span class="hljs-title">wantUpdate</span>() <span class="hljs-title">bool</span> {
+        <span class="hljs-title">path</span> := <span class="hljs-title">u</span>.<span class="hljs-title">getExecRelativeDir</span>(<span class="hljs-title">u</span>.<span class="hljs-type">Dir</span> + <span class="hljs-title">upcktimePath</span>)
+-       <span class="hljs-title">if</span> <span class="hljs-title">u</span>.<span class="hljs-type">CurrentVersion</span> == "<span class="hljs-title">dev</span>" || <span class="hljs-title">readTime</span>(<span class="hljs-title">path</span>).<span class="hljs-type">After</span>(<span class="hljs-title">time</span>.<span class="hljs-type">Now</span>()) {
++       <span class="hljs-title">if</span> <span class="hljs-title">u</span>.<span class="hljs-type">CurrentVersion</span> == "<span class="hljs-title">dev</span>" || (!<span class="hljs-title">u</span>.<span class="hljs-type">ForceCheck</span> &amp;&amp; <span class="hljs-title">readTime</span>(<span class="hljs-title">path</span>).<span class="hljs-type">After</span>(<span class="hljs-title">time</span>.<span class="hljs-type">Now</span>())) {
+                <span class="hljs-title">return</span> <span class="hljs-title">false</span>
+        }</span></span>
+        wait := <span class="hljs-number">24</span>*time.<span class="hljs-type">Hour</span> + randDuration(<span class="hljs-number">24</span>*time.<span class="hljs-type">Hour</span>)</code></pre>
+
+<h2 id="the-update-command">The <code>update</code> Command</h2>
+<p>The <code>update</code> command itself is basically a one-liner.  Here&#39;s what it looks like:</p>
+<pre><code><span class="hljs-constant">updater</span> := &amp;selfupdate.Updater{
+    CurrentVersion: VERSION,
+    ApiURL:         <span class="hljs-string">"http://ranch-updates.goodeggs.com/stable/"</span>,
+    BinURL:         <span class="hljs-string">"http://ranch-updates.goodeggs.com/stable/"</span>,
+    DiffURL:        <span class="hljs-string">"http://ranch-updates.goodeggs.com/stable/"</span>,
+    Dir:            <span class="hljs-string">".ranch-selfupdate/"</span>,
+    CmdName:        <span class="hljs-string">"ranch"</span>,
+    Requester:      &amp;HTTPRequester{},
+    ForceCheck:     true,
+}
+
+return updater.BackgroundRun()</code></pre>
+
+<ul>
+<li><code>VERSION</code> is managed by goxc.  By defining the variable in my <code>main.go</code>, goxc will override it at build time, eg <code>var VERSION = &quot;dev&quot;</code></li>
+<li>The URLs point at a plain &#39;ol static HTTP server (in this case an S3 bucket)</li>
+<li><code>Dir</code> is the name of a directory relative to the binary where go-selfupdate will place its metadata</li>
+<li><code>CmdName</code> is, duh, the name of my binary</li>
+<li>go-selfupdate provides a squeltched default for <code>Requester</code>, but I choose to pass in my own so I see log lines when it is doing work</li>
+<li><code>ForceCheck</code> is set to <code>true</code>, as I discussed earlier</li>
+</ul>
+<h2 id="building-a-new-version">Building a New Version</h2>
+<p>As I said, I&#39;m using goxc for my build pipeline.  It does handy things like cross-compilation and creating Github Releases.  There was a little trick to getting go-selfupdate working with it, however.</p>
+<p>The built-in <code>package</code> goxc task (which itself is included in <code>default</code>) is a meta task that includes removing the binaries once the packages are built.  This is a problem because go-selfupdate needs those binaries.  So I override <code>Tasks</code> to include everything in <code>default</code> and <code>package</code> except for the troublesome <code>rmbin</code>:</p>
+<pre><code>"Tasks": [
+    <span class="hljs-string">"validate"</span>,
+    <span class="hljs-string">"compile"</span>,
+    <span class="hljs-string">"archive-zip"</span>,
+    <span class="hljs-string">"archive-tar-gz"</span>,
+    <span class="hljs-string">"publish-github"</span>
+],</code></pre>
+
+<p>A nice bit about go-selfupdate is it will generate binary patches so updates between versions are as small (and downloads quick) as possible.  The catch here is it needs all previous binaries to exist locally so it can generate those diffs.  The other catch is go-selfupdate expects the binaries in a different location than goxc generates them.</p>
+<p>To resolve the first, I use <code>aws s3 sync</code> to ensure my local directory is up to date before generating new patches, and then again to upload all the latest files to S3.</p>
+<p>The second is a simply copy of the goxc binaries to the location go-selfupdate is expecting.  Here&#39;s the bit of shell script I use to do this:</p>
+<pre><code>version=<span class="hljs-variable">$(</span>cat .goxc.json | jq -r <span class="hljs-string">'.PackageVersion'</span>)
+
+goxc
+
+echo <span class="hljs-string">"syncing ranch-updates S3 bucket"</span>
+aws s3 sync <span class="hljs-symbol">s3:</span>/<span class="hljs-regexp">/ranch-updates.goodeggs.com/stable</span><span class="hljs-regexp">/ranch/</span> public/
+
+echo <span class="hljs-string">"go-selfupdate generating bindiffs"</span>
+mkdir releases/<span class="hljs-variable">${</span>version}/bins
+cp releases/<span class="hljs-variable">${</span>version}/darwin_amd64/ranch releases/<span class="hljs-variable">${</span>version}/bins/darwin-amd64
+cp releases/<span class="hljs-variable">${</span>version}/linux_amd64/ranch releases/<span class="hljs-variable">${</span>version}/bins/linux-amd64
+go-selfupdate releases/<span class="hljs-variable">${</span>version}/bins/ <span class="hljs-variable">${</span>version}
+
+echo <span class="hljs-string">"syncing ranch-updates S3 bucket"</span>
+aws s3 sync --acl public-read public/ <span class="hljs-symbol">s3:</span>/<span class="hljs-regexp">/ranch-updates.goodeggs.com/stable</span><span class="hljs-regexp">/ranch/</span></code></pre>
+
+<p>And with that, any <code>ranch</code> binaries in the wild can update themselves to the latest version with a simple <code>ranch update</code>.</p>
+<h2 id="future-improvements">Future Improvements</h2>
+<p>go-selfupdate is simple, and perhaps a little too much so.  Here are a few things on my mind:</p>
+<ol>
+<li>I&#39;d like to check for updates but not apply them directly, but it provides no method for this.</li>
+<li>I&#39;d like a return value from <code>BackgroundUpdate</code> (probably <code>ForegroundUpdate</code> now) to indicate whether an update happened or not, so that I can warn the user or restart the binary directly on the new version.</li>
+<li>The <code>HTTPRequester</code> logging is workable, but a first-class logging solution would be better.</li>
+<li>Binary patches take longer to generate with each new version (N*N).  Perhaps the solution here is to make my scripts smarter and only keep around the last N versions locally with which to generate binary patches.  go-selfupdate already supports this, as it will fall back to a full download if the patch file does not exist.</li>
+<li>Release Channels.  If you look for the word <code>stable</code> in the above code snippets, I think you&#39;ll see how go-selfupdate makes it easy to support release channels.</li>
+</ol>
+<hr>
+<p>Want to help us build a bespoke PaaS and put more of the $50B US grocery spend into sustainable local food systems?  Get in touch!  <a href="http://careers.goodeggs.com/open-positions/">We&#39;re hiring</a>.</p>
+</div><footer><p class="meta"><a class="basic-alignment left" href="/posts/sticky-ab-tests-with-fastly/">&laquo; Sticky A/B Tests with Fastly</a></p><div id="disqus_thread"></div><script>window.disqus_shortname = 'goodeggsbytes'; window.disqus_url = 'http://bites.goodeggs.com/post/self-updating-go-binaries-with-go-selfupdate'</script><script async="async" src="//goodeggsbytes.disqus.com/embed.js"></script></footer></article></div></div></div><footer><div class="mission">Our mission is to grow and sustain local food systems worldwide.</div><p>©2013 Good Eggs, Inc</p></footer></body></html>
