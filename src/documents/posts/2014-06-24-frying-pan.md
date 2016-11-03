@@ -1,6 +1,7 @@
 ---
 title: Out of the frying pan
 author: Erik Pukinskis
+tags: []
 layout: post
 disqus:
   shortname: goodeggsbytes

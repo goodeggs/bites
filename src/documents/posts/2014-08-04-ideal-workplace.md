@@ -1,6 +1,7 @@
 ---
 title: "Loud and Proud: What's Your Ideal Workplace?"
 author: Adam Perelman
+tags: [Internship]
 layout: post
 disqus:
   shortname: goodeggsbytes

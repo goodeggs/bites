@@ -2,6 +2,7 @@
 title: Self-Updating Go Binaries with go-selfupdate
 author: Bob Zoller
 layout: post
+tags: [Go]
 disqus:
   shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/post/self-updating-go-binaries-with-go-selfupdate"

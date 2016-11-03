@@ -1,6 +1,7 @@
 ---
 title: Debugging jasmine-node and CoffeeScript specs
 author: Alon Salant
+tags: [Debugging, JavaScript]
 layout: post
 url: '/post/11587373922/debugging-jasmine-node-and-coffeescript-specs'
 disqus:

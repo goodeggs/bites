@@ -1,6 +1,7 @@
 ---
 title: Being an Intern at Good Eggs
 author: Estefania Ortiz
+tags: [Internship]
 layout: post
 disqus:
   shortname: goodeggsbytes

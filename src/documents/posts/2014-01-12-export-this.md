@@ -1,6 +1,7 @@
 ---
 title: "Export This: Interface Design Patterns for Node.js Modules"
 author: Alon Salant
+tags: [Nodejs, Design Patterns]
 layout: post
 disqus:
   shortname: goodeggsbytes

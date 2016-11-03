@@ -1,6 +1,7 @@
 ---
 title: "A Conversation on Service Design with Airbnb, Good Eggs and Lyft"
 author: Alon Salant
+tags: [Design, Service Design]
 layout: post
 disqus:
   shortname: goodeggsbytes

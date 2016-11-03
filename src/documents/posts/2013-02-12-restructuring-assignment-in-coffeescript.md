@@ -1,6 +1,7 @@
 ---
 title: "Structuring Expressions in CoffeeScript"
 author: Adam Hull
+tags: [CoffeeScript]
 layout: post
 url: '/post/41935904836/restructuring-assignment-in-coffeescript'
 disqus:

@@ -1,6 +1,7 @@
 ---
 title: Getting started with Selenium Webdriver for node.js
 author: Max Edmands
+tags: [Nodejs, Selenium, Webdriver]
 layout: post
 disqus:
   shortname: goodeggsbytes

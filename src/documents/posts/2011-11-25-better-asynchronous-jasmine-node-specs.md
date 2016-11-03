@@ -1,6 +1,7 @@
 ---
 title: Better asynchronous jasmine-node specs
 author: Alon Salant
+tags: [Unit Testing, Jasmine, Nodejs]
 layout: post
 url: '/post/13332056735/better-asynchronous-jasmine-node-specs'
 disqus:

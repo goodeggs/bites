@@ -1,6 +1,7 @@
 ---
 title: Join Us for a Girl Geek Dinner Feb 17, 2016
 author: Alon Salant
+tags: [Meetup, Women in Tech]
 layout: post
 disqus:
   shortname: goodeggsbytes
