@@ -2,7 +2,9 @@
   "name": "bites",
   "version": "0.0.0",
   "description": "Technical morsels",
-  "dependencies": {},
+  "dependencies": {
+    "medium-sdk": "0.0.3"
+  },
   "devDependencies": {
     "chai": "~1.9.2",
     "chai-as-promised": "~4.1.1",

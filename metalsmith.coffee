@@ -107,6 +107,7 @@ module.exports = (done) ->
 
   .use medium
     enabled: process.env.PUBLISH_TO_MEDIUM is 'true'
+    apiKey: '2cc9e9d735f12d073a181bc5a103a4b344d031e84d7ff0fcb7ce8d2fbb42efe61'
 
   .destination 'build'
   .clean false # handled by gulp
