@@ -31,11 +31,19 @@ module.exports = plugin = (opts) ->
         # If author is not know, add attribution to end of post
         if !accessTokens[file.author]?
           content = """
-          #{content}
-          <p>
-          <i>Originally posted by #{file.author} on #{moment(file.date).format('MMM D, Y')}</i>
-          </p>
-          """
+#{content}
+<p>
+<i>Originally posted by #{file.author} on #{moment(file.date).format('MMM D, Y')}</i>
+</p>
+"""
+
+        content = """
+#{content}
+<hr>
+<a href="https://www.goodeggs.com">Good Eggs</a> is the best online groceries for home delivery in the San Francisco Bay Area.
+If you are inspired by our mission is to grow and sustain local food systems worldwide,
+<a href="http://careers.goodeggs.com">find out how you can help</a>.
+"""
 
         {
           title: file.title
@@ -51,13 +59,6 @@ module.exports = plugin = (opts) ->
 
       console.log "Publishing #{posts.length} posts from #{posts[0].date} to #{posts[posts.length - 1].date}"
 
-      # TODO:
-      # X. publishedAt - need to patch medium-sdk (https://github.com/Medium/medium-api-docs/issues/6)
-      # X. Handle images hosted on bites.goodeggs.com
-      # 3. Attribute authors
-      # N. "Originally posted on ..."
-      # 5. Standard about Good Eggs & hiring blurb
-      # X. Add Post title to content as H1
       for post in posts
         client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
         if accessTokens[post.author]?
