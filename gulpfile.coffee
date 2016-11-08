@@ -21,7 +21,7 @@ gulp.task 'styles', ->
   .pipe rename 'main.css'
   .pipe gulp.dest 'build/styles'
 
-gulp.task 'build', ['metalsmith', 'styles']
+gulp.task 'build', ['styles', 'metalsmith']
 
 servers =
   dev: null
