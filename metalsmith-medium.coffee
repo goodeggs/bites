@@ -1,6 +1,12 @@
 fibrous = require 'fibrous'
 medium = require 'medium-sdk'
+moment = require 'moment'
 
+accessTokens = {
+  default: '2cc9e9d735f12d073a181bc5a103a4b344d031e84d7ff0fcb7ce8d2fbb42efe61'
+  'Alon Salant': '266e951777c22941cf9f10139fc6a069ee1e7951cc4428836c0af7b9bd8f544ba'
+  'Bob Zoller': '2a75676df200947706815eed0ee224360a4002da1cbe9e05148cf9e4050bd1a15'
+}
 
 module.exports = plugin = (opts) ->
   console.log "Running metalsmith-medium with opts", opts
@@ -9,19 +15,6 @@ module.exports = plugin = (opts) ->
     # metalsmith seems to check the arity of the above function and it needs to have 3 arguments to be run async
     fibrous.run ->
       return unless opts.enabled
-
-      client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
-      client.setAccessToken opts.accessToken
-
-      user = client.sync.getUser()
-      console.log "Looking for publication '#{opts.publicationName}' for user #{user.username}"
-      publications = client.sync.getPublicationsForUser userId: user.id
-      publication = publications.find (publication) ->
-        publication.name = opts.publicationName
-
-      throw new Error("Publication '#{opts.publicationName}' not found for user #{user.username}") unless publication?
-
-      console.log "Found publication '#{publication.name}'"
 
       posts = for path, file of files
         continue unless file.contentsWithoutLayout?
@@ -35,12 +28,22 @@ module.exports = plugin = (opts) ->
         content = content.replace(new RegExp('<a href="/posts/', 'g'), '<a href="http://bites.goodeggs.com/posts/')
         content = content.replace(new RegExp('<img src="/images/', 'g'), '<img src="http://bites.goodeggs.com/images/')
 
+        # If author is not know, add attribution to end of post
+        if !accessTokens[file.author]?
+          content = """
+          #{content}
+          <p>
+          <i>Originally posted by #{file.author} on #{moment(file.date).format('MMM D, Y')}</i>
+          </p>
+          """
+
         {
           title: file.title
           tags: tags
           path: file.path
           content: content
           date: file.date
+          author: file.author
         }
 
       # Publish oldest to most recent so they show up in the publication in that order
@@ -56,6 +59,15 @@ module.exports = plugin = (opts) ->
       # 5. Standard about Good Eggs & hiring blurb
       # X. Add Post title to content as H1
       for post in posts
+        client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
+        if accessTokens[post.author]?
+          client.setAccessToken accessTokens[post.author]
+        else
+          client.setAccessToken accessTokens['default']
+
+        user = client.sync.getUser()
+        publication = findPublication.sync client, user, opts.publicationName
+
         data =
           publicationId: publication.id
           title: post.title
@@ -67,10 +79,30 @@ module.exports = plugin = (opts) ->
           publishStatus: medium.PostPublishStatus.DRAFT
           notifyFollowers: false
 
+        debugData = {}
+        for key, value of data
+          if key is 'content'
+            debugData[key] = "#{value.substring(0, 100)}...#{value.substring(value.length - 100)}"
+          else
+            debugData[key] = value
+
         if opts.publish
-          console.log "Publishing", data
+          console.log "Publishing", debugData
           client.sync.createPostInPublication data
         else
-          console.log "Not Publishing", data
+          console.log "Not Publishing", debugData
 
     , done
+
+findPublication = fibrous (client, user, publicationName) ->
+  publications = client.sync.getPublicationsForUser userId: user.id
+  publication = publications.find (publication) ->
+    publication.name is publicationName
+
+  if publication?
+    console.log "Publishing to '#{publicationName}' for #{user.name} (#{user.username})"
+  else
+    throw new Error("Publication '#{publicationName}' not found for #{user.name} (#{user.username})")
+
+  return publication
+

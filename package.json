@@ -2,9 +2,7 @@
   "name": "bites",
   "version": "0.0.0",
   "description": "Technical morsels",
-  "dependencies": {
-    "medium-sdk": "0.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "~1.9.2",
     "chai-as-promised": "~4.1.1",
@@ -25,6 +23,7 @@
     "gulp-template": "~1.1.1",
     "gulp-util": "~3.0.1",
     "inquirer": "~0.8.0",
+    "medium-sdk": "0.0.3",
     "metalsmith": "~1.0.1",
     "metalsmith-assets": "git://github.com/hurrymaplelad/metalsmith-assets.git#metalsmith-v1",
     "metalsmith-collections": "~0.6.0",
@@ -38,6 +37,7 @@
     "metalsmith-teacup": "0.0.4",
     "mocha": "^2.5.3",
     "mocha-fibers": "^1.1.1",
+    "moment": "^2.15.2",
     "nib": "~1.0.4",
     "open": "0.0.5",
     "process-logger": "~0.1.0",
