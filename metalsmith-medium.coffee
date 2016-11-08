@@ -54,7 +54,7 @@ module.exports = plugin = (opts) ->
           title: file.title
           tags: tags
           canonincalUrl: "http://bites.goodeggs.com#{file.path}"
-          content: file.contentsWithoutLayout.toString('utf-8')
+          content: "<h1>#{file.title}</h1>#{file.contentsWithoutLayout.toString('utf-8')}"
           contentFormat: medium.PostContentFormat.HTML
           publishedAt: file.date.toISOString()
           publishStatus: medium.PostPublishStatus.PUBLIC
