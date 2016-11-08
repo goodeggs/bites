@@ -30,11 +30,16 @@ module.exports = plugin = (opts) ->
         tags = file.tags or []
         tags.push 'Engineering' unless 'Engineering' in tags
 
+        # Add absolute URLs for images hosted on bites so Medium will import
+        content = file.contentsWithoutLayout.toString('utf-8')
+        content = content.replace(new RegExp('<a href="/posts/', 'g'), '<a href="http://bites.goodeggs.com/posts/')
+        content = content.replace(new RegExp('<img src="/images/', 'g'), '<img src="http://bites.goodeggs.com/images/')
+
         {
           title: file.title
           tags: tags
           path: file.path
-          content: file.contentsWithoutLayout.toString('utf-8')
+          content: content
           date: file.date
         }
 
@@ -45,12 +50,12 @@ module.exports = plugin = (opts) ->
 
       # TODO:
       # X. publishedAt - need to patch medium-sdk (https://github.com/Medium/medium-api-docs/issues/6)
-      # 2. Handle images hosted on bites.goodeggs.com
+      # X. Handle images hosted on bites.goodeggs.com
       # 3. Attribute authors
-      # 4. "Originally posted on ..."
+      # N. "Originally posted on ..."
       # 5. Standard about Good Eggs & hiring blurb
       # X. Add Post title to content as H1
-      for post in posts[0..1]
+      for post in posts
         data =
           publicationId: publication.id
           title: post.title
@@ -59,7 +64,7 @@ module.exports = plugin = (opts) ->
           content: "<h1>#{post.title}</h1>#{post.content}"
           contentFormat: medium.PostContentFormat.HTML
           publishedAt: post.date.toISOString()
-          publishStatus: medium.PostPublishStatus.PUBLIC
+          publishStatus: medium.PostPublishStatus.DRAFT
           notifyFollowers: false
 
         if opts.publish
