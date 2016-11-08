@@ -10,8 +10,8 @@ module.exports = plugin = (opts) ->
     fibrous.run ->
       return unless opts.enabled
 
-    client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
-    client.setAccessToken opts.accessToken
+      client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
+      client.setAccessToken opts.accessToken
 
       user = client.sync.getUser()
       console.log "Looking for publication '#{opts.publicationName}' for user #{user.username}"
@@ -39,24 +39,27 @@ module.exports = plugin = (opts) ->
           tags: tags
           collection: file.collection
           contentsWithoutLayout: file.contentsWithoutLayout.toString('utf-8').substring(0,200)
-          keys: Object.keys(file)
+      #          keys: Object.keys(file)
         }
 
         # TODO:
-        # 1. publishedAt - need to patch medium-sdk (https://github.com/Medium/medium-api-docs/issues/6)
+        # X. publishedAt - need to patch medium-sdk (https://github.com/Medium/medium-api-docs/issues/6)
         # 2. Handle images hosted on bites.goodeggs.com
         # 3. Attribute authors
         # 4. "Originally posted on ..."
         # 5. Standard about Good Eggs & hiring blurb
-        # 6. Add Post title to content as H1
-        client.sync.createPostInPublication
+        # X. Add Post title to content as H1
+        data =
           publicationId: publication.id
           title: file.title
           tags: tags
           canonincalUrl: "http://bites.goodeggs.com#{file.path}"
           content: file.contentsWithoutLayout.toString('utf-8')
           contentFormat: medium.PostContentFormat.HTML
-          publishStatus: medium.PostPublishStatus.DRAFT
+          publishedAt: file.date.toISOString()
+          publishStatus: medium.PostPublishStatus.PUBLIC
           notifyFollowers: false
+
+        client.sync.createPostInPublication data
 
     , done
