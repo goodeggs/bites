@@ -106,7 +106,8 @@ module.exports = (done) ->
     destination: '.'
 
   .use medium
-    enabled: process.env.PUBLISH_TO_MEDIUM is 'true'
+    enabled: process.env.MEDIUM is 'true'
+    publish: process.env.PUBLISH is 'true'
     accessToken: '2cc9e9d735f12d073a181bc5a103a4b344d031e84d7ff0fcb7ce8d2fbb42efe61'
     publicationName: 'Migration Test Publication'
 

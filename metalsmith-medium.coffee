@@ -23,43 +23,49 @@ module.exports = plugin = (opts) ->
 
       console.log "Found publication '#{publication.name}'"
 
-      for path, file of files
-        continue unless path is 'posts/self-updating-go-binaries-with-go-selfupdate/index.html'
+      posts = for path, file of files
         continue unless file.contentsWithoutLayout?
         continue unless ('posts' in file.collection or 'news' in file.collection or 'opensource' in file.collection)
 
         tags = file.tags or []
         tags.push 'Engineering' unless 'Engineering' in tags
 
-        console.log "Publishing", {
-          path: path
+        {
           title: file.title
-          author: file.author
-          date: file.date
           tags: tags
-          collection: file.collection
-          contentsWithoutLayout: file.contentsWithoutLayout.toString('utf-8').substring(0,200)
-      #          keys: Object.keys(file)
+          path: file.path
+          content: file.contentsWithoutLayout.toString('utf-8')
+          date: file.date
         }
 
-        # TODO:
-        # X. publishedAt - need to patch medium-sdk (https://github.com/Medium/medium-api-docs/issues/6)
-        # 2. Handle images hosted on bites.goodeggs.com
-        # 3. Attribute authors
-        # 4. "Originally posted on ..."
-        # 5. Standard about Good Eggs & hiring blurb
-        # X. Add Post title to content as H1
+      # Publish oldest to most recent so they show up in the publication in that order
+      posts = posts.sort (a, b) -> a.date - b.date
+
+      console.log "Publishing #{posts.length} posts from #{posts[0].date} to #{posts[posts.length - 1].date}"
+
+      # TODO:
+      # X. publishedAt - need to patch medium-sdk (https://github.com/Medium/medium-api-docs/issues/6)
+      # 2. Handle images hosted on bites.goodeggs.com
+      # 3. Attribute authors
+      # 4. "Originally posted on ..."
+      # 5. Standard about Good Eggs & hiring blurb
+      # X. Add Post title to content as H1
+      for post in posts[0..1]
         data =
           publicationId: publication.id
-          title: file.title
-          tags: tags
-          canonincalUrl: "http://bites.goodeggs.com#{file.path}"
-          content: "<h1>#{file.title}</h1>#{file.contentsWithoutLayout.toString('utf-8')}"
+          title: post.title
+          tags: post.tags
+          canonincalUrl: "http://bites.goodeggs.com#{post.path}"
+          content: "<h1>#{post.title}</h1>#{post.content}"
           contentFormat: medium.PostContentFormat.HTML
-          publishedAt: file.date.toISOString()
+          publishedAt: post.date.toISOString()
           publishStatus: medium.PostPublishStatus.PUBLIC
           notifyFollowers: false
 
-        client.sync.createPostInPublication data
+        if opts.publish
+          console.log "Publishing", data
+          client.sync.createPostInPublication data
+        else
+          console.log "Not Publishing", data
 
     , done
