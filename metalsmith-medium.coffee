@@ -54,9 +54,9 @@ module.exports = plugin = (opts) ->
         content = """
 #{content}
 <hr>
-<a href="https://www.goodeggs.com">Good Eggs</a> is the best online groceries for home delivery in the San Francisco Bay Area.
+<i><a href="https://www.goodeggs.com">Good Eggs</a> is the best online groceries for home delivery in the San Francisco Bay Area.
 If you are inspired by our mission is to grow and sustain local food systems worldwide,
-<a href="http://careers.goodeggs.com">find out how you can help</a>.
+<a href="http://careers.goodeggs.com">find out how you can help</a>.</i>
 """
 
         {
@@ -73,7 +73,7 @@ If you are inspired by our mission is to grow and sustain local food systems wor
 
       console.log "Publishing #{posts.length} posts from #{posts[0].date} to #{posts[posts.length - 1].date}"
 
-      for post in posts
+      for post in posts[0..1]
         client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
         if accessTokens[post.author]?
           client.setAccessToken accessTokens[post.author]
