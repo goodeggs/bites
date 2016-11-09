@@ -8,7 +8,7 @@ module.exports = plugin = (opts) ->
   # All users should be Owner or Editor of the publication
   accessTokens = {
     default: '2cc9e9d735f12d073a181bc5a103a4b344d031e84d7ff0fcb7ce8d2fbb42efe61'
-    'Alon Salant': '200c692fc0674f7383102a81b54a202cc83a9d3831c2530182d27063e42274bbf'
+    'Alon Salant': '266e951777c22941cf9f10139fc6a069ee1e7951cc4428836c0af7b9bd8f544ba'
     'Bob Zoller': '2a75676df200947706815eed0ee224360a4002da1cbe9e05148cf9e4050bd1a15'
   }
 
@@ -83,6 +83,8 @@ If you are inspired by our mission is to grow and sustain local food systems wor
         if accessTokens[post.author]?
           client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
           client.setAccessToken accessTokens[post.author]
+          user = client.sync.getUser()
+          console.log "Publishing as #{user.name} (#{user.username})"
         else
           client = defaultClient
 
