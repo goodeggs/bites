@@ -5,9 +5,10 @@ module.exports = plugin = (opts) ->
   moment = require 'moment'
 
 
+  # All users should be Owner or Editor of the publication
   accessTokens = {
     default: '2cc9e9d735f12d073a181bc5a103a4b344d031e84d7ff0fcb7ce8d2fbb42efe61'
-    'Alon Salant': '266e951777c22941cf9f10139fc6a069ee1e7951cc4428836c0af7b9bd8f544ba'
+    'Alon Salant': '200c692fc0674f7383102a81b54a202cc83a9d3831c2530182d27063e42274bbf'
     'Bob Zoller': '2a75676df200947706815eed0ee224360a4002da1cbe9e05148cf9e4050bd1a15'
   }
 
@@ -73,15 +74,17 @@ If you are inspired by our mission is to grow and sustain local food systems wor
 
       console.log "Publishing #{posts.length} posts from #{posts[0].date} to #{posts[posts.length - 1].date}"
 
-      for post in posts[0..6]
-        client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
+      defaultClient = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
+      defaultClient.setAccessToken accessTokens['default']
+      defaultUser = defaultClient.sync.getUser()
+      publication = findPublication.sync defaultClient, defaultUser, opts.publicationName
+
+      for post in posts
         if accessTokens[post.author]?
+          client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
           client.setAccessToken accessTokens[post.author]
         else
-          client.setAccessToken accessTokens['default']
-
-        user = client.sync.getUser()
-        publication = findPublication.sync client, user, opts.publicationName
+          client = defaultClient
 
         data =
           publicationId: publication.id
