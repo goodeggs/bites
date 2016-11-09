@@ -40,7 +40,7 @@ module.exports = plugin = (opts) ->
         # Add absolute URLs for images hosted on bites so Medium will import
         content = file.contentsWithoutLayout.toString('utf-8')
         content = content.replace(new RegExp('<a href="/posts/', 'g'), '<a href="http://bites.goodeggs.com/posts/')
-        content = content.replace(new RegExp('<img src="/images/', 'g'), '<img src="http://bites.goodeggs.com/images/')
+        content = content.replace(new RegExp('<img .*?src="/images/', 'g'), '<img src="http://bites.goodeggs.com/images/')
 
         # If author is not know, add attribution to end of post
         if !accessTokens[file.author]?
@@ -73,7 +73,7 @@ If you are inspired by our mission is to grow and sustain local food systems wor
 
       console.log "Publishing #{posts.length} posts from #{posts[0].date} to #{posts[posts.length - 1].date}"
 
-      for post in posts[0..1]
+      for post in posts[0..6]
         client = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
         if accessTokens[post.author]?
           client.setAccessToken accessTokens[post.author]
@@ -91,13 +91,13 @@ If you are inspired by our mission is to grow and sustain local food systems wor
           content: "<h1>#{post.title}</h1>#{post.content}"
           contentFormat: medium.PostContentFormat.HTML
           publishedAt: post.date.toISOString()
-          publishStatus: medium.PostPublishStatus.DRAFT
+          publishStatus: medium.PostPublishStatus.PUBLIC
           notifyFollowers: false
 
         debugData = {}
         for key, value of data
           if key is 'content'
-            debugData[key] = "#{value.substring(0, 100)}...#{value.substring(value.length - 100)}"
+            debugData[key] = "#{value.substring(0, 1000)}...#{value.substring(value.length - 100)}"
           else
             debugData[key] = value
 
