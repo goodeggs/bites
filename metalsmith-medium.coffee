@@ -47,7 +47,7 @@ module.exports = plugin = (opts) ->
           content = """
 #{content}
 <p>
-<i>Originally posted by #{file.author} on #{moment(file.date).format('MMM D, Y')}</i>
+<i>Originally posted by #{file.author} on #{moment(file.date).format('MMM D, Y')}.</i>
 </p>
 """
 
