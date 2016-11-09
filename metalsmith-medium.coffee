@@ -5,12 +5,22 @@ module.exports = plugin = (opts) ->
   moment = require 'moment'
 
 
-  # All users should be Owner or Editor of the publication
+  # Testing accounts
   accessTokens = {
     default: '2cc9e9d735f12d073a181bc5a103a4b344d031e84d7ff0fcb7ce8d2fbb42efe61'
     'Alon Salant': '266e951777c22941cf9f10139fc6a069ee1e7951cc4428836c0af7b9bd8f544ba'
     'Bob Zoller': '2a75676df200947706815eed0ee224360a4002da1cbe9e05148cf9e4050bd1a15'
   }
+
+  # For Good Eggs Product publication
+  # All users should be Owner or Editor of the publication
+#  accessTokens = {
+#    default: '25c8d7a7e1f0da25989ddd4ca3524929630729a9201218f5a24e57aad36224390'
+#    'Alon Salant': '21acd3cb27d988bd8e6babea8de1bcf85a014756a21acbe52be6f8ef171e1ec87'
+#    'Bob Zoller': '242d5fd8a2da280889ce566fce10788dfe22615e7abb48e9b0faecdf970c58cac'
+#    'Max Edmands': '20589cdb25212825dc1a2407f13f7441c840f51cbe14f8351ff7a81ac07f48c76'
+#    'Michael Kebbekus': '265c6490ccfc14b23c5463636d82ba8e9555b43abf9a2f3dba5fe9d0369fb3c63'
+#  }
 
   console.log "Running metalsmith-medium with opts", opts
 
