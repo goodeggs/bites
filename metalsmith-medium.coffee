@@ -4,6 +4,7 @@ module.exports = plugin = (opts) ->
   medium = require 'medium-sdk'
   moment = require 'moment'
 
+  publicationName = 'Migration Test Publication 2'
 
   # Testing accounts
   accessTokens = {
@@ -87,7 +88,7 @@ If you are inspired by our mission is to grow and sustain local food systems wor
       defaultClient = new medium.MediumClient {clientId: 'clientId', clientSecret: 'clientSecret'}
       defaultClient.setAccessToken accessTokens['default']
       defaultUser = defaultClient.sync.getUser()
-      publication = findPublication.sync defaultClient, defaultUser, opts.publicationName
+      publication = findPublication.sync defaultClient, defaultUser, publicationName
 
       for post in posts
         if accessTokens[post.author]?
@@ -118,7 +119,15 @@ If you are inspired by our mission is to grow and sustain local food systems wor
 
         if opts.publish
           console.log "Publishing", debugData
-          client.sync.createPostInPublication data
+          try
+            client.sync.createPostInPublication data
+          catch e
+            # Retry one time due to occasional "socket hangup" errors
+            console.error 'Error publishing. Retrying...', e
+            try
+              client.sync.createPostInPublication data
+            catch e
+              console.error 'Error publishing', e
         else
           console.log "Not Publishing", debugData
 

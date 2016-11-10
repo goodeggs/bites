@@ -108,7 +108,6 @@ module.exports = (done) ->
   .use medium
     enabled: process.env.MEDIUM is 'true'
     publish: process.env.PUBLISH is 'true'
-    publicationName: 'Migration Test Publication 2'
 
   .destination 'build'
   .clean false # handled by gulp
