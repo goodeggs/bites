@@ -1,3 +1,8 @@
+# DEPRECATED
+
+http://bites.goodeggs.com is has been migrated to http://team.goodeggs.com hosted on Medium.
+
+
 # Bites
 The Good Eggs developer blog.
 
