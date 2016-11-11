@@ -1,6 +1,7 @@
 ---
 title: "Things Last: Work vs School"
 author: Sarah Sterman
+tags: [Internship]
 layout: post
 disqus:
   shortname: goodeggsbytes

@@ -1,6 +1,7 @@
 ---
 title: "Synchronous node console with fibrous"
 author: Alon Salant
+tags: [Nodejs, Console]
 layout: post
 url: '/post/36053394113/synchronous-node-console-with-fibrous'
 disqus:

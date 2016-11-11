@@ -1,6 +1,7 @@
 ---
 title: Good Eggs Goes Mobile
 author: Michael Kebbekus and Adam Hull
+tags: [Mobile Web, Responsive]
 layout: post
 disqus:
   shortname: goodeggsbytes

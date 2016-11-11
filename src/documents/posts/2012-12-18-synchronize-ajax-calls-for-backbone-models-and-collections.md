@@ -1,6 +1,7 @@
 ---
 title: "Synchronize AJAX calls for Backbone Models and Collections"
 author: Alon Salant
+tags: [Ajax, Backbonejs]
 layout: post
 url: '/post/38240004568/synchronize-ajax-calls-for-backbone-models-and'
 disqus:

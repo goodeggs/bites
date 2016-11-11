@@ -1,6 +1,7 @@
 ---
 title: Speed up your responsive app with Node and Varnish
 author: Adam Hull
+tags: [Nodejs, Varnish, Performance]
 layout: post
 disqus:
   shortname: goodeggsbytes

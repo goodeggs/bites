@@ -1,6 +1,7 @@
 ---
 title: You Forgot About bfcache!
 author: Brian Underwood
+tags: [Bfcache]
 layout: post
 disqus:
   shortname: goodeggsbytes

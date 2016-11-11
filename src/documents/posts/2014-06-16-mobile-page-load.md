@@ -1,6 +1,7 @@
 ---
 title: "Loading Scripts in the Critical Path: A Commerce Case Study"
 author: Adam Hull
+tags: [Mobile Web, Performance, JavaScript]
 layout: post
 disqus:
   shortname: goodeggsbytes

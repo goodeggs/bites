@@ -1,6 +1,7 @@
 ---
 title: Cultivate Inaugural Meetup
 author: Kevin Uland
+tags: [Meetup, Cultivate]
 layout: post
 disqus:
   shortname: goodeggsbytes

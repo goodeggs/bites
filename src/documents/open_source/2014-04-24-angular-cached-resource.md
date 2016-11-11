@@ -2,7 +2,7 @@
 title: Angular Cached Resource
 author: Max Edmands
 layout: post
-tags: [npm, opensource, angular, resource, offline]
+tags: [Open Source, Angularjs]
 disqus:
   shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/open_source/angular-cached-resource/"

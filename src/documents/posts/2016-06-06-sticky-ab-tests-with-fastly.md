@@ -1,6 +1,7 @@
 ---
 title: Sticky A/B Tests with Fastly
 author: Bob Zoller
+tags: [AB Testing, Varnish]
 layout: post
 disqus:
   shortname: goodeggsbytes

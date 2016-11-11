@@ -9,6 +9,7 @@ more = require 'metalsmith-more'
 paginate = require 'metalsmith-collections-paginate'
 teacup = require 'metalsmith-teacup'
 permalinks = require 'metalsmith-permalinks'
+medium = require './metalsmith-medium'
 {dirname, normalize} = require 'path'
 
 dateThenTitle = (a, b) ->
@@ -103,6 +104,10 @@ module.exports = (done) ->
   .use assets
     source: 'src/files'
     destination: '.'
+
+  .use medium
+    enabled: process.env.MEDIUM is 'true'
+    publish: process.env.PUBLISH is 'true'
 
   .destination 'build'
   .clean false # handled by gulp

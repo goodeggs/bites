@@ -1,6 +1,7 @@
 ---
 title: "How to Remove a Property from a Mongoose.js Schema"
 author: Adam Hull
+tags: [Nodejs, Mongoose]
 layout: post
 url: '/post/36553128854/how-to-remove-a-property-from-a-mongoosejs-schema'
 disqus:

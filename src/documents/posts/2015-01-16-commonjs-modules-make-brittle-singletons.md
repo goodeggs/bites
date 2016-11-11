@@ -1,6 +1,7 @@
 ---
 title: CommonJS Modules Make Brittle Singletons
 author: Adam Hull
+tags: [Design Patterns, Commonjs]
 layout: post
 disqus:
   shortname: goodeggsbytes

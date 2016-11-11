@@ -1,6 +1,7 @@
 ---
 title: "Teacup: CoffeeScript Templates for Developer Happiness"
 author: Adam Hull
+tags: [CoffeeScript, Templates, Nodejs]
 layout: post
 url: '/post/40042760798/teacup-coffeescript-templates-for-developer-happiness'
 disqus:

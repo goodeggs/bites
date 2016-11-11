@@ -1,6 +1,7 @@
 ---
 title: Comparing Node.js Promises, Try/Catch, Angular Zone.js and yes, Zone
 author: Alex Gorbatchev
+tags: [JavaScript, Promises, Error Handling]
 layout: post
 disqus:
   shortname: promises-trycatch-zones

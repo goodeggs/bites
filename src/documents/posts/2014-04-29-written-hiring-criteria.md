@@ -1,6 +1,7 @@
 ---
 title: What Are Your Hiring Criteria?
 author: Alon Salant
+tags: [Hiring]
 layout: post
 disqus:
   shortname: goodeggsbytes

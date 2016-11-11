@@ -1,6 +1,7 @@
 ---
 title: Escape from the Pyramid of Doom at SF JS
 author: Alon Salant
+tags: [Nodejs]
 layout: post
 url: '/post/21726893435/escape-from-the-pyramid-of-doom-at-sf-js'
 disqus:

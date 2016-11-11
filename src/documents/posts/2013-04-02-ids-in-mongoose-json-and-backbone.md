@@ -1,6 +1,7 @@
 ---
 title: "Ids in Mongoose, JSON, and Backbone"
 author: Adam Hull
+tags: [Nodejs, Mongoose]
 layout: post
 disqus:
   shortname: goodeggsbytes

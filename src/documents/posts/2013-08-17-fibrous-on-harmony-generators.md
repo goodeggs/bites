@@ -1,6 +1,7 @@
 ---
 title: "Fibrous on Harmony Generators? Impossible"
 author: Adam Hull
+tags: [Nodejs, Harmony, Generators]
 layout: post
 disqus:
   shortname: goodeggsbytes

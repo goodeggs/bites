@@ -2,7 +2,7 @@
 title: Chai Webdriver
 author: Max Edmands
 layout: post
-tags: [npm, opensource, tests, chai, webdriver, selenium]
+tags: [Open Source, Selenium, Nodejs, Chai]
 disqus:
   shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/open_source/chai-webdriver/"

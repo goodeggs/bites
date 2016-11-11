@@ -1,6 +1,7 @@
 ---
 title: JS Hack for Good with JSFest
 author: Alon Salant
+tags: [Meetup, Cultivate, JavaScript, Hackathon]
 layout: post
 disqus:
   shortname: goodeggsbytes

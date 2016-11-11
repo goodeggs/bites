@@ -2,7 +2,7 @@
 title: AMQP EventEmitter
 author: Alex Gorbatchev
 layout: post
-tags: [npm, opensource]
+tags: [NPM, Open Source]
 disqus:
   shortname: goodeggsbytes
   url: "http://bites.goodeggs.com/posts/amqp-eventemitter/"

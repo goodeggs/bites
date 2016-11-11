@@ -1,6 +1,7 @@
 ---
 title: "Rivets for Mobile Web"
 author: Adam Hull
+tags: [Mobile Web, Javascript]
 layout: post
 disqus:
   shortname: goodeggsbytes
