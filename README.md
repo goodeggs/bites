@@ -2,6 +2,8 @@
 
 http://bites.goodeggs.com is has been migrated to http://team.goodeggs.com hosted on Medium.
 
+See https://github.com/goodeggs/knowledge-base/wiki/Writing-for-Medium.
+
 
 # Bites
 The Good Eggs developer blog.
